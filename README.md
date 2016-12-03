@@ -2,9 +2,9 @@
 
 # Buttons
 
-- Button - wrapper around <button>
+- Button - wrapper around &lt;button&rt;
 - LogoutButton
-- LinkButton - wrapper around <a> which looks like Button
+- LinkButton - wrapper around &lt;a&rt; which looks like Button
 
 # Form elements and Inputs
 
@@ -12,10 +12,10 @@
 - RadioGroup - input of type radio
 - Input - just input (with validation)
 - TagsInput - Input + Button + Tags
-- TextInput - wrapper around <textarea>
+- TextInput - wrapper around &lt;textarea&rt;
 - InputWithSuggestion - Input with dropdown fetching api - with given value as search query
 - Dropdown - input with simple dropdown
-- Form - wrapper around <form>
+- Form - wrapper around &lt;form&rt;
 - TagsWithDropdowns - list of items with selectable levels via dropdown control
 
 # Stateless components
