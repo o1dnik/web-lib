@@ -1,0 +1,28 @@
+.sidebar{
+	> *{
+		margin-bottom: $base-spacing;	
+	}
+	.box{
+		background: $white;
+		padding: 1rem;
+		.header{
+			padding: ($base-spacing / 3) ($base-spacing / 2);
+			font-size: rem(18);
+			font-weight: 700;
+		}
+		.copy{
+			padding-bottom: ($base-spacing / 2);
+		}
+		&.share{
+			@extend %text-center;
+		}
+
+	}
+}
+
+.sidebar-block-title{
+	font-size: rem(12);
+	color: tint($black, 50%);
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+}

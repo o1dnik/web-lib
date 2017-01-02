@@ -1,0 +1,10 @@
+*.log
+
+.idea
+
+logs
+build
+public
+node_modules
+
+TODO.txt

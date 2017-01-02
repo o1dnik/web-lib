@@ -1,0 +1,207 @@
+.list-item{
+	background-color: $white;
+	// padding: rem(20) 0;
+	padding: 1rem .75rem;
+	transition: background-color $base-duration $base-timing;
+	flex-wrap: nowrap;
+	align-content: center;
+	@include breakpoint(tablet){
+		display: flex;
+		padding: 1rem rem(20);
+	}
+	&.open{
+		background-color: $grey-light;
+	}
+	.label{
+		font-size: rem(12);
+	}
+	.list-item-controls{
+		display: none;
+		padding-top: 1em;
+		@include breakpoint(tablet){
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			padding-top: 0;
+		}
+		.offer-expire{
+			font-size: rem(12);
+			color: $grey;
+			margin-bottom: $small-spacing;
+			text-align: right;
+			white-space: nowrap;
+		}
+		ul.button-holder{
+			white-space: nowrap;
+			li{
+				display: inline-block;
+				padding-left: .5em;
+			}
+		}
+		.round-button{
+			font-size: rem(20);
+			padding: .5rem;
+		}
+	}
+	p{
+		margin: 0;
+		font-size: rem(14);
+	}
+	h2{
+		font-weight: $bold;
+	}
+	h3{
+		font-size: rem(14);
+		font-weight: $semibold;
+	}
+}
+
+.list-item-thumbnail{
+	line-height: 1;
+	margin-right: 1rem;
+	display: none;
+	flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+	@include breakpoint(tablet){
+		display: flex;
+	}
+	img{
+		box-shadow: 0 0 2px $grey-md-light;
+	}
+	i{
+		color: $grey;
+		font-size: 2em;
+	}
+}
+
+.primary-list-wrapper{
+	margin-bottom: 2em;
+	.list-item-wrapper{
+		box-shadow: $base-box-shadow;
+		margin-bottom: $small-spacing;
+		&.next{
+			opacity: .5;
+			box-shadow: none;
+		}
+	}
+	.list-item-thumbnail{
+		flex: 0 0 rem(80);
+	}
+}
+
+.secondary-list-wrapper{
+	.list-item-wrapper{
+		margin-bottom: .25rem;
+	}
+	.list-item-thumbnail{
+		@include breakpoint(tablet){
+			flex: 0 0 rem(50);
+		}
+	}
+}
+
+.offer-title, .canditate-name{
+	font-size: rem(14);
+	flex-grow: 2;
+}
+
+.offer-title{
+	@include breakpoint(tablet){
+		font-size: rem(16);
+	}
+}
+
+.canditate-name{
+	@include breakpoint(tablet){
+		font-size: rem(20);
+	}
+}
+
+.list-item-body{
+	flex-grow: 2;
+	display: flex;
+	flex-direction: column;
+	@include breakpoint(tablet){
+		padding-right: 1.5em;
+	}
+}
+
+.canditate-location{
+	color: $grey;
+	font-size: rem(14);
+}
+
+.round-button{
+	background-color: $grey-md-light;
+	padding: .35rem;
+	line-height: 1;
+	color: $white;
+	border-radius: 10rem;
+	display: inline-block;
+	transition: background-color $base-duration $base-timing;
+	&:hover,
+	&.active{
+		background-color: $action-color;
+		color: $white;
+	}
+}
+
+// Small & Interested List
+.small-list, .liked-list{
+	// margin-bottom: 2rem;
+	li{
+		display: flex;
+		justify-content: space-between;
+		background-color: $white;
+		margin: 1px 0;
+	}
+}
+
+.small-list{
+	li{
+		padding: .65em 1em;
+	}
+	.list-body{
+		font-size: rem(14);
+		display: flex;
+		flex-direction: column;
+		line-height: 1.3;
+	}
+
+}
+
+.liked-list{
+	li{
+		padding: 1em 2em;
+		font-size: rem(16);
+	}
+	.list-body{
+		line-height: rem(30);
+	}
+	.list-action{
+		font-size: 1.05em;
+	}
+}
+
+.list-title{
+	font-weight: $bold;
+}
+
+.empty-state{
+	.list-item-controls{
+		i{
+			display: inline-block;
+			background-color: $grey-dark;
+			font-size: 2rem;
+			width: 2em;
+			height: 2em;
+			line-height: 2em;
+			color: $white;
+			border-radius: 100%;
+		}
+		a{
+			text-decoration: underline;
+		}
+	}
+}

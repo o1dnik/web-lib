@@ -1,0 +1,59 @@
+// // Brakepoints
+// $small-screen: rem(768);
+// $medium-screen: rem(1023);
+
+// Typography
+$base-font-family:       'Raleway', Helvetica, Roboto, Arial, sans-serif;
+$heading-font-family:    $base-font-family;
+$mo-icon-font-path:      '../assets/fonts/mb-icon-font/font';
+
+// Font Sizes
+$base-font-size:         14px;
+
+// Font Weights
+$light: 400;
+$regular: 500;
+$semibold: 600;
+$bold: 700;
+
+// Line height
+$base-line-height:       1.8;
+$heading-line-height:    1.2;
+
+// Other Sizes
+$base-border-radius:     2px;
+$base-spacing:           $base-line-height * 1em;
+$small-spacing:          $base-spacing / 2;
+$base-z-index:           0;
+
+// Font Colors
+$base-font-color:        $black;
+$action-color:           $grey-md-dark;
+
+// Font Weights
+ $regular: 400;
+ $medium: 500;
+ $semibold: 600;
+ $bold: 700;
+
+// Border
+$base-border-color:      #ececec;
+$base-border:            1px solid $base-border-color;
+
+// Background Colors
+$base-background-color:  #f1f1f1;
+
+// Blocks
+$base-box-shadow:        0 2px 0 0 rgba($black, .06);
+
+// Forms
+$form-box-shadow:        none;
+$form-box-shadow-focus:  $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration:          250ms;
+$base-timing:            ease;
+
+// Grid
+$gutter: 1em;
+

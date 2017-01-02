@@ -1,0 +1,95 @@
+label , .sublabel{
+  font-size: rem(12);
+  text-transform: uppercase;
+  &.inline{
+  	display: inline-block;
+  	padding-right: 1em;
+  	text-transform: none;
+  	color: $grey-md-dark;
+  }
+}
+
+#{$all-text-inputs} {
+	background-color: $grey-light;
+	padding: 1em;
+	line-height: 1;
+}
+
+textarea {
+	background-color: $white;
+	line-height: 1.5;
+}
+
+.input-icon-wrapper{
+	position: relative;
+	.input-icon{
+		position: absolute;
+		right: 1em;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+	}
+	a{
+		@extend %vertical-align;
+		display: inline-block;
+		font-size: rem(20);
+	}
+}
+
+.error-msg{
+	color: tint($rouge, 40%);
+	font-size: rem(12);
+	padding-top: .5em;
+}
+
+.Select{
+	input{
+		padding: 1em 0;
+	}
+	&.has-value{
+		.Select-control{
+			background-color: tint($green, 90%);
+			border-color: $green;
+		}
+	}
+}
+
+.jobcard{
+	.Select-option{
+		&.is-disabled{
+			.category{
+				text-transform: uppercase;
+				font-weight: $bold;
+				color: $grey-dark;
+				font-size: rem(12);
+			}
+		}
+	}
+}
+
+.has-value.is-focused.Select--single > .Select-control .Select-value{
+	.Select-value-label {
+		color: $grey;
+	}
+}
+
+.editor-wrapper{
+	ul.editor-controlls{
+		background-color: $grey-light;
+		padding: 0 .5em;
+		border-width: 1px 1px 0 1px;
+		border-color: $base-border-color;
+		border-style: solid;
+		border-radius: $base-border-radius;
+		li{
+			display: inline-block;
+			line-height: rem(36);
+			a{
+				padding: 0 .5em;
+			}
+		}
+	}
+	textarea{
+		border-top: none;
+	}
+}
