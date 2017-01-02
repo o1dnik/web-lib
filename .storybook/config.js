@@ -5,6 +5,7 @@ function loadStories() {
   require('../lib/components/Button/stories');
   require('../lib/components/Box/stories');
   require('../lib/components/Loader/stories');
+  require('../lib/components/Input/stories');
 }
 
 configure(loadStories, module);
