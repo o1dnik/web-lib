@@ -1,0 +1,11 @@
+.white-box {
+  background-color : $white;
+  padding          : 1rem .75rem;
+  transition       : background-color $base-duration $base-timing;
+  flex-wrap        : nowrap;
+  align-content    : center;
+  @include breakpoint(tablet) {
+    display : flex;
+    padding : 1rem rem(20);
+  }
+}
