@@ -7,6 +7,7 @@ function loadStories() {
   require('../lib/components/Loader/stories');
   require('../lib/components/Input/stories');
   require('../lib/components/CheckboxGroup/stories');
+  require('../lib/components/Tag/stories');
 }
 
 configure(loadStories, module);
