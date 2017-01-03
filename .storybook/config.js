@@ -9,6 +9,8 @@ function loadStories() {
   require('../lib/components/Checkbox/stories');
   require('../lib/components/CheckboxGroup/stories');
   require('../lib/components/Tag/stories');
+  require('../lib/components/Tags/stories');
+  require('../lib/components/Select/stories');
 }
 
 configure(loadStories, module);
