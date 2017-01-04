@@ -12,6 +12,7 @@ function loadStories() {
   require('../lib/components/Tag/stories');
   require('../lib/components/Tags/stories');
   require('../lib/components/Select/stories');
+  require('../lib/components/InputRange/stories');
 }
 
 configure(loadStories, module);
