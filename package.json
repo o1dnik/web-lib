@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json ./",
     "lint:fix": "eslint -c .eslintrc.json --fix ./",
-    "start": "start-storybook -p 3000",
+    "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook"
   },
   "repository": {
