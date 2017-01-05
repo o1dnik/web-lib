@@ -9,6 +9,7 @@ function loadStories() {
   require('../lib/components/TextareaInput/stories');
   require('../lib/components/Checkbox/stories');
   require('../lib/components/CheckboxGroup/stories');
+  require('../lib/components/RadioGroup/stories');
   require('../lib/components/Tag/stories');
   require('../lib/components/Tags/stories');
   require('../lib/components/Select/stories');
