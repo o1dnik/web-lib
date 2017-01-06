@@ -16,6 +16,7 @@ function loadStories() {
   require('../lib/components/InputRange/stories');
   require('../lib/components/Multiselect/stories');
   require('../lib/components/SelectWithLevels/stories');
+  require('../lib/components/DoubleSelect/stories');
 }
 
 configure(loadStories, module);
