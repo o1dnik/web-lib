@@ -18,6 +18,7 @@ function loadStories() {
   require('../lib/components/SelectWithLevels/stories');
   require('../lib/components/DoubleSelect/stories');
   require('../lib/components/AlertBar/stories');
+  require('../lib/components/StatsCircle/stories');
 }
 
 configure(loadStories, module);
