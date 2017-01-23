@@ -60,6 +60,7 @@
     "react-modal": "^1.6.5",
     "react-notification": "^6.6.0",
     "react-select": "^1.0.0-rc.2",
+    "validator": "^6.2.1",
     "velocity-react": "^1.1.11"
   }
 }
