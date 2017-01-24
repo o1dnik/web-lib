@@ -143,11 +143,17 @@ h1.form-title{
 }
 
 .options-box{
-	padding: 1rem;
+	padding: 2rem 1rem 1rem;
 	border: 1px dashed $grey-md-light;
+	position: relative;
 	&.done{
 		border-style: solid;
 		background-color: tint($grey-light, 60%);
+	}
+	.close{
+		position: absolute;
+		top: rem(6);
+		right: rem(6);
 	}
 }
 
