@@ -1,8 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -15,10 +13,6 @@ var _react2 = _interopRequireDefault(_react);
 var _Select = require('../Select');
 
 var _Select2 = _interopRequireDefault(_Select);
-
-var _Tags = require('../Tags');
-
-var _Tags2 = _interopRequireDefault(_Tags);
 
 var _classnames = require('classnames');
 
@@ -36,21 +30,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SelectWithLevels = function (_Component) {
-  _inherits(SelectWithLevels, _Component);
+var DoubleSelect = function (_Component) {
+  _inherits(DoubleSelect, _Component);
 
-  function SelectWithLevels() {
+  function DoubleSelect() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, SelectWithLevels);
+    _classCallCheck(this, DoubleSelect);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SelectWithLevels.__proto__ || Object.getPrototypeOf(SelectWithLevels)).call.apply(_ref, [this].concat(args))), _this), _this.handleSelectChange = function (selectValue) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DoubleSelect.__proto__ || Object.getPrototypeOf(DoubleSelect)).call.apply(_ref, [this].concat(args))), _this), _this.handleSelectChange = function (selectValue) {
       var onChange = _this.props.onChange || _this.props.input.onChange;
 
       var oldVal = _this.getOldValue();
@@ -73,16 +67,27 @@ var SelectWithLevels = function (_Component) {
       var onFocus = _this.props.onFocus || _this.props.input.onFocus;
       onFocus && onFocus(e);
     }, _this.handleLevelChange = function (level) {
-      return function (e) {
-        if (e) e.preventDefault();
-        var onChange = _this.props.onChange || _this.props.input.onChange;
+      var onChange = _this.props.onChange || _this.props.input.onChange;
 
-        var oldVal = _this.getOldValue();
+      var oldVal = _this.getOldValue();
 
-        var newVal = _extends({}, oldVal, { level: level });
+      var newVal = _extends({}, oldVal, {
+        level: level && level.value || level
+      });
 
-        onChange(newVal, oldVal);
-      };
+      onChange(newVal, oldVal);
+    }, _this.handleLevelBlur = function (e) {
+
+      if (_this.props.onBlur) {
+        return _this.props.onBlur(e);
+      }
+
+      if (_this.props.input.onBlur) {
+        _this.props.input.onBlur(_this.getOldValue());
+      }
+    }, _this.handleLevelFocus = function (e) {
+      var onFocus = _this.props.onFocus || _this.props.input.onFocus;
+      onFocus && onFocus(e);
     }, _this.getOldValue = function () {
       var oldValue = {};
 
@@ -98,7 +103,7 @@ var SelectWithLevels = function (_Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(SelectWithLevels, [{
+  _createClass(DoubleSelect, [{
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -113,7 +118,10 @@ var SelectWithLevels = function (_Component) {
           onRemove = _props2.onRemove,
           iconClassName = _props2.iconClassName,
           disabled = _props2.disabled;
-      var disabledIfValid = this.props.disabledIfValid;
+      var _props3 = this.props,
+          searchableSelect = _props3.searchableSelect,
+          isLoading = _props3.isLoading,
+          disabledIfValid = _props3.disabledIfValid;
       var error = meta.error,
           invalid = meta.invalid,
           valid = meta.valid,
@@ -122,10 +130,10 @@ var SelectWithLevels = function (_Component) {
 
 
       var css = (0, _classnames2.default)({
-        'select-with-levels': true,
+        'select-double': true,
         'options-box': true,
-        'select-with-levels-error': touched && invalid,
-        'select-with-levels-success': touched && valid
+        'select-double-error': touched && invalid,
+        'select-double-success': touched && valid
       });
 
       var inputMessageCss = (0, _classnames2.default)({
@@ -139,7 +147,7 @@ var SelectWithLevels = function (_Component) {
         { className: css },
         onRemove && _react2.default.createElement(
           'span',
-          { className: 'close', onClick: onRemove },
+          { style: { cursor: 'pointer' }, onClick: onRemove },
           _react2.default.createElement('i', { className: iconClassName })
         ),
         label && _react2.default.createElement(
@@ -155,32 +163,34 @@ var SelectWithLevels = function (_Component) {
           onFocus: this.handleSelectFocus,
           options: selectOptions,
           clearable: false,
-          searchable: false,
+          searchable: searchableSelect,
+          isLoading: isLoading,
           disabled: disabled || disabledIfValid && valid
         }),
-        _react2.default.createElement(_Tags2.default, { label: subLabel,
-          disabled: disabled || disabledIfValid && valid,
-          tags: levelOptions,
-          hideClose: true,
-          isActive: function isActive(val) {
-            return val === (value.level || input.value.level);
-          },
-          activeItem: value.level || input.value.level,
-          toggleActive: this.handleLevelChange
+        _react2.default.createElement(_Select2.default, {
+          label: subLabel,
+          value: value.level || input.value.level,
+          onSelect: this.handleLevelChange,
+          onBlur: this.handleLevelBlur,
+          onFocus: this.handleLevelFocus,
+          options: levelOptions,
+          clearable: false,
+          searchable: false,
+          disabled: disabled || disabledIfValid && valid
         }),
         _react2.default.createElement(
           'span',
           { className: inputMessageCss },
-          (dirty || touched) && invalid && error
+          dirty && touched && invalid && error
         )
       );
     }
   }]);
 
-  return SelectWithLevels;
+  return DoubleSelect;
 }(_react.Component);
 
-SelectWithLevels.propTypes = {
+DoubleSelect.propTypes = {
   onChange: _react.PropTypes.func,
   onFocus: _react.PropTypes.func,
   onBlur: _react.PropTypes.func,
@@ -218,7 +228,7 @@ SelectWithLevels.propTypes = {
     warning: _react.PropTypes.string
   })
 };
-SelectWithLevels.defaultProps = {
+DoubleSelect.defaultProps = {
   iconClassName: 'mb-ico-button-delete',
   value: {
     level: '',
@@ -232,4 +242,4 @@ SelectWithLevels.defaultProps = {
   },
   meta: {}
 };
-exports.default = SelectWithLevels;
+exports.default = DoubleSelect;
