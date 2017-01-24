@@ -1,0 +1,12 @@
+.overlay-message{
+	position: fixed;
+	z-index: 300;
+	background-color: $white;
+	padding: 2rem;
+	width: rem(450);
+	border: 1px solid $grey-md-light;
+	border-radius: $base-border-radius*2;
+	.title{
+		font-weight: $bold;
+	}
+}

@@ -1,5 +1,5 @@
 import {configure} from '@kadira/storybook';
-import '../lib/scss/main.scss';
+import '../lib/styles/main.scss';
 
 function loadStories() {
   require('../lib/components/Button/stories');
