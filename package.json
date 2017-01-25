@@ -2,17 +2,13 @@
   "name": "web-components",
   "version": "1.0.0",
   "description": "Moberries web-components",
-  "main": "build/index.js",
-  "module": "build-es/index.js",
-  "jsnext:main": "build-es/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json ./",
     "lint:fix": "eslint -c .eslintrc.json --fix ./",
     "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook",
-    "build": "npm run build-cjs && npm run build-es",
-    "build-cjs": "rimraf build && cross-env BABEL_ENV=cjs babel ./lib -d build --ignore __tests__",
-    "build-es": "rimraf build-es && cross-env BABEL_ENV=es babel ./lib -d build-es --ignore __tests__"
+    "build:prod": "rimraf lib && cross-env BABEL_ENV=production babel ./src -d lib --ignore __tests__"
   },
   "repository": {
     "type": "git",
@@ -26,7 +22,7 @@
   },
   "pre-commit": [
     "lint",
-    "build"
+    "build:prod"
   ],
   "homepage": "https://github.com/moberries/web-components#readme",
   "devDependencies": {
@@ -37,7 +33,6 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.22.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
@@ -61,7 +56,6 @@
     "cross-env": "^3.1.4",
     "lodash": "^4.17.4",
     "normalize.css": "^5.0.0",
-    "pre-commit": "^1.2.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-dropzone": "^3.8.0",

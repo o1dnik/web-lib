@@ -3,14 +3,11 @@
     "development": {
       "presets": ["react", "latest", "stage-0", "react-hmre"]
     },
-    "cjs": {
+    "production": {
       "presets": ["react", "latest", "stage-0"],
       "plugins": [
-        ["transform-es2015-modules-commonjs", { "loose": true }]
+        ["add-module-exports"]
       ]
-    },
-    "es": {
-      "presets": ["react", "latest", "stage-0"]
     }
   }
 }
