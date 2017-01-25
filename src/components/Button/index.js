@@ -1,11 +1,13 @@
 import React, {PropTypes, Component} from 'react';
 import Loader from '../Loader';
+import {appendClassPrefix} from '../../helpers';
 import cn from 'classnames';
 
 class Button extends Component {
 
   static propTypes = {
     href: PropTypes.string,
+    link: PropTypes.bool,
     target: PropTypes.string,
     type: PropTypes.string,
     className: PropTypes.string,
@@ -13,61 +15,101 @@ class Button extends Component {
     loading: PropTypes.bool,
     disabled: PropTypes.bool,
     extended: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'large', 'xlarge']),
-    color: PropTypes.oneOf([
-      'green',
-      'red',
-      'ln',
-      'fb',
-      'tw',
-      'white',
-      'danger'
+    outline: PropTypes.bool,
+    size: PropTypes.oneOf([
+      'mini',
+      'tiny',
+      'small',
+      'medium',
+      'large',
+      'big',
+      'huge',
+      'massive'
     ]),
-    base: PropTypes.bool
+    color: PropTypes.oneOf([
+      'default',
+      'primary',
+      'success',
+      'danger',
+      'fb',
+      'tw'
+    ])
   };
 
   static defaultProps = {
     type: 'button',
+    size: 'medium',
+    color: 'default',
     className: '',
     loading: false,
     disabled: false,
     extended: false,
-    base: false
+    outline: false
   };
 
   render() {
     const {
-      className, type, loading, disabled, children, onClick, href, target
+      href,
+      target,
+      type,
+      className,
+      onClick,
+      loading,
+      disabled,
+      extended,
+      outline,
+      size,
+      color,
+      link,
+      children
     } = this.props;
+
+    const withPrefix = appendClassPrefix('button');
 
     const isDisabled = disabled || loading;
 
-    const classes = cn({
-      'base': this.props.base,
-      [`button-${this.props.color}`]: this.props.color,
-      [this.props.size]: this.props.size,
-      'extended': this.props.extended,
-      'button-disabled': isDisabled
+    const css = cn({
+      button: true,
+      [withPrefix(color)]: Boolean(color),
+      [withPrefix(size)]: Boolean(size),
+      [withPrefix('outline')]: Boolean(outline),
+      [withPrefix('extended')]: Boolean(extended),
+      [withPrefix('disabled')]: Boolean(disabled),
+      [withPrefix('loading')]: Boolean(loading),
+      [withPrefix('link')]: Boolean(href || link)
     }, className);
 
-    if (typeof href === 'string' && href.length > 0) {
-      return  <a href={href} className='button' target={target}>{children}</a>;
-
-    } else {
+    if (href && typeof href === 'string' && href.length > 0 || link) {
 
       return (
-        <button
-          type={type}
-          className={classes}
-          onClick={onClick}
+        <a
+          href={href || '#'}
+          className={css}
+          target={target}
           disabled={isDisabled}
+          onClick={onClick}
         >
-          {loading && <Loader size='tiny'/>}
           {children}
-        </button>
+        </a>
       );
 
     }
+
+    return (
+      <button
+        type={type}
+        className={css}
+        onClick={onClick}
+        disabled={isDisabled}
+      >
+
+        {loading && <Loader size='tiny'/>}
+
+        {children}
+
+      </button>
+    );
+
   }
 }
 

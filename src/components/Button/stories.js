@@ -2,67 +2,115 @@ import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
 import Button from './index';
 
+const sizes = [
+  'mini',
+  'tiny',
+  'small',
+  'medium',
+  'large',
+  'big',
+  'huge',
+  'massive'
+];
+
+const colors = [
+  'default',
+  'primary',
+  'success',
+  'danger',
+  'fb',
+  'tw'
+];
+
 storiesOf('Button', module)
   .add('Default', () => (
-    <Button onClick={action('clicked')}>Default</Button>
-  ))
-  .add('states', () => (
     <div>
+
       <div>
-        <Button disabled onClick={action('clicked')}>Disabled</Button>
+        <h4>Default</h4>
+        <Button onClick={action('clicked')}>
+          <span>Default</span>
+        </Button>
       </div>
+
+
       <div>
-        <Button loading onClick={action('clicked')}>Loading</Button>
+        <h4>Sizes</h4>
+        {
+          sizes.map(s =>
+            <Button size={s} onClick={action('clicked')}>
+              <span>{s}</span>
+            </Button>
+          )
+        }
       </div>
+
+
       <div>
-        <Button size='small' loading onClick={action('clicked')}>Loading</Button>
+        <h4>Colors</h4>
+        {
+          colors.map(s =>
+            <Button color={s} onClick={action('clicked')}>
+              <span>{s}</span>
+            </Button>
+          )
+        }
       </div>
+
       <div>
-        <Button size='large' loading onClick={action('clicked')}>Loading</Button>
+        <h4>Outline Colors</h4>
+        {
+          colors.map(s =>
+            <Button outline color={s} onClick={action('clicked')}>
+              <span>{s}</span>
+            </Button>
+          )
+        }
       </div>
+
       <div>
-        <Button size='xlarge' loading onClick={action('clicked')}>Loading</Button>
+        <h4>Extended</h4>
+        <Button extended onClick={action('clicked')}>
+          <span>Extended</span>
+        </Button>
       </div>
-    </div>
-  ))
-  .add('sizes', () => (
-    <div>
+
       <div>
-        <Button size='small' onClick={action('clicked')}>small</Button>
+        <h4>Disabled</h4>
+        <Button disabled onClick={action('clicked')}>
+          <span>Disabled</span>
+        </Button>
       </div>
+
       <div>
-        <Button size='large' onClick={action('clicked')}>large</Button>
+        <h4>Loading</h4>
+        {
+          sizes.map(s =>
+            <Button loading size={s} onClick={action('clicked')}>
+              <span>Loading {s}</span>
+            </Button>
+          )
+        }
       </div>
+
       <div>
-        <Button size='xlarge' onClick={action('clicked')}>xlarge</Button>
+        <h4>As Link</h4>
+        <Button href='google.ru' onClick={action('clicked')}>
+          <span>As Link</span>
+        </Button>
       </div>
+
       <div>
-        <Button extended onClick={action('clicked')}>extended</Button>
+        <h4>With icon</h4>
+        <Button onClick={action('clicked')}>
+          <i className='mb-ico-linkedin'/>
+          <span>With icon left</span>
+        </Button>
+        <Button onClick={action('clicked')}>
+          <span>With icon right</span>
+          <i className='mb-ico-arrow-button-next'/>
+        </Button>
       </div>
-    </div>
-  ))
-  .add('colors', () => (
-    <div>
-      <div>
-        <Button color='green' onClick={action('clicked')}>green</Button>
-      </div>
-      <div>
-        <Button color='red' onClick={action('clicked')}>red</Button>
-      </div>
-      <div>
-        <Button color='ln' onClick={action('clicked')}>ln</Button>
-      </div>
-      <div>
-        <Button color='fb' onClick={action('clicked')}>fb</Button>
-      </div>
-      <div>
-        <Button color='tw' onClick={action('clicked')}>tw</Button>
-      </div>
-      <div>
-        <Button color='white' onClick={action('clicked')}>white</Button>
-      </div>
-      <div>
-        <Button color='danger' onClick={action('clicked')}>danger</Button>
-      </div>
+
     </div>
   ));

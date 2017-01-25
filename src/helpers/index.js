@@ -1,1 +1,2 @@
-export customPropTypes from './customPropTypes';
+export * from './customPropTypes';
+export * from './appendClassPrefix';
