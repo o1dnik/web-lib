@@ -1,52 +1,88 @@
-.mo-loader {
-  animation: rotator 1.4s linear infinite;
-  @vertical-align (middle);
-  position: relative;
-  left: 50%;
-  top: 50%;
-}
-.mo-loader__path {
-  stroke-dasharray: 187;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+.loading-content{
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+  border-right-color: rgb(223, 224, 228) solid 1px;
+  border-top-color: rgb(229, 230, 233) solid 1px;
+  display: block;
+  height: 150px;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
 }
 
-@keyframes rotator {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(270deg);
-  }
+/* FB Loading - First Box */
+.loading-content > div:nth-child(1){
+  width:100%;
+  height:30px;
 }
-@keyframes colors {
-  0% {
-    stroke: #4285F4;
-  }
-  25% {
-    stroke: #DE3E35;
-  }
-  50% {
-    stroke: #F7C223;
-  }
-  75% {
-    stroke: #1B9A59;
-  }
-  100% {
-    stroke: #4285F4;
-  }
+
+/* FB Loading - Image Box */
+.loading-content > div > div:nth-child(1){
+  position:relative;
+  left:0;
+  background-color: #CCC;
+  height: 40px;
+  width: 40px;
+  animation-name: shine; 
+  animation-duration: 1.5s; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 187;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 187;
-    transform: rotate(450deg);
-  }
+
+/* FB Loading - First Row */
+.loading-content > div > div:nth-child(2), 
+/* FB Loading - Second Row */
+.loading-content > div > div:nth-child(3), 
+/* FB Loading - Third Row */
+.loading-content > div:nth-child(2), 
+/* FB Loading - Fourth Row */
+.loading-content > div:nth-child(3), 
+/* FB Loading - Fifth Row */
+.loading-content > div:nth-child(4){
+  position:relative;
+  background-color: #CCC;
+  height: 6px;
+  animation-name: shine; 
+  animation-duration: 1.5s; 
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes shine {
+    from {transition:none;}
+    to {background-color:#f6f7f8;transition: all 0.3s ease-out;}
+}
+
+/* FB Loading - First Row */
+.loading-content > div > div:nth-child(2){
+  left:50px;
+  top:-33px;
+  width: 25%;
+}
+
+/* FB Loading - Second Row */
+.loading-content > div > div:nth-child(3){
+  left:50px;
+  top:-20px;
+  width: 15%;
+}
+
+/* FB Loading - Third Row */
+.loading-content > div:nth-child(2){
+  left:0px;
+  top:30px;
+  width: 80%;
+}
+
+/* FB Loading - Fourth Row */
+.loading-content > div:nth-child(3){
+  left:0px;
+  top:45px;
+  width: 95%;
+}
+
+/* FB Loading - Fifth Row */
+.loading-content > div:nth-child(4){
+  left:0px;
+  top:60px;
+  width: 50%;
 }

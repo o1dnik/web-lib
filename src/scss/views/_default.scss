@@ -16,12 +16,23 @@ body{
 	// }
 }
 
-a{
+a {
 	cursor: pointer;
+}
+
+a.u {
+    text-decoration: underline;
 }
 
 .mb{
 	margin-bottom: $base-spacing;
+}
+
+.hide-m{
+	display: none;
+	@include breakpoint(tablet){
+		display: block;
+	}
 }
 
 .text-center{
@@ -35,7 +46,7 @@ a{
 }
 
 .small-container{
-	 @include outer-container(rem(890));
+	@include outer-container(rem(890));
 	padding: 0 1rem;
 }
 
@@ -76,6 +87,16 @@ h1.title-underlined{
 		display: inline-block;
 		border-bottom: 4px solid $grey-dark;
 	}
+}
+
+small {
+	font-size: 80%;
+}
+
+span.underlined-red{
+	line-height: 2;
+	display: inline-block;
+	border-bottom: 4px solid $another-red;
 }
 
 .optional-info{
@@ -130,8 +151,9 @@ a.underlined-link{
 
 .tag{
 	display: inline-block;
-	padding: .7em;
+	padding: .5em;
 	margin: 0 .5em;
+	margin-top: .3em;
 	background-color: $grey-light;
 	border-radius: $base-border-radius;
 	border: 1px solid shade($grey-light, 5%);
@@ -229,14 +251,4 @@ a.underlined-link{
 	> :last-child{
 		padding-left: .75em;
 	}
-	// .short{
-	// 	min-width: rem(130);
-	// 	button{
-	// 		display: block;
-	// 	}
-	// }
 }
-
-
-
-

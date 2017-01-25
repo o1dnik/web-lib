@@ -87,8 +87,8 @@ h1.form-title{
 }
 
 .user-thumbnail{
-	width: rem(80);
-	height: rem(80);
+	width: rem(150);
+	height: rem(150);
 	overflow: hidden;
 	border-radius: 100rem;
 	display: inline-block;
@@ -143,17 +143,11 @@ h1.form-title{
 }
 
 .options-box{
-	padding: 2rem 1rem 1rem;
+	padding: 1rem;
 	border: 1px dashed $grey-md-light;
-	position: relative;
 	&.done{
 		border-style: solid;
 		background-color: tint($grey-light, 60%);
-	}
-	.close{
-		position: absolute;
-		top: rem(6);
-		right: rem(6);
 	}
 }
 

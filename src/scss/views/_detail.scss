@@ -26,6 +26,7 @@
 }
 
 .job-info{
+	padding: 1em;
 	@include breakpoint(tablet){
 		padding: 1em 2em;
 		> *{

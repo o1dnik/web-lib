@@ -1,9 +1,13 @@
+// Variables
+$success-text: $green-dark;
+$error-text: $lipstick-dark;
+
 label , .sublabel{
   font-size: rem(12);
   text-transform: uppercase;
   &.inline{
   	display: inline-block;
-  	padding-right: 1em;
+  	padding-right: 0.8em;
   	text-transform: none;
   	color: $grey-md-dark;
   }
@@ -13,6 +17,35 @@ label , .sublabel{
 	background-color: $grey-light;
 	padding: 1em;
 	line-height: 1;
+	&.input-success{
+		background-color: tint($green, 94%);
+		border-color: $green;
+	}
+	&.input-error{
+		background-color: tint($lipstick, 94%);
+		border-color: tint($lipstick, 65%);
+	}
+}
+
+.input-message{
+	display: block;
+	padding: .25em 0;
+	font-size: rem(12);
+	&.input-message-error{
+		color: $error-text;
+	}
+	&.input-message-success{
+		color: $success-text;
+	}
+}
+
+.checkbox-group{
+	&.checkbox-group-error{
+		label{color: $error-text;}
+	}
+	&.checkbox-group-success{
+		label{color: $success-text;}
+	}
 }
 
 textarea {

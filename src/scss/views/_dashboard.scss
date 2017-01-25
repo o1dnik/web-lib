@@ -22,7 +22,7 @@
 
 .main-content{
 	@include breakpoint(desktop){
-		flex: 2;
+		flex: 3;
 	}
 }
 
@@ -35,6 +35,9 @@
 	}
 }
 
-
+img.wait {
+	margin: 30px;
+	max-width: 250px;
+}
 
 

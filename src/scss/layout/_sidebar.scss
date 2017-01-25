@@ -1,28 +1,78 @@
-.sidebar{
-	> *{
-		margin-bottom: $base-spacing;	
-	}
-	.box{
-		background: $white;
-		padding: 1rem;
-		.header{
-			padding: ($base-spacing / 3) ($base-spacing / 2);
-			font-size: rem(18);
-			font-weight: 700;
-		}
-		.copy{
-			padding-bottom: ($base-spacing / 2);
-		}
-		&.share{
-			@extend %text-center;
-		}
+.sidebar {
+  > * {
+    margin-bottom : $base-spacing;
+  }
+  .box {
+    background : $white;
+    padding    : 1rem;
+    .header {
+      padding     : ($base-spacing / 3) ($base-spacing / 2);
+      font-size   : rem(16);
+      font-weight : 700;
+    }
+    .copy {
+      padding-bottom : ($base-spacing / 2);
+    }
+    &.share {
+      @extend %text-center;
+    }
 
-	}
+  }
 }
 
-.sidebar-block-title{
-	font-size: rem(12);
-	color: tint($black, 50%);
-	text-transform: uppercase;
-	margin-bottom: 1rem;
+.sidebar-block-title {
+  font-size      : rem(12);
+  color          : tint($black, 50%);
+  text-transform : uppercase;
+  margin-bottom  : 1rem;
+}
+
+img.sidebar-user {
+  border-radius : 50%;
+  width         : 100px;
+  height        : 100px;
+}
+
+/*Variables for colours*/
+$progressBarColour : #f2f2f2;
+$progressValueColour : $lipstick-dark;
+/*The progress element*/
+.progress-main {
+  background-color : $progressBarColour; /*This could be any colour*/
+  width            : 95%;
+  height           : 0.3em;
+  margin-top       : 0.75em;
+}
+
+/*For firefox*/
+.progress-main::-moz-progress-bar {
+  background : $progressValueColour;
+}
+
+/*For webkit browsers*/
+.progress-main::-webkit-progress-bar {
+  background : $progressBarColour;
+  box-shadow : 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.progress-main::-webkit-progress-value {
+  background : $progressValueColour;
+}
+
+/*For IE*/
+.progress-main::-ms-fill {
+  background : $progressValueColour;
+  box-shadow : 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.progress-bar {
+  margin-top       : 0.95em;
+  background-color : $progressBarColour;
+  height           : 0.3em;
+}
+
+.progress-value {
+  background-color : $progressValueColour;
+  display          : block;
+  height           : 0.3em;
 }
