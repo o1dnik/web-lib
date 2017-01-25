@@ -100,16 +100,15 @@ storiesOf('Button', module)
 
       <div>
         <h4>With icon</h4>
-        {/*// TODo add buttn icon dynamicly*/}
-        <Button className='button-icon' onClick={action('clicked')}>
+        <Button onClick={action('clicked')}>
           <i className='mb-ico-linkedin'/>
-          <span>With icon left</span>
+          With icon left
         </Button>
-        <Button className='button-icon' onClick={action('clicked')}>
+        <Button onClick={action('clicked')}>
           <span>With icon right</span>
           <i className='mb-ico-arrow-button-next'/>
         </Button>
-        <Button className='button-icon' onClick={action('clicked')}>
+        <Button onClick={action('clicked')}>
           <i className='mb-ico-burger'/>
         </Button>
       </div>

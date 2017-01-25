@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes, Component, Children} from 'react';
 import Loader from '../Loader';
 import {appendClassPrefix} from '../../helpers';
 import cn from 'classnames';
@@ -66,15 +66,25 @@ class Button extends Component {
 
     const isDisabled = disabled || loading;
 
+    const newCildren = Children.map(children, (c) => {
+      if (typeof c === 'string') {
+        return <span>{c}</span>;
+      }
+      return React.cloneElement(c, c.props);
+    });
+
+    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i');
+
     const css = cn({
       button: true,
       [withPrefix(color)]: Boolean(color),
       [withPrefix(size)]: Boolean(size),
       [withPrefix('outline')]: Boolean(outline),
       [withPrefix('extended')]: Boolean(extended),
-      [withPrefix('disabled')]: Boolean(disabled || loading),
+      [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('loading')]: Boolean(loading),
-      [withPrefix('link')]: Boolean(href || link)
+      [withPrefix('link')]: Boolean(href || link),
+      [withPrefix('icon')]: Boolean(hasIcon)
     }, className);
 
     if (href && typeof href === 'string' && href.length > 0 || link) {
@@ -87,7 +97,7 @@ class Button extends Component {
           disabled={isDisabled}
           onClick={onClick}
         >
-          {children}
+          {newCildren}
         </a>
       );
 
@@ -101,9 +111,9 @@ class Button extends Component {
         disabled={isDisabled}
       >
 
-        {loading && <Loader size='tiny'/>}
+        {loading && <Loader size='xsmall'/>}
 
-        {children}
+        {newCildren}
 
       </button>
     );

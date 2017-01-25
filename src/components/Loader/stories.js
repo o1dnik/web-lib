@@ -2,26 +2,23 @@ import React from 'react';
 import {storiesOf} from '@kadira/storybook';
 import Loader from './index';
 
+const sizes = [
+  'xsmall',
+  'small',
+  'medium',
+  'large',
+  'xlarge'
+];
+
 storiesOf('Loader', module)
   .add('Default', () => (
     <div>
-      <div>
-        <Loader size='tiny'>Tiny</Loader>
-      </div>
-      <div>
-        <Loader size='small'>Small</Loader>
-      </div>
-      <div>
-        <Loader size='medium'>Medium</Loader>
-      </div>
-      <div>
-        <Loader size='big'>Big</Loader>
-      </div>
-      <div>
-        <Loader size='large'>Large</Loader>
-      </div>
-      <div>
-        <Loader size='xlarge'>X-Large</Loader>
-      </div>
+
+      {sizes.map(s =>
+        <div>
+          <Loader key={s} size={s}>Tiny</Loader>
+        </div>
+      )}
+
     </div>
   ));

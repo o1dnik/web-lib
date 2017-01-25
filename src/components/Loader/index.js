@@ -1,12 +1,11 @@
 import React, {PropTypes} from 'react';
 
 const sizeMap = {
-  tiny: 16,
+  xsmall: 16,
   small: 25,
   medium: 55,
-  big: 75,
-  large: 95,
-  xlarge: 115
+  large: 75,
+  xlarge: 95
 };
 
 const Loader = (props) => {
