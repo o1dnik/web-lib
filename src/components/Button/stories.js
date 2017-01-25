@@ -36,7 +36,7 @@ storiesOf('Button', module)
         <h4>Sizes</h4>
         {
           sizes.map(s =>
-            <Button size={s} onClick={action('clicked')}>
+            <Button key={s} size={s} onClick={action('clicked')}>
               <span>{s}</span>
             </Button>
           )
@@ -48,7 +48,7 @@ storiesOf('Button', module)
         <h4>Colors</h4>
         {
           colors.map(s =>
-            <Button color={s} onClick={action('clicked')}>
+            <Button key={s} color={s} onClick={action('clicked')}>
               <span>{s}</span>
             </Button>
           )
@@ -59,7 +59,7 @@ storiesOf('Button', module)
         <h4>Outline Colors</h4>
         {
           colors.map(s =>
-            <Button outline color={s} onClick={action('clicked')}>
+            <Button key={s} outline color={s} onClick={action('clicked')}>
               <span>{s}</span>
             </Button>
           )
@@ -84,7 +84,7 @@ storiesOf('Button', module)
         <h4>Loading</h4>
         {
           sizes.map(s =>
-            <Button loading size={s} onClick={action('clicked')}>
+            <Button key={s} loading size={s} onClick={action('clicked')}>
               <span>Loading {s}</span>
             </Button>
           )
@@ -108,6 +108,9 @@ storiesOf('Button', module)
         <Button className='button-icon' onClick={action('clicked')}>
           <span>With icon right</span>
           <i className='mb-ico-arrow-button-next'/>
+        </Button>
+        <Button className='button-icon' onClick={action('clicked')}>
+          <i className='mb-ico-burger'/>
         </Button>
       </div>
 
