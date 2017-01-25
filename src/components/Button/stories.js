@@ -109,6 +109,9 @@ storiesOf('Button', module)
           <span>With icon right</span>
           <i className='mb-ico-arrow-button-next'/>
         </Button>
+        <Button className='button-icon' onClick={action('clicked')}>
+          <i className='mb-ico-burger'/>
+        </Button>
       </div>
 
     </div>
