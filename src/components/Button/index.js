@@ -17,22 +17,20 @@ class Button extends Component {
     extended: PropTypes.bool,
     outline: PropTypes.bool,
     size: PropTypes.oneOf([
-      'mini',
-      'tiny',
+      'xsmall',
       'small',
       'medium',
       'large',
-      'big',
-      'huge',
-      'massive'
+      'xlarge'
     ]),
     color: PropTypes.oneOf([
       'default',
       'primary',
-      'success',
+      'light',
       'danger',
       'fb',
-      'tw'
+      'tw',
+      'ln'
     ])
   };
 
@@ -74,7 +72,7 @@ class Button extends Component {
       [withPrefix(size)]: Boolean(size),
       [withPrefix('outline')]: Boolean(outline),
       [withPrefix('extended')]: Boolean(extended),
-      [withPrefix('disabled')]: Boolean(disabled),
+      [withPrefix('disabled')]: Boolean(disabled || loading),
       [withPrefix('loading')]: Boolean(loading),
       [withPrefix('link')]: Boolean(href || link)
     }, className);

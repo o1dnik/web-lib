@@ -3,23 +3,21 @@ import {storiesOf, action} from '@kadira/storybook';
 import Button from './index';
 
 const sizes = [
-  'mini',
-  'tiny',
+  'xsmall',
   'small',
   'medium',
   'large',
-  'big',
-  'huge',
-  'massive'
+  'xlarge'
 ];
 
 const colors = [
   'default',
   'primary',
-  'success',
+  'light',
   'danger',
   'fb',
-  'tw'
+  'tw',
+  'ln'
 ];
 
 storiesOf('Button', module)
@@ -102,11 +100,12 @@ storiesOf('Button', module)
 
       <div>
         <h4>With icon</h4>
-        <Button onClick={action('clicked')}>
+        {/*// TODo add buttn icon dynamicly*/}
+        <Button className='button-icon' onClick={action('clicked')}>
           <i className='mb-ico-linkedin'/>
           <span>With icon left</span>
         </Button>
-        <Button onClick={action('clicked')}>
+        <Button className='button-icon' onClick={action('clicked')}>
           <span>With icon right</span>
           <i className='mb-ico-arrow-button-next'/>
         </Button>
