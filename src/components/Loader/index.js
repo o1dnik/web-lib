@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 const sizeMap = {
-  tiny: 15,
+  tiny: 16,
   small: 25,
   medium: 55,
   big: 75,
@@ -17,13 +17,8 @@ const Loader = (props) => {
     <svg
       width={sizeMap[props.size]}
       height={sizeMap[props.size]}
+      className='loader'
       viewBox='0 0 100 100'
-      style={{
-        position: 'relative',
-        left: '50%',
-        top: '50%',
-        marginLeft: -(sizeMap[props.size] / 2)
-      }}
       preserveAspectRatio='xMidYMid'
     >
       <circle
