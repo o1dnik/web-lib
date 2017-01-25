@@ -2,23 +2,23 @@ import {configure} from '@kadira/storybook';
 import '../src/styles/main.scss';
 
 function loadStories() {
-  require('./components/Button/stories');
-  require('./components/Box/stories');
-  require('./components/Loader/stories');
-  require('./components/Input/stories');
-  require('./components/TextareaInput/stories');
-  require('./components/Checkbox/stories');
-  require('./components/CheckboxGroup/stories');
-  require('./components/RadioGroup/stories');
-  require('./components/Tag/stories');
-  require('./components/Tags/stories');
-  require('./components/Select/stories');
-  require('./components/InputRange/stories');
-  require('./components/Multiselect/stories');
-  require('./components/SelectWithLevels/stories');
-  require('./components/DoubleSelect/stories');
-  require('./components/AlertBar/stories');
-  require('./components/StatsCircle/stories');
+  require('../src/components/Button/stories');
+  require('../src/components/Box/stories');
+  require('../src/components/Loader/stories');
+  require('../src/components/Input/stories');
+  require('../src/components/TextareaInput/stories');
+  require('../src/components/Checkbox/stories');
+  require('../src/components/CheckboxGroup/stories');
+  require('../src/components/RadioGroup/stories');
+  require('../src/components/Tag/stories');
+  require('../src/components/Tags/stories');
+  require('../src/components/Select/stories');
+  require('../src/components/InputRange/stories');
+  require('../src/components/Multiselect/stories');
+  require('../src/components/SelectWithLevels/stories');
+  require('../src/components/DoubleSelect/stories');
+  require('../src/components/AlertBar/stories');
+  require('../src/components/StatsCircle/stories');
 }
 
 configure(loadStories, module);
