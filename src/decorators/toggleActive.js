@@ -16,10 +16,11 @@ export default (Component) => {
 
     render() {
       return (
-        <Component {...this.props}
-                   {...this.state}
-                   isActive={this.isActive}
-                   toggleActive={this.toggleActive}
+        <Component
+          {...this.props}
+          activeItem={this.state.activeItem}
+          isActive={this.isActive}
+          toggleActive={this.toggleActive}
         />
       );
     }

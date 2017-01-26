@@ -25,11 +25,12 @@ export default (Component) => {
 
     render() {
       return (
-        <Component {...this.props}
-                   {...this.state}
-                   isActive={this.isActive}
-                   toggleActive={this.toggleActive}
-                   disableAll={this.disableAll}
+        <Component
+          {...this.props}
+          activeItems={this.state.activeItems}
+          isActive={this.isActive}
+          toggleActive={this.toggleActive}
+          disableAll={this.disableAll}
         />
       );
     }

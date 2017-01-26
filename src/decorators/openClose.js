@@ -23,11 +23,12 @@ export default (Component) => {
 
     render() {
       return (
-        <Component {...this.props}
-                   {...this.state}
-                   toggle={this.toggle}
-                   open={this.open}
-                   close={this.close}
+        <Component
+          {...this.props}
+          isOpen={this.state.isOpen}
+          toggle={this.toggle}
+          open={this.open}
+          close={this.close}
         />
       );
     }
