@@ -1,4 +1,6 @@
 import React from 'react';
+import {checkConflictProps} from '../helpers';
+const warnProps = ['isOpen', 'toggle', 'open', 'close'];
 
 export default (Component) => {
   return class OpenCloseDecorator extends React.Component {
@@ -19,6 +21,14 @@ export default (Component) => {
     open = e => {
       if (e) e.preventDefault();
       this.setState({isOpen: true});
+    }
+
+    componentWillReceiveProps(nextProps) {
+      checkConflictProps(nextProps, warnProps);
+    }
+
+    componentDidMount() {
+      checkConflictProps(this.props, warnProps);
     }
 
     render() {

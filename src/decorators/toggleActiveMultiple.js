@@ -1,4 +1,6 @@
 import React from 'react';
+import {checkConflictProps} from '../helpers';
+const warnProps = ['toggleActive', 'isActive', 'disableAll', 'activeItems'];
 
 export default (Component) => {
   return class MultipleActiveItemDecorator extends React.Component {
@@ -22,6 +24,14 @@ export default (Component) => {
     }
 
     isActive = id => this.state.activeItems.includes(id);
+
+    componentWillReceiveProps(nextProps) {
+      checkConflictProps(nextProps, warnProps);
+    }
+
+    componentDidMount() {
+      checkConflictProps(this.props, warnProps);
+    }
 
     render() {
       return (

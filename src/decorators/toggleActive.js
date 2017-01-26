@@ -1,4 +1,6 @@
 import React from 'react';
+import {checkConflictProps} from '../helpers';
+const warnProps = ['toggleActive', 'isActive', 'activeItem'];
 
 export default (Component) => {
   return class ActiveItemDecorator extends React.Component {
@@ -13,6 +15,14 @@ export default (Component) => {
     }
 
     isActive = id => this.state.activeItem === id;
+
+    componentWillReceiveProps(nextProps) {
+      checkConflictProps(nextProps, warnProps);
+    }
+
+    componentDidMount() {
+      checkConflictProps(this.props, warnProps);
+    }
 
     render() {
       return (
