@@ -100,11 +100,11 @@ storiesOf('Tag', module)
       <div>
         <h4>With clickable children icon</h4>
         <Tag onClick={action('clicked')}>
-          With icon right
+          Clickable tag and icon
           <i className='mb-ico-plus' onClick={action('icon-clicked')}/>
         </Tag>
         <Tag>
-          <span>With icon right</span>
+          <span>Clickable only icon</span>
           <i className='mb-ico-cross' onClick={action('icon-clicked')}/>
         </Tag>
       </div>
