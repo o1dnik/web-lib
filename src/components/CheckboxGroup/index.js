@@ -12,26 +12,19 @@ class CheckboxGroup extends Component {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     oneRequired: PropTypes.bool,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      value: PropTypes.string,
-      label: PropTypes.string
-    })),
-    value: PropTypes.arrayOf(PropTypes.shape({
-      value: PropTypes.string,
-      label: PropTypes.string
-    })),
+    options: PropTypes.array,
+    value: PropTypes.array,
 
     input: PropTypes.shape({
       name: PropTypes.string,
       onBlur: PropTypes.func,
       onChange: PropTypes.func,
-      onDragStart: PropTypes.func,
-      onDrop: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.arrayOf(PropTypes.shape({
-        value: PropTypes.string,
-        label: PropTypes.string
-      }))
+      value: PropTypes.oneOf([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
+      ])
     }),
 
     meta: PropTypes.shape({
