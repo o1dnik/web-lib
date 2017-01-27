@@ -12,6 +12,7 @@ class CheckboxGroup extends Component {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
     oneRequired: PropTypes.bool,
+    simpleValue: PropTypes.bool,
     options: PropTypes.array,
     value: PropTypes.array,
 
@@ -114,7 +115,18 @@ class CheckboxGroup extends Component {
   handleBlur = () => {
     const onBlur = this.props.onBlur || this.props.input.onBlur;
     const val = this.props.value || this.props.input.value;
-    onBlur && onBlur(val);
+    const {simpleValue} = this.props;
+
+    if (val && onBlur) {
+
+      if (simpleValue) {
+        return onBlur(val.map(v => v.value));
+      }
+
+      onBlur(val);
+
+    }
+
   }
 
   handleFocus = (e) => {
@@ -124,7 +136,7 @@ class CheckboxGroup extends Component {
 
   handleChange = (e) => {
     const {name, checked} = e.target;
-    const {options, oneRequired} = this.props;
+    const {options, oneRequired, simpleValue} = this.props;
     const onChange = this.props.onChange || this.props.input.onChange;
     const oldValue = this.props.value || this.props.input.value;
 
@@ -143,7 +155,15 @@ class CheckboxGroup extends Component {
       }
     }
 
-    onChange(newValue, oldValue);
+    if (newValue && onChange) {
+
+      if (simpleValue) {
+        return onChange(newValue.map(v => v.value), oldValue.map(v => v.value));
+      }
+
+      onChange(newValue, oldValue);
+
+    }
   }
 
 }
