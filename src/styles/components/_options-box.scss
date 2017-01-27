@@ -1,0 +1,27 @@
+.options-box{
+  padding: 1.75rem 1rem 1rem;
+  border: 1px dashed $grey-md-light;
+  position: relative;
+  &.done{
+    border-style: solid;
+    background-color: tint($grey-light, 60%);
+  }
+  .close{
+    line-height: 1;
+    display: block;
+    position: absolute;
+    top: rem(6);
+    right: rem(6);
+  }
+  .tags{
+    padding-top: .5em;
+  }
+}
+
+.close {
+    color: $grey;
+    cursor: pointer;
+    &:hover{
+      color: shade($grey, 15%)
+    }
+}

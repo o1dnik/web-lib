@@ -1,0 +1,145 @@
+// Variables
+$success-text: $green-dark;
+$error-text: $lipstick-dark;
+
+label , .sublabel{
+  font-size: rem(12);
+  text-transform: uppercase;
+  &.inline{
+  	display: inline-block;
+  	padding-right: 0.8em;
+  	text-transform: none;
+  	color: $grey-md-dark;
+  }
+}
+
+#{$all-text-inputs} {
+	background-color: $grey-light;
+	padding: 1em;
+	line-height: 1;
+	&.input-success{
+		background-color: tint($green, 94%);
+		border-color: $green;
+	}
+	&.input-error{
+		background-color: tint($lipstick, 94%);
+		border-color: tint($lipstick, 65%);
+	}
+}
+
+.input-message{
+	display: block;
+	padding: .25em 0;
+	font-size: rem(12);
+	&.input-message-error{
+		color: $error-text;
+	}
+	&.input-message-success{
+		color: $success-text;
+	}
+}
+
+.checkbox-group{
+	&.checkbox-group-error{
+		label{color: $error-text;}
+	}
+	&.checkbox-group-success{
+		label{color: $success-text;}
+	}
+}
+
+textarea {
+	background-color: $white;
+	line-height: 1.5;
+	&.textareainput-success{
+		background-color: tint($green, 94%);
+		border-color: $green;
+	}
+	&.textareainput-error{
+		background-color: tint($lipstick, 94%);
+		border-color: tint($lipstick, 65%);
+	}
+}
+
+.input-icon-wrapper{
+	position: relative;
+	.input-icon{
+		position: absolute;
+		right: 1em;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+	}
+	a{
+		@extend %vertical-align;
+		display: inline-block;
+		font-size: rem(20);
+	}
+}
+
+.error-msg{
+	color: tint($rouge, 40%);
+	font-size: rem(12);
+	padding-top: .5em;
+}
+
+.Select{
+	input{
+		padding: 1em 0;
+	}
+	&.has-value{
+		.Select-control{
+			background-color: tint($green, 90%);
+			border-color: $green;
+		}
+	}
+}
+
+.jobcard{
+	.Select-option{
+		&.is-disabled{
+			.category{
+				text-transform: uppercase;
+				font-weight: $bold;
+				color: $grey-dark;
+				font-size: rem(12);
+			}
+		}
+	}
+}
+
+.has-value.is-focused.Select--single > .Select-control .Select-value{
+	.Select-value-label {
+		color: $grey;
+	}
+}
+
+.radio-group{
+	&.radio-group-error{
+		label{color: $error-text;}
+	}
+	&.radio-group-success{
+		label{color: $success-text;}
+	}
+}
+
+.editor-wrapper{
+	ul.editor-controlls{
+		background-color: $grey-light;
+		padding: 0 .5em;
+		border-width: 1px 1px 0 1px;
+		border-color: $base-border-color;
+		border-style: solid;
+		border-radius: $base-border-radius;
+		li{
+			display: inline-block;
+			line-height: rem(36);
+			a{
+				padding: 0 .5em;
+			}
+		}
+	}
+	textarea{
+		border-top: none;
+	}
+}
