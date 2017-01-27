@@ -43,9 +43,36 @@ const Checkbox = (props) => {
 Checkbox.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
-  onChange: PropTypes.func,
   checked: PropTypes.bool,
-  label: PropTypes.string
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+
+  input: PropTypes.shape({
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    value: PropTypes.boolean,
+    checked: PropTypes.boolean
+  }),
+
+  meta: PropTypes.shape({
+    active: PropTypes.bool,
+    asyncValidating: PropTypes.bool,
+    autofilled: PropTypes.bool,
+    dirty: PropTypes.bool,
+    dispatch: PropTypes.func,
+    error: PropTypes.string,
+    invalid: PropTypes.bool,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+    touched: PropTypes.bool,
+    valid: PropTypes.bool,
+    visited: PropTypes.bool,
+    warning: PropTypes.string
+  })
 };
 
 Checkbox.defaultProps = {
