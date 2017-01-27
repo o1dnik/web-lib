@@ -35,8 +35,6 @@ class Tag extends Component {
 
   render() {
 
-    console.log('render');
-
     const {
       children,
       onClick,

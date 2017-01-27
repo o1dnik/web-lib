@@ -15,8 +15,8 @@ storiesOf('Loader', module)
     <div>
 
       {sizes.map(s =>
-        <div>
-          <Loader key={s} size={s}>Tiny</Loader>
+        <div key={s}>
+          <Loader size={s}/>
         </div>
       )}
 
