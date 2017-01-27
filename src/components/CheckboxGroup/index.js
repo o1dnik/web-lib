@@ -11,6 +11,7 @@ class CheckboxGroup extends Component {
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
+    oneRequired: PropTypes.bool,
     options: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string
@@ -51,6 +52,7 @@ class CheckboxGroup extends Component {
   };
 
   static defaultProps = {
+    oneRequired: false,
     options: [],
     input: {},
     meta: {}
@@ -129,7 +131,7 @@ class CheckboxGroup extends Component {
 
   handleChange = (e) => {
     const {name, checked} = e.target;
-    const {options} = this.props;
+    const {options, oneRequired} = this.props;
     const onChange = this.props.onChange || this.props.input.onChange;
     const oldValue = this.props.value || this.props.input.value;
 
@@ -143,6 +145,9 @@ class CheckboxGroup extends Component {
         });
     } else {
       newValue = oldValue.filter(i => i.value !== name);
+      if (oneRequired && newValue.length < 1) {
+        newValue = [...oldValue];
+      }
     }
 
     onChange(newValue, oldValue);
