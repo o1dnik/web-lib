@@ -21,7 +21,7 @@ class CheckboxGroup extends Component {
       onBlur: PropTypes.func,
       onChange: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.oneOf([
+      value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object,
         PropTypes.array
