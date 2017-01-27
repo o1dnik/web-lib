@@ -16,6 +16,7 @@ class Button extends Component {
     disabled: PropTypes.bool,
     extended: PropTypes.bool,
     outline: PropTypes.bool,
+    rounded: PropTypes.bool,
     size: PropTypes.oneOf([
       'xsmall',
       'small',
@@ -59,6 +60,7 @@ class Button extends Component {
       size,
       color,
       link,
+      rounded,
       children
     } = this.props;
 
@@ -79,6 +81,7 @@ class Button extends Component {
       button: true,
       [withPrefix(color)]: Boolean(color),
       [withPrefix(size)]: Boolean(size),
+      [withPrefix('rounded')]: Boolean(rounded),
       [withPrefix('outline')]: Boolean(outline),
       [withPrefix('extended')]: Boolean(extended),
       [withPrefix('disabled')]: Boolean(disabled),

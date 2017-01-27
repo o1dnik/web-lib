@@ -99,6 +99,16 @@ storiesOf('Button', module)
       </div>
 
       <div>
+        <h4>Rounded</h4>
+        <Button rounded onClick={action('clicked')}>
+          <span>Rounded</span>
+        </Button>
+        <Button rounded onClick={action('clicked')}>
+          <i className='mb-ico-linkedin'/>
+        </Button>
+      </div>
+
+      <div>
         <h4>With icon</h4>
         <Button onClick={action('clicked')}>
           <i className='mb-ico-linkedin'/>
