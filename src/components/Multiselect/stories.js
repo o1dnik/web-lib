@@ -37,7 +37,7 @@ storiesOf('Multiselect', module)
       <div>
         <Multiselect
           options={options}
-          tags={tags}
+          value={tags}
         />
       </div>
     </div>
@@ -57,41 +57,40 @@ storiesOf('Multiselect', module)
           selectLabel={selectLabel}
           tagsLabel={tagsLabel}
           options={options}
-          tags={tags}
+          value={tags}
           onChange={action('onChange')}
           onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           onClick={action('onClick')}
-          onClose={action('onClose')}
+          onTagRemove={action('onTagRemove')}
         />
       </div>
       <div>
         <hr style={hrStyle}/>
         <Multiselect
           options={options}
-          tags={tags}
-          value='toxihemia'
+          value={tags}
           onChange={action('onChange')}
           onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           onClick={action('onClick')}
-          onClose={action('onClose')}
+          onTagRemove={action('onTagRemove')}
         />
       </div>
       <div>
         <hr style={hrStyle}/>
         <Multiselect
           options={options}
-          tags={tags}
+          value={tags}
           extended
           onChange={action('onChange')}
           onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           onClick={action('onClick')}
-          onClose={action('onClose')}
+          onTagRemove={action('onTagRemove')}
         />
       </div>
     </div>

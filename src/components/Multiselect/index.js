@@ -35,8 +35,6 @@ class Multiselect extends Component {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     options: PropTypes.array,
     value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array,
       PropTypes.arrayOf(PropTypes.shape({
         value: PropTypes.string,
         label: PropTypes.string
@@ -45,8 +43,8 @@ class Multiselect extends Component {
     onInputChange: PropTypes.func,
     onChange: PropTypes.func,
     label: PropTypes.string,
-    selectLabel: PropTypes.string,
-    tagsLabel: PropTypes.string,
+    selectLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    tagsLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     renderTags: PropTypes.bool,
@@ -59,8 +57,6 @@ class Multiselect extends Component {
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
       value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array,
         PropTypes.arrayOf(PropTypes.shape({
           value: PropTypes.string,
           label: PropTypes.string
