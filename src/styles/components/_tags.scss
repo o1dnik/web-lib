@@ -78,21 +78,21 @@
     font-size: rem(20);
     padding: 1.25em 2em;
   }
-}
+  &.tag-clickable{
+    cursor: pointer;
+  }
 
-&.tag-clickable{
-  cursor: pointer;
-}
+  &.tag-disabled{
+    cursor: not-allowed;
+  }
 
-&.tag-disabled{
-  cursor: not-allowed;
-}
-
-&.tag-icon{
-  *+*{
-    margin-left: .625em;
+  &.tag-icon{
+    *+*{
+      margin-left: .625em;
+    }
   }
 }
+
 
 .inline-values{
   display: flex;
