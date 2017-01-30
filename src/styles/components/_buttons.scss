@@ -12,6 +12,11 @@ $button-colors: (
   font-weight: 700;
   padding: $base-font-size+2px 1em;
   font-size: $base-font-size;
+  line-height: 1;
+  &.button-rounded{
+    border-radius: 10rem;
+    padding: .5em;
+  }
   // Sizes
   &.button-xsmall{
     font-size: rem(11);
@@ -75,25 +80,17 @@ $button-colors: (
       }
     }
   }
+  &.button-link{
+    color: $base-font-color;
+    padding: .25em 0;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid $base-font-color;
+  }
 }
 
 .button-icon{
   *+*{
     padding-left: .625em;
-  }
-}
-
-.round-button {
-  background-color : $grey-md-light;
-  padding          : .35rem;
-  line-height      : 1;
-  color            : $white;
-  border-radius    : 10rem;
-  display          : inline-block;
-  transition       : background-color $base-duration $base-timing;
-  &:hover,
-  &.active {
-    background-color : $action-color;
-    color            : $white;
   }
 }

@@ -1,103 +1,172 @@
 .tags-wrapper{
-	margin: .65em 0;
+  margin: .65em 0;
 }
 .tag{
-	&.default{
-		display: inline-block;
-		padding: .7em;
-		margin: 0 .5em;
-		background-color: $grey-light;
-		border-radius: $base-border-radius;
-		border: 1px solid shade($grey-light, 5%);
-		white-space: nowrap;
-		line-height: 1;
-		font-size: rem(12);
-	}
+  // Basics
+  display: inline-block;
+  border-radius: $base-border-radius;
+  border-width: 1px;
+  border-style: solid;
+  margin-right: .5em;
+  line-height: 1;
+  white-space: nowrap;
+  &.tag-extended{
+    display: block;
+    text-align: center;
+  }
+  // Colors
+  &.tag-default{
+    background-color: $grey-light;
+    border-color: shade($grey-light, 5%);
+    &.tag-bordered{
+      background-color: $white;
+      border-color: $grey;
+    }
+  }
+  &.tag-primary{
+    background-color: tint($green, 90%);
+    border-color: transparent;
+    &.tag-bordered{
+      border-color: $green;
+    }
+  }
+  &.tag-danger{
+    color: shade($warning-yellow, 10%);
+    border-color: transparent;
+    background-color: tint($warning-yellow, 75%);
+    &.tag-bordered{
+      border-color: $warning-yellow;
+    }
+  }
+  &.tag-light{
+    color: $grey;
+    background-color: tint($grey-light, 40%);
+    border-color: $grey-light;
+    &.tag-bordered{
+      background-color: $white;
+      border-color: $grey;
+    }
+  }
+  // Sizes
+  &.tag-xsmall{
+    font-size: rem(10);
+    padding: .5em;
+  }
+  &.tag-small{
+    font-size: rem(12);
+    padding: .7em;
+  }
+  &.tag-medium{
+    font-size: rem(14);
+    padding: $base-font-size+2px 1em;
+  }
+  &.tag-large{
+    font-size: rem(16);
+    padding: rem(20) 2.4em;
+  }
+  &.tag-xlarge{
+    font-size: rem(20);
+    padding: 1.25em 2em;
+  }
 }
 
-.tag{
-	// display: inline-block;
-	// padding: .7em;
-	// margin: 0 .5em;
-	// background-color: $grey-light;
-	// border-radius: $base-border-radius;
-	// border: 1px solid shade($grey-light, 5%);
-	// white-space: nowrap;
-	// line-height: 1;
-	// font-size: rem(12);
-	// &:first-child{
-	// 	margin-left: 0;
-	// }
-	&.tag-active{
-		background-color: tint($green, 90%);
-		border-color: tint($green, 90%);
-	}
-	.close{
-		margin-left: .8em;
-	}
-	&.extended{
-		display: block;
-		text-align: center;
-		margin: 0;
-		font-weight: $bold;
-		color: $grey;
-		padding: 1em;
-	}
-	&.pending{
-		color: $warning-yellow;
-		border-color: $warning-yellow;
-		background-color: tint($warning-yellow, 75%);
-	}
-	&.active{
-		color: $green;
-		border-color: $green;
-		background-color: tint($green, 95%);
-	}
+// Other
+&.tag-clickable{
+  cursor: pointer;
+}
+&.tag-disabled{
+  @extend .tag-light;
+  cursor: not-allowed;
+}
+&.tag-icon{
+  *+*{
+    margin-left: .625em;
+  }
+}
+
+.tagOld{
+  display: inline-block;
+  padding: .7em;
+  margin: 0 .5em;
+  background-color: $grey-light;
+  border-radius: $base-border-radius;
+  border: 1px solid shade($grey-light, 5%);
+  white-space: nowrap;
+  line-height: 1;
+  font-size: rem(12);
+  &:first-child{
+   margin-left: 0;
+  }
+  &.tag-active{
+    background-color: tint($green, 90%);
+    border-color: tint($green, 90%);
+  }
+  .close{
+    margin-left: .8em;
+  }
+  &.extended{
+    display: block;
+    text-align: center;
+    margin: 0;
+    font-weight: $bold;
+    color: $grey;
+    padding: 1em;
+  }
+  &.pending{
+    color: $warning-yellow;
+    border-color: $warning-yellow;
+    background-color: tint($warning-yellow, 75%);
+  }
+  &.active{
+    color: $green;
+    border-color: $green;
+    background-color: tint($green, 95%);
+  }
 }
 
 .value-tag{
-	display: block;
-	border: solid 1px $grey;
-	padding: $base-font-size+1px 1em;
-	line-height: 1;
-	border-radius: $base-border-radius;
-	@extend %text-center;
-	&.active{
-		cursor: pointer;
-		&:hover{
-			background-color: $grey-light;
-		}
-	}
-	&.extended{
-		display: flex;
-		justify-content: space-between;
-		text-align: left;
-	}
-	&.undone{
-		background-color: $grey-light;
-		border-color: $grey-md-light;
-	}
-	&.done,
-	&.selected{
-		background-color: tint($green, 90%);
-		border-color: $green;
-	}
-	&.small{
-		font-size: rem(12);
-		padding: rem(10) 2em;
-	}
-	.checked{
-		color: $green;
-	}
+  display: block;
+  border: solid 1px $grey;
+  padding: $base-font-size+1px 1em;
+  line-height: 1;
+  border-radius: $base-border-radius;
+  @extend %text-center;
+  &.active{
+    cursor: pointer;
+    &:hover{
+      background-color: $grey-light;
+    }
+  }
+  &.extended{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+  &.undone{
+    background-color: $grey-light;
+    border-color: $grey-md-light;
+  }
+  &.done,
+  &.selected{
+    background-color: tint($green, 90%);
+    border-color: $green;
+  }
+  &.small{
+    font-size: rem(12);
+    padding: rem(10) 2em;
+  }
+  .checked{
+    color: $green;
+  }
 }
 
 .inline-values{
-	display: flex;
-	justify-content: space-between;
-	> *{
-		flex-grow: 1;
-		margin: 0 .25rem;
-		&:first-child{ margin-left: 0;}
-		&:last-child{margin-right: 0;}
-	}
+  display: flex;
+  justify-content: space-between;
+  > *{
+    flex-grow: 1;
+    margin: 0 .25rem;
+    &:first-child{ margin-left: 0;}
+    &:last-child{margin-right: 0;}
+  }
 }
