@@ -85,7 +85,6 @@
 }
 
 &.tag-disabled{
-  @extend .tag-light;
   cursor: not-allowed;
 }
 

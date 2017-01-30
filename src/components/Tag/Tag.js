@@ -91,7 +91,7 @@ class Tag extends Component {
       <span
         onClick={!disabled && onClick}
         className={css}
-        disabled={disabled}>
+      >
         {newCildren}
       </span>
     );

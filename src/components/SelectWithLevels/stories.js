@@ -85,103 +85,109 @@ roles = flatten(
 storiesOf('SelectWithLevels', module)
   .add('Default', () => (
     <div>
-      <SelectWithLevels
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{}}
-        selectOptions={roles}
-        levelOptions={jobLevels}
-      />
-    </div>
-  ))
-  .add('With selected values', () => (
-    <div>
-      <SelectWithLevels
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '3',
-          level: '2'
-        }}
-        selectOptions={roles}
-        levelOptions={jobLevels}
-      />
-    </div>
-  ))
-  .add('Success', () => (
-    <div>
-      <SelectWithLevels
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '3',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          valid: true
-        }}
-        selectOptions={roles}
-        levelOptions={jobLevels}
-      />
-    </div>
-  ))
-  .add('Error', () => (
-    <div>
-      <SelectWithLevels
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '3',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          invalid: true,
-          error: 'My error message'
-        }}
-        selectOptions={roles}
-        levelOptions={jobLevels}
-      />
-    </div>
-  ))
-  .add('readOnly', () => (
-    <div>
-      <SelectWithLevels
-        label='readOnly'
-        disabled
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '3',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          invalid: true,
-          error: 'My error message'
-        }}
-        selectOptions={roles}
-        levelOptions={jobLevels}
-      />
+
+      <div>
+        <h4>Default</h4>
+        <SelectWithLevels
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{}}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
+        <h4>With selected values</h4>
+        <SelectWithLevels
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '3',
+            level: '2'
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Success</h4>
+        <SelectWithLevels
+          disabledIfValid
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '3',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            valid: true
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Error</h4>
+        <SelectWithLevels
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '3',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
+        <h4>readOnly</h4>
+        <SelectWithLevels
+          label='readOnly'
+          disabled
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '3',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
     </div>
   ));
 

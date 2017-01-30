@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Select from '../Select';
-import Tags from '../Tags';
+import Tag from '../Tag/Tag';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 
@@ -102,14 +102,17 @@ class SelectWithLevels extends Component {
           disabled={disabled || disabledIfValid && valid}
         />
 
-        <Tags label={subLabel}
-              disabled={disabled || disabledIfValid && valid}
-              tags={levelOptions}
-              hideClose
-              isActive={(val) => val === (value.level || input.value.level)}
-              activeItem={value.level || input.value.level}
-              toggleActive={this.handleLevelChange}
-        />
+        <label>{subLabel}</label>
+
+        <div className='select-with-levels-tags-wrapper'>
+          {
+            levelOptions.map(o =>
+              <Tag {...this.getCurrentTagProps(o)}>
+                {o.label}
+              </Tag>
+            )
+          }
+        </div>
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && error}
@@ -117,6 +120,31 @@ class SelectWithLevels extends Component {
 
       </div>
     );
+  }
+
+  getCurrentTagProps = (currentTag) => {
+    const {disabledIfValid, disabled} = this.props;
+    const {valid} = this.props.meta;
+
+    const currentValue = this.props.value || this.props.input.value;
+
+    const props = {
+      key: currentTag.value,
+      size: 'medium',
+      disabled: disabled || disabledIfValid && valid,
+      onClick: this.handleLevelChange(currentTag.value)
+    };
+
+    // currentTag.value - from options
+    // currentValue.level - from selected value
+    if (currentTag.value === currentValue.level) {
+      props.color = 'primary';
+    } else {
+      props.color = 'default';
+    }
+
+    return props;
+
   }
 
   handleSelectChange = (selectValue) => {
