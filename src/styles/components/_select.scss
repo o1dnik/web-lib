@@ -1,0 +1,20 @@
+.Select{
+  input{
+    padding: 1em 0;
+  }
+}
+
+.select-wrapper{
+  &.select-input-success{
+    .Select-control{
+      background-color: tint($green, 90%);
+      border-color: $green;
+    }
+  }
+  &.select-input-error{
+    .Select-control{
+      background-color: tint($lipstick, 94%);
+      border-color: tint($lipstick, 65%);
+    }
+  }
+}

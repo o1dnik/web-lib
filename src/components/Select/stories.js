@@ -3,23 +3,25 @@ import {storiesOf, action} from '@kadira/storybook';
 import Select from './index';
 
 const options = [
-  {value: 'saraad',        label: 'anorthosite', isCategory: true},
-  {value: 'galant',        label: 'aglobulia'},
-  {value: 'biseriately',   label: 'chargeman'},
-  {value: 'antioxygenic',  label: 'gaggle'},
+  {value: 'saraad', label: 'anorthosite', isCategory: true},
+  {value: 'galant', label: 'aglobulia'},
+  {value: 'biseriately', label: 'chargeman'},
+  {value: 'antioxygenic', label: 'gaggle'},
   {value: 'exendospermic', label: 'renter'},
-  {value: 'chordacentrum', label: 'untrashed',   isCategory: true},
-  {value: 'polyspermal',   label: 'beclart'},
-  {value: 'paiwari',       label: 'bibitory'},
+  {value: 'chordacentrum', label: 'untrashed', isCategory: true},
+  {value: 'polyspermal', label: 'beclart'},
+  {value: 'paiwari', label: 'bibitory'},
   {value: 'respirability', label: 'photodynamics'},
-  {value: 'unmeetly',      label: 'overobese',   isCategory: true},
-  {value: 'Primates',      label: 'anthropodeoxycholic'}
+  {value: 'unmeetly', label: 'overobese', isCategory: true},
+  {value: 'Primates', label: 'anthropodeoxycholic'}
 ];
 
 storiesOf('Select', module)
   .add('Default', () => (
     <div>
+
       <div>
+        <h4>Default</h4>
         <Select
           options={options}
           onInputChange={action('onInputChange')}
@@ -28,11 +30,40 @@ storiesOf('Select', module)
           onBlur={action('onBlur')}
         />
       </div>
-    </div>
-  ))
-  .add('With selected value', () => (
-    <div>
+
       <div>
+        <h4>Success</h4>
+        <Select
+          options={options}
+          onInputChange={action('onInputChange')}
+          onSelect={action('onSelect')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
+          meta={{
+            touched: true,
+            valid: true
+          }}
+        />
+      </div>
+
+      <div>
+        <h4>Error</h4>
+        <Select
+          options={options}
+          onInputChange={action('onInputChange')}
+          onSelect={action('onSelect')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+        />
+      </div>
+
+      <div>
+        <h4>With Value</h4>
         <Select
           label='input #1'
           value='antioxygenic'
@@ -77,11 +108,9 @@ storiesOf('Select', module)
           onBlur={action('onBlur')}
         />
       </div>
-    </div>
-  ))
-  .add('States & Props', () => (
-    <div>
+
       <div>
+        <h4>Multi</h4>
         <Select
           label='Multi'
           multi
@@ -93,6 +122,7 @@ storiesOf('Select', module)
         />
       </div>
       <div>
+        <h4>Disabled</h4>
         <Select
           label='disabled'
           disabled
@@ -138,10 +168,7 @@ storiesOf('Select', module)
           onBlur={action('onBlur')}
         />
       </div>
-    </div>
-  ))
-  .add('searching props', () => (
-    <div>
+
       <div>
         <Select
           label='Match on beginning (type g)'
@@ -197,5 +224,6 @@ storiesOf('Select', module)
           onBlur={action('onBlur')}
         />
       </div>
+
     </div>
   ));

@@ -39,78 +39,76 @@ const value3 = [
 
 storiesOf('CheckboxGroup', module)
   .add('Default', () => (
-    <CheckboxGroup
-      options={options1}
-      value={value1}
-      onChange={action('changed')}/>
-  ))
-  .add('With Label', () => (
     <div>
+
       <div>
+        <h3>Default</h3>
+        <CheckboxGroup
+          options={options1}
+          value={value1}
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
+      </div>
+
+      <div>
+        <h3>Untouched state</h3>
         <CheckboxGroup
           label='My group'
           options={options1}
           value={value1}
           onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
         />
       </div>
+
       <div>
+        <h3>Success state</h3>
         <CheckboxGroup
-          label='My second group'
-          options={options3}
-          value={value3}
-          onChange={action('changed')}
-        />
-      </div>
-      <div>
-        <CheckboxGroup
-          label='My another group'
+          label='My success group'
           options={options2}
           value={value2}
+          meta={{
+            touched: true,
+            valid: true
+          }}
           onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
         />
       </div>
-    </div>
-  ))
-  .add('Validation States', () => {
 
-    return (
       <div>
-        <div>
-          <CheckboxGroup
-            label='My group'
-            options={options1}
-            value={value1}
-            onChange={action('changed')}
-          />
-        </div>
-        <div>
-          <CheckboxGroup
-            label='My error group'
-            options={options3}
-            value={value3}
-            meta={{
-              touched: true,
-              invalid: true,
-              error: 'My error message'
-            }}
-            onChange={action('changed')}
-          />
-        </div>
-        <div>
-          <CheckboxGroup
-            label='My success group'
-            options={options2}
-            value={value2}
-            meta={{
-              touched: true,
-              valid: true
-            }}
-            onChange={action('changed')}
-          />
-        </div>
+        <h3>Error state</h3>
+        <CheckboxGroup
+          label='My error group'
+          options={options3}
+          value={value3}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
       </div>
 
-    );
+      <div>
+        <h3>Simple Value</h3>
+        <CheckboxGroup
+          label='My group'
+          simpleValue
+          options={options1}
+          value={value1}
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
+      </div>
 
-  });
+    </div>
+  ));

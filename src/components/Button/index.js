@@ -1,5 +1,4 @@
 import React, {PropTypes, Component, Children} from 'react';
-import Loader from '../Loader';
 import {appendClassPrefix} from '../../helpers';
 import cn from 'classnames';
 
@@ -114,7 +113,7 @@ class Button extends Component {
         disabled={isDisabled}
       >
 
-        {loading && <Loader size='xsmall'/>}
+        {loading && <i className='mb-ico-spinner animate-spin' />}
 
         {newCildren}
 

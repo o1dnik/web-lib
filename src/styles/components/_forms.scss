@@ -83,18 +83,6 @@ textarea {
 	padding-top: .5em;
 }
 
-.Select{
-	input{
-		padding: 1em 0;
-	}
-	&.has-value{
-		.Select-control{
-			background-color: tint($green, 90%);
-			border-color: $green;
-		}
-	}
-}
-
 .jobcard{
 	.Select-option{
 		&.is-disabled{
