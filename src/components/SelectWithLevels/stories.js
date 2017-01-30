@@ -120,6 +120,27 @@ storiesOf('SelectWithLevels', module)
       </div>
 
       <div>
+        <h4>Simulate redux-form</h4>
+        <SelectWithLevels
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          input={{
+            value: {
+              select: '3',
+              level: '2'
+            },
+            meta: {}
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
         <h4>Success</h4>
         <SelectWithLevels
           disabledIfValid
