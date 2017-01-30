@@ -132,6 +132,7 @@ class SelectWithLevels extends Component {
 
     const props = {
       key: currentTag.value,
+      bordered: true,
       size: 'medium',
       disabled: disabled || disabledIfValid && valid,
       onClick: this.handleLevelChange(currentTag.value)
