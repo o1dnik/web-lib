@@ -49,8 +49,12 @@ class Tag extends Component {
     const withPrefix = appendClassPrefix('tag');
 
     const newCildren = Children.map(children, (c) => {
-      if (typeof c === 'string') {
+      if (typeof c === 'string' || typeof c === 'number') {
         return <span>{c}</span>;
+      }
+
+      if (c === null || c === undefined) {
+        return null;
       }
 
       let childClick;

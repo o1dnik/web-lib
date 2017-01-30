@@ -117,6 +117,9 @@ storiesOf('Tag', module)
         <h4>With clickable children icon</h4>
         <Tag onClick={action('clicked')}>
           Clickable tag and icon
+          {Number(5)}
+          {null}
+          {undefined}
           <i className='mb-ico-plus' onClick={action('icon-clicked')}/>
         </Tag>
         <Tag>
