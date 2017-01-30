@@ -12,46 +12,53 @@ const hrStyle = {
 };
 
 const options = [
-  {value: 'copastor',       label: 'thermetrograph', isCategory: true},
-  {value: 'cryoscopy',      label: 'uncharted'},
-  {value: 'bullyrook',      label: 'urethratresia'},
-  {value: 'thishow',        label: 'Sertulariidae'},
-  {value: 'bite',           label: 'personalization'},
-  {value: 'sharebroker',    label: 'Ganda',          isCategory: true},
-  {value: 'toxihemia',      label: 'haplostemonous'},
-  {value: 'brough',         label: 'amorphous'},
-  {value: 'insinuant',      label: 'phosphoroscope'},
-  {value: 'budget',         label: 'Mercatorial',    isCategory: true},
+  {value: 'copastor', label: 'thermetrograph', isCategory: true},
+  {value: 'cryoscopy', label: 'uncharted'},
+  {value: 'bullyrook', label: 'urethratresia'},
+  {value: 'thishow', label: 'Sertulariidae'},
+  {value: 'bite', label: 'personalization'},
+  {value: 'sharebroker', label: 'Ganda', isCategory: true},
+  {value: 'toxihemia', label: 'haplostemonous'},
+  {value: 'brough', label: 'amorphous'},
+  {value: 'insinuant', label: 'phosphoroscope'},
+  {value: 'budget', label: 'Mercatorial', isCategory: true},
   {value: 'multituberculy', label: 'fossula'}
 ];
 const tags = [
   {value: 'microanalyst', label: 'Aglossa'},
-  {value: 'nine',         label: 'cretion'},
-  {value: 'tailing',      label: 'Zoilean'}
+  {value: 'nine', label: 'cretion'},
+  {value: 'tailing', label: 'Zoilean'}
 ];
 
+const selectLabel = <span style={{color: 'red', textTransform: 'lowercase'}}>
+  Select label
+</span>;
+const tagsLabel = <span style={{color: 'blue', textTransform: 'lowercase'}}>
+  Tags label
+</span>;
 
 storiesOf('Multiselect', module)
   .add('Default', () => (
     <div>
+
       <div>
+        <h4>Default</h4>
+        <Multiselect
+          options={options}
+          value={[]}
+        />
+      </div>
+
+      <div>
+        <h4>Selected values</h4>
         <Multiselect
           options={options}
           value={tags}
         />
       </div>
-    </div>
-  ))
-  .add('states', () => {
-    const selectLabel = <span
-                          style={{color: 'red', textTransform: 'lowercase'}}
-                        >Select label</span>;
-    const tagsLabel = <span
-                        style={{color: 'blue', textTransform: 'lowercase'}}
-                      >Tags label</span>;
-    return (
-    <div>
+
       <div>
+        <h4>With custom Label</h4>
         <Multiselect
           label='General Label'
           selectLabel={selectLabel}
@@ -63,7 +70,9 @@ storiesOf('Multiselect', module)
           onBlur={action('onBlur')}
         />
       </div>
+
       <div>
+        <h4>Success</h4>
         <hr style={hrStyle}/>
         <Multiselect
           options={options}
@@ -71,19 +80,28 @@ storiesOf('Multiselect', module)
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
+          meta={{
+            touched: true,
+            valid: true
+          }}
         />
       </div>
       <div>
+        <h4>Error</h4>
         <hr style={hrStyle}/>
         <Multiselect
           options={options}
           value={tags}
-          extended
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
         />
       </div>
+
     </div>
-    );
-  });
+  ));

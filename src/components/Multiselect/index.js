@@ -40,11 +40,7 @@ class Multiselect extends Component {
     options: PropTypes.array,
     value: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.array,
-      PropTypes.arrayOf(PropTypes.shape({
-        value: PropTypes.string,
-        label: PropTypes.string
-      }))
+      PropTypes.array
     ]),
 
     onChange: PropTypes.func,
@@ -65,11 +61,7 @@ class Multiselect extends Component {
       onFocus: PropTypes.func,
       value: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.array,
-        PropTypes.arrayOf(PropTypes.shape({
-          value: PropTypes.string,
-          label: PropTypes.string
-        }))
+        PropTypes.array
       ])
     }),
 
@@ -126,18 +118,18 @@ class Multiselect extends Component {
       options: this.props.options,
 
       // callbacks
-      onInputChange: this.props.onChange || input.onChange,
+      onInputChange: this.props.onInputChange,
       onSelect: this.onTagAdd,              // uses onChange
       onBlur: this.onBlur,
       onFocus: this.props.onFocus || input.onFocus,
       loadOptions: this.props.loadOptions  // react-select async cb
     };
+
     const tagsProps = {
       id: this.props.tagsId,
       label: this.props.tagsLabel,
       hideClose: this.props.hideClose,
       closeIcon: this.props.closeIcon,
-      extended: this.props.extended,
       inactive: this.props.inactive,
 
       tags: this.props.value || input.value,
