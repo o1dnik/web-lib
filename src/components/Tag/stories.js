@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
-import Tag from './Tag';
+import Tag from './index';
 
 const sizes = [
   'xsmall',

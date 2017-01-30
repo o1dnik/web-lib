@@ -46,6 +46,9 @@ storiesOf('Multiselect', module)
         <Multiselect
           options={options}
           value={[]}
+          onChange={action('onChange')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
         />
       </div>
 
@@ -54,6 +57,9 @@ storiesOf('Multiselect', module)
         <Multiselect
           options={options}
           value={tags}
+          onChange={action('onChange')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
         />
       </div>
 

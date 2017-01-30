@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty';
 import merge from 'lodash/merge';
 import cn from 'classnames';
 import Select from '../Select';
-import Tags from '../Tags';
+import Tag from '../Tag/index';
 
 /**********
  *    Interface:
@@ -91,6 +91,7 @@ class Multiselect extends Component {
   render() {
     const {meta, input, label, id} = this.props;
     const {error, invalid, touched, dirty, valid} = meta;
+    const value = this.props.value || input.value;
 
     const selectProps = {
       // rendering or state
@@ -114,7 +115,7 @@ class Multiselect extends Component {
       renderTags: this.props.renderTags,
 
       // data entries
-      value: this.props.value || input.value,
+      value,
       options: this.props.options,
 
       // callbacks
@@ -123,19 +124,6 @@ class Multiselect extends Component {
       onBlur: this.onBlur,
       onFocus: this.props.onFocus || input.onFocus,
       loadOptions: this.props.loadOptions  // react-select async cb
-    };
-
-    const tagsProps = {
-      id: this.props.tagsId,
-      label: this.props.tagsLabel,
-      hideClose: this.props.hideClose,
-      closeIcon: this.props.closeIcon,
-      inactive: this.props.inactive,
-
-      tags: this.props.value || input.value,
-
-      onClick: this.props.onClick,
-      onTagRemove: this.onTagRemove
     };
 
     const css = cn({
@@ -156,7 +144,23 @@ class Multiselect extends Component {
         {label && <label htmlFor={id}>{label}</label>}
 
         <Select {...selectProps} />
-        <Tags   {...tagsProps} />
+
+        <div className='multiselect-tags-wrapper'>
+
+          {
+            value.map(v =>
+              <Tag
+                key={v.value}
+                color='primary'
+                size='small'
+              >
+                {v.label}
+                <i className='mb-ico-cross' onClick={this.onTagRemove(v)}/>
+              </Tag>
+            )
+          }
+
+        </div>
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && error}
@@ -186,7 +190,8 @@ class Multiselect extends Component {
 
   }
 
-  onTagRemove = (tag) => {
+  onTagRemove = (tag) => (e) => {
+    if (e) e.preventDefault();
     const {input, value, onChange} = this.props;
 
     const newTags = value

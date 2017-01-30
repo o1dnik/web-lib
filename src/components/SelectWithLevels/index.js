@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Select from '../Select';
-import Tag from '../Tag/Tag';
+import Tag from '../Tag/index';
 import cn from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 

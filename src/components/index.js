@@ -6,7 +6,7 @@ export Loader from './Loader';
 export Input from './Input';
 export TextareaInput from './TextareaInput';
 export Tag from './Tag';
-export Tags from './Tags';
+// export Tags from './Tags';
 export Select from './Select';
 export Multiselect from './Multiselect';
 export DoubleSelect from './DoubleSelect';
