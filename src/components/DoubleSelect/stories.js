@@ -28,103 +28,109 @@ const langs = [
 storiesOf('DoubleSelect', module)
   .add('Default', () => (
     <div>
-      <DoubleSelect
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{}}
-        selectOptions={langs}
-        levelOptions={langLevels}
-      />
-    </div>
-  ))
-  .add('With selected values', () => (
-    <div>
-      <DoubleSelect
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '148',
-          level: '2'
-        }}
-        selectOptions={langs}
-        levelOptions={langLevels}
-      />
-    </div>
-  ))
-  .add('Success', () => (
-    <div>
-      <DoubleSelect
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '47',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          valid: true
-        }}
-        selectOptions={langs}
-        levelOptions={langLevels}
-      />
-    </div>
-  ))
-  .add('Error', () => (
-    <div>
-      <DoubleSelect
-        label='JOB DESTIGATION'
-        subLabel='SUB LABEL YEARS OF EXPERIENCE'
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '72',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          invalid: true,
-          error: 'My error message'
-        }}
-        selectOptions={langs}
-        levelOptions={langLevels}
-      />
-    </div>
-  ))
-  .add('readOnly', () => (
-    <div>
-      <DoubleSelect
-        label='readOnly'
-        disabled
-        onRemove={action('remove')}
-        onChange={action('change')}
-        onFocus={action('focus')}
-        onBlur={action('blur')}
-        value={{
-          select: '72',
-          level: '2'
-        }}
-        meta={{
-          touched: true,
-          invalid: true,
-          error: 'My error message'
-        }}
-        selectOptions={langs}
-        levelOptions={langLevels}
-      />
+
+      <div>
+        <h4>Default</h4>
+        <DoubleSelect
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{}}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+      <div>
+        <h4>With selected values</h4>
+        <DoubleSelect
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '148',
+            level: '2'
+          }}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Success</h4>
+        <DoubleSelect
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '47',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            valid: true
+          }}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Error</h4>
+        <DoubleSelect
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '72',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+      <div>
+        <h4>readOnly</h4>
+        <DoubleSelect
+          label='readOnly'
+          disabled
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '72',
+            level: '2'
+          }}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+
     </div>
   ));
 
