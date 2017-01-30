@@ -6,8 +6,12 @@ import Select from '../Select';
 import Tags from '../Tags';
 
 /**********
- * How to use:
+ *    Interface:
+ * @options  {array} list of options in "dropdown"
+ * @value    {array} list of selected items from the "dropdown"
+ * @onChange {func}  cb on any value selected/removed
  *
+ *    How to use:
  * <Multiselect
  *   options={this.state.options}
  *   value={this.state.selected}
@@ -35,18 +39,21 @@ class Multiselect extends Component {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     options: PropTypes.array,
     value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
       PropTypes.arrayOf(PropTypes.shape({
         value: PropTypes.string,
         label: PropTypes.string
       }))
     ]),
-    onInputChange: PropTypes.func,
+
     onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+
     label: PropTypes.string,
     selectLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     tagsLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
     renderTags: PropTypes.bool,
 
     input: PropTypes.shape({
@@ -57,6 +64,8 @@ class Multiselect extends Component {
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
       value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
         PropTypes.arrayOf(PropTypes.shape({
           value: PropTypes.string,
           label: PropTypes.string
@@ -92,22 +101,16 @@ class Multiselect extends Component {
     const {error, invalid, touched, dirty, valid} = meta;
 
     const selectProps = {
+      // rendering or state
       label: this.props.selectLabel,
       name: this.props.name || input.name,
       placeholder: this.props.placeholder,
-      value: this.props.value || input.value,
-      loadOptions: this.props.loadOptions,
-      options: this.props.options,
-      optionRenderer: this.props.optionRenderer,
-      onInputChange: this.props.onInputChange,
-      onSelect: this.onTagAdd,
-      onBlur: this.onBlur,
-      onFocus: this.props.onFocus || input.onFocus,
-      isLoading: this.props.isLoading,
       noResultsText: this.props.noResultsText,
+      optionRenderer: this.props.optionRenderer,
+      arrowRenderer: this.props.arrowRenderer,
+      isLoading: this.props.isLoading,
       matchPos: this.props.matchPos,
       matchProp: this.props.matchProp,
-      arrowRenderer: this.props.arrowRenderer,
       multi: this.props.multi,
       simpleValue: this.props.simpleValue,
       disabled: this.props.disabled,
@@ -116,18 +119,31 @@ class Multiselect extends Component {
       clearIcon: this.props.clearIcon,
       clearIconHTML: this.props.clearIconHTML,
       noArrow: this.props.noArrow,
-      renderTags: this.props.renderTags
+      renderTags: this.props.renderTags,
+
+      // data entries
+      value: this.props.value || input.value,
+      options: this.props.options,
+
+      // callbacks
+      onInputChange: this.props.onChange || input.onChange,
+      onSelect: this.onTagAdd,              // uses onChange
+      onBlur: this.onBlur,
+      onFocus: this.props.onFocus || input.onFocus,
+      loadOptions: this.props.loadOptions  // react-select async cb
     };
     const tagsProps = {
       id: this.props.tagsId,
       label: this.props.tagsLabel,
-      tags: this.props.value || input.value,
-      onClick: this.props.onClick,
-      onTagRemove: this.onTagRemove,
       hideClose: this.props.hideClose,
       closeIcon: this.props.closeIcon,
       extended: this.props.extended,
-      inactive: this.props.inactive
+      inactive: this.props.inactive,
+
+      tags: this.props.value || input.value,
+
+      onClick: this.props.onClick,
+      onTagRemove: this.onTagRemove
     };
 
     const css = cn({

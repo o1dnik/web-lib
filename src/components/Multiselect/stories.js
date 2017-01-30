@@ -59,11 +59,8 @@ storiesOf('Multiselect', module)
           options={options}
           value={tags}
           onChange={action('onChange')}
-          onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
-          onClick={action('onClick')}
-          onTagRemove={action('onTagRemove')}
         />
       </div>
       <div>
@@ -72,11 +69,8 @@ storiesOf('Multiselect', module)
           options={options}
           value={tags}
           onChange={action('onChange')}
-          onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
-          onClick={action('onClick')}
-          onTagRemove={action('onTagRemove')}
         />
       </div>
       <div>
@@ -86,11 +80,8 @@ storiesOf('Multiselect', module)
           value={tags}
           extended
           onChange={action('onChange')}
-          onSelect={action('onSelect')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
-          onClick={action('onClick')}
-          onTagRemove={action('onTagRemove')}
         />
       </div>
     </div>
