@@ -54,6 +54,7 @@ class Tag extends Component {
       }
 
       let childClick;
+      let className = c.props.className;
 
       if (c.props.onClick) {
         childClick = c.props.onClick;
@@ -61,9 +62,16 @@ class Tag extends Component {
 
       if (c.type === 'i' && c.props.onClick) {
         childClick = wrapToStopPropagation(c.props.onClick);
+        className = cn({
+          [withPrefix('clickable')]: Boolean(childClick && !disabled)
+        }, className);
       }
 
-      return React.cloneElement(c, {...c.props, onClick: childClick});
+      return React.cloneElement(c, {
+        ...c.props,
+        onClick: childClick,
+        className
+      });
     });
 
     const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i');

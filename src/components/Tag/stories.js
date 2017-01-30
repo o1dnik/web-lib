@@ -76,6 +76,22 @@ storiesOf('Tag', module)
       </div>
 
       <div>
+        <h4>Extended with text and icon</h4>
+        <Tag extended>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Blanditiis consequatur excepturi exercitationem illum
+            necessitatibus quis quisquam sint velit! Eaque nihil porro ratione.
+            Impedit quaerat quidem sequi veniam veritatis! Culpa error numquam
+            perferendis. A asperiores ducimus est nostrum sint temporibus
+            voluptatibus. A animi, deserunt eius fugit ipsa minima pariatur
+            quas ut.
+          </span>
+          <i className='mb-ico-plus' onClick={action('icon-clicked')}/>
+        </Tag>
+      </div>
+
+      <div>
         <h4>Disabled</h4>
         <Tag disabled onClick={action('clicked')}>
           <span>Disabled</span>
