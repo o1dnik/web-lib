@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import isEmpty from 'lodash/isEmpty';
-import merge from 'lodash/merge';
+import unionBy from 'lodash/unionBy';
 import cn from 'classnames';
 import Select from '../Select';
 import Tag from '../Tag/index';
@@ -206,7 +206,7 @@ class Multiselect extends Component {
     const {input, onChange} = this.props;
 
     const oldVal = this.getOldValue();
-    const newVal = merge(oldVal, updVal);  // multi => arrays merge
+    const newVal = unionBy(oldVal, updVal, 'value');  // multi => arrays merge
 
     if (onChange) onChange(newVal);
     if (!onChange && input.onChange) input.onChange(newVal);
