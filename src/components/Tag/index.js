@@ -67,7 +67,7 @@ class Tag extends Component {
       if (c.type === 'i' && c.props.onClick) {
         childClick = wrapToStopPropagation(c.props.onClick);
         className = cn({
-          [withPrefix('clickable')]: Boolean(childClick && !disabled)
+          clickable: Boolean(childClick && !disabled)
         }, className);
       }
 
@@ -85,7 +85,7 @@ class Tag extends Component {
       [withPrefix(color)]: Boolean(color),
       [withPrefix(size)]: Boolean(size),
       [withPrefix('bordered')]: Boolean(bordered),
-      [withPrefix('clickable')]: Boolean(onClick && !disabled),
+      clickable: Boolean(onClick && !disabled),
       [withPrefix('extended')]: Boolean(extended),
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('icon')]: Boolean(hasIcon)
