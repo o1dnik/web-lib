@@ -29,7 +29,7 @@
     background-color: $grey-light;
     border-color: transparent;
     &.tag-bordered{
-      border-color: $grey;
+      border-color: shade($grey-light, 5%);
     }
   }
   &.tag-primary{

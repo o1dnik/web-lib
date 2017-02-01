@@ -71,8 +71,8 @@ storiesOf('Tag', module)
       <div>
         <h4>Value Tag</h4>
         {
-          colors.map(s =>
-            <Tag value key={s} bordered color={s}>
+          sizes.map(s =>
+            <Tag value key={s} size={s}>
               <span>{s}</span>
             </Tag>
           )
