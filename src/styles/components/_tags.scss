@@ -27,9 +27,8 @@
   // Colors
   &.tag-default{
     background-color: $grey-light;
-    border-color: shade($grey-light, 5%);
+    border-color: transparent;
     &.tag-bordered{
-      background-color: $white;
       border-color: $grey;
     }
   }
@@ -51,12 +50,17 @@
   &.tag-light{
     color: $grey;
     background-color: tint($grey-light, 40%);
-    border-color: $grey-light;
+    border-color: transparent;
     &.tag-bordered{
-      background-color: $white;
       border-color: $grey;
     }
   }
+
+  &.tag-value{
+    background-color: $white;
+    border-color: $grey;
+  }
+
   // Sizes
   &.tag-xsmall{
     font-size: rem(10);

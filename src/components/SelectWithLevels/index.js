@@ -135,6 +135,7 @@ class SelectWithLevels extends Component {
       props.color = 'primary';
     } else {
       props.color = 'default';
+      props.value = true;
     }
 
     return props;

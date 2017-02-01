@@ -69,6 +69,17 @@ storiesOf('Tag', module)
       </div>
 
       <div>
+        <h4>Value Tag</h4>
+        {
+          colors.map(s =>
+            <Tag value key={s} bordered color={s}>
+              <span>{s}</span>
+            </Tag>
+          )
+        }
+      </div>
+
+      <div>
         <h4>Extended</h4>
         <Tag extended>
           <span>Extended</span>
