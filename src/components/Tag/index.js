@@ -70,7 +70,7 @@ class Tag extends Component {
       if (c.type === 'i' && c.props.onClick) {
         childClick = wrapToStopPropagation(c.props.onClick);
         className = cn({
-          clickable: Boolean(childClick && !disabled)
+          close: Boolean(childClick && !disabled)
         }, className);
       }
 
