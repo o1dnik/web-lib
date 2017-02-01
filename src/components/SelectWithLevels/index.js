@@ -89,6 +89,7 @@ class SelectWithLevels extends Component {
           options={selectOptions}
           clearable={false}
           searchable={false}
+          noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
 

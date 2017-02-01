@@ -85,6 +85,7 @@ class DoubleSelect extends Component {
           onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
           onFocus={this.handleSelectFocus}
+          noArrow={disabled || disabledIfValid && valid}
           options={selectOptions}
           clearable={false}
           searchable={searchableSelect}
@@ -101,6 +102,7 @@ class DoubleSelect extends Component {
           options={levelOptions}
           clearable={false}
           searchable={false}
+          noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
 
