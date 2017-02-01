@@ -123,7 +123,6 @@ class SelectWithLevels extends Component {
 
     const props = {
       key: currentTag.value,
-      bordered: true,
       size: 'medium',
       disabled: disabled || disabledIfValid && valid,
       onClick: this.handleLevelChange(currentTag.value)
@@ -133,6 +132,7 @@ class SelectWithLevels extends Component {
     // currentValue.level - from selected value
     if (currentTag.value === currentValue.level) {
       props.color = 'primary';
+      props.bordered = true;
     } else {
       props.color = 'default';
       props.value = true;
