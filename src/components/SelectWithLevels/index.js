@@ -106,7 +106,7 @@ class SelectWithLevels extends Component {
         </div>
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty && touched) && invalid && error}
           </span>
 
       </div>
