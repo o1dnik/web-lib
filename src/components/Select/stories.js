@@ -25,7 +25,7 @@ storiesOf('Select', module)
         <Select
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -36,7 +36,7 @@ storiesOf('Select', module)
         <Select
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           meta={{
@@ -51,7 +51,7 @@ storiesOf('Select', module)
         <Select
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           meta={{
@@ -69,7 +69,7 @@ storiesOf('Select', module)
           value='antioxygenic'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -81,7 +81,7 @@ storiesOf('Select', module)
           noArrow
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -92,7 +92,7 @@ storiesOf('Select', module)
           arrowRenderer={() => 'CustomArrow'}
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -103,7 +103,7 @@ storiesOf('Select', module)
           clearIconHTML='<i class="mb-icons-checkmark"></i>'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -116,7 +116,7 @@ storiesOf('Select', module)
           multi
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -128,7 +128,7 @@ storiesOf('Select', module)
           disabled
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -140,7 +140,7 @@ storiesOf('Select', module)
           clearable={false}
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -151,7 +151,7 @@ storiesOf('Select', module)
           searchable={false}
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -163,7 +163,7 @@ storiesOf('Select', module)
           disabled
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -175,7 +175,7 @@ storiesOf('Select', module)
           matchPos='start'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -186,7 +186,7 @@ storiesOf('Select', module)
           matchPos='any'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -197,7 +197,7 @@ storiesOf('Select', module)
           matchProp='label'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -208,7 +208,7 @@ storiesOf('Select', module)
           matchProp='value'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />
@@ -219,7 +219,7 @@ storiesOf('Select', module)
           matchProp='any'
           options={options}
           onInputChange={action('onInputChange')}
-          onSelect={action('onSelect')}
+          onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
         />

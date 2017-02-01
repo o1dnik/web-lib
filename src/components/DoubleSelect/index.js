@@ -92,7 +92,7 @@ class DoubleSelect extends Component {
         <Select
           value={value.select || input.value.select}
           onInputChange={this.props.onInputChange}
-          onSelect={this.handleSelectChange}
+          onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
           onFocus={this.handleSelectFocus}
           options={selectOptions}
@@ -105,7 +105,7 @@ class DoubleSelect extends Component {
         <Select
           label={subLabel}
           value={value.level || input.value.level}
-          onSelect={this.handleLevelChange}
+          onChange={this.handleLevelChange}
           onBlur={this.handleLevelBlur}
           onFocus={this.handleLevelFocus}
           options={levelOptions}

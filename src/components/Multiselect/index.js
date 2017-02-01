@@ -120,7 +120,7 @@ class Multiselect extends Component {
 
       // callbacks
       onInputChange: this.props.onInputChange,
-      onSelect: this.onTagAdd,              // uses onChange
+      onChange: this.onTagAdd,              // uses onChange
       onBlur: this.onBlur,
       onFocus: this.props.onFocus || input.onFocus,
       loadOptions: this.props.loadOptions  // react-select async cb

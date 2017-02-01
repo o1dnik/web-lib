@@ -93,7 +93,7 @@ class SelectWithLevels extends Component {
         <Select
           value={value.select || input.value.select}
           onInputChange={this.props.onInputChange}
-          onSelect={this.handleSelectChange}
+          onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
           onFocus={this.handleSelectFocus}
           options={selectOptions}
