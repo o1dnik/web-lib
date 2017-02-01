@@ -93,10 +93,7 @@ storiesOf('DoubleSelect', module)
           onChange={action('change')}
           onFocus={action('focus')}
           onBlur={action('blur')}
-          value={{
-            select: '72',
-            level: '2'
-          }}
+          value={{}}
           meta={{
             touched: true,
             invalid: true,

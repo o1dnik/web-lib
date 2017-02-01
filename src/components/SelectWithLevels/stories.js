@@ -172,10 +172,7 @@ storiesOf('SelectWithLevels', module)
           onChange={action('change')}
           onFocus={action('focus')}
           onBlur={action('blur')}
-          value={{
-            select: '3',
-            level: '2'
-          }}
+          value={{}}
           meta={{
             touched: true,
             invalid: true,
@@ -198,11 +195,6 @@ storiesOf('SelectWithLevels', module)
           value={{
             select: '3',
             level: '2'
-          }}
-          meta={{
-            touched: true,
-            invalid: true,
-            error: 'My error message'
           }}
           selectOptions={roles}
           levelOptions={jobLevels}

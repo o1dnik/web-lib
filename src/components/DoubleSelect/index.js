@@ -45,16 +45,7 @@ class DoubleSelect extends Component {
 
   static defaultProps = {
     iconClassName: 'mb-ico-button-delete',
-    value: {
-      level: '',
-      select: ''
-    },
-    input: {
-      value: {
-        level: '',
-        select: ''
-      }
-    },
+    input: {},
     meta: {}
   };
 
@@ -83,14 +74,13 @@ class DoubleSelect extends Component {
       <div className={css}>
 
         {onRemove &&
-        <span style={{cursor: 'pointer'}} onClick={onRemove}>
+        <span className='close' onClick={onRemove}>
           <i className={iconClassName}/>
         </span>}
 
-        {label && <label>{label}</label>}
-
         <Select
-          value={value.select || input.value.select}
+          label={label}
+          value={value && value.select || input.value && input.value.select}
           onInputChange={this.props.onInputChange}
           onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
@@ -104,7 +94,7 @@ class DoubleSelect extends Component {
 
         <Select
           label={subLabel}
-          value={value.level || input.value.level}
+          value={value && value.level || input.value && input.value.level}
           onChange={this.handleLevelChange}
           onBlur={this.handleLevelBlur}
           onFocus={this.handleLevelFocus}

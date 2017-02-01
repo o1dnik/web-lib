@@ -46,16 +46,7 @@ class SelectWithLevels extends Component {
 
   static defaultProps = {
     iconClassName: 'mb-ico-button-delete',
-    value: {
-      level: '',
-      select: ''
-    },
-    input: {
-      value: {
-        level: '',
-        select: ''
-      }
-    },
+    input: {},
     meta: {}
   };
 
@@ -88,10 +79,9 @@ class SelectWithLevels extends Component {
           <i className={iconClassName}/>
         </span>}
 
-        {label && <label>{label}</label>}
-
         <Select
-          value={value.select || input.value.select}
+          label={label}
+          value={value && value.select || input.value && input.value.select}
           onInputChange={this.props.onInputChange}
           onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
