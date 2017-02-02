@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import Dropzone from 'react-dropzone';
+import Button from '../Button';
 import ImageCropper from '../ImageCropper';
 
 class FormImageUploader extends Component {
@@ -89,10 +90,9 @@ class FormImageUploader extends Component {
                            className={className}/>
                     </div>
                     {this.props.children ||
-                    <button type='button' className='button small'>
+                    <Button size='small'>
                       Upload
-                    </button>
-                    }
+                    </Button>}
                   </div>
                 </Dropzone>
               )
