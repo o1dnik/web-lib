@@ -5,6 +5,7 @@ function loadStories() {
   require('../src/components/Button/stories');
   require('../src/components/Box/stories');
   require('../src/components/Loader/stories');
+  require('../src/components/FontLoader/stories');
   require('../src/components/Input/stories');
   require('../src/components/TextareaInput/stories');
   require('../src/components/Checkbox/stories');
