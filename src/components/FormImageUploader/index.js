@@ -35,6 +35,11 @@ class FormImageUploader extends Component {
     type: PropTypes.string
   };
 
+  static defaultProps = {
+    meta: {},
+    input: {}
+  }
+
   state = {
     croppingImage: null
   }

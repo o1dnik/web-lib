@@ -20,6 +20,7 @@ function loadStories() {
   require('../src/components/DoubleSelect/stories');
   require('../src/components/AlertBar/stories');
   require('../src/components/StatsCircle/stories');
+  require('../src/components/FormImageUploader/stories');
 }
 
 configure(loadStories, module);
