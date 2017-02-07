@@ -87,6 +87,7 @@ $button-colors: (
     }
   }
   &.button-link{
+    min-width: 0;
     color: $base-font-color;
     padding: .25em 0;
     background-color: transparent;
