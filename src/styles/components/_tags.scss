@@ -72,7 +72,7 @@
   }
   &.tag-medium{
     font-size: rem(14);
-    padding: $base-font-size+2px 1em;
+    padding: $base-font-size+1px 1em;
   }
   &.tag-large{
     font-size: rem(16);
@@ -107,4 +107,8 @@
     &:first-child{ margin-left: 0;}
     &:last-child{margin-right: 0;}
   }
+}
+
+.tag-label{
+  padding-right: 1em;
 }
