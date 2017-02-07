@@ -103,6 +103,13 @@ storiesOf('Button', module)
       </div>
 
       <div>
+        <h4>As Custom Element</h4>
+        <Button as='div' onClick={action('clicked')}>
+          <span>As Link</span>
+        </Button>
+      </div>
+
+      <div>
         <h4>Rounded</h4>
         <Button rounded onClick={action('clicked')}>
           <span>Rounded</span>

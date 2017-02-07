@@ -1,11 +1,12 @@
 import React, {PropTypes, Component, Children} from 'react';
-import {appendClassPrefix} from '../../helpers';
+import {appendClassPrefix, as} from '../../helpers';
 import cn from 'classnames';
 
 class Button extends Component {
 
   static propTypes = {
     href: PropTypes.string,
+    as,
     link: PropTypes.bool,
     target: PropTypes.string,
     type: PropTypes.string,
@@ -35,6 +36,7 @@ class Button extends Component {
   };
 
   static defaultProps = {
+    as: 'button',
     type: 'button',
     size: 'medium',
     color: 'default',
@@ -60,7 +62,9 @@ class Button extends Component {
       color,
       link,
       rounded,
-      children
+      children,
+      as,
+      ...rest
     } = this.props;
 
     const withPrefix = appendClassPrefix('button');
@@ -105,19 +109,22 @@ class Button extends Component {
 
     }
 
+    const Element = as;
+
     return (
-      <button
+      <Element
+        {...rest}
         type={type}
         className={css}
         onClick={onClick}
         disabled={isDisabled}
       >
 
-        {loading && <i className='mb-ico-spinner animate-spin' />}
+        {loading && <i className='mb-ico-spinner animate-spin'/>}
 
         {newCildren}
 
-      </button>
+      </Element>
     );
 
   }
