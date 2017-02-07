@@ -60,7 +60,7 @@ class FormImageUploader extends Component {
 
     const logoUploader =
       <div className={wrapperClass}>
-        <div className='long'>
+        <div>
           {
             croppingImage ?
               (
