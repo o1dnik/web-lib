@@ -151,7 +151,7 @@ class Multiselect extends Component {
             value.map(v =>
               <Tag
                 key={v.value}
-                color='primary'
+                color={touched && valid ? 'primary' : 'default'}
                 size='small'
               >
                 {v.label}
