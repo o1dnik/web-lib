@@ -82,7 +82,7 @@ class FormImageUploader extends Component {
                           multiple={false}
                           maxSize={1000000}
                           accept='image/*'>
-                  <div>
+                  <div className='split-group'>
                     <div className='short'>
                       <img alt={alt}
                            src={src}
@@ -90,9 +90,11 @@ class FormImageUploader extends Component {
                            className={className}/>
                     </div>
                     {this.props.children ||
-                    <Button size='small'>
-                      Upload
-                    </Button>}
+                    <div className='long'>
+                      <Button size='small'>
+                        Upload
+                      </Button>
+                    </div>}
                   </div>
                 </Dropzone>
               )
