@@ -102,9 +102,10 @@
   .tag{margin-top: rem(5);}
 }
 
-.inline-values{
+.select-with-levels-tags-wrapper{
   display: flex;
   justify-content: space-between;
+  @extend %text-center;
   > *{
     flex-grow: 1;
     margin: 0 .25rem;
