@@ -98,6 +98,10 @@
   cursor: pointer;
 }
 
+.multiselect-tags-wrapper{
+  .tag{margin-top: rem(5);}
+}
+
 .inline-values{
   display: flex;
   justify-content: space-between;
