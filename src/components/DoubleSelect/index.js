@@ -61,7 +61,8 @@ class DoubleSelect extends Component {
       'select-double': true,
       'options-box': true,
       'select-double-error': (touched && invalid),
-      'select-double-success': (touched && valid)
+      'select-double-success': (touched && valid),
+      done: valid
     });
 
     const inputMessageCss = cn({

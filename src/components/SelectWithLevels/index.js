@@ -62,7 +62,8 @@ class SelectWithLevels extends Component {
       'select-with-levels': true,
       'options-box': true,
       'select-with-levels-error': (touched && invalid),
-      'select-with-levels-success': (touched && valid)
+      'select-with-levels-success': (touched && valid),
+      done: valid
     });
 
     const inputMessageCss = cn({
