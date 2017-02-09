@@ -3,6 +3,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
 .button-loading{
   @extend .button-icon;
   .loader{
@@ -10,4 +11,11 @@
     transform: none;
     vertical-align: middle;
   }
+}
+
+.font-loader{
+  line-height: 1;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
