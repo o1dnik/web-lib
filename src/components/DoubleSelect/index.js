@@ -110,7 +110,7 @@ class DoubleSelect extends Component {
         />
 
 
-        {((value && value.select) || (input.value && input.value.select)) &&
+        {selectValid &&
         <Select
           label={subLabel}
           value={value && value.level || input.value && input.value.level}
@@ -125,8 +125,8 @@ class DoubleSelect extends Component {
             valid: levelValid,
             invalid: levelInValid
           }}
-          noArrow={disabled || disabledIfValid && valid}
-          disabled={disabled || disabledIfValid && valid}
+          noArrow={disabled}
+          disabled={disabled}
         />
         }
 

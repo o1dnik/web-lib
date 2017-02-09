@@ -104,7 +104,7 @@ class SelectWithLevels extends Component {
           disabled={disabled || disabledIfValid && valid}
         />
 
-        {((value && value.select) || (input.value && input.value.select)) &&
+        {selectValid &&
         <div>
           <label>{subLabel}</label>
 
