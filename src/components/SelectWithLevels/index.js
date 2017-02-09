@@ -62,7 +62,8 @@ class SelectWithLevels extends Component {
       'select-with-levels': true,
       'options-box': true,
       'select-with-levels-error': (touched && invalid),
-      'select-with-levels-success': (touched && valid)
+      'select-with-levels-success': (touched && valid),
+      done: valid
     });
 
     const inputMessageCss = cn({
@@ -70,6 +71,11 @@ class SelectWithLevels extends Component {
       'input-message-error': (touched && invalid),
       'input-message-success': (touched && valid)
     });
+
+    const selectValid = Boolean(
+      (value && value.select) || (input.value && input.value.select)
+    );
+    const selectInValid = !selectValid;
 
     return (
       <div className={css}>
@@ -89,24 +95,33 @@ class SelectWithLevels extends Component {
           options={selectOptions}
           clearable={false}
           searchable={false}
+          meta={{
+            touched,
+            valid: selectValid,
+            invalid: selectInValid
+          }}
           noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
 
-        <label>{subLabel}</label>
+        {((value && value.select) || (input.value && input.value.select)) &&
+        <div>
+          <label>{subLabel}</label>
 
-        <div className='select-with-levels-tags-wrapper'>
-          {
-            levelOptions.map(o =>
-              <Tag {...this.getCurrentTagProps(o)}>
-                {o.label}
-              </Tag>
-            )
-          }
+          <div className='select-with-levels-tags-wrapper'>
+            {
+              levelOptions.map(o =>
+                <Tag {...this.getCurrentTagProps(o)}>
+                  {o.label}
+                </Tag>
+              )
+            }
+          </div>
         </div>
+        }
 
         <span className={inputMessageCss}>
-          {(dirty && touched) && invalid && error}
+          {(dirty || touched) && invalid && error}
           </span>
 
       </div>
