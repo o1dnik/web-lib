@@ -94,6 +94,8 @@ class DoubleSelect extends Component {
           disabled={disabled || disabledIfValid && valid}
         />
 
+
+        {((value && value.select) || (input.value && input.value.select)) &&
         <Select
           label={subLabel}
           value={value && value.level || input.value && input.value.level}
@@ -106,6 +108,7 @@ class DoubleSelect extends Component {
           noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
+        }
 
         <span className={inputMessageCss}>
           {(dirty && touched) && invalid && error}

@@ -94,17 +94,21 @@ class SelectWithLevels extends Component {
           disabled={disabled || disabledIfValid && valid}
         />
 
-        <label>{subLabel}</label>
+        {((value && value.select) || (input.value && input.value.select)) &&
+        <div>
+          <label>{subLabel}</label>
 
-        <div className='select-with-levels-tags-wrapper'>
-          {
-            levelOptions.map(o =>
-              <Tag {...this.getCurrentTagProps(o)}>
-                {o.label}
-              </Tag>
-            )
-          }
+          <div className='select-with-levels-tags-wrapper'>
+            {
+              levelOptions.map(o =>
+                <Tag {...this.getCurrentTagProps(o)}>
+                  {o.label}
+                </Tag>
+              )
+            }
+          </div>
         </div>
+        }
 
         <span className={inputMessageCss}>
           {(dirty && touched) && invalid && error}
