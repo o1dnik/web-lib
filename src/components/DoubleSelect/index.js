@@ -71,6 +71,21 @@ class DoubleSelect extends Component {
       'input-message-success': (touched && valid)
     });
 
+    const selectValid = Boolean(
+      (value && value.select) || (input.value && input.value.select)
+    );
+    const selectInValid = !selectValid;
+
+    const levelValid = Boolean(
+      (value && value.level) || (input.value && input.value.level)
+    );
+    const levelInValid = !levelValid;
+
+    console.log('selectValid', selectValid);
+    console.log('selectInValid', selectInValid);
+    console.log('levelValid', levelValid);
+    console.log('levelInValid', levelInValid);
+
     return (
       <div className={css}>
 
@@ -89,6 +104,11 @@ class DoubleSelect extends Component {
           noArrow={disabled || disabledIfValid && valid}
           options={selectOptions}
           clearable={false}
+          meta={{
+            touched,
+            valid: selectValid,
+            invalid: selectInValid
+          }}
           searchable={searchableSelect}
           isLoading={isLoading}
           disabled={disabled || disabledIfValid && valid}
@@ -105,13 +125,18 @@ class DoubleSelect extends Component {
           options={levelOptions}
           clearable={false}
           searchable={false}
+          meta={{
+            touched,
+            valid: levelValid,
+            invalid: levelInValid
+          }}
           noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
         }
 
         <span className={inputMessageCss}>
-          {(dirty && touched) && invalid && error}
+          {(dirty || touched) && invalid && error}
         </span>
 
       </div>

@@ -85,7 +85,7 @@ storiesOf('DoubleSelect', module)
       </div>
 
       <div>
-        <h4>Error</h4>
+        <h4>Error Select</h4>
         <DoubleSelect
           label='JOB DESTIGATION'
           subLabel='SUB LABEL YEARS OF EXPERIENCE'
@@ -96,6 +96,30 @@ storiesOf('DoubleSelect', module)
           value={{}}
           meta={{
             touched: true,
+            dirty: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={langs}
+          levelOptions={langLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Error Level</h4>
+        <DoubleSelect
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '47'
+          }}
+          meta={{
+            touched: true,
+            dirty: true,
             invalid: true,
             error: 'My error message'
           }}
@@ -116,11 +140,6 @@ storiesOf('DoubleSelect', module)
           value={{
             select: '72',
             level: '2'
-          }}
-          meta={{
-            touched: true,
-            invalid: true,
-            error: 'My error message'
           }}
           selectOptions={langs}
           levelOptions={langLevels}
