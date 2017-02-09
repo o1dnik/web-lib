@@ -81,11 +81,6 @@ class DoubleSelect extends Component {
     );
     const levelInValid = !levelValid;
 
-    console.log('selectValid', selectValid);
-    console.log('selectInValid', selectInValid);
-    console.log('levelValid', levelValid);
-    console.log('levelInValid', levelInValid);
-
     return (
       <div className={css}>
 

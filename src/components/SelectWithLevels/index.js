@@ -72,6 +72,11 @@ class SelectWithLevels extends Component {
       'input-message-success': (touched && valid)
     });
 
+    const selectValid = Boolean(
+      (value && value.select) || (input.value && input.value.select)
+    );
+    const selectInValid = !selectValid;
+
     return (
       <div className={css}>
 
@@ -90,6 +95,11 @@ class SelectWithLevels extends Component {
           options={selectOptions}
           clearable={false}
           searchable={false}
+          meta={{
+            touched,
+            valid: selectValid,
+            invalid: selectInValid
+          }}
           noArrow={disabled || disabledIfValid && valid}
           disabled={disabled || disabledIfValid && valid}
         />
@@ -111,7 +121,7 @@ class SelectWithLevels extends Component {
         }
 
         <span className={inputMessageCss}>
-          {(dirty && touched) && invalid && error}
+          {(dirty || touched) && invalid && error}
           </span>
 
       </div>

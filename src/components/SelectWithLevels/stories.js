@@ -164,7 +164,7 @@ storiesOf('SelectWithLevels', module)
       </div>
 
       <div>
-        <h4>Error</h4>
+        <h4>Error Select</h4>
         <SelectWithLevels
           label='JOB DESTIGATION'
           subLabel='SUB LABEL YEARS OF EXPERIENCE'
@@ -173,6 +173,28 @@ storiesOf('SelectWithLevels', module)
           onFocus={action('focus')}
           onBlur={action('blur')}
           value={{}}
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+          selectOptions={roles}
+          levelOptions={jobLevels}
+        />
+      </div>
+
+      <div>
+        <h4>Error Level</h4>
+        <SelectWithLevels
+          label='JOB DESTIGATION'
+          subLabel='SUB LABEL YEARS OF EXPERIENCE'
+          onRemove={action('remove')}
+          onChange={action('change')}
+          onFocus={action('focus')}
+          onBlur={action('blur')}
+          value={{
+            select: '3'
+          }}
           meta={{
             touched: true,
             invalid: true,
