@@ -89,7 +89,7 @@ class Multiselect extends Component {
   };
 
   render() {
-    const {meta, input, label, id} = this.props;
+    const {meta, input, label, id, disabled} = this.props;
     const {error, invalid, touched, dirty, valid} = meta;
     const value = this.props.value || input.value;
 
@@ -111,7 +111,7 @@ class Multiselect extends Component {
       searchable: this.props.searchable,
       clearIcon: this.props.clearIcon,
       clearIconHTML: this.props.clearIconHTML,
-      noArrow: this.props.noArrow,
+      noArrow: this.props.noArrow || disabled,
       renderTags: this.props.renderTags,
 
       // data entries
@@ -155,7 +155,8 @@ class Multiselect extends Component {
                 size='small'
               >
                 {v.label}
-                <i className='mb-ico-cross' onClick={this.onTagRemove(v)}/>
+                <i className='mb-ico-cross'
+                   onClick={!disabled && this.onTagRemove(v)}/>
               </Tag>
             )
           }

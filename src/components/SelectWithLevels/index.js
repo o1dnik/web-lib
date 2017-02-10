@@ -81,7 +81,7 @@ class SelectWithLevels extends Component {
       <div className={css}>
 
         {onRemove &&
-        <span className='close' onClick={onRemove}>
+        <span className='close' onClick={!disabled && onRemove}>
           <i className={iconClassName}/>
         </span>}
 

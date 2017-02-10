@@ -109,5 +109,23 @@ storiesOf('Multiselect', module)
         />
       </div>
 
+      <div>
+        <h4>ReadOnly</h4>
+        <hr style={hrStyle}/>
+        <Multiselect
+          options={options}
+          value={tags}
+          onChange={action('onChange')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
+          disabled
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+        />
+      </div>
+
     </div>
   ));

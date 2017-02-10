@@ -110,5 +110,19 @@ storiesOf('CheckboxGroup', module)
         />
       </div>
 
+      <div>
+        <h3>ReadOnly</h3>
+        <CheckboxGroup
+          label='My group'
+          simpleValue
+          options={options1}
+          value={value1}
+          disabled
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
+      </div>
+
     </div>
   ));

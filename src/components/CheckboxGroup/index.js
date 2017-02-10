@@ -7,6 +7,7 @@ class CheckboxGroup extends Component {
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
+    disabled: PropTypes.bool,
     label: PropTypes.string,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
@@ -54,7 +55,7 @@ class CheckboxGroup extends Component {
 
   render() {
 
-    const {id, input, meta, label, options, value} = this.props;
+    const {id, input, meta, label, options, value, disabled} = this.props;
     const {error, invalid, valid, touched, dirty} = meta;
 
     const css = cn({
@@ -93,6 +94,7 @@ class CheckboxGroup extends Component {
           onFocus={this.handleFocus}
           onChange={this.handleChange}
           checked={checked}
+          disabled={disabled}
         />
       );
     });

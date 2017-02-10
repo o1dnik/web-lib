@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const Checkbox = (props) => {
 
-  const {id, label, input, name, onChange, onFocus, onBlur} = props;
+  const {id, label, input, name, onChange, onFocus, onBlur, disabled} = props;
 
   let checked = false;
 
@@ -19,6 +19,7 @@ const Checkbox = (props) => {
   const checkbox =
     <input
       id={id}
+      disabled={disabled}
       name={name}
       checked={checked}
       onChange={onChange || input.onChange}
@@ -44,6 +45,7 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
