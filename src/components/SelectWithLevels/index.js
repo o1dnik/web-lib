@@ -129,8 +129,7 @@ class SelectWithLevels extends Component {
   }
 
   getCurrentTagProps = (currentTag) => {
-    const {disabledIfValid, disabled} = this.props;
-    const {valid} = this.props.meta;
+    const {disabled} = this.props;
 
     // use gel old values, case its object with empty strings propetrys by
     // default
@@ -139,7 +138,7 @@ class SelectWithLevels extends Component {
     const props = {
       key: currentTag.value,
       size: 'medium',
-      disabled: disabled || disabledIfValid && valid,
+      disabled,
       onClick: this.handleLevelChange(currentTag.value)
     };
 
