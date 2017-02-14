@@ -5,7 +5,7 @@ import React, {PropTypes} from 'react';
 
 const InputRange = (props) => {
 
-  const {id, input, onChange, label} = props;
+  const {id, input, onChange, label, disabled} = props;
   const {minValue, maxValue, step, formatLabel} = props;
 
   const wrapperCss = cn({'input-range': true});
@@ -18,6 +18,7 @@ const InputRange = (props) => {
       <Range
         name={props.name || input.name}
         minValue={minValue}
+        disabled={disabled}
         maxValue={maxValue}
         step={step}
         value={props.value || input.value}
