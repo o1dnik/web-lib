@@ -51,6 +51,7 @@ class Multiselect extends Component {
     selectLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     tagsLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     renderTags: PropTypes.bool,
+    autoBlur: PropTypes.bool,
 
     input: PropTypes.shape({
       name: PropTypes.string,
@@ -96,6 +97,7 @@ class Multiselect extends Component {
     const selectProps = {
       // rendering or state
       label: this.props.selectLabel,
+      autoBlur: this.props.autoBlur,
       name: this.props.name || input.name,
       placeholder: this.props.placeholder,
       noResultsText: this.props.noResultsText,
