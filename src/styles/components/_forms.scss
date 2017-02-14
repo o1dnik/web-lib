@@ -15,8 +15,8 @@ label , .sublabel{
 
 #{$all-text-inputs} {
 	background-color: $grey-light;
-	padding: 1em;
-	line-height: 1;
+	padding: rem(14) 1em;
+	line-height: 1rem;
 	&.input-success{
 		background-color: tint($green, 94%);
 		border-color: $green;
