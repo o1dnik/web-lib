@@ -99,6 +99,10 @@
   cursor: pointer;
 }
 
+.cursor-disabled{
+  cursor: not-allowed;
+}
+
 .multiselect-tags-wrapper{
   .tag{margin-top: rem(5);}
 }

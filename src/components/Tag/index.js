@@ -70,7 +70,8 @@ class Tag extends Component {
       if (c.type === 'i' && c.props.onClick) {
         childClick = wrapToStopPropagation(c.props.onClick);
         className = cn({
-          close: Boolean(childClick && !disabled)
+          close: Boolean(childClick),
+          'cursor-disabled': Boolean(disabled)
         }, className);
       }
 
