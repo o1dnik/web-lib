@@ -37,21 +37,8 @@ const Loader = (props) => {
         fill='none'
         strokeWidth='6'
         strokeLinecap='round'
-      >
-        <animate
-          attributeName='stroke-dashoffset'
-          dur='3s'
-          repeatCount='indefinite'
-          from='0'
-          to='502'
-        />
-        <animate
-          attributeName='stroke-dasharray'
-          dur='3s'
-          repeatCount='indefinite'
-          values='150.6 100.4;1 250;150.6 100.4'
-        />
-      </circle>
+        className='inner-circle'
+      />
     </svg>
   );
 
@@ -65,7 +52,7 @@ Loader.propTypes = {
 
 Loader.defaultProps = {
   size: 'medium',
-  animatedStrokeColor: '#dd1843',
+  animatedStrokeColor: '#111111',
   strokeColor: '#eeeeee'
 };
 
