@@ -9,22 +9,6 @@
   }
 }
 
-.button-loading{
-  @extend .button-icon;
-  .loader{
-    position: static;
-    transform: none;
-    vertical-align: middle;
-  }
-}
-
-.font-loader{
-  line-height: 1;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 @keyframes loader-spin {
   0%{
     transform: rotate(0deg);
@@ -41,7 +25,6 @@
   50%{
     transform: rotate(179deg);
   }
-
   100%{
     transform: rotate(359deg);
   }
