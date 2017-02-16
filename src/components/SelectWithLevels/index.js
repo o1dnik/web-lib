@@ -195,7 +195,7 @@ class SelectWithLevels extends Component {
     const newVal = {...oldVal, level};
 
     onChange(newVal, oldVal);
-    this.handleSelectBlur(e);
+    setTimeout(() => this.handleSelectBlur(), 1000);
   }
 
   getOldValue = () => {
