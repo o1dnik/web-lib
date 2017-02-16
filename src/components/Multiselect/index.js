@@ -155,10 +155,11 @@ class Multiselect extends Component {
                 key={v.value}
                 color={touched && valid ? 'primary' : 'default'}
                 size='small'
+                disabled={disabled}
               >
                 {v.label}
                 <i className='mb-ico-cross'
-                   onClick={!disabled && this.onTagRemove(v)}/>
+                   onClick={this.onTagRemove(v)}/>
               </Tag>
             )
           }

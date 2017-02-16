@@ -103,10 +103,16 @@ storiesOf('Tag', module)
       </div>
 
       <div>
-        <h4>Disabled</h4>
-        <Tag disabled onClick={action('clicked')}>
-          <span>Disabled</span>
-        </Tag>
+        <div>
+          <h4>Disabled</h4>
+          <Tag disabled onClick={action('clicked')}>
+            <span>Disabled</span>
+          </Tag>
+          <Tag disabled onClick={action('clicked')}>
+            <span>Disabled With Icon</span>
+            <i className='mb-ico-cross' onClick={action('icon-clicked')}/>
+          </Tag>
+        </div>
       </div>
 
       <div>

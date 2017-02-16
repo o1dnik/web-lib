@@ -77,7 +77,7 @@ class Tag extends Component {
 
       return React.cloneElement(c, {
         ...c.props,
-        onClick: childClick,
+        onClick: !disabled && childClick,
         className
       });
     });
