@@ -22,6 +22,7 @@ function loadStories() {
   require('../src/components/StatsCircle/stories');
   require('../src/components/FormImageUploader/stories');
   require('../src/components/Icons/stories');
+  require('../src/components/ContentLoader/stories');
 }
 
 configure(loadStories, module);

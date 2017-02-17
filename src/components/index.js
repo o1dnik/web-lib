@@ -17,3 +17,4 @@ export Box from './Box';
 export StatsCircle from './StatsCircle';
 export ImageCropper from './ImageCropper';
 export FormImageUploader from './FormImageUploader';
+export ContentLoader from './ContentLoader';
