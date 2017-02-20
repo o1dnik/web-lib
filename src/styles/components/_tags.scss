@@ -93,6 +93,10 @@
       margin-left: .625em;
     }
   }
+  &.clickable:hover{
+    background-color: tint($green, 90%);
+    border-color: transparent;
+  }
 }
 
 .clickable{
