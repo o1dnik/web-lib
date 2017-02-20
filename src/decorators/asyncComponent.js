@@ -5,7 +5,8 @@ export default function(loaderFunc) {
   return class AsyncComponentDecorator extends React.Component {
 
     static propTypes = {
-      onLoad: React.PropTypes.func,
+      onLoadStart: React.PropTypes.func,
+      onLoadSuccess: React.PropTypes.func,
       renderLoader: React.PropTypes.func
     }
 
@@ -14,10 +15,13 @@ export default function(loaderFunc) {
     }
 
     componentWillMount() {
+
+      this.props.onLoadStart && this.props.onLoadStart();
       loaderFunc((component) => {
         this.setState({component: component.default});
-        this.props.onLoad();
+        this.props.onLoadSuccess && this.props.onLoadSuccess();
       });
+
     }
 
     renderLoader() {
