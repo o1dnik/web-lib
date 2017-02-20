@@ -4,6 +4,11 @@ import Loader from '../components/Loader';
 export default function(loaderFunc) {
   return class AsyncComponentDecorator extends React.Component {
 
+    static propTypes = {
+      onLoad: React.PropTypes.func,
+      renderLoader: React.PropTypes.func
+    }
+
     state = {
       component: null
     }
@@ -12,6 +17,12 @@ export default function(loaderFunc) {
       loaderFunc((component) => {
         this.setState({component: component.default});
       });
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+      if (!this.state.component && nextState.component && nextProps.onLoad) {
+        nextProps.onLoad();
+      }
     }
 
     renderLoader() {
