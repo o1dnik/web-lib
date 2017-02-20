@@ -16,13 +16,8 @@ export default function(loaderFunc) {
     componentWillMount() {
       loaderFunc((component) => {
         this.setState({component: component.default});
+        this.props.onLoad();
       });
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-      if (!this.state.component && nextState.component && nextProps.onLoad) {
-        nextProps.onLoad();
-      }
     }
 
     renderLoader() {
