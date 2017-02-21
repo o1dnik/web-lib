@@ -1,7 +1,7 @@
 {
-  "name": "web-components",
+  "name": "web-lib",
   "version": "1.0.0",
-  "description": "Moberries web-components",
+  "description": "Moberries web-lib",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json ./",
@@ -12,19 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moberries/web-components.git"
+    "url": "git+https://github.com/moberries/web-lib.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/moberries/web-components/issues"
+    "url": "https://github.com/moberries/web-lib/issues"
   },
   "pre-commit": [
     "lint",
     "build:prod"
   ],
-  "homepage": "https://github.com/moberries/web-components#readme",
+  "homepage": "https://github.com/moberries/web-lib#readme",
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "autoprefixer": "^6.6.0",
