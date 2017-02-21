@@ -96,6 +96,9 @@
   &.clickable:hover{
     background-color: tint($green, 90%);
     border-color: transparent;
+    &.tag-bordered {
+      border-color: $green;
+    }
   }
 }
 
