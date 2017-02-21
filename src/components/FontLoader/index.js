@@ -13,7 +13,7 @@ const FontLoader = (props) => {
   return (
     <i
       style={{fontSize: sizeMap[props.size]}}
-      className='mb-ico-spinner animate-spin font-loader'
+      className='ion-load-c animate-spin font-loader'
     />
   );
 

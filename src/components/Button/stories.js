@@ -115,22 +115,22 @@ storiesOf('Button', module)
           <span>Rounded</span>
         </Button>
         <Button rounded onClick={action('clicked')}>
-          <i className='mb-ico-linkedin'/>
+          <i className='ion-heart'/>
         </Button>
       </div>
 
       <div>
         <h4>With icon</h4>
         <Button onClick={action('clicked')}>
-          <i className='mb-ico-linkedin'/>
+          <i className='ion-social-linkedin'/>
           With icon left
         </Button>
         <Button onClick={action('clicked')}>
           <span>With icon right</span>
-          <i className='mb-ico-arrow-button-next'/>
+          <i className='ion-arrow-right-c'/>
         </Button>
         <Button onClick={action('clicked')}>
-          <i className='mb-ico-burger'/>
+          <i className='ion-navicon'/>
         </Button>
       </div>
 

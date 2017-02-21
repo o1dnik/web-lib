@@ -45,7 +45,7 @@ class SelectWithLevels extends Component {
   };
 
   static defaultProps = {
-    iconClassName: 'mb-ico-button-delete',
+    iconClassName: 'ion-close',
     input: {},
     meta: {}
   };

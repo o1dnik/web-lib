@@ -21,7 +21,7 @@ $button-colors: (
     padding: rem(8);
   }
   &.button-medium{
-    padding: $base-font-size+2px 1em;
+    padding: 1rem;
     min-width: rem(140);
     &.button-outline{
       padding: $base-font-size+1px 1em;
@@ -39,8 +39,13 @@ $button-colors: (
   // Rounded
   &.button-rounded{
     border-radius: 10rem;
-    padding: .5em;
+    padding: .75em;
     min-width: 0;
+    i{
+      &:before{
+        width: 1em;
+      }
+    }
   }
   // Xtended
   &.button-extended{

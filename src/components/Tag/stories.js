@@ -98,7 +98,7 @@ storiesOf('Tag', module)
             voluptatibus. A animi, deserunt eius fugit ipsa minima pariatur
             quas ut.
           </span>
-          <i className='mb-ico-plus' onClick={action('icon-clicked')}/>
+          <i className='ion-plus' onClick={action('icon-clicked')}/>
         </Tag>
       </div>
 
@@ -110,7 +110,7 @@ storiesOf('Tag', module)
           </Tag>
           <Tag disabled onClick={action('clicked')}>
             <span>Disabled With Icon</span>
-            <i className='mb-ico-cross' onClick={action('icon-clicked')}/>
+            <i className='ion-close' onClick={action('icon-clicked')}/>
           </Tag>
         </div>
       </div>
@@ -118,15 +118,15 @@ storiesOf('Tag', module)
       <div>
         <h4>With icon</h4>
         <Tag>
-          <i className='mb-ico-linkedin'/>
+          <i className='ion-checkmark'/>
           With icon left
         </Tag>
         <Tag>
           <span>With icon right</span>
-          <i className='mb-ico-arrow-button-next'/>
+          <i className='ion-arrow-right-c'/>
         </Tag>
         <Tag>
-          <i className='mb-ico-burger'/>
+          <i className='ion-navicon'/>
         </Tag>
       </div>
 
@@ -137,11 +137,11 @@ storiesOf('Tag', module)
           {Number(5)}
           {null}
           {undefined}
-          <i className='mb-ico-plus' onClick={action('icon-clicked')}/>
+          <i className='ion-plus' onClick={action('icon-clicked')}/>
         </Tag>
         <Tag>
           <span>Clickable only icon</span>
-          <i className='mb-ico-cross' onClick={action('icon-clicked')}/>
+          <i className='ion-close' onClick={action('icon-clicked')}/>
         </Tag>
       </div>
 

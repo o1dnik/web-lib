@@ -120,7 +120,7 @@ class Button extends Component {
         disabled={isDisabled}
       >
 
-        {loading && <i className='mb-ico-spinner animate-spin'/>}
+        {loading && <i className='ion-load-c animate-spin'/>}
 
         {newCildren}
 

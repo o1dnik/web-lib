@@ -158,7 +158,7 @@ class Multiselect extends Component {
                 disabled={disabled}
               >
                 {v.label}
-                <i className='mb-ico-cross'
+                <i className='ion-close'
                    onClick={this.onTagRemove(v)}/>
               </Tag>
             )

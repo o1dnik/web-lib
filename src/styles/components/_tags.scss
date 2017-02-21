@@ -73,7 +73,7 @@
   }
   &.tag-medium{
     font-size: rem(14);
-    padding: $base-font-size+1px 1em;
+    padding: $base-font-size+1px;
   }
   &.tag-large{
     font-size: rem(16);
@@ -86,6 +86,9 @@
 
   &.tag-disabled{
     cursor: not-allowed;
+    span{
+      opacity: .5;
+    }
   }
 
   &.tag-icon{
