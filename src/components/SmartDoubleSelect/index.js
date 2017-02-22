@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Field} from 'redux-form';
 import cn from 'classnames';
-import {Select} from '../Select';
+import Select from '../Select';
 
 class SmartDoubleSelect extends Component {
   static propTypes = {
