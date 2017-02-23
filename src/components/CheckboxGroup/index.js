@@ -145,7 +145,7 @@ class CheckboxGroup extends Component {
 
   handleChange = (e) => {
     const {name, checked} = e.target;
-    const {options, oneRequired, simpleValue, valueKey} = this.props;
+    const {options, oneRequired, simpleValue, valueKey, labelKey} = this.props;
     const onChange = this.props.onChange || this.props.input.onChange;
     const oldValue = this.props.value || this.props.input.value;
 
@@ -154,8 +154,8 @@ class CheckboxGroup extends Component {
     if (checked) {
       newValue = oldValue
         .concat({
-          value: name,
-          label: options.find(i => i[valueKey] === name).label || ''
+          [valueKey]: name,
+          [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ''
         });
     } else {
       newValue = oldValue.filter(i => i[valueKey] !== name);
