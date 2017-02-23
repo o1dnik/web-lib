@@ -84,11 +84,15 @@ class CheckboxGroup extends Component {
       let checked = false;
 
       if (input.value) {
-        checked = input.value.map(i => i[valueKey]).includes(o[valueKey]);
+        checked = input.value
+          .map(i => i && i[valueKey] || i)
+          .includes(o[valueKey]);
       }
 
       if (value) {
-        checked = value.map(i => i[valueKey]).includes(o[valueKey]);
+        checked = value
+          .map(i => i && i[valueKey] || i)
+          .includes(o[valueKey]);
       }
 
       return (
@@ -129,7 +133,7 @@ class CheckboxGroup extends Component {
     if (val && onBlur) {
 
       if (simpleValue) {
-        return onBlur(val.map(v => v[valueKey]));
+        return onBlur(val.map(v => v && v[valueKey] || v));
       }
 
       onBlur(val);
@@ -158,7 +162,7 @@ class CheckboxGroup extends Component {
           [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ''
         });
     } else {
-      newValue = oldValue.filter(i => i[valueKey] !== name);
+      newValue = oldValue.filter(i => (i && i[valueKey] || i) !== name);
       if (oneRequired && newValue.length < 1) {
         newValue = [...oldValue];
       }
@@ -168,8 +172,8 @@ class CheckboxGroup extends Component {
 
       if (simpleValue) {
         return onChange(
-          newValue.map(v => v[valueKey]),
-          oldValue.map(v => v[valueKey])
+          newValue.map(v => v && v[valueKey] || v),
+          oldValue.map(v => v && v[valueKey] || v)
         );
       }
 
