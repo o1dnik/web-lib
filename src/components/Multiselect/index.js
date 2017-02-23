@@ -3,62 +3,31 @@ import isEmpty from 'lodash/isEmpty';
 import unionBy from 'lodash/unionBy';
 import cn from 'classnames';
 import Select from '../Select';
-import Tag from '../Tag/index';
+import Tag from '../Tag';
 
-/**********
- *    Interface:
- * @options  {array} list of options in "dropdown"
- * @value    {array} list of selected items from the "dropdown"
- * @onChange {func}  cb on any value selected/removed
- *
- *    How to use:
- * <Multiselect
- *   options={this.state.options}
- *   value={this.state.selected}
- *   onChange={(selected) => this.setState({selected})}
- * />
- *
- * or as following for redux-forms:
- *
- * <Multiselect
- *   options={this.state.skills}
- *   input={{
- *     value: this.state.selected,
- *     onChange: (selected) => this.setState({selected}),
- *   }}
- * />
- *********/
 class Multiselect extends Component {
-
-  constructor(props) {
-    super(props);
-    this.onBlur = this.onBlur.bind(this);
-  }
 
   static propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    options: PropTypes.array,
+    selectProps: PropTypes.object.isRequired,
+
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array
     ]),
 
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
-    label: PropTypes.string,
-    selectLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    tagsLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    renderTags: PropTypes.bool,
-    autoBlur: PropTypes.bool,
+    disabled: PropTypes.bool,
 
     input: PropTypes.shape({
       name: PropTypes.string,
       onBlur: PropTypes.func,
-      onChange: PropTypes.func,  // mutates the redux-form Field data
-      onDragStart: PropTypes.func,
-      onDrop: PropTypes.func,
+      onChange: PropTypes.func,
       onFocus: PropTypes.func,
       value: PropTypes.oneOfType([
         PropTypes.string,
@@ -81,52 +50,26 @@ class Multiselect extends Component {
       visited: PropTypes.bool,
       warning: PropTypes.string
     })
+
   };
+
   static defaultProps = {
     input: {},
     meta: {},
-    multi: true,
-    renderTags: false
+    selectProps: {
+      multi: true,
+      renderTags: false
+    }
   };
 
   render() {
+
     const {meta, input, label, id, disabled} = this.props;
     const {error, invalid, touched, dirty, valid} = meta;
     const value = this.props.value || input.value;
-
-    const selectProps = {
-      // rendering or state
-      label: this.props.selectLabel,
-      autoBlur: this.props.autoBlur,
-      name: this.props.name || input.name,
-      placeholder: this.props.placeholder,
-      noResultsText: this.props.noResultsText,
-      optionRenderer: this.props.optionRenderer,
-      arrowRenderer: this.props.arrowRenderer,
-      isLoading: this.props.isLoading,
-      matchPos: this.props.matchPos,
-      matchProp: this.props.matchProp,
-      multi: this.props.multi,
-      simpleValue: this.props.simpleValue,
-      disabled: this.props.disabled,
-      clearable: this.props.clearable,
-      searchable: this.props.searchable,
-      clearIcon: this.props.clearIcon,
-      clearIconHTML: this.props.clearIconHTML,
-      noArrow: this.props.noArrow || disabled,
-      renderTags: this.props.renderTags,
-
-      // data entries
-      value,
-      options: this.props.options,
-
-      // callbacks
-      onInputChange: this.props.onInputChange,
-      onChange: this.onTagAdd,              // uses onChange
-      onBlur: this.onBlur,
-      onFocus: this.props.onFocus || input.onFocus,
-      loadOptions: this.props.loadOptions  // react-select async cb
-    };
+    const selectProps = Object.assign(
+      {}, Multiselect.defaultProps.selectProps, this.props.selectProps
+    );
 
     const css = cn({
       'multiselect': true,
@@ -145,7 +88,16 @@ class Multiselect extends Component {
 
         {label && <label htmlFor={id}>{label}</label>}
 
-        <Select {...selectProps} />
+        <Select
+          {...selectProps}
+          name={this.props.name || input.name}
+          disabled={selectProps.disabled || disabled}
+          noArrow={selectProps.noArrow || disabled}
+          value={value}
+          onChange={this.onValueAdd}
+          onBlur={this.onBlur}
+          onFocus={this.props.onFocus || input.onFocus}
+        />
 
         <div className='multiselect-tags-wrapper'>
 
@@ -158,8 +110,10 @@ class Multiselect extends Component {
                 disabled={disabled}
               >
                 {v.label}
-                <i className='ion-close'
-                   onClick={this.onTagRemove(v)}/>
+                <i
+                  className='ion-close'
+                  onClick={this.onValueRemove(v)}
+                />
               </Tag>
             )
           }
@@ -174,15 +128,15 @@ class Multiselect extends Component {
     );
   }
 
-  // Replication of the same function in Select
-  onBlur(e) {
-    const {onBlur, value, input, options} = this.props;
+  onBlur = (e) => {
 
-    if (typeof onBlur === 'function') return onBlur(e);
+    const {onBlur, input, options} = this.props;
 
-    if (!onBlur && typeof input.onBlur === 'function') {
+    if (onBlur) return onBlur(e);
 
-      const val = value || input.value;
+    if (input.onBlur) {
+
+      const val = this.getOldValue();
 
       if (typeof val === 'string') {
         const loc = options.find(l => l.value === val);
@@ -194,26 +148,29 @@ class Multiselect extends Component {
 
   }
 
-  onTagRemove = (tag) => (e) => {
-    if (e) e.preventDefault();
-    const {input, value, onChange} = this.props;
-
-    const newTags = value
-      ? value.filter(t => t.value !== tag.value)
-      : input.value.filter(t => t.value !== tag.value);
-
-    if (onChange) onChange(newTags);
-    if (!onChange && input.onChange) input.onChange(newTags);
-  }
-
-  onTagAdd = (updVal) => {
+  onValueAdd = (updVal) => {
     const {input, onChange} = this.props;
 
     const oldVal = this.getOldValue();
-    const newVal = unionBy(oldVal, updVal, 'value');  // multi => arrays merge
+    // multi => arrays merge
+    const newValues = unionBy(oldVal, updVal, 'value');
 
-    if (onChange) onChange(newVal);
-    if (!onChange && input.onChange) input.onChange(newVal);
+    if (onChange) return onChange(newValues);
+    if (input.onChange) input.onChange(newValues);
+  }
+
+  onValueRemove = (tag) => (e) => {
+    if (e) e.preventDefault();
+
+    const {input, onChange} = this.props;
+
+    const val = this.getOldValue();
+
+    const newValues = val.filter(t => t.value !== tag.value);
+
+    if (onChange) return onChange(newValues);
+    if (input.onChange) input.onChange(newValues);
+
   }
 
   getOldValue = () => {

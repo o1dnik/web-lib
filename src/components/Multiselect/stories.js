@@ -33,9 +33,6 @@ const tags = [
 const selectLabel = <span style={{color: 'red', textTransform: 'lowercase'}}>
   Select label
 </span>;
-const tagsLabel = <span style={{color: 'blue', textTransform: 'lowercase'}}>
-  Tags label
-</span>;
 
 storiesOf('Multiselect', module)
   .add('Default', () => (
@@ -44,7 +41,10 @@ storiesOf('Multiselect', module)
       <div>
         <h4>Default</h4>
         <Multiselect
-          options={options}
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={[]}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -55,7 +55,10 @@ storiesOf('Multiselect', module)
       <div>
         <h4>Selected values</h4>
         <Multiselect
-          options={options}
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -67,9 +70,11 @@ storiesOf('Multiselect', module)
         <h4>With custom Label</h4>
         <Multiselect
           label='General Label'
-          selectLabel={selectLabel}
-          tagsLabel={tagsLabel}
-          options={options}
+          selectProps={{
+            label: selectLabel,
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -81,7 +86,10 @@ storiesOf('Multiselect', module)
         <h4>Success</h4>
         <hr style={hrStyle}/>
         <Multiselect
-          options={options}
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -96,7 +104,10 @@ storiesOf('Multiselect', module)
         <h4>Error</h4>
         <hr style={hrStyle}/>
         <Multiselect
-          options={options}
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -113,12 +124,37 @@ storiesOf('Multiselect', module)
         <h4>ReadOnly</h4>
         <hr style={hrStyle}/>
         <Multiselect
-          options={options}
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
           disabled
+          meta={{
+            touched: true,
+            invalid: true,
+            error: 'My error message'
+          }}
+        />
+      </div>
+
+      <div>
+        <h4>Redux form</h4>
+        <hr style={hrStyle}/>
+        <Multiselect
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
+          input={{
+            value: tags,
+            onChange: action('onChange'),
+            onFocus: action('onFocus'),
+            onBlur: action('onBlur')
+          }}
           meta={{
             touched: true,
             invalid: true,
