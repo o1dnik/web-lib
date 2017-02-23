@@ -37,6 +37,18 @@ const value3 = [
   {value: '1', label: 'roselet'}
 ];
 
+const options4 = [
+  {id: '0', name: 'arrestor'},
+  {id: '1', name: 'roselet'},
+  {id: '2', name: 'nonthinking'},
+  {id: '3', name: 'triturate'}
+];
+
+const value4 = [
+  {id: '0', name: 'arrestor'},
+  {id: '1', name: 'roselet'}
+];
+
 storiesOf('CheckboxGroup', module)
   .add('Default', () => (
     <div>
@@ -118,6 +130,35 @@ storiesOf('CheckboxGroup', module)
           options={options1}
           value={value1}
           disabled
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
+      </div>
+
+      <div>
+        <h3>ValueKey LabelKey</h3>
+        <CheckboxGroup
+          label='My group'
+          valueKey='id'
+          labelKey='name'
+          options={options4}
+          value={value4}
+          onChange={action('changed')}
+          onBlur={action('blur')}
+          onFocus={action('focus')}
+        />
+      </div>
+
+      <div>
+        <h3>ValueKey LabelKey With simpleValue</h3>
+        <CheckboxGroup
+          label='My group'
+          valueKey='id'
+          simpleValue
+          labelKey='name'
+          options={options4}
+          value={value4}
           onChange={action('changed')}
           onBlur={action('blur')}
           onFocus={action('focus')}

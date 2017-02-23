@@ -17,6 +17,9 @@ class CheckboxGroup extends Component {
     options: PropTypes.array,
     value: PropTypes.array,
 
+    valueKey: PropTypes.string,
+    labelKey: PropTypes.string,
+
     input: PropTypes.shape({
       name: PropTypes.string,
       onBlur: PropTypes.func,
@@ -48,6 +51,9 @@ class CheckboxGroup extends Component {
 
   static defaultProps = {
     oneRequired: false,
+    simpleValue: false,
+    valueKey: 'value',
+    labelKey: 'label',
     options: [],
     input: {},
     meta: {}
@@ -55,7 +61,10 @@ class CheckboxGroup extends Component {
 
   render() {
 
-    const {id, input, meta, label, options, value, disabled} = this.props;
+    const {
+      id, input, meta, label, options, value, disabled, valueKey, labelKey
+    } = this.props;
+
     const {error, invalid, valid, touched, dirty} = meta;
 
     const css = cn({
@@ -75,21 +84,19 @@ class CheckboxGroup extends Component {
       let checked = false;
 
       if (input.value) {
-        checked = input.value.map(i => i.value).includes(o.value);
+        checked = input.value.map(i => i[valueKey]).includes(o[valueKey]);
       }
 
       if (value) {
-        checked = value.map(i => i.value).includes(o.value);
+        checked = value.map(i => i[valueKey]).includes(o[valueKey]);
       }
-
-      // add simpleValue see react-select ?
 
       return (
         <Checkbox
-          name={o.value}
-          id={o.value + o.label}
-          key={o.value || o.label}
-          label={o.label || o.value}
+          name={o[valueKey]}
+          id={o[valueKey] + o[labelKey]}
+          key={o[valueKey] || o[labelKey]}
+          label={o[valueKey] || o[valueKey]}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
@@ -117,12 +124,12 @@ class CheckboxGroup extends Component {
   handleBlur = () => {
     const onBlur = this.props.onBlur || this.props.input.onBlur;
     const val = this.props.value || this.props.input.value;
-    const {simpleValue} = this.props;
+    const {simpleValue, valueKey} = this.props;
 
     if (val && onBlur) {
 
       if (simpleValue) {
-        return onBlur(val.map(v => v.value));
+        return onBlur(val.map(v => v[valueKey]));
       }
 
       onBlur(val);
@@ -138,7 +145,7 @@ class CheckboxGroup extends Component {
 
   handleChange = (e) => {
     const {name, checked} = e.target;
-    const {options, oneRequired, simpleValue} = this.props;
+    const {options, oneRequired, simpleValue, valueKey} = this.props;
     const onChange = this.props.onChange || this.props.input.onChange;
     const oldValue = this.props.value || this.props.input.value;
 
@@ -148,10 +155,10 @@ class CheckboxGroup extends Component {
       newValue = oldValue
         .concat({
           value: name,
-          label: options.find(i => i.value === name).label || ''
+          label: options.find(i => i[valueKey] === name).label || ''
         });
     } else {
-      newValue = oldValue.filter(i => i.value !== name);
+      newValue = oldValue.filter(i => i[valueKey] !== name);
       if (oneRequired && newValue.length < 1) {
         newValue = [...oldValue];
       }
@@ -160,7 +167,10 @@ class CheckboxGroup extends Component {
     if (newValue && onChange) {
 
       if (simpleValue) {
-        return onChange(newValue.map(v => v.value), oldValue.map(v => v.value));
+        return onChange(
+          newValue.map(v => v[valueKey]),
+          oldValue.map(v => v[valueKey])
+        );
       }
 
       onChange(newValue, oldValue);
