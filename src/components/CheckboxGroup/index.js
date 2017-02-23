@@ -96,7 +96,7 @@ class CheckboxGroup extends Component {
           name={o[valueKey]}
           id={o[valueKey] + o[labelKey]}
           key={o[valueKey] || o[labelKey]}
-          label={o[valueKey] || o[valueKey]}
+          label={o[labelKey] || o[valueKey]}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
