@@ -5,14 +5,25 @@ import Select from '../Select';
 
 class SmartDoubleSelect extends Component {
   static propTypes = {
-    onRemove: PropTypes.func
+    onRemove: PropTypes.func,
+    selectKey: PropTypes.string,
+    levelKey: PropTypes.string
   };
+
+  static defaultProps = {
+    selectKey: 'id',
+    levelKey: 'level'
+  }
 
   render() {
 
     const {
-      levelProps, selectProps, onRemove, select, level, resetLevelOnSelectChange
+      levelProps, selectProps, onRemove,
+      resetLevelOnSelectChange, selectKey, levelKey
     } = this.props;
+
+    const select = this.props[selectKey];
+    const level = this.props[levelKey];
 
     const valid = select.meta.valid && level.meta.valid;
 
@@ -37,7 +48,6 @@ class SmartDoubleSelect extends Component {
         <div className='select-group-wrapper'>
 
           <Field
-            name='select'
             component={Select}
             onChange={() => {
               resetLevelOnSelectChange && level.input.onChange('');
@@ -45,14 +55,15 @@ class SmartDoubleSelect extends Component {
             disabled={selectDisabled}
             {...selectProps}
             noArrow={selectProps.disabled}
+            name={selectKey}
           />
 
           <Field
-            name='level'
             component={Select}
             disabled={levelDisabled || levelProps.disabled}
             {...levelProps}
             noArrow={levelDisabled || levelProps.disabled}
+            name={levelKey}
           />
 
         </div>
