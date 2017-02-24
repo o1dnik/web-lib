@@ -34,7 +34,7 @@ class SmartDoubleSelect extends Component {
           <i className='ion-close'/>
         </span>}
 
-        <div>
+        <div className='select-group-wrapper'>
 
           <Field
             name='select'
