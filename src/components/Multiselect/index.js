@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import isEmpty from 'lodash/isEmpty';
-import unionBy from 'lodash/unionBy';
+import union from 'lodash/union';
 import cn from 'classnames';
 import Select from '../Select';
 import Tag from '../Tag';
@@ -15,12 +14,13 @@ class Multiselect extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ]),
+    value: PropTypes.arrayOf(PropTypes.string),
 
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+
+    valueKey: PropTypes.string,
+    labelKey: PropTypes.string,
+    simpleValue: PropTypes.bool,
 
     disabled: PropTypes.bool,
 
@@ -29,10 +29,7 @@ class Multiselect extends Component {
       onBlur: PropTypes.func,
       onChange: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array
-      ])
+      value: PropTypes.arrayOf(PropTypes.string)
     }),
 
     meta: PropTypes.shape({
@@ -56,15 +53,19 @@ class Multiselect extends Component {
   static defaultProps = {
     input: {},
     meta: {},
+    valueKey: 'value',
+    labelKey: 'label',
+    simpleValue: false,
     selectProps: {
       multi: true,
-      renderTags: false
+      renderTags: false,
+      options: []
     }
   };
 
   render() {
 
-    const {meta, input, label, id, disabled} = this.props;
+    const {meta, input, label, id, disabled, valueKey, labelKey} = this.props;
     const {error, invalid, touched, dirty, valid} = meta;
     const value = this.props.value || input.value;
     const selectProps = Object.assign(
@@ -94,28 +95,37 @@ class Multiselect extends Component {
           disabled={selectProps.disabled || disabled}
           noArrow={selectProps.noArrow || disabled}
           value={value}
-          onChange={this.onValueAdd}
-          onBlur={this.onBlur}
+          valueKey={valueKey}
+          labelKey={labelKey}
+          onChange={this.handleValueAdd}
+          onBlur={this.handleBlur}
           onFocus={this.props.onFocus || input.onFocus}
         />
 
         <div className='multiselect-tags-wrapper'>
 
           {
-            value.map(v =>
-              <Tag
-                key={v.value}
-                color={touched && valid ? 'primary' : 'default'}
-                size='small'
-                disabled={disabled}
-              >
-                {v.label}
-                <i
-                  className='ion-close'
-                  onClick={this.onValueRemove(v)}
-                />
-              </Tag>
-            )
+            value.map(v => {
+
+              const item = selectProps.options.find(o => o[valueKey] === v);
+
+              if (!item || !item[labelKey]) return null;
+
+              return (
+                <Tag
+                  key={v}
+                  color={touched && valid ? 'primary' : 'default'}
+                  size='small'
+                  disabled={disabled}
+                >
+                  {item[labelKey]}
+                  <i
+                    className='ion-close'
+                    onClick={this.handleValueRemove(v)}
+                  />
+                </Tag>
+              );
+            })
           }
 
         </div>
@@ -128,63 +138,74 @@ class Multiselect extends Component {
     );
   }
 
-  onBlur = (e) => {
+  handleBlur = (e) => {
 
-    const {onBlur, input, options} = this.props;
+    const {simpleValue, valueKey, input, selectProps} = this.props;
+    const val = this.props.value || input.value;
 
-    if (onBlur) return onBlur(e);
+    if (this.props.onBlur) return this.props.onBlur(e);
 
-    if (input.onBlur) {
+    if (val && input && input.onBlur) {
 
-      const val = this.getOldValue();
-
-      if (typeof val === 'string') {
-        const loc = options.find(l => l.value === val);
-        return input.onBlur(loc);
+      if (simpleValue) {
+        return input.onBlur(val);
       }
 
-      return input.onBlur(val);
+      input.onBlur(
+        selectProps.options.filter(o => val.includes((o && o[valueKey] || o)))
+      );
+
     }
 
   }
 
-  onValueAdd = (updVal) => {
-    const {input, onChange} = this.props;
+  handleValueAdd = (updVal) => {
+    const {simpleValue, valueKey, input, selectProps} = this.props;
+    const onChange = this.props.onChange || input.onChange;
+    const val = this.props.value || input.value;
 
-    const oldVal = this.getOldValue();
     // multi => arrays merge
-    const newValues = unionBy(oldVal, updVal, 'value');
+    const newValues = union(
+      val, updVal.map(v => v && v[valueKey] || v)
+    );
 
-    if (onChange) return onChange(newValues);
-    if (input.onChange) input.onChange(newValues);
+    if (onChange && newValues) {
+
+      if (simpleValue) {
+        return onChange(newValues);
+      }
+
+      onChange(
+        selectProps.options.filter(o =>
+          newValues.includes((o && o[valueKey] || o)))
+      );
+
+    }
+
   }
 
-  onValueRemove = (tag) => (e) => {
+  handleValueRemove = (tag) => (e) => {
     if (e) e.preventDefault();
 
-    const {input, onChange} = this.props;
+    const {simpleValue, valueKey, input, selectProps} = this.props;
+    const onChange = this.props.onChange || input.onChange;
+    const val = this.props.value || input.value;
 
-    const val = this.getOldValue();
+    const newValues = val.filter(v => v !== tag);
 
-    const newValues = val.filter(t => t.value !== tag.value);
+    if (onChange) {
 
-    if (onChange) return onChange(newValues);
-    if (input.onChange) input.onChange(newValues);
+      if (simpleValue) {
+        return onChange(newValues);
+      }
 
-  }
+      onChange(
+        selectProps.options.filter(o =>
+          newValues.includes((o && o[valueKey] || o)))
+      );
 
-  getOldValue = () => {
-    let oldValue = [];  // Array because multi
-
-    if (!isEmpty(this.props.input.value)) {
-      return oldValue = this.props.input.value;
     }
 
-    if (!isEmpty(this.props.value)) {
-      return oldValue = this.props.value;
-    }
-
-    return oldValue;
   }
 
 }
