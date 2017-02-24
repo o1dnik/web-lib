@@ -8,26 +8,26 @@ import {
 } from 'redux-form';
 
 const langLevels = [
-  {value: '0', label: 'A1'},
-  {value: '1', label: 'A2'},
-  {value: '2', label: 'B1'},
-  {value: '3', label: 'B2'},
-  {value: '4', label: 'C1'},
-  {value: '5', label: 'C2'},
-  {value: '6', label: 'Native'}
+  {id: '0', name: 'A1'},
+  {id: '1', name: 'A2'},
+  {id: '2', name: 'B1'},
+  {id: '3', name: 'B2'},
+  {id: '4', name: 'C1'},
+  {id: '5', name: 'C2'},
+  {id: '6', name: 'Native'}
 ];
 const availableLanguages = [
-  {value: '40', label: 'English'},
-  {value: '51', label: 'German'},
-  {value: '148', label: 'Spanish'},
-  {value: '47', label: 'French'},
-  {value: '128', label: 'Portuguese'},
-  {value: '70', label: 'Italian'},
-  {value: '133', label: 'Russian'},
-  {value: '7', label: 'Arabic'},
-  {value: '72', label: 'Japanese'},
-  {value: '59', label: 'Hindi'},
-  {value: '20', label: 'Chineese'}
+  {id: '40', name: 'English'},
+  {id: '51', name: 'German'},
+  {id: '148', name: 'Spanish'},
+  {id: '47', name: 'French'},
+  {id: '128', name: 'Portuguese'},
+  {id: '70', name: 'Italian'},
+  {id: '133', name: 'Russian'},
+  {id: '7', name: 'Arabic'},
+  {id: '72', name: 'Japanese'},
+  {id: '59', name: 'Hindi'},
+  {id: '20', name: 'Chineese'}
 ];
 
 const job = {
@@ -38,7 +38,7 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
 
   const selectedLanguages = fields
     .getAll()
-    .map(i => i.select)
+    .map(i => i.id)
     .filter(Boolean);
 
   const fieldsBody = fields.map((language, idx) => {
@@ -47,10 +47,10 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
 
     const languagesOptions = availableLanguages
       .filter(r => {
-        if (current && current.select && current.select === r.value) {
+        if (current && current.id && current.id === r.id) {
           return true;
         }
-        return !selectedLanguages.includes(r.value);
+        return !selectedLanguages.includes(r.id);
       });
 
     return (
@@ -59,13 +59,18 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
         <FormSection name={language}>
 
           <Fields
-            names={['select', 'level']}
+            names={['id', 'level']}
+            selectKey='id'
+            levelKey='level'
             component={SmartDoubleSelect}
             onRemove={handleFieldArrayItemRemove(fields, idx)}
             resetLevelOnSelectChange={true}
+            inOneRow
             selectProps={{
               id: `job_${language}_select`,
               label: 'Language',
+              valueKey: 'id',
+              labelKey: 'name',
               options: languagesOptions,
               searchable: true,
               clearable: false,
@@ -75,6 +80,8 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
             levelProps={{
               id: `job_${language}_level`,
               label: 'Level',
+              valueKey: 'id',
+              labelKey: 'name',
               options: langLevels,
               clearable: false,
               searchable: false,
