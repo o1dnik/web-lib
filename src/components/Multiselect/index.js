@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import isEmpty from 'lodash/isEmpty';
-import unionBy from 'lodash/unionBy';
+import union from 'lodash/union';
 import cn from 'classnames';
 import Select from '../Select';
 import Tag from '../Tag';
@@ -15,10 +14,7 @@ class Multiselect extends Component {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array
-    ]),
+    value: PropTypes.arrayOf(PropTypes.string),
 
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
@@ -33,10 +29,7 @@ class Multiselect extends Component {
       onBlur: PropTypes.func,
       onChange: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array
-      ])
+      value: PropTypes.arrayOf(PropTypes.string)
     }),
 
     meta: PropTypes.shape({
@@ -65,7 +58,8 @@ class Multiselect extends Component {
     simpleValue: false,
     selectProps: {
       multi: true,
-      renderTags: false
+      renderTags: false,
+      options: []
     }
   };
 
@@ -111,20 +105,27 @@ class Multiselect extends Component {
         <div className='multiselect-tags-wrapper'>
 
           {
-            value.map(v =>
-              <Tag
-                key={v[valueKey]}
-                color={touched && valid ? 'primary' : 'default'}
-                size='small'
-                disabled={disabled}
-              >
-                {v[labelKey]}
-                <i
-                  className='ion-close'
-                  onClick={this.handleValueRemove(v)}
-                />
-              </Tag>
-            )
+            value.map(v => {
+
+              const item = selectProps.options.find(o => o[valueKey] === v);
+
+              if (!item || !item[labelKey]) return null;
+
+              return (
+                <Tag
+                  key={v}
+                  color={touched && valid ? 'primary' : 'default'}
+                  size='small'
+                  disabled={disabled}
+                >
+                  {item[labelKey]}
+                  <i
+                    className='ion-close'
+                    onClick={this.handleValueRemove(v)}
+                  />
+                </Tag>
+              );
+            })
           }
 
         </div>
@@ -139,41 +140,45 @@ class Multiselect extends Component {
 
   handleBlur = (e) => {
 
-    const {simpleValue, valueKey, input} = this.props;
+    const {simpleValue, valueKey, input, selectProps} = this.props;
     const val = this.props.value || input.value;
 
     if (this.props.onBlur) return this.props.onBlur(e);
 
     if (val && input && input.onBlur) {
 
-      const val = this.getOldValue();
-
       if (simpleValue) {
-
-        return input.onBlur(val.map(v => v && v[valueKey] || v));
-
+        return input.onBlur(val);
       }
 
-      input.onBlur(val);
+      input.onBlur(
+        selectProps.options.filter(o => val.includes((o && o[valueKey] || o)))
+      );
+
     }
 
   }
 
   handleValueAdd = (updVal) => {
-    const {simpleValue, valueKey} = this.props;
-    const onChange = this.props.onChange || this.props.input.onChange;
+    const {simpleValue, valueKey, input, selectProps} = this.props;
+    const onChange = this.props.onChange || input.onChange;
+    const val = this.props.value || input.value;
 
-    const oldVal = this.getOldValue();
     // multi => arrays merge
-    const newValues = unionBy(oldVal, updVal, valueKey);
+    const newValues = union(
+      val, updVal.map(v => v && v[valueKey] || v)
+    );
 
-    if (onChange) {
+    if (onChange && newValues) {
 
       if (simpleValue) {
-        return onChange(newValues.map(v => v && v[valueKey] || v));
+        return onChange(newValues);
       }
 
-      onChange(newValues);
+      onChange(
+        selectProps.options.filter(o =>
+          newValues.includes((o && o[valueKey] || o)))
+      );
 
     }
 
@@ -182,38 +187,25 @@ class Multiselect extends Component {
   handleValueRemove = (tag) => (e) => {
     if (e) e.preventDefault();
 
-    const {simpleValue, valueKey} = this.props;
-    const onChange = this.props.onChange || this.props.input.onChange;
+    const {simpleValue, valueKey, input, selectProps} = this.props;
+    const onChange = this.props.onChange || input.onChange;
+    const val = this.props.value || input.value;
 
-    const val = this.getOldValue();
-
-    const newValues = val.filter(t =>
-    (t && t[valueKey] || t) !== (tag && tag[valueKey] || tag));
+    const newValues = val.filter(v => v !== tag);
 
     if (onChange) {
 
       if (simpleValue) {
-        return onChange(newValues.map(v => v && v[valueKey] || v));
+        return onChange(newValues);
       }
 
-      onChange(newValues);
+      onChange(
+        selectProps.options.filter(o =>
+          newValues.includes((o && o[valueKey] || o)))
+      );
 
     }
 
-  }
-
-  getOldValue = () => {
-    let oldValue = [];  // Array because multi
-
-    if (!isEmpty(this.props.input.value)) {
-      return oldValue = this.props.input.value;
-    }
-
-    if (!isEmpty(this.props.value)) {
-      return oldValue = this.props.value;
-    }
-
-    return oldValue;
   }
 
 }

@@ -24,10 +24,10 @@ const options = [
   {id: 'budget', name: 'Mercatorial'},
   {id: 'multituberculy', name: 'fossula'}
 ];
-const tags = [
-  {id: 'microanalyst', name: 'Aglossa'},
-  {id: 'nine', name: 'cretion'},
-  {id: 'tailing', name: 'Zoilean'}
+const selectedValues = [
+  'multituberculy',
+  'budget',
+  'insinuant'
 ];
 
 const selectLabel = <span style={{color: 'red', textTransform: 'lowercase'}}>
@@ -63,7 +63,7 @@ storiesOf('Multiselect', module)
           }}
           valueKey='id'
           labelKey='name'
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -80,7 +80,7 @@ storiesOf('Multiselect', module)
           valueKey='id'
           labelKey='name'
           simpleValue
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -98,7 +98,7 @@ storiesOf('Multiselect', module)
           }}
           valueKey='id'
           labelKey='name'
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -115,7 +115,7 @@ storiesOf('Multiselect', module)
           }}
           valueKey='id'
           labelKey='name'
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -135,7 +135,7 @@ storiesOf('Multiselect', module)
           }}
           valueKey='id'
           labelKey='name'
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -157,7 +157,7 @@ storiesOf('Multiselect', module)
           }}
           valueKey='id'
           labelKey='name'
-          value={tags}
+          value={selectedValues}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
           onBlur={action('onBlur')}
@@ -181,7 +181,7 @@ storiesOf('Multiselect', module)
           valueKey='id'
           labelKey='name'
           input={{
-            value: tags,
+            value: selectedValues,
             onChange: action('onChange'),
             onFocus: action('onFocus'),
             onBlur: action('onBlur')
