@@ -6,19 +6,32 @@ import Select from '../Select';
 class SmartDoubleSelect extends Component {
   static propTypes = {
     onRemove: PropTypes.func,
+
     selectKey: PropTypes.string,
-    levelKey: PropTypes.string
+    levelKey: PropTypes.string,
+
+    names: PropTypes.array,
+
+    levelProps: PropTypes.object,
+    selectProps: PropTypes.object,
+
+    resetLevelOnSelectChange: PropTypes.bool,
+    inOneRow: PropTypes.bool
   };
 
   static defaultProps = {
     selectKey: 'id',
-    levelKey: 'level'
+    levelKey: 'level',
+    levelProps: {},
+    selectProps: {},
+    resetLevelOnSelectChange: false,
+    inOneRow: false
   }
 
   render() {
 
     const {
-      levelProps, selectProps, onRemove,
+      levelProps, selectProps, onRemove, inOneRow,
       resetLevelOnSelectChange, selectKey, levelKey
     } = this.props;
 
@@ -37,6 +50,10 @@ class SmartDoubleSelect extends Component {
       done: valid
     });
 
+    const wrapperCss = cn({
+      'select-group-wrapper': inOneRow
+    });
+
     return (
       <div className={css}>
 
@@ -45,14 +62,14 @@ class SmartDoubleSelect extends Component {
           <i className='ion-close'/>
         </span>}
 
-        <div className='select-group-wrapper'>
+        <div className={wrapperCss}>
 
           <Field
             component={Select}
             onChange={() => {
               resetLevelOnSelectChange && level.input.onChange('');
             }}
-            disabled={selectDisabled}
+            disabled={selectDisabled || selectProps.disabled}
             {...selectProps}
             noArrow={selectProps.disabled}
             name={selectKey}

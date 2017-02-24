@@ -65,6 +65,7 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
             component={SmartDoubleSelect}
             onRemove={handleFieldArrayItemRemove(fields, idx)}
             resetLevelOnSelectChange={true}
+            inOneRow
             selectProps={{
               id: `job_${language}_select`,
               label: 'Language',
