@@ -90,6 +90,9 @@ $button-colors: (
         }
       }
     }
+    &.button-light{
+      color: $grey-dark;
+    }
   }
   &.button-link{
     min-width: 0;
@@ -101,7 +104,8 @@ $button-colors: (
   }
 }
 
-.button-icon{
+.button-icon,
+.button-loading{
   &.button-medium{
     min-width: 0;
   }
