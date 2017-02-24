@@ -22,6 +22,10 @@ class Multiselect extends Component {
 
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 
+    valueKey: PropTypes.string,
+    labelKey: PropTypes.string,
+    simpleValue: PropTypes.bool,
+
     disabled: PropTypes.bool,
 
     input: PropTypes.shape({
@@ -56,6 +60,9 @@ class Multiselect extends Component {
   static defaultProps = {
     input: {},
     meta: {},
+    valueKey: 'value',
+    labelKey: 'label',
+    simpleValue: false,
     selectProps: {
       multi: true,
       renderTags: false
@@ -64,7 +71,7 @@ class Multiselect extends Component {
 
   render() {
 
-    const {meta, input, label, id, disabled} = this.props;
+    const {meta, input, label, id, disabled, valueKey, labelKey} = this.props;
     const {error, invalid, touched, dirty, valid} = meta;
     const value = this.props.value || input.value;
     const selectProps = Object.assign(
@@ -94,8 +101,10 @@ class Multiselect extends Component {
           disabled={selectProps.disabled || disabled}
           noArrow={selectProps.noArrow || disabled}
           value={value}
-          onChange={this.onValueAdd}
-          onBlur={this.onBlur}
+          valueKey={valueKey}
+          labelKey={labelKey}
+          onChange={this.handleValueAdd}
+          onBlur={this.handleBlur}
           onFocus={this.props.onFocus || input.onFocus}
         />
 
@@ -104,15 +113,15 @@ class Multiselect extends Component {
           {
             value.map(v =>
               <Tag
-                key={v.value}
+                key={v[valueKey]}
                 color={touched && valid ? 'primary' : 'default'}
                 size='small'
                 disabled={disabled}
               >
-                {v.label}
+                {v[labelKey]}
                 <i
                   className='ion-close'
-                  onClick={this.onValueRemove(v)}
+                  onClick={this.handleValueRemove(v)}
                 />
               </Tag>
             )
@@ -128,48 +137,68 @@ class Multiselect extends Component {
     );
   }
 
-  onBlur = (e) => {
+  handleBlur = (e) => {
 
-    const {onBlur, input, options} = this.props;
+    const {simpleValue, valueKey, input} = this.props;
+    const val = this.props.value || input.value;
 
-    if (onBlur) return onBlur(e);
+    if (this.props.onBlur) return this.props.onBlur(e);
 
-    if (input.onBlur) {
+    if (val && input && input.onBlur) {
 
       const val = this.getOldValue();
 
-      if (typeof val === 'string') {
-        const loc = options.find(l => l.value === val);
-        return input.onBlur(loc);
+      if (simpleValue) {
+
+        return input.onBlur(val.map(v => v && v[valueKey] || v));
+
       }
 
-      return input.onBlur(val);
+      input.onBlur(val);
     }
 
   }
 
-  onValueAdd = (updVal) => {
-    const {input, onChange} = this.props;
+  handleValueAdd = (updVal) => {
+    const {simpleValue, valueKey} = this.props;
+    const onChange = this.props.onChange || this.props.input.onChange;
 
     const oldVal = this.getOldValue();
     // multi => arrays merge
-    const newValues = unionBy(oldVal, updVal, 'value');
+    const newValues = unionBy(oldVal, updVal, valueKey);
 
-    if (onChange) return onChange(newValues);
-    if (input.onChange) input.onChange(newValues);
+    if (onChange) {
+
+      if (simpleValue) {
+        return onChange(newValues.map(v => v && v[valueKey] || v));
+      }
+
+      onChange(newValues);
+
+    }
+
   }
 
-  onValueRemove = (tag) => (e) => {
+  handleValueRemove = (tag) => (e) => {
     if (e) e.preventDefault();
 
-    const {input, onChange} = this.props;
+    const {simpleValue, valueKey} = this.props;
+    const onChange = this.props.onChange || this.props.input.onChange;
 
     const val = this.getOldValue();
 
-    const newValues = val.filter(t => t.value !== tag.value);
+    const newValues = val.filter(t =>
+    (t && t[valueKey] || t) !== (tag && tag[valueKey] || tag));
 
-    if (onChange) return onChange(newValues);
-    if (input.onChange) input.onChange(newValues);
+    if (onChange) {
+
+      if (simpleValue) {
+        return onChange(newValues.map(v => v && v[valueKey] || v));
+      }
+
+      onChange(newValues);
+
+    }
 
   }
 

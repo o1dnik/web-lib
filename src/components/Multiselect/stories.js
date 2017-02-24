@@ -12,22 +12,22 @@ const hrStyle = {
 };
 
 const options = [
-  {value: 'copastor', label: 'thermetrograph', isCategory: true},
-  {value: 'cryoscopy', label: 'uncharted'},
-  {value: 'bullyrook', label: 'urethratresia'},
-  {value: 'thishow', label: 'Sertulariidae'},
-  {value: 'bite', label: 'personalization'},
-  {value: 'sharebroker', label: 'Ganda', isCategory: true},
-  {value: 'toxihemia', label: 'haplostemonous'},
-  {value: 'brough', label: 'amorphous'},
-  {value: 'insinuant', label: 'phosphoroscope'},
-  {value: 'budget', label: 'Mercatorial', isCategory: true},
-  {value: 'multituberculy', label: 'fossula'}
+  {id: 'copastor', name: 'thermetrograph'},
+  {id: 'cryoscopy', name: 'uncharted'},
+  {id: 'bullyrook', name: 'urethratresia'},
+  {id: 'thishow', name: 'Sertulariidae'},
+  {id: 'bite', name: 'personalization'},
+  {id: 'sharebroker', name: 'Ganda'},
+  {id: 'toxihemia', name: 'haplostemonous'},
+  {id: 'brough', name: 'amorphous'},
+  {id: 'insinuant', name: 'phosphoroscope'},
+  {id: 'budget', name: 'Mercatorial'},
+  {id: 'multituberculy', name: 'fossula'}
 ];
 const tags = [
-  {value: 'microanalyst', label: 'Aglossa'},
-  {value: 'nine', label: 'cretion'},
-  {value: 'tailing', label: 'Zoilean'}
+  {id: 'microanalyst', name: 'Aglossa'},
+  {id: 'nine', name: 'cretion'},
+  {id: 'tailing', name: 'Zoilean'}
 ];
 
 const selectLabel = <span style={{color: 'red', textTransform: 'lowercase'}}>
@@ -45,6 +45,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           value={[]}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -59,6 +61,25 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
+          value={tags}
+          onChange={action('onChange')}
+          onFocus={action('onFocus')}
+          onBlur={action('onBlur')}
+        />
+      </div>
+
+      <div>
+        <h4>Simple Value</h4>
+        <Multiselect
+          selectProps={{
+            options,
+            onInputChange: action('onInputChange')
+          }}
+          valueKey='id'
+          labelKey='name'
+          simpleValue
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -75,6 +96,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -90,6 +113,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -108,6 +133,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -128,6 +155,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           value={tags}
           onChange={action('onChange')}
           onFocus={action('onFocus')}
@@ -149,6 +178,8 @@ storiesOf('Multiselect', module)
             options,
             onInputChange: action('onInputChange')
           }}
+          valueKey='id'
+          labelKey='name'
           input={{
             value: tags,
             onChange: action('onChange'),
