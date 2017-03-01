@@ -71,7 +71,7 @@ class SmartDoubleSelect extends Component {
             {...selectProps}
             component={Select}
             onChange={() => {
-              resetLevelOnSelectChange && level.input.onChange('');
+              resetLevelOnSelectChange && level.input.onChange(undefined);
             }}
             disabled={selectDisabled}
             noArrow={selectDisabled}
