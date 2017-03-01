@@ -40,9 +40,12 @@ class SmartDoubleSelect extends Component {
 
     const valid = select.meta.valid && level.meta.valid;
 
-    const levelDisabled = Boolean(!select.input.value || select.meta.invalid);
+    const levelDisabled = Boolean(
+      !select.input.value || select.meta.invalid || levelProps.disabled
+    );
 
-    const selectDisabled = selectProps.disabledIfValid && select.meta.valid;
+    const selectDisabled = (selectProps.disabledIfValid && select.meta.valid) ||
+      selectProps.disabled;
 
     const css = cn({
       'smart-double-select': true,
@@ -65,21 +68,21 @@ class SmartDoubleSelect extends Component {
         <div className={wrapperCss}>
 
           <Field
+            {...selectProps}
             component={Select}
             onChange={() => {
               resetLevelOnSelectChange && level.input.onChange('');
             }}
-            disabled={selectDisabled || selectProps.disabled}
-            {...selectProps}
-            noArrow={selectProps.disabled}
+            disabled={selectDisabled}
+            noArrow={selectDisabled}
             name={selectKey}
           />
 
           <Field
-            component={Select}
-            disabled={levelDisabled || levelProps.disabled}
             {...levelProps}
-            noArrow={levelDisabled || levelProps.disabled}
+            component={Select}
+            disabled={levelDisabled}
+            noArrow={levelDisabled}
             name={levelKey}
           />
 
