@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react';
+import range from 'lodash/range';
 
 //Sizes
 //90
@@ -28,10 +29,7 @@ export class ContentLoader extends Component {
 
     const linesCount = height / lineHeight;
 
-    let counter = header ? 4 : 0;
-
-    const lines = Array
-      .from({length: Math.floor(linesCount - counter)}, () => counter++);
+    const lines = range(header ? 4 : 0, Math.floor(linesCount));
 
     return (
 
