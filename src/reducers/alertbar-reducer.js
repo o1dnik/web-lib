@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
     case ALERT + SHOW: {
       const {
         message,
-        type,
+        type = 'success',
         dismissAfter,
         action,
         hideOnRouteChange = true
