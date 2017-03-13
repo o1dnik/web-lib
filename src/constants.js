@@ -25,6 +25,7 @@ export const LOGO = '_LOGO';
 
 export const ACCOUNT = 'ACCOUNT';
 export const PROFILE = 'PROFILE';
+export const SOCIAL_PLATFORM = 'SOCIAL_PLATFORM';
 
 export const JOB = 'JOB';
 
@@ -69,6 +70,9 @@ export const DECLINE = '_DECLINE';
 export const STEP = '_STEP';
 export const ACTIVATE = '_ACTIVATE';
 export const DEACTIVATE = '_DEACTIVATE';
+export const CONNECT = '_CONNECT';
+export const DISCONNECT = '_DISCONNECT';
+
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = '_CHANGE_REQUEST';
 export const DELETE_REQUEST = '_DELETE_REQUEST';
