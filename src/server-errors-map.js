@@ -9,7 +9,8 @@ const serverErrorsMap = {
   'invalid_data': 'Sorry, an error has occurred. Please check your input.',
   'token_invalid': 'Sorry, but this code is expired or invalid.',
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
-  'account_not_confirmed': 'The E-mail was already used. Please check your inbox.'
+  'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
+  'auth_failed': 'Authentication failed.'
 };
 
 export default serverErrorsMap;
