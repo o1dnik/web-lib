@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import isEmpty from 'lodash/isEmpty';
 
 const Input = (props) => {
   const {id, input, meta, placeholder, type, label} = props;
@@ -18,23 +17,13 @@ const Input = (props) => {
     'input-message-success': (touched && valid)
   });
 
-  const checkEmptyValue = (props) => {
-    if (typeof props.value === 'string') {
-      return props.value;
-    }
-    if (!isEmpty(input.value)) {
-      return input.value;
-    }
-    return '';
-  };
-
   return (
     <div>
 
       {label && <label htmlFor={id}>{label}</label>}
 
       <input name={props.name || input.name}
-             value={checkEmptyValue(props)}
+             value={props.value || input.value}
              onChange={props.onChange || input.onChange}
              onBlur={props.onBlur || input.onBlur}
              onFocus={props.onFocus || input.onFocus}
