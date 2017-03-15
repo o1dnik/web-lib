@@ -1,0 +1,32 @@
+.progress-tabs {
+  display: flex;
+}
+
+.progress-tab {
+  height: 0;
+  overflow: hidden;
+  flex: 1;
+  @extend %text-center;
+  color: $grey;
+  border-bottom: rem(5) solid $grey-md-light;
+  @include breakpoint(tablet) {
+    height: auto;
+    padding: 1rem 0 1rem 1rem;
+    overflow: auto;
+  }
+  i {
+    padding-left: .5rem;
+    color: tint($green, 50%);
+    opacity: 0;
+  }
+  &.active {
+    color: $action-color;
+    border-bottom: rem(5) solid $green;
+  }
+  &.done {
+    border-bottom: rem(5) solid $green;
+    i {
+      opacity: 1;
+    }
+  }
+}
