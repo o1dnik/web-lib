@@ -53,6 +53,7 @@ export const CITY = '_CITY';
 export const RELOCATION = '_RELOCATION';
 
 export const RESEND = 'RESEND';
+export const RESET = 'RESET';
 
 // auth Actions
 export const LOGOUT = 'LOGOUT';
