@@ -65,6 +65,7 @@ export const SESSION_EXPIRED = 'SESSION_EXPIRED';
 export const ALERT = 'ALERT';
 export const NOTIFICATION = 'NOTIFICATION';
 export const REDIRECT = 'REDIRECT';
+export const RESET = '_RESET';
 export const SHOW = '_SHOW';
 export const HIDE = '_HIDE';
 export const HIDED = '_HIDED';
