@@ -10,7 +10,8 @@ const serverErrorsMap = {
   'token_invalid': 'Sorry, but this code is expired or invalid.',
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
-  'auth_failed': 'Authentication failed.'
+  'auth_failed': 'Authentication failed.',
+  'account_exists': 'User with this E-mail already exists'
 };
 
 export default serverErrorsMap;
