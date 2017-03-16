@@ -39,6 +39,8 @@ export const MATCH = 'MATCH';
 export const ROLES = 'ROLES';
 export const SKILLS = 'SKILLS';
 export const TYPES = 'TYPES';
+export const CV = 'CV';
+export const PICTURE = 'PICTURE';
 
 export const LANGUAGE = '_LANGUAGE';
 export const ROLE = '_ROLE';
