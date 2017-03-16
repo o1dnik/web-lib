@@ -41,6 +41,7 @@ export const SKILLS = 'SKILLS';
 export const TYPES = 'TYPES';
 export const CV = 'CV';
 export const PICTURE = 'PICTURE';
+export const TRACKING = 'TRACKING';
 
 export const LANGUAGE = '_LANGUAGE';
 export const ROLE = '_ROLE';
