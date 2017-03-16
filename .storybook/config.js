@@ -24,6 +24,7 @@ function loadStories() {
   require('../src/components/FormImageUploader/stories');
   require('../src/components/Icons/stories');
   require('../src/components/ContentLoader/stories');
+  require('../src/components/StepBar/stories');
 }
 
 configure(loadStories, module);

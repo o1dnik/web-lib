@@ -19,3 +19,4 @@ export ImageCropper from './ImageCropper';
 export FormImageUploader from './FormImageUploader';
 export ContentLoader from './ContentLoader';
 export SmartDoubleSelect from './SmartDoubleSelect';
+export StepBar from './StepBar';
