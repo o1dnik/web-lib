@@ -42,6 +42,7 @@ export const TYPES = 'TYPES';
 export const CV = 'CV';
 export const PICTURE = 'PICTURE';
 export const TRACKING = 'TRACKING';
+export const WEBREFERENCE = 'WEBREFERENCE';
 
 export const LANGUAGE = '_LANGUAGE';
 export const ROLE = '_ROLE';
