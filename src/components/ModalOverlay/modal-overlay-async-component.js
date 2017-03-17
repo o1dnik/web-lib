@@ -1,4 +1,4 @@
-import {asyncComponent} from '../../decorators/asyncComponent';
+import asyncComponent from '../../decorators/asyncComponent';
 
 export default asyncComponent((cb) => {
   require.ensure([], (require) => {
