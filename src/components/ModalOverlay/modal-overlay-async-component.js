@@ -1,4 +1,4 @@
-import {asyncComponent} from 'web-lib';
+import {asyncComponent} from '../../decorators/asyncComponent';
 
 export default asyncComponent((cb) => {
   require.ensure([], (require) => {
