@@ -1,6 +1,6 @@
 import {DEFAULT_ERROR} from './constants';
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 const serverErrorsMap = {
   'default_error': DEFAULT_ERROR,
