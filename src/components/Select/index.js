@@ -8,7 +8,11 @@ class Select extends Component {
   static propTypes = {
 
     name: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+      PropTypes.object
+    ]),
     options: PropTypes.array,
     optionRenderer: PropTypes.bool,
     onChange: PropTypes.func,
@@ -32,7 +36,11 @@ class Select extends Component {
       onDragStart: PropTypes.func,
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+        PropTypes.object
+      ])
     }),
 
     meta: PropTypes.shape({
