@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Button} from '../Button';
+import Button from '../Button';
 
 class AlertComponent extends Component {
 
