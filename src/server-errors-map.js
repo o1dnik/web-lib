@@ -11,7 +11,8 @@ const serverErrorsMap = {
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
   'auth_failed': 'Authentication failed.',
-  'account_exists': 'User with this E-mail already exists'
+  'account_exists': 'User with this E-mail already exists',
+  'not_confirmed': 'Email not confirmed.'
 };
 
 export default serverErrorsMap;
