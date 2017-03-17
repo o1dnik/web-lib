@@ -1,4 +1,6 @@
 import {DEFAULT_ERROR} from './constants';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 const serverErrorsMap = {
   'default_error': DEFAULT_ERROR,
@@ -11,7 +13,13 @@ const serverErrorsMap = {
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
   'auth_failed': 'Authentication failed.',
-  'account_exists': 'User with this E-mail already exists'
+  'account_exists': 'User with this E-mail already exists',
+  'not_confirmed': (
+    <span>
+      This email address is not yet confirmed.&nbsp;
+      Please request new confirmation code <Link to='/resend-email'>here</Link>, if expired.
+    </span>
+  )
 };
 
 export default serverErrorsMap;
