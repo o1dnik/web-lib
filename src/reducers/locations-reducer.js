@@ -6,10 +6,12 @@ import {
   FAIL,
   LOCATIONS,
   JOB,
-  JOBS_BY_COMPANY_ID
+  JOBS_BY_COMPANY_ID,
+  ME
 } from '../constants';
 
 import unionBy from 'lodash/unionBy';
+import get from 'lodash/get';
 
 const defaultState = {
   loading: false,
@@ -62,6 +64,20 @@ export default (state = defaultState, action) => {
         ...state,
         entities: unionBy(state.entities, [city], 'id')
       };
+    }
+
+    case ME + GET + SUCCESS: {
+      const relocations = get(res, 'data.relocations');
+
+      if (relocations && relocations.length > 0) {
+        return {
+          ...state,
+          entities: unionBy(state.entities, relocations, 'id')
+        };
+      }
+
+      return state;
+
     }
 
   }
