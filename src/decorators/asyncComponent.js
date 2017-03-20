@@ -18,7 +18,12 @@ export default function(loaderFunc) {
 
       this.props.onLoadStart && this.props.onLoadStart();
       loaderFunc((component) => {
-        this.setState({component: component.default});
+        /**
+         * Newer version of Webpack does not understand component.default,
+         * so we have to check if it exists (older version)
+         * or not (newer version).
+         */
+        this.setState({component: component.default || component});
         this.props.onLoadSuccess && this.props.onLoadSuccess();
       });
 
