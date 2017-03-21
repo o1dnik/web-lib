@@ -14,6 +14,7 @@ const serverErrorsMap = {
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
   'auth_failed': 'Authentication failed.',
   'account_exists': 'User with this E-mail already exists',
+  'wrong_format': 'Wrong format',
   'not_confirmed': (
     <span>
       This email address is not yet confirmed.&nbsp;
