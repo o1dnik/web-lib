@@ -24,6 +24,7 @@ export const PASSWORD = 'PASSWORD';
 export const LOGO = '_LOGO';
 
 export const COMPANY = 'COMPANY';
+export const COMPANIES = 'COMPANIES';
 export const ACCOUNT = 'ACCOUNT';
 export const PROFILE = 'PROFILE';
 export const SOCIAL_PLATFORM = 'SOCIAL_PLATFORM';
