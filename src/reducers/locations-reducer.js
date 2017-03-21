@@ -44,6 +44,9 @@ export default (state = defaultState, action) => {
 
     case COMPANY + GET + SUCCESS: {
       const {city} = res.data;
+      if (!city) {
+        return state;
+      }
       return {
         ...state,
         entities: unionBy(state.entities, [city], 'id')
