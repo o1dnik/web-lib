@@ -79,6 +79,7 @@ export const ACTIVATE = '_ACTIVATE';
 export const DEACTIVATE = '_DEACTIVATE';
 export const CONNECT = '_CONNECT';
 export const DISCONNECT = '_DISCONNECT';
+export const CONFIRM = '_CONFIRM';
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = '_CHANGE_REQUEST';
