@@ -16,6 +16,7 @@ export const CREATE = '_CREATE';
 export const UPDATE = '_UPDATE';
 export const DELETE = '_DELETE';
 export const RELOAD = '_RELOAD';
+export const BACKGROUND = '_BACKGROUND';
 
 // Resources Actions
 export const ME = 'ME';
