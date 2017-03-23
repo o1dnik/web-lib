@@ -28,6 +28,7 @@ export const COMPANIES = 'COMPANIES';
 export const ACCOUNT = 'ACCOUNT';
 export const PROFILE = 'PROFILE';
 export const SOCIAL_PLATFORM = 'SOCIAL_PLATFORM';
+export const REFERRAL = 'REFERRAL';
 
 export const JOBS_BY_COMPANY_ID = 'JOBS_BY_COMPANY_ID';
 export const JOB = 'JOB';
