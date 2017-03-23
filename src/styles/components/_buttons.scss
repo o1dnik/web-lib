@@ -22,7 +22,9 @@ $button-colors: (
   }
   &.button-medium{
     padding: 1rem;
-    min-width: rem(140);
+    @include breakpoint(tablet){
+      min-width: rem(140);
+    }
     &.button-outline{
       padding: $base-font-size+1px 1em;
     }
@@ -110,6 +112,6 @@ $button-colors: (
     min-width: 0;
   }
   *+*{
-    padding-left: .625em;
+    margin-left: .625em;
   }
 }
