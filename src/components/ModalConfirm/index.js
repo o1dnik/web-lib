@@ -12,6 +12,7 @@ class ConfirmModalComponent extends Component {
 
     onInputChange: PropTypes.func,
     inputValue: PropTypes.string,
+    inputType: PropTypes.string,
     inputPlaceholder: PropTypes.string,
 
     onConfirm: PropTypes.func.isRequired,
@@ -31,6 +32,7 @@ class ConfirmModalComponent extends Component {
     confirmContent: 'Confirm',
     cancelContent: 'Cancel',
     inputValue: '',
+    inputType: 'text',
     inputPlaceholder: '',
     confirmDisabled: false,
     cancelDisabled: false,
@@ -48,6 +50,7 @@ class ConfirmModalComponent extends Component {
       onInputChange,
       inputPlaceholder,
       inputValue,
+      inputType,
       onConfirm,
       onCancel,
       confirmDisabled,
@@ -68,7 +71,7 @@ class ConfirmModalComponent extends Component {
             <p>{content}</p>
             {onInputChange &&
             <input
-              type='text'
+              type={inputType}
               className='mm-popup__input'
               onChange={onInputChange}
               placeholder={inputPlaceholder}
