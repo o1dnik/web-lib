@@ -44,13 +44,13 @@ export const DEFAULT_LANGS = [
 ];
 
 export const CAREER_LEVELS = [
-  {value: '0', label: 'Student'},
-  {value: '1', label: 'Entry level'},
-  {value: '2', label: 'Intermediate'},
-  {value: '3', label: 'Senior'},
-  {value: '4', label: 'Lead'},
-  {value: '5', label: 'Head'},
-  {value: '6', label: 'Executive'}
+  {id: '0', name: 'Student'},
+  {id: '1', name: 'Entry level'},
+  {id: '2', name: 'Intermediate'},
+  {id: '3', name: 'Senior'},
+  {id: '4', name: 'Lead'},
+  {id: '5', name: 'Head'},
+  {id: '6', name: 'Executive'}
 ];
 
 export const CONFIRMATION_REASONS = [
