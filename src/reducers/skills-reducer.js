@@ -1,5 +1,5 @@
 import {
-  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB
+  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, CANDIDATE
 } from '../constants';
 import unionBy from 'lodash/unionBy';
 import flatten from 'lodash/flatten';
@@ -42,6 +42,7 @@ export default (state = defaultState, action) => {
       };
     }
 
+    case CANDIDATE + GET + SUCCESS:
     case JOB + GET + SUCCESS: {
       const {skills} = res.data;
       return {
