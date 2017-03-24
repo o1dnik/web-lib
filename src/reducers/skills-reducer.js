@@ -1,0 +1,56 @@
+import {
+  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB
+} from '../constants';
+import unionBy from 'lodash/unionBy';
+import flatten from 'lodash/flatten';
+
+const defaultState = {
+  loading: false,
+  count: null,
+  entities: []
+};
+
+export default (state = defaultState, action) => {
+  const {type, res} = action;
+
+  switch (type) {
+
+    case SKILLS + GET + START: {
+      return {...state, loading: true};
+    }
+
+    case SKILLS + GET + SUCCESS: {
+      const {results, count} = res.data;
+
+      return {
+        ...state,
+        entities: unionBy(state.entities, results, 'id'),
+        count,
+        loading: false
+      };
+    }
+
+    case SKILLS + GET + FAIL: {
+      return {...state, loading: false};
+    }
+
+    case JOBS_BY_COMPANY_ID + GET + SUCCESS: {
+      const results = flatten(res.data.results.map(r => r.skills));
+      return {
+        ...state,
+        entities: unionBy(state.entities, results, 'id')
+      };
+    }
+
+    case JOB + GET + SUCCESS: {
+      const {skills} = res.data;
+      return {
+        ...state,
+        entities: unionBy(state.entities, skills, 'id')
+      };
+    }
+
+  }
+
+  return state;
+};
