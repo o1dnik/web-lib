@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {getOldValue} from '../../helpers/getOldValue';
 
 const Input = (props) => {
-  const {id, input, meta, placeholder, type, label} = props;
+  const {id, input, meta, placeholder, type, label, disabled} = props;
   const {error, invalid, valid, touched, dirty} = meta;
 
   const inputCss = classNames({
@@ -23,15 +23,18 @@ const Input = (props) => {
 
       {label && <label htmlFor={id}>{label}</label>}
 
-      <input name={props.name || input.name}
-             value={getOldValue(props)}
-             onChange={props.onChange || input.onChange}
-             onBlur={props.onBlur || input.onBlur}
-             onFocus={props.onFocus || input.onFocus}
-             placeholder={placeholder}
-             id={id}
-             type={type}
-             className={inputCss}/>
+      <input
+        name={props.name || input.name}
+        value={getOldValue(props)}
+        onChange={props.onChange || input.onChange}
+        onBlur={props.onBlur || input.onBlur}
+        onFocus={props.onFocus || input.onFocus}
+        placeholder={placeholder}
+        id={id}
+        type={type}
+        className={inputCss}
+        disabled={disabled}
+      />
 
       <span className={inputMessageCss}>
         {(dirty || touched) && invalid && error}

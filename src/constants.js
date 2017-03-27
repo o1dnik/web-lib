@@ -82,6 +82,7 @@ export const DECLINE = '_DECLINE';
 export const STEP = '_STEP';
 export const ACTIVATE = '_ACTIVATE';
 export const DEACTIVATE = '_DEACTIVATE';
+export const INITIAL = '_INITIAL';
 export const CONNECT = '_CONNECT';
 export const DISCONNECT = '_DISCONNECT';
 export const CONFIRM = '_CONFIRM';

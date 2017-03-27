@@ -97,3 +97,10 @@ export const STATUSES_COLOR_MAP = {
   PAU: 'default',
   DEL: 'default'
 };
+
+export const STATUSES_ICONS_MAP = {
+  ACT: 'ion-checkmark',
+  REV: 'ion-ios-clock',
+  PAU: 'ion-pause',
+  DEL: 'ion-close-circled'
+};

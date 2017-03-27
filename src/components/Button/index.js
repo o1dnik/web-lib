@@ -72,6 +72,7 @@ class Button extends Component {
     const isDisabled = disabled || loading;
 
     const newCildren = Children.map(children, (c) => {
+      if (c === null) return null;
       if (typeof c === 'string') {
         return <span>{c}</span>;
       }
