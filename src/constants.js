@@ -41,6 +41,7 @@ export const LOCATIONS = 'LOCATIONS';
 export const LANGUAGES = 'LANGUAGES';
 export const MATCHES = 'MATCHES';
 export const MATCH = 'MATCH';
+export const LIKE = 'LIKE';
 export const ROLES = 'ROLES';
 export const SKILLS = 'SKILLS';
 export const TYPES = 'TYPES';
