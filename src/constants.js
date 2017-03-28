@@ -89,3 +89,29 @@ export const CONFIRM = '_CONFIRM';
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = '_CHANGE_REQUEST';
 export const DELETE_REQUEST = '_DELETE_REQUEST';
+
+// 0 - candidate pending - show accept/reject buttons
+// 1 - candidate declined - nothing to show
+// 2 - candidate accepted - show pending
+// 3 - company declined - show rejected
+// 4 - company accepted - show accepted
+// 5 - candidated expired - show expired
+// 6 - company expired - show expired
+
+export const CANDIDATE_PENDING = 'CANDIDATE_PENDING';
+export const CANDIDATE_DECLINED = 'CANDIDATE_DECLINED';
+export const CANDIDATE_ACCEPTED = 'CANDIDATE_ACCEPTED';
+export const COMPANY_DECLINED = 'COMPANY_DECLINED';
+export const COMPANY_ACCEPTED = 'COMPANY_ACCEPTED';
+export const CANDIDATE_EXPIRED = 'CANDIDATE_EXPIRED';
+export const COMPANY_EXPIRED = 'COMPANY_EXPIRED';
+
+export const MATCH_STATUSES = {
+  [CANDIDATE_PENDING]: 0,
+  [CANDIDATE_DECLINED]: 1,
+  [CANDIDATE_ACCEPTED]: 2,
+  [COMPANY_DECLINED]: 3,
+  [COMPANY_ACCEPTED]: 4,
+  [CANDIDATE_EXPIRED]: 5,
+  [COMPANY_EXPIRED]: 6
+};
