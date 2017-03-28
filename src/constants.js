@@ -78,6 +78,7 @@ export const HIDED = '_HIDED';
 export const WARNING = '_WARNING';
 export const ACCEPT = '_ACCEPT';
 export const DECLINE = '_DECLINE';
+export const REJECT = '_REJECT';
 export const STEP = '_STEP';
 export const ACTIVATE = '_ACTIVATE';
 export const DEACTIVATE = '_DEACTIVATE';
