@@ -33,6 +33,7 @@ export const SOCIAL_PLATFORM = 'SOCIAL_PLATFORM';
 export const REFERRAL = 'REFERRAL';
 
 export const JOBS_BY_COMPANY_ID = 'JOBS_BY_COMPANY_ID';
+export const JOBS = 'JOBS';
 export const JOB = 'JOB';
 
 export const CANDIDATE = 'CANDIDATE';
