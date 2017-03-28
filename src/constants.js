@@ -60,6 +60,7 @@ export const CAREER_LEVEL = '_CAREER_LEVEL';
 export const SALARY = '_SALARY';
 export const CITY = '_CITY';
 export const RELOCATION = '_RELOCATION';
+export const SIMILAR = '_SIMILAR';
 
 export const RESEND = 'RESEND';
 
