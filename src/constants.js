@@ -51,6 +51,7 @@ export const PICTURE = 'PICTURE';
 export const TRACKING = 'TRACKING';
 export const WEBREFERENCE = 'WEBREFERENCE';
 
+export const SUGGESTED = '_SUGGESTED';
 export const LANGUAGE = '_LANGUAGE';
 export const ROLE = '_ROLE';
 export const SKILL = '_SKILL';
