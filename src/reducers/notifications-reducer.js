@@ -1,5 +1,5 @@
 import {NOTIFICATION, SHOW, HIDE} from '../constants';
-import {unionBy} from 'lodash';
+import unionBy from 'lodash/unionBy';
 
 const defaultState = {
   entities: []
