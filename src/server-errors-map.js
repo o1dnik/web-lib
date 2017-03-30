@@ -22,7 +22,11 @@ const serverErrorsMap = {
       This email address is not yet confirmed.&nbsp;
       Please request new confirmation code <Link to='/resend-email'>here</Link>, if expired.
     </span>
-  )
+  ),
+  'candidate_inactive': 'Candidate disactivated his profile',
+  'account_deleted': 'The account has been deleted !',
+  'job_not_found': 'Job not found !',
+  'job_inactive': 'Job has been disactivated !'
 };
 
 export default serverErrorsMap;
