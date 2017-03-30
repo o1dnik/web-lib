@@ -25,6 +25,7 @@ function loadStories() {
   require('../src/components/Icons/stories');
   require('../src/components/ContentLoader/stories');
   require('../src/components/StepBar/stories');
+  require('../src/components/ProgressBar/stories');
 }
 
 configure(loadStories, module);
