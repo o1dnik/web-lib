@@ -24,6 +24,8 @@ const serverErrorsMap = {
     </span>
   ),
   'candidate_inactive': 'Candidate disactivated his profile',
+  'candidate_not_found': 'Cannot update your account',
+  'not_completed': 'Please complete the sign-up form',
   'account_deleted': 'The account has been deleted !',
   'job_not_found': 'Job not found !',
   'job_inactive': 'Job has been disactivated !'
