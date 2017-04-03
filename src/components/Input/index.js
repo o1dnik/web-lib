@@ -19,7 +19,7 @@ const Input = (props) => {
   });
 
   return (
-    <div>
+    <div className='input-wrapper'>
 
       {label && <label htmlFor={id}>{label}</label>}
 
