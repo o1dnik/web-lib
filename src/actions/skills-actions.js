@@ -1,8 +1,9 @@
 import {SKILLS, GET} from '../constants';
+import qs from 'qs';
 
 export function getSkills(query = '', limit = 100, offset = 0) {
   return {
     type: SKILLS + GET,
-    endpoint: `/skills/?limit=${limit}&offset=${offset}&q=${query}`
+    endpoint: `/skills/?${qs.stringify({limit, offset, query})}`
   };
 }
