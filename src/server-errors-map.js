@@ -28,7 +28,8 @@ const serverErrorsMap = {
   'not_completed': 'Please complete the sign-up form',
   'account_deleted': 'The account has been deleted !',
   'job_not_found': 'Job not found !',
-  'job_inactive': 'Job has been disactivated !'
+  'job_inactive': 'Job has been disactivated !',
+  'wrong_password': 'Sorry, but this password is not correct.'
 };
 
 export default serverErrorsMap;
