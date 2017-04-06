@@ -1,23 +1,47 @@
-export {Button} from './Button';
-export {Checkbox} from './Checkbox';
-export {CheckboxGroup} from './CheckboxGroup';
-export {RadioGroup} from './RadioGroup';
-export {Loader} from './Loader';
-export {Input} from './Input';
-export {TextareaInput} from './TextareaInput';
-export {Tag} from './Tag';
-// export {Tags} from './Tags';
-export {Select} from './Select';
-export {Multiselect} from './Multiselect';
-export {DoubleSelect} from './DoubleSelect';
-export {SelectWithLevels} from './SelectWithLevels';
-export {InputRange} from './InputRange';
-export {AlertBar} from './AlertBar';
-export {Box} from './Box';
-export {StatsCircle} from './StatsCircle';
-export {ImageCropper} from './ImageCropper';
-export {FormImageUploader} from './FormImageUploader';
-export {ContentLoader} from './ContentLoader';
-export {SmartDoubleSelect} from './SmartDoubleSelect';
-export {StepBar} from './StepBar';
-export {ProgressBar} from './ProgressBar';
+import Button from './Button';
+import Checkbox from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
+import RadioGroup from './RadioGroup';
+import Loader from './Loader';
+import Input from './Input';
+import TextareaInput from './TextareaInput';
+import Tag from './Tag';
+import Select from './Select';
+import Multiselect from './Multiselect';
+import DoubleSelect from './DoubleSelect';
+import SelectWithLevels from './SelectWithLevels';
+import InputRange from './InputRange';
+import AlertBar from './AlertBar';
+import Box from './Box';
+import StatsCircle from './StatsCircle';
+import ImageCropper from './ImageCropper';
+import FormImageUploader from './FormImageUploader';
+import ContentLoader from './ContentLoader';
+import SmartDoubleSelect from './SmartDoubleSelect';
+import StepBar from './StepBar';
+import ProgressBar from './ProgressBar';
+
+export {
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  RadioGroup,
+  Loader,
+  Input,
+  TextareaInput,
+  Tag,
+  Select,
+  Multiselect,
+  DoubleSelect,
+  SelectWithLevels,
+  InputRange,
+  AlertBar,
+  Box,
+  StatsCircle,
+  ImageCropper,
+  FormImageUploader,
+  ContentLoader,
+  SmartDoubleSelect,
+  StepBar,
+  ProgressBar
+};
