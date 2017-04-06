@@ -1,13 +1,12 @@
 {
   "env": {
     "development": {
-      "presets": ["react", "latest", "stage-0", "react-hmre"]
+      "plugins": ["syntax-dynamic-import", "lodash", "date-fns"],
+      "presets": ["react", "env", "stage-2", "react-hmre"]
     },
     "production": {
-      "presets": ["react", "latest", "stage-0"],
-      "plugins": [
-        ["add-module-exports"]
-      ]
+      "plugins": ["add-module-exports", "syntax-dynamic-import", "lodash", "date-fns"],
+      "presets": ["react", "env", "stage-2"]
     }
   }
 }
