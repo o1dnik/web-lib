@@ -5,9 +5,9 @@
 @import "InputRangeTrack";
 @import "InputRangeCustom";
 
-.InputRange {
+.input-range {
   cursor: pointer;
-  height: $InputRange-slider-height;
+  height: $input-range-slider-height;
   position: relative;
   width: 100%;
 }
