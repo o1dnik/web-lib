@@ -15,6 +15,7 @@ class Button extends Component {
     loading: PropTypes.bool,
     disabled: PropTypes.bool,
     extended: PropTypes.bool,
+    apart: PropTypes.bool,
     outline: PropTypes.bool,
     rounded: PropTypes.bool,
     size: PropTypes.oneOf([
@@ -44,6 +45,7 @@ class Button extends Component {
     loading: false,
     disabled: false,
     extended: false,
+    apart: false,
     outline: false
   };
 
@@ -57,6 +59,7 @@ class Button extends Component {
       loading,
       disabled,
       extended,
+      apart,
       outline,
       size,
       color,
@@ -88,6 +91,7 @@ class Button extends Component {
       [withPrefix('rounded')]: Boolean(rounded),
       [withPrefix('outline')]: Boolean(outline),
       [withPrefix('extended')]: Boolean(extended),
+      [withPrefix('apart')]: Boolean(apart),
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('loading')]: Boolean(loading),
       [withPrefix('link')]: Boolean(href || link),

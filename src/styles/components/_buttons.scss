@@ -54,10 +54,11 @@ $button-colors: (
     display: block;
     margin-bottom: $small-spacing;
     width: 100%;
-    &.button-icon-apart{
-      display: flex;
-      justify-content: space-between;
-    }
+  }
+  // spread out children (i.e., text and icon)
+  &.button-apart{
+    display: flex;
+    justify-content: space-between;
   }
   // Colors
   @each $name, $color in $button-colors {

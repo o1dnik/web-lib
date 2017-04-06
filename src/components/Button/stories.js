@@ -74,6 +74,14 @@ storiesOf('Button', module)
       </div>
 
       <div>
+        <h4>Extended with icon spread out</h4>
+        <Button extended apart onClick={action('clicked')}>
+          <span>Spread out</span>
+          <i className='ion-close-round'/>
+        </Button>
+      </div>
+
+      <div>
         <h4>Disabled</h4>
         {
           colors.map(s =>
