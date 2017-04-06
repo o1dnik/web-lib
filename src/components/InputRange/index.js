@@ -25,16 +25,15 @@ const InputRange = (props) => {
         formatLabel={formatLabel}
         labelPrefix={props.labelPrefix}
         labelSuffix={props.labelSuffix}
-        onChange={handleChange(onChange || input.onChange)}
-        onChangeComplete={props.onChangeComplete}
+        onChange={handleChange}
+        onChangeComplete={onChange || input.onChange}
       />
 
     </div>
   );
 };
 
-function handleChange(handler) {
-  return (_, val) => handler(val);
+function handleChange() {
 }
 
 InputRange.propTypes = {
