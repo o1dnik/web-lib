@@ -8,7 +8,9 @@ const InputRange = (props) => {
   const {id, input, onChange, label, disabled} = props;
   const {minValue, maxValue, step, formatLabel} = props;
 
-  const wrapperCss = cn({'input-range': true});
+  const wrapperCss = cn({
+    'input-range-wrapper': true
+  });
 
   return (
     <div className={wrapperCss}>

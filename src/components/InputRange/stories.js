@@ -11,7 +11,7 @@ storiesOf('InputRange', module)
   .add('Default', () => (
     <div>
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           minValue={5}
@@ -22,7 +22,7 @@ storiesOf('InputRange', module)
         />
       </div>
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           minValue={5}
@@ -33,7 +33,7 @@ storiesOf('InputRange', module)
         />
       </div>
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           minValue={5}
@@ -44,7 +44,7 @@ storiesOf('InputRange', module)
         />
       </div>
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           minValue={5}
@@ -56,7 +56,7 @@ storiesOf('InputRange', module)
       </div>
 
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           label={label}
@@ -69,7 +69,7 @@ storiesOf('InputRange', module)
         />
       </div>
 
-      <div className='input-range-wraper'>
+      <div>
         <InputRange
           name='my-input-range'
           label='LABEL AS STRING'
