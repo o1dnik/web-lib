@@ -21,7 +21,9 @@
     &.tag-icon{
       display: flex;
       text-align: left;
-      justify-content: space-between;
+      &.tag-apart{
+        justify-content: space-between;
+      }
       :first-child{
         white-space: nowrap;
         overflow: hidden;

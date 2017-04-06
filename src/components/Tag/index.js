@@ -9,6 +9,7 @@ class Tag extends Component {
     disabled: PropTypes.bool,
     bordered: PropTypes.bool,
     extended: PropTypes.bool,
+    apart: PropTypes.bool,
     value: PropTypes.bool,
     size: PropTypes.oneOf([
       'xsmall',
@@ -31,6 +32,7 @@ class Tag extends Component {
     className: '',
     disabled: false,
     extended: false,
+    apart: false,
     bordered: false,
     value: false
   };
@@ -44,6 +46,7 @@ class Tag extends Component {
       size,
       bordered,
       extended,
+      apart,
       disabled,
       value,
       className
@@ -91,6 +94,7 @@ class Tag extends Component {
       [withPrefix('bordered')]: Boolean(bordered),
       clickable: Boolean(onClick && !disabled),
       [withPrefix('extended')]: Boolean(extended),
+      [withPrefix('apart')]: Boolean(apart),
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('value')]: Boolean(value),
       [withPrefix('icon')]: Boolean(hasIcon)

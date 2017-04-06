@@ -103,6 +103,16 @@ storiesOf('Tag', module)
       </div>
 
       <div>
+        <h4>Extended with text and icon spread out</h4>
+        <Tag extended apart>
+          <span>
+            Lorem ipsum
+          </span>
+          <i className='ion-plus' onClick={action('icon-clicked')}/>
+        </Tag>
+      </div>
+
+      <div>
         <div>
           <h4>Disabled</h4>
           <Tag disabled onClick={action('clicked')}>
