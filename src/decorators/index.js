@@ -1,4 +1,4 @@
-export {openClose} from './openClose';
-export {toggleActive} from './toggleActive';
-export {toggleActiveMultiple} from './toggleActiveMultiple';
-export {asyncComponent} from './asyncComponent';
+export {default as openClose} from './openClose';
+export {default as toggleActive} from './toggleActive';
+export {default as toggleActiveMultiple} from './toggleActiveMultiple';
+export {default as asyncComponent} from './asyncComponent';
