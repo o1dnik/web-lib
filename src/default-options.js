@@ -58,7 +58,7 @@ export const CONFIRMATION_REASONS = [
   {id: '2', name: 'Experience'},
   {id: '3', name: 'Skill-set'},
   {id: '4', name: 'Leadership'},
-  {id: '5', name: 'languages'},
+  {id: '5', name: 'Languages'},
   {id: '6', name: 'Location'},
   {id: '7', name: 'References'},
   {id: '0', name: 'Other'}
