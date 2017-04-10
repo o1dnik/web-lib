@@ -23,8 +23,10 @@ export const PENDING = '_PENDING';
 export const ME = 'ME';
 export const EMAIL = 'EMAIL';
 export const PASSWORD = 'PASSWORD';
+export const SETTINGS = 'SETTINGS';
 
 export const LOGO = '_LOGO';
+export const BILLING = '_BILLING';
 
 export const COMPANY = 'COMPANY';
 export const COMPANIES = 'COMPANIES';
@@ -37,6 +39,8 @@ export const JOBS_BY_COMPANY_ID = 'JOBS_BY_COMPANY_ID';
 export const JOBS = 'JOBS';
 export const JOB = 'JOB';
 
+export const CANDIDATES_ACCEPTED = 'CANDIDATES_ACCEPTED';
+export const CANDIDATES_REFERRED = 'CANDIDATES_REFERRED';
 export const CANDIDATE = 'CANDIDATE';
 
 export const LOCATIONS = 'LOCATIONS';
@@ -65,6 +69,8 @@ export const CITY = '_CITY';
 export const RELOCATION = '_RELOCATION';
 export const SIMILAR = '_SIMILAR';
 
+export const INQUIRY = 'INQUIRY';
+
 export const RESEND = 'RESEND';
 
 // auth Actions
@@ -86,6 +92,11 @@ export const ACCEPT = '_ACCEPT';
 export const DECLINE = '_DECLINE';
 export const REJECT = '_REJECT';
 export const STEP = '_STEP';
+export const CONFIRMATION = '_CONFIRMATION';
+export const PREVIEW = '_PREVIEW';
+export const FEEDBACK = '_FEEDBACK';
+export const SUBSCRIPTION = '_SUBSCRIPTION';
+export const ORDER = '_ORDER';
 export const ACTIVATE = '_ACTIVATE';
 export const DEACTIVATE = '_DEACTIVATE';
 export const INITIAL = '_INITIAL';
