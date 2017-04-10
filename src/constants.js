@@ -17,6 +17,7 @@ export const UPDATE = '_UPDATE';
 export const DELETE = '_DELETE';
 export const RELOAD = '_RELOAD';
 export const BACKGROUND = '_BACKGROUND';
+export const PENDING = '_PENDING';
 
 // Resources Actions
 export const ME = 'ME';
