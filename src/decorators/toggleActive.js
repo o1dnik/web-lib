@@ -1,36 +1,39 @@
-import React from 'react';
-import {checkConflictProps} from '../helpers';
-const warnProps = ['toggleActive', 'isActive', 'activeItem'];
+import React, {PropTypes} from 'react';
 
 export default (Component) => {
   return class ActiveItemDecorator extends React.Component {
-    state = {
-      activeItem: this.props.activeItem || null
+    static propTypes = {
+      activeItem: PropTypes.any,
+      defaultActiveItem: PropTypes.any,
+      toggleActive: PropTypes.func,
+      isActive: PropTypes.func
     }
 
-    toggleActive = id => e => {
+    static defaultProps = {
+      defaultActiveItem: null
+    }
+
+    state = {
+      activeItem: this.props.defaultActiveItem
+    }
+
+    toggleActive = item => e => {
       if (e) e.preventDefault();
-      const activeItem = id === this.state.activeItem ? null : id;
-      this.setState({activeItem});
+      this.setState((prevState) => {
+        const activeItem = item === prevState.activeItem ? null : item;
+        return {...prevState, activeItem};
+      });
     }
 
     isActive = id => this.state.activeItem === id;
 
-    componentWillReceiveProps(nextProps) {
-      checkConflictProps(nextProps, warnProps);
-    }
-
-    componentDidMount() {
-      checkConflictProps(this.props, warnProps);
-    }
-
     render() {
       return (
         <Component
-          {...this.props}
-          activeItem={this.state.activeItem}
+          {...this.state}
           isActive={this.isActive}
           toggleActive={this.toggleActive}
+          {...this.props}
         />
       );
     }

@@ -1,44 +1,46 @@
-import React from 'react';
-import {checkConflictProps} from '../helpers';
-const warnProps = ['isOpen', 'toggle', 'open', 'close'];
+import React, {PropTypes} from 'react';
 
 export default (Component) => {
   return class OpenCloseDecorator extends React.Component {
+    static propTypes = {
+      isOpen: PropTypes.bool,
+      defaultIsOpen: PropTypes.bool,
+      toggle: PropTypes.func,
+      close: PropTypes.func,
+      open: PropTypes.func
+    }
+
+    static defaultProps = {
+      defaultIsOpen: false
+    }
+
     state = {
-      isOpen: this.props.isOpen || false
+      isOpen: this.props.defaultIsOpen
     }
 
     toggle = e => {
       if (e) e.preventDefault();
-      this.setState({isOpen: !this.state.isOpen});
+      this.setState(prevState => ({...prevState, isOpen: !prevState.isOpen}));
     }
 
     close = e => {
       if (e) e.preventDefault();
-      this.setState({isOpen: false});
+      this.setState((prevState) => ({...prevState, isOpen: false}));
     }
 
     open = e => {
       if (e) e.preventDefault();
-      this.setState({isOpen: true});
-    }
-
-    componentWillReceiveProps(nextProps) {
-      checkConflictProps(nextProps, warnProps);
-    }
-
-    componentDidMount() {
-      checkConflictProps(this.props, warnProps);
+      this.setState((prevState) => ({...prevState, isOpen: true}));
     }
 
     render() {
       return (
         <Component
-          {...this.props}
-          isOpen={this.state.isOpen}
+          {...this.state}
           toggle={this.toggle}
           open={this.open}
           close={this.close}
+          {...this.props}
         />
       );
     }

@@ -1,46 +1,52 @@
-import React from 'react';
-import {checkConflictProps} from '../helpers';
-const warnProps = ['toggleActive', 'isActive', 'disableAll', 'activeItems'];
+import React, {PropTypes} from 'react';
 
 export default (Component) => {
   return class MultipleActiveItemDecorator extends React.Component {
+    static propTypes = {
+      activeItems: PropTypes.any,
+      defaultActiveItems: PropTypes.any,
+      toggleActive: PropTypes.func,
+      isActive: PropTypes.func,
+      disableAll: PropTypes.func
+    }
+
+    static defaultProps = {
+      defaultActiveItems: []
+    }
+
     state = {
-      activeItems: this.props.activeItems || []
+      activeItems: this.props.defaultActiveItems
     }
 
-    toggleActive = id => e => {
+    toggleActive = item => e => {
       if (e) e.preventDefault();
-      const {activeItems} = this.state;
 
-      const newItems = this.isActive(id) ?
-        activeItems.filter(i => i !== id) :
-        activeItems.concat(id);
+      this.setState((prevState) => {
+        const {activeItems} = prevState;
 
-      this.setState({activeItems: newItems});
+        const newItems = this.isActive(item) ?
+          activeItems.filter(i => i !== item) :
+          activeItems.concat(item);
+
+        return {...prevState, activeItems: newItems};
+      });
     }
 
-    disableAll = () => {
-      this.setState({activeItems: []});
-    }
+    isActive = item => this.state.activeItems.includes(item);
 
-    isActive = id => this.state.activeItems.includes(id);
-
-    componentWillReceiveProps(nextProps) {
-      checkConflictProps(nextProps, warnProps);
-    }
-
-    componentDidMount() {
-      checkConflictProps(this.props, warnProps);
+    disableAll = (e) => {
+      if (e) e.preventDefault();
+      this.setState((prevState => ({...prevState, activeItems: []})));
     }
 
     render() {
       return (
         <Component
-          {...this.props}
-          activeItems={this.state.activeItems}
+          {...this.state}
           isActive={this.isActive}
           toggleActive={this.toggleActive}
           disableAll={this.disableAll}
+          {...this.props}
         />
       );
     }
