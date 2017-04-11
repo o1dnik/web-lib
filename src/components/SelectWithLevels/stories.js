@@ -1,7 +1,7 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
 import SelectWithLevels from './index';
-import {flatten} from 'lodash-es';
+import {flatten} from 'lodash';
 
 let roles = [
   {

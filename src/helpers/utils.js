@@ -1,5 +1,5 @@
 import {distanceInWordsToNow, differenceInMilliseconds} from 'date-fns';
-import {isEmpty, isNil, has} from 'lodash-es';
+import {isEmpty, isNil, has} from 'lodash';
 
 export function arrayToObject(array, idProp) {
   const obj = {};

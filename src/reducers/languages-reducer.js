@@ -10,7 +10,7 @@ import {
 
 import {DEFAULT_LANGS} from '../default-options';
 
-import {flatten, unionBy} from 'lodash-es';
+import {flatten, unionBy} from 'lodash';
 
 const defaultState = {
   loading: false,

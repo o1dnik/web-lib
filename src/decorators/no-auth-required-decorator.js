@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import qs from 'qs';
-import {get, defaultTo} from 'lodash-es';
+import {get, defaultTo} from 'lodash';
 
 const NoAuthRequired = ({component, isLogged, ...rest}) => {
 

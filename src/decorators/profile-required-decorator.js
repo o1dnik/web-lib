@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import {get} from 'lodash-es';
+import {get} from 'lodash';
 
 const ProfileRequired = ({component, isLogged, profileComplete, ...rest}) => {
 

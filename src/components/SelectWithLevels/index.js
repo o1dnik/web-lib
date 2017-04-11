@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import Select from '../Select';
 import Tag from '../Tag/index';
 import cn from 'classnames';
-import {isEmpty} from 'lodash-es';
+import {isEmpty} from 'lodash';
 
 class SelectWithLevels extends Component {
   static propTypes = {

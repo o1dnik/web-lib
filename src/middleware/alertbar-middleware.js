@@ -1,7 +1,7 @@
 import {showAlertBar} from '../actions/alertbar-actions';
 import serverErrorsMap from '../server-errors-map';
 import config from 'config';
-import {get, has} from 'lodash-es';
+import {get, has} from 'lodash';
 
 import {
   START,

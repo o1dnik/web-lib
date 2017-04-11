@@ -1,7 +1,7 @@
 import isEmail from 'validator/lib/isEmail';
 import isURL from 'validator/lib/isURL';
 import isLength from 'validator/lib/isLength';
-import {isNil} from 'lodash-es';
+import {isNil} from 'lodash';
 
 export function required(val) {
   if (isNil(val) || val === '') {

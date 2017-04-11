@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {has, mapValues} from 'lodash-es';
+import {has, mapValues} from 'lodash';
 
 export default (options) => {
 

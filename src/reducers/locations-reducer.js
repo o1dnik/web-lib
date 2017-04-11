@@ -10,7 +10,7 @@ import {
   ME
 } from '../constants';
 
-import {unionBy, get} from 'lodash-es';
+import {unionBy, get} from 'lodash';
 
 const defaultState = {
   loading: false,

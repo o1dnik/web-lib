@@ -1,4 +1,4 @@
-import {memoize, flatMap} from 'lodash-es';
+import {memoize, flatMap} from 'lodash';
 
 export const mapRolesFactory = () => memoize(items =>
   flatMap(items, c =>
