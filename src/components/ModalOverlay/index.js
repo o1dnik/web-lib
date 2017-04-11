@@ -1,2 +1,2 @@
-import ModalOverlay from './modal-overlay-async-component';
+import ModalOverlay from './modal-overlay-component';
 export default ModalOverlay;
