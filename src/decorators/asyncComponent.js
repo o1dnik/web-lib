@@ -3,29 +3,49 @@ import Loader from '../components/Loader';
 
 export default function(loaderFunc) {
   return class AsyncComponentDecorator extends React.Component {
-
     static propTypes = {
       onLoadStart: React.PropTypes.func,
       onLoadSuccess: React.PropTypes.func,
+      onLoadFail: React.PropTypes.func,
       renderLoader: React.PropTypes.func
     }
 
     state = {
-      component: null
+      component: null,
+      loadingError: null
     }
 
     componentWillMount() {
 
-      this.props.onLoadStart && this.props.onLoadStart();
-      loaderFunc((component) => {
-        /**
-         * Newer version of Webpack does not understand component.default,
-         * so we have to check if it exists (older version)
-         * or not (newer version).
-         */
-        this.setState({component: component.default || component});
-        this.props.onLoadSuccess && this.props.onLoadSuccess();
-      });
+      if (this.props.onLoadStart) {
+        this.props.onLoadStart();
+      }
+
+      loaderFunc()
+        .then(component => {
+          this.setState((prevState) => {
+            if (this.props.onLoadSuccess) {
+              this.props.onLoadSuccess();
+            }
+
+            return {
+              ...prevState,
+              component: component && component.default || component
+            };
+          });
+        })
+        .catch(err => {
+          this.setState((prevState) => {
+            if (this.props.onLoadFail) {
+              this.props.onLoadFail(err);
+            }
+
+            return {
+              ...prevState,
+              loadingError: err
+            };
+          });
+        });
 
     }
 
