@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Line} from 'rc-progress';
-import omit from 'lodash/omit';
+import {omit} from 'lodash-es';
 import cn from 'classnames';
 
 const ProgressBarComponent = (props) => {

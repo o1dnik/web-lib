@@ -1,8 +1,7 @@
 import {
   GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME
 } from '../constants';
-import unionBy from 'lodash/unionBy';
-import flatten from 'lodash/flatten';
+import {unionBy, flatten} from 'lodash-es';
 
 const defaultState = {
   loading: false,

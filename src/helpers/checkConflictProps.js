@@ -1,4 +1,4 @@
-import intersection from 'lodash/intersection';
+import {intersection} from 'lodash-es';
 
 export function checkConflictProps(props, warnProps) {
   const conflicts = intersection(Object.keys(props), warnProps);

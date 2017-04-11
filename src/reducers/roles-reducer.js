@@ -1,5 +1,5 @@
 import {GET, START, SUCCESS, FAIL, ROLES} from '../constants';
-import unionBy from 'lodash/unionBy';
+import {unionBy} from 'lodash-es';
 
 const defaultState = {
   loading: false,

@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import union from 'lodash/union';
+import {union} from 'lodash-es';
 import cn from 'classnames';
 import Select from '../Select';
 import Tag from '../Tag';

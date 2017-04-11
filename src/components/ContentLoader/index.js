@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import range from 'lodash/range';
+import {range} from 'lodash-es';
 
 //Sizes
 //90

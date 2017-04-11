@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import Select from '../Select';
 import cn from 'classnames';
-import isEmpty from 'lodash/isEmpty';
+import {isEmpty} from 'lodash-es';
 
 class DoubleSelect extends Component {
   static propTypes = {
