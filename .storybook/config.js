@@ -19,7 +19,6 @@ function loadStories() {
   require('../src/components/SelectWithLevels/stories');
   require('../src/components/DoubleSelect/stories');
   require('../src/components/SmartDoubleSelect/stories');
-  require('../src/components/AlertBar/stories');
   require('../src/components/StatsCircle/stories');
   require('../src/components/FormImageUploader/stories');
   require('../src/components/Icons/stories');

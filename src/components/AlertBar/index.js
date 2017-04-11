@@ -1,38 +1,76 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import cn from 'classnames';
 import {Notification} from 'react-notification';
+import {hideAlertBar} from '../../actions/alertbar-actions';
 
-/**
- * Main component: https://github.com/pburtchaell/react-notification/
- * For props: blob/master/docs/guides/props.md
- */
-const AlertBar = (props) => {
-  const {type, isActive, ...rest} = props;
+class AlertBar extends Component {
+  static PropTypes = {
+    location: PropTypes.object.isRequired,
 
-  const css = cn({
-    'alert': true,
-    'alert-bar': true,
-    [`alert-${type}`]: true,
-    'shown': isActive
-  });
+    type: PropTypes.string.isRequired,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    dismissAfter: PropTypes.number.isRequired,
+    action: PropTypes.string.isRequired,
+    hideAlertBar: PropTypes.func.isRequired,
+    hideOnRouteChange: PropTypes.bool.isRequired
+  };
 
-  return (
-    <Notification
-      {...rest}
-      className={css}
-      style={false}  // disable default inline styles
-    />
-  );
-};
+  static defaultProps = {
+    type: 'success',
+    message: '',
+    dismissAfter: false,
+    hideOnRouteChange: true,
+    action: ' '
+  };
 
-AlertBar.defaultProps = {
-  type: 'success',
-  message: '',
-  dismissAfter: false,  // in react-notification default = 2000
-  action: 'X'
-};
-AlertBar.PropTypes = {
-  type: PropTypes.string  // => Notification.props.action
-};
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      if (nextProps.isActive && nextProps.hideOnRouteChange) {
+        nextProps.hideAlertBar();
+      }
+    }
+  }
 
-export default AlertBar;
+  render() {
+    const {type, hideAlertBar, message, dismissAfter, ...rest} = this.props;
+
+    const activeClasses = cn({
+      shown: true,
+      [`alert-${type}`]: Boolean(type)
+    });
+
+    const classes = cn({
+      'alert-bar': true
+    });
+
+    const iconClasses = cn({
+      'ion-checkmark-round': type === 'success',
+      'ion-close-circled': type === 'error',
+      'ion-alert-circled': type === 'warning'
+    });
+
+    const messageBody =
+      <div>
+        <i className={iconClasses}/>
+        <span>{message}</span>
+      </div>;
+
+    return (
+      <Notification
+        {...rest}
+        message={messageBody}
+        style={false}
+        dismissAfter={dismissAfter}
+        activeClassName={activeClasses}
+        className={classes}
+        onDismiss={dismissAfter ? hideAlertBar : null}
+        onClick={hideAlertBar}
+      />
+    );
+  }
+}
+
+export default connect(({alertbar}) => ({
+  ...alertbar
+}), {hideAlertBar})(AlertBar);
