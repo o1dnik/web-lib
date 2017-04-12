@@ -1,5 +1,6 @@
 import {NOTIFICATION, SHOW, HIDE} from '../constants';
 import {unionBy} from 'lodash';
+import {getActionType} from '../helpers/utils';
 
 const defaultState = {
   entities: []
@@ -11,14 +12,14 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case NOTIFICATION + SHOW: {
+    case getActionType(NOTIFICATION, SHOW): {
       return {
         ...state,
         entities: unionBy(state.entities, [payload.notification], 'key')
       };
     }
 
-    case NOTIFICATION + HIDE:
+    case getActionType(NOTIFICATION, HIDE):
       return {
         ...state,
         entities: state.entities.filter(n => n.key !== payload.notification.key)

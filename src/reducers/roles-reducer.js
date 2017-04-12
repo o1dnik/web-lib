@@ -1,5 +1,6 @@
 import {GET, START, SUCCESS, FAIL, ROLES} from '../constants';
 import {unionBy} from 'lodash';
+import {getActionType} from '../helpers/utils';
 
 const defaultState = {
   loading: false,
@@ -12,11 +13,11 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case ROLES + GET + START: {
+    case getActionType(ROLES, GET, START): {
       return {...state, loading: true};
     }
 
-    case ROLES + GET + SUCCESS: {
+    case getActionType(ROLES, GET, SUCCESS): {
       const {results, count} = res.data;
       return {
         ...state,
@@ -26,7 +27,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case ROLES + GET + FAIL: {
+    case getActionType(ROLES, GET, FAIL): {
       return {...state, loading: false};
     }
 

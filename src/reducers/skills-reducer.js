@@ -2,6 +2,7 @@ import {
   GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME
 } from '../constants';
 import {unionBy, flatten} from 'lodash';
+import {getActionType} from '../helpers/utils';
 
 const defaultState = {
   loading: false,
@@ -14,11 +15,11 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case SKILLS + GET + START: {
+    case getActionType(SKILLS, GET, START): {
       return {...state, loading: true};
     }
 
-    case SKILLS + GET + SUCCESS: {
+    case getActionType(SKILLS, GET, SUCCESS): {
       const {results, count} = res.data;
 
       return {
@@ -29,11 +30,11 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case SKILLS + GET + FAIL: {
+    case getActionType(SKILLS, GET, FAIL): {
       return {...state, loading: false};
     }
 
-    case JOBS_BY_COMPANY_ID + GET + SUCCESS: {
+    case getActionType(JOBS_BY_COMPANY_ID, GET, SUCCESS): {
       const results = flatten(res.data.results.map(r => r.skills));
       return {
         ...state,
@@ -41,7 +42,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case JOB + GET + SUCCESS: {
+    case getActionType(JOB, GET, SUCCESS): {
       const {skills} = res.data;
       return {
         ...state,
@@ -49,7 +50,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case ME + GET + SUCCESS: {
+    case getActionType(ME, GET, SUCCESS): {
       const {skills} = res.data;
       return {
         ...state,

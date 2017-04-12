@@ -11,6 +11,7 @@ import {
 } from '../constants';
 
 import {unionBy, get} from 'lodash';
+import {getActionType} from '../helpers/utils';
 
 const defaultState = {
   loading: false,
@@ -23,11 +24,11 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case LOCATIONS + GET + START: {
+    case getActionType(LOCATIONS, GET, START): {
       return {...state, loading: true};
     }
 
-    case LOCATIONS + GET + SUCCESS: {
+    case getActionType(LOCATIONS, GET, SUCCESS): {
       const {results, count} = res.data;
       return {
         ...state,
@@ -37,11 +38,11 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case LOCATIONS + GET + FAIL: {
+    case getActionType(LOCATIONS, GET, FAIL): {
       return {...state, loading: false};
     }
 
-    case COMPANY + GET + SUCCESS: {
+    case getActionType(COMPANY, GET, SUCCESS): {
       const {city} = res.data;
       if (!city) {
         return state;
@@ -52,7 +53,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case JOBS_BY_COMPANY_ID + GET + SUCCESS: {
+    case getActionType(JOBS_BY_COMPANY_ID, GET, SUCCESS): {
       const results = res.data.results.map(r => r.city);
       return {
         ...state,
@@ -60,7 +61,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case JOB + GET + SUCCESS: {
+    case getActionType(JOB, GET, SUCCESS): {
       const {city} = res.data;
       return {
         ...state,
@@ -68,7 +69,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case ME + GET + SUCCESS: {
+    case getActionType(ME, GET, SUCCESS): {
       const relocations = get(res, 'data.relocations');
 
       if (relocations && relocations.length > 0) {

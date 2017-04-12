@@ -1,4 +1,5 @@
 import {NOTIFICATION, SHOW, HIDE} from '../constants';
+import {getActionType} from '../helpers/utils';
 
 export function showNotification(notification) {
   if (!notification.key) {
@@ -6,14 +7,14 @@ export function showNotification(notification) {
   }
 
   return {
-    type: NOTIFICATION + SHOW,
+    type: getActionType(NOTIFICATION, SHOW),
     payload: {notification}
   };
 }
 
 export function hideNotification(notification) {
   return {
-    type: NOTIFICATION + HIDE,
+    type: getActionType(NOTIFICATION, HIDE),
     payload: {notification}
   };
 }

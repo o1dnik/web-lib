@@ -10,6 +10,8 @@ import {
 
 import {DEFAULT_LANGS} from '../default-options';
 
+import {getActionType} from '../helpers/utils';
+
 import {flatten, unionBy} from 'lodash';
 
 const defaultState = {
@@ -23,11 +25,11 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case LANGUAGES + GET + START: {
+    case getActionType(LANGUAGES, GET, START): {
       return {...state, loading: true};
     }
 
-    case LANGUAGES + GET + SUCCESS: {
+    case getActionType(LANGUAGES, GET, SUCCESS): {
       const {results, count} = res.data;
       return {
         ...state,
@@ -37,11 +39,11 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case LANGUAGES + GET + FAIL: {
+    case getActionType(LANGUAGES, GET, FAIL): {
       return {...state, loading: false};
     }
 
-    case JOBS_BY_COMPANY_ID + GET + SUCCESS: {
+    case getActionType(JOBS_BY_COMPANY_ID, GET, SUCCESS): {
       const results = flatten(res.data.results.map(r => r.languages));
       return {
         ...state,
@@ -49,7 +51,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case JOB + GET + SUCCESS: {
+    case getActionType(JOB, GET, SUCCESS): {
       const {languages} = res.data;
       return {
         ...state,

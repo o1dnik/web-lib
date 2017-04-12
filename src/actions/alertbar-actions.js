@@ -1,14 +1,15 @@
 import {ALERT, SHOW, HIDE} from '../constants';
+import {getActionType} from '../helpers/utils';
 
 export function showAlertBar(notification) {
   return {
-    type: ALERT + SHOW,
+    type: getActionType(ALERT, SHOW),
     payload: {notification}
   };
 }
 
 export function hideAlertBar() {
   return {
-    type: ALERT + HIDE
+    type: getActionType(ALERT, HIDE)
   };
 }

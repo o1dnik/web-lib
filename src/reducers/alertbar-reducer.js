@@ -1,4 +1,5 @@
 import {ALERT, SHOW, HIDE} from '../constants';
+import {getActionType} from '../helpers/utils';
 
 const defaultState = {
   isActive: false,
@@ -15,7 +16,7 @@ export default (state = defaultState, action) => {
 
   switch (type) {
 
-    case ALERT + SHOW: {
+    case getActionType(ALERT, SHOW): {
       const {
         message,
         type = 'success',
@@ -35,7 +36,7 @@ export default (state = defaultState, action) => {
       };
     }
 
-    case ALERT + HIDE:
+    case getActionType(ALERT, HIDE):
       return {...state, isActive: false, dismissAfter: false};
 
   }

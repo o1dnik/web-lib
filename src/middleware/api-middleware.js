@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {get} from 'lodash';
+import {getActionType} from '../helpers/utils';
 
 import {
   START,
@@ -18,7 +19,7 @@ export default () => next => action => {
 
   if (!endpoint) return next(action);
 
-  next({type: type + START, ...rest});
+  next({type: getActionType(type + START), ...rest});
 
   let promise;
 
@@ -50,14 +51,14 @@ export default () => next => action => {
   }
 
   return promise
-    .then(res => next({type: type + SUCCESS, res, ...rest}))
+    .then(res => next({type: getActionType(type + SUCCESS), res, ...rest}))
     .catch(err => {
 
       if (get(err, 'response.status') === 403) {
-        next({type: SESSION_EXPIRED});
+        next({type: getActionType(SESSION_EXPIRED)});
       }
 
-      next({type: type + FAIL, err: err.response, ...rest});
+      next({type: getActionType(type + FAIL), err: err.response, ...rest});
     });
 
 };
