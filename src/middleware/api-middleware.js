@@ -19,7 +19,7 @@ export default () => next => action => {
 
   if (!endpoint) return next(action);
 
-  next({type: getActionType(type + START), ...rest});
+  next({type: getActionType(type, START), ...rest});
 
   let promise;
 
@@ -51,14 +51,14 @@ export default () => next => action => {
   }
 
   return promise
-    .then(res => next({type: getActionType(type + SUCCESS), res, ...rest}))
+    .then(res => next({type: getActionType(type, SUCCESS), res, ...rest}))
     .catch(err => {
 
       if (get(err, 'response.status') === 403) {
         next({type: getActionType(SESSION_EXPIRED)});
       }
 
-      next({type: getActionType(type + FAIL), err: err.response, ...rest});
+      next({type: getActionType(type, FAIL), err: err.response, ...rest});
     });
 
 };
