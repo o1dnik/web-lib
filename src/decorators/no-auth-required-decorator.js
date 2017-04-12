@@ -18,7 +18,10 @@ const NoAuthRequired = ({component, isLogged, ...rest}) => {
         );
       }
 
-      return React.createElement(component, props);
+      return React.createElement(component, {
+        ...props,
+        renderLoader: rest.renderLoader
+      });
 
     }}/>
   );

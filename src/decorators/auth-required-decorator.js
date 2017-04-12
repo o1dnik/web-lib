@@ -12,7 +12,10 @@ const AuthRequired = ({component, isLogged, profileComplete, ...rest}) => {
       }
 
       if (isLogged) {
-        return React.createElement(component, props);
+        return React.createElement(component, {
+          ...props,
+          renderLoader: rest.renderLoader
+        });
       }
 
       return (

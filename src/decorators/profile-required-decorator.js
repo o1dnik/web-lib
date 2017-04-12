@@ -3,10 +3,8 @@ import {Route, Redirect} from 'react-router-dom';
 import {get} from 'lodash';
 
 const ProfileRequired = ({component, isLogged, profileComplete, ...rest}) => {
-
   return (
     <Route {...rest} render={props => {
-
       if (!isLogged) {
         return (
           <Redirect to={{
@@ -22,11 +20,12 @@ const ProfileRequired = ({component, isLogged, profileComplete, ...rest}) => {
         );
       }
 
-      return React.createElement(component, props);
-
+      return React.createElement(component, {
+        ...props,
+        renderLoader: rest.renderLoader
+      });
     }}/>
   );
-
 };
 
 export default ProfileRequired;
