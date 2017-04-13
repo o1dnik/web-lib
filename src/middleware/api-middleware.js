@@ -15,9 +15,11 @@ import {
 
 export default () => next => action => {
 
-  const {endpoint, apiConfig, type, token, ...rest} = action;
+  const {endpoint, apiConfig, apiV = 'v1', type, token, ...rest} = action;
 
   if (!endpoint) return next(action);
+
+  const apiEndpoit = `/${apiV}${endpoint}`;
 
   next({type: getActionType(type, START), ...rest});
 
@@ -26,26 +28,26 @@ export default () => next => action => {
   switch (true) {
 
     case Boolean(type.includes(GET) && token):
-      promise = axios.get(endpoint, {
+      promise = axios.get(apiEndpoit, {
         headers: {'cookie': `token=${token}`},
         ...apiConfig
       });
       break;
 
     case type.includes(GET):
-      promise = axios.get(endpoint, apiConfig);
+      promise = axios.get(apiEndpoit, apiConfig);
       break;
 
     case type.includes(CREATE):
-      promise = axios.post(endpoint, get(action, 'payload.data'), apiConfig);
+      promise = axios.post(apiEndpoit, get(action, 'payload.data'), apiConfig);
       break;
 
     case type.includes(UPDATE):
-      promise = axios.put(endpoint, get(action, 'payload.data'), apiConfig);
+      promise = axios.put(apiEndpoit, get(action, 'payload.data'), apiConfig);
       break;
 
     case type.includes(DELETE):
-      promise = axios.delete(endpoint, apiConfig);
+      promise = axios.delete(apiEndpoit, apiConfig);
       break;
 
   }
