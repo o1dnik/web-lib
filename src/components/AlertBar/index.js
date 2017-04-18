@@ -61,6 +61,7 @@ class AlertBar extends Component {
         {...rest}
         message={messageBody}
         style={false}
+        isLast={false} // https://github.com/pburtchaell/react-notification/pull/108 someone did pull request and added check that clear timeout on willReceiveProps
         dismissAfter={dismissAfter}
         activeClassName={activeClasses}
         className={classes}
