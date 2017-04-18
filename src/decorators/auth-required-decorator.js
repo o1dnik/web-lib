@@ -18,10 +18,20 @@ const AuthRequired = ({component, isLogged, profileComplete, ...rest}) => {
         });
       }
 
+      const redirectTo = get(rest, 'location.pathname', '/');
+
+      let fullSearch = `?redirectTo=${redirectTo}`;
+
+      const search = get(rest, 'location.search', '?').substring(1);
+
+      if (search) {
+        fullSearch = `${fullSearch}&${search}`;
+      }
+
       return (
         <Redirect to={{
           pathname: '/login',
-          search: `?redirectTo=${get(rest, 'location.pathname') || '/'}`
+          search: fullSearch
         }}/>
       );
 
