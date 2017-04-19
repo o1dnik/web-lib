@@ -74,6 +74,7 @@ export const INQUIRY = 'INQUIRY';
 export const RESEND = 'RESEND';
 export const SET = 'SET';
 export const APPLICATION = 'APPLICATION';
+export const FLAG = 'FLAG';
 
 // auth Actions
 export const LOGOUT = 'LOGOUT';
