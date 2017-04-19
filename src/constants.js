@@ -72,6 +72,8 @@ export const SIMILAR = 'SIMILAR';
 export const INQUIRY = 'INQUIRY';
 
 export const RESEND = 'RESEND';
+export const SET = 'SET';
+export const APPLICATION = 'APPLICATION';
 
 // auth Actions
 export const LOGOUT = 'LOGOUT';
