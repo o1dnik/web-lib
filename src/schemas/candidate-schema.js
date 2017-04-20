@@ -7,6 +7,7 @@ import languageSchema from './language-schema';
 import roleSchema from './role-schema';
 import skillSchema from './skill-schema';
 import webReferenceSchema from './web-reference-schema';
+import statisticsSchema from './statistics-schema';
 
 export default yup.object().shape({
 
@@ -24,6 +25,8 @@ export default yup.object().shape({
   completed_at: yup.string(),
 
   completion: yup.number().default(0),
+
+  statistics: statisticsSchema.nullable(true).default(null),
 
   country: countrySchema.nullable(true).default(null),
 
