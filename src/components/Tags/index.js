@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-import cn from 'classnames';
-import Tag from '../Tag';
-import toggleActive from '../../decorators/toggleActive';
-import toggleActiveMultiple from '../../decorators/toggleActiveMultiple';
+import React, {Component, PropTypes} from 'react'
+import cn from 'classnames'
+import Tag from '../Tag'
+import toggleActive from '../../decorators/toggleActive'
+import toggleActiveMultiple from '../../decorators/toggleActiveMultiple'
 
 class Tags extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ class Tags extends Component {
     extended: PropTypes.bool,
     disabled: PropTypes.bool,
 
-    //decorators
+    // decorators
     activeItem: PropTypes.any,
     activeItems: PropTypes.any,
     isActive: PropTypes.func,
@@ -28,13 +28,12 @@ class Tags extends Component {
     tags: []
   };
 
-  render() {
-
+  render () {
     const {
       tags, label, id, isActive, disabled, onClick, toggleActive, ...rest
-    } = this.props;
+    } = this.props
 
-    const css = cn({'tags': true});
+    const css = cn({'tags': true})
 
     return (
       <div className={css}>
@@ -48,23 +47,22 @@ class Tags extends Component {
             label={tag.label}
             active={isActive && isActive(tag.value)}
             disabled={disabled}
-            onClick={onClick || toggleActive && toggleActive(tag.value)}
+            onClick={onClick || (toggleActive && toggleActive(tag.value))}
             onClose={this.onClose(tag)}
           />
         )}
 
       </div>
-    );
+    )
   }
 
   onClose = (tag) => () => {
-    const {onTagRemove} = this.props;
-    if (onTagRemove) onTagRemove(tag);
+    const {onTagRemove} = this.props
+    if (onTagRemove) onTagRemove(tag)
   }
-
 }
 
-Tags.toggleActive = toggleActive(Tags);
-Tags.toggleActiveMultiple = toggleActiveMultiple(Tags);
+Tags.toggleActive = toggleActive(Tags)
+Tags.toggleActiveMultiple = toggleActiveMultiple(Tags)
 
-export default Tags;
+export default Tags

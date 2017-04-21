@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 export default (Component) => {
   return class ActiveItemDecorator extends React.Component {
@@ -18,16 +18,16 @@ export default (Component) => {
     }
 
     toggleActive = item => e => {
-      if (e) e.preventDefault();
+      if (e) e.preventDefault()
       this.setState((prevState) => {
-        const activeItem = item === prevState.activeItem ? null : item;
-        return {...prevState, activeItem};
-      });
+        const activeItem = item === prevState.activeItem ? null : item
+        return {...prevState, activeItem}
+      })
     }
 
     isActive = id => this.state.activeItem === id;
 
-    render() {
+    render () {
       return (
         <Component
           {...this.state}
@@ -35,7 +35,7 @@ export default (Component) => {
           toggleActive={this.toggleActive}
           {...this.props}
         />
-      );
+      )
     }
-  };
-};
+  }
+}

@@ -1,5 +1,5 @@
-export function appendClassPrefix(prefix) {
+export function appendClassPrefix (prefix) {
   return (className) => {
-    return `${prefix}-${className}`;
-  };
+    return `${prefix}-${className}`
+  }
 }

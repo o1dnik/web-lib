@@ -1,11 +1,11 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import InputRange from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import InputRange from './index'
 
 const label =
   <span>SALARY PER YEAR &nbsp;
     <span className='optional-info'>{'FROM TO'}</span>
-  </span>;
+  </span>
 
 storiesOf('InputRange', module)
   .add('Default', () => (
@@ -55,7 +55,6 @@ storiesOf('InputRange', module)
         />
       </div>
 
-
       <div>
         <InputRange
           name='my-input-range'
@@ -83,4 +82,4 @@ storiesOf('InputRange', module)
       </div>
 
     </div>
-  ));
+  ))

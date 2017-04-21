@@ -1,11 +1,11 @@
-import React from 'react';
-import SmartDoubleSelect from './index';
+import React from 'react'
+import SmartDoubleSelect from './index'
 import {
   FieldArray,
   FormSection,
   Fields,
   reduxForm
-} from 'redux-form';
+} from 'redux-form'
 
 const langLevels = [
   {id: '0', name: 'A1'},
@@ -15,7 +15,7 @@ const langLevels = [
   {id: '4', name: 'C1'},
   {id: '5', name: 'C2'},
   {id: '6', name: 'Native'}
-];
+]
 const availableLanguages = [
   {id: '40', name: 'English'},
   {id: '51', name: 'German'},
@@ -28,30 +28,28 @@ const availableLanguages = [
   {id: '72', name: 'Japanese'},
   {id: '59', name: 'Hindi'},
   {id: '20', name: 'Chineese'}
-];
+]
 
 const job = {
   languages: []
-};
+}
 
-const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
-
+const RenderLanguages = ({fields, /* meta, name, */ label}) => {
   const selectedLanguages = fields
     .getAll()
     .map(i => i.id)
-    .filter(Boolean);
+    .filter(Boolean)
 
   const fieldsBody = fields.map((language, idx) => {
-
-    const current = fields.get(idx);
+    const current = fields.get(idx)
 
     const languagesOptions = availableLanguages
       .filter(r => {
         if (current && current.id && current.id === r.id) {
-          return true;
+          return true
         }
-        return !selectedLanguages.includes(r.id);
-      });
+        return !selectedLanguages.includes(r.id)
+      })
 
     return (
       <li key={idx} className='mb form-field-wrapper'>
@@ -64,7 +62,7 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
             levelKey='level'
             component={SmartDoubleSelect}
             onRemove={handleFieldArrayItemRemove(fields, idx)}
-            resetLevelOnSelectChange={true}
+            resetLevelOnSelectChange
             inOneRow
             selectProps={{
               id: `job_${language}_select`,
@@ -93,9 +91,8 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
         </FormSection>
 
       </li>
-    );
-
-  });
+    )
+  })
 
   return (
     <div>
@@ -103,7 +100,7 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
 
       <div className='mb'>
         <button onClick={handleFieldArrayItemAdd(fields)}
-                disabled={fields.length > 5}
+          disabled={fields.length > 5}
         >
           + Add Required Language
         </button>
@@ -116,11 +113,10 @@ const RenderLanguages = ({fields, /*meta, name,*/ label}) => {
       </ul>
 
     </div>
-  );
-};
+  )
+}
 
 const Job = () => {
-
   return (
     <div>
 
@@ -131,24 +127,24 @@ const Job = () => {
       />
 
     </div>
-  );
-};
+  )
+}
 
 const JobForm = reduxForm({
   form: 'jobForm',
   initialValues: job
-})(Job);
+})(Job)
 
-export function handleFieldArrayItemAdd(fields) {
-  return () => fields.push({});
+export function handleFieldArrayItemAdd (fields) {
+  return () => fields.push({})
 }
 
-export function handleFieldArrayItemRemove(fields, idx, amountRequired = 0) {
+export function handleFieldArrayItemRemove (fields, idx, amountRequired = 0) {
   return () => {
     if (fields.length > amountRequired) {
-      fields.remove(idx);
+      fields.remove(idx)
     }
-  };
+  }
 }
 
-export default JobForm;
+export default JobForm

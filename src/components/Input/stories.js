@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import Input from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import Input from './index'
 
 storiesOf('Input', module)
   .add('Default', () => (
@@ -48,4 +48,4 @@ storiesOf('Input', module)
         />
       </div>
     </div>
-  ));
+  ))

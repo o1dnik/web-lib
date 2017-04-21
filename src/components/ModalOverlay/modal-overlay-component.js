@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import ReactModal from 'react-modal';
+import React, {Component} from 'react'
+import ReactModal from 'react-modal'
 
 ReactModal.defaultStyles = {
   overlay: {
@@ -20,13 +20,13 @@ ReactModal.defaultStyles = {
     color: '#fff',
     background: '#000',
     overflow: 'auto',
-    opacity: .8,
+    opacity: 0.8,
     WebkitOverflowScrolling: 'touch',
     borderRadius: '0px',
     outline: 'none',
     padding: '0px'
   }
-};
+}
 
 class ModalOverlay extends Component {
   static propTypes = {};
@@ -35,11 +35,11 @@ class ModalOverlay extends Component {
     contentLabel: ''
   };
 
-  render() {
+  render () {
     return (
-      <ReactModal className='modal' overlayClassName='modal-overlay' portalClassName='modal-wrapper' {...this.props}/>
-    );
+      <ReactModal className='modal' overlayClassName='modal-overlay' portalClassName='modal-wrapper' {...this.props} />
+    )
   }
 }
 
-export default ModalOverlay;
+export default ModalOverlay

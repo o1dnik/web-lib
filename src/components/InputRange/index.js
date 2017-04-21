@@ -1,16 +1,15 @@
-import cn from 'classnames';
-import Range from 'react-input-range';
+import cn from 'classnames'
+import Range from 'react-input-range'
 
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 const InputRange = (props) => {
-
-  const {id, input, onChange, label, disabled} = props;
-  const {minValue, maxValue, step, formatLabel} = props;
+  const {id, input, onChange, label, disabled} = props
+  const {minValue, maxValue, step, formatLabel} = props
 
   const wrapperCss = cn({
     'input-range-wrapper': true
-  });
+  })
 
   return (
     <div className={wrapperCss}>
@@ -32,8 +31,8 @@ const InputRange = (props) => {
       />
 
     </div>
-  );
-};
+  )
+}
 
 InputRange.propTypes = {
   id: PropTypes.string,
@@ -62,10 +61,10 @@ InputRange.propTypes = {
     value: PropTypes.any
   })
 
-};
+}
 
 InputRange.defaultProps = {
   input: {}
-};
+}
 
-export default InputRange;
+export default InputRange

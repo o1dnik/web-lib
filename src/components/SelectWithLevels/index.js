@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-import Select from '../Select';
-import Tag from '../Tag/index';
-import cn from 'classnames';
-import {isEmpty} from 'lodash';
+import React, {Component, PropTypes} from 'react'
+import Select from '../Select'
+import Tag from '../Tag/index'
+import cn from 'classnames'
+import {isEmpty} from 'lodash'
 
 class SelectWithLevels extends Component {
   static propTypes = {
@@ -50,13 +50,12 @@ class SelectWithLevels extends Component {
     meta: {}
   };
 
-  render() {
+  render () {
+    const {value, selectOptions, levelOptions, input, meta} = this.props
+    const {subLabel, label, onRemove, iconClassName, disabled} = this.props
+    const {disabledIfValid} = this.props
 
-    const {value, selectOptions, levelOptions, input, meta} = this.props;
-    const {subLabel, label, onRemove, iconClassName, disabled} = this.props;
-    const {disabledIfValid} = this.props;
-
-    const {error, invalid, valid, touched, dirty} = meta;
+    const {error, invalid, valid, touched, dirty} = meta
 
     const css = cn({
       'select-with-levels': true,
@@ -64,30 +63,30 @@ class SelectWithLevels extends Component {
       'select-with-levels-error': (touched && invalid),
       'select-with-levels-success': (touched && valid),
       done: valid
-    });
+    })
 
     const inputMessageCss = cn({
       'input-message': true,
       'input-message-error': (touched && invalid),
       'input-message-success': (touched && valid)
-    });
+    })
 
     const selectValid = Boolean(
       (value && value.select) || (input.value && input.value.select)
-    );
-    const selectInValid = !selectValid;
+    )
+    const selectInValid = !selectValid
 
     return (
       <div className={css}>
 
         {onRemove &&
         <span className='close' onClick={!disabled && onRemove}>
-          <i className={iconClassName}/>
+          <i className={iconClassName} />
         </span>}
 
         <Select
           label={label}
-          value={value && value.select || input.value && input.value.select}
+          value={(value && value.select) || (input.value && input.value.select)}
           onInputChange={this.props.onInputChange}
           onChange={this.handleSelectChange}
           onBlur={this.handleSelectBlur}
@@ -100,8 +99,8 @@ class SelectWithLevels extends Component {
             valid: selectValid,
             invalid: selectInValid
           }}
-          noArrow={disabled || disabledIfValid && valid}
-          disabled={disabled || disabledIfValid && valid}
+          noArrow={disabled || (disabledIfValid && valid)}
+          disabled={disabled || (disabledIfValid && valid)}
         />
 
         {selectValid &&
@@ -122,96 +121,94 @@ class SelectWithLevels extends Component {
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && error}
-          </span>
+        </span>
 
       </div>
-    );
+    )
   }
 
   getCurrentTagProps = (currentTag) => {
-    const {disabled} = this.props;
+    const {disabled} = this.props
 
     // use gel old values, case its object with empty strings propetrys by
     // default
-    const currentValue = this.getOldValue();
+    const currentValue = this.getOldValue()
 
     const props = {
       key: currentTag.value,
       size: 'medium',
       disabled,
       onClick: this.handleLevelChange(currentTag.value)
-    };
+    }
 
     // currentTag.value - from options
     // currentValue.level - from selected value
     if (currentTag.value === currentValue.level) {
-      props.color = 'primary';
-      props.bordered = true;
+      props.color = 'primary'
+      props.bordered = true
     } else {
-      props.color = 'default';
-      props.value = true;
+      props.color = 'default'
+      props.value = true
     }
 
-    return props;
-
+    return props
   }
 
   handleSelectChange = (selectValue) => {
-    const onChange = this.props.onChange || this.props.input.onChange;
+    const onChange = this.props.onChange || this.props.input.onChange
 
-    const oldVal = this.getOldValue();
+    const oldVal = this.getOldValue()
 
     const newVal = {
       ...oldVal,
-      select: selectValue && selectValue.value || selectValue
-    };
+      select: (selectValue && selectValue.value) || selectValue
+    }
 
-    onChange(newVal, oldVal);
+    onChange(newVal, oldVal)
   }
 
   handleSelectBlur = (e) => {
-
     if (this.props.onBlur) {
-      return this.props.onBlur(e);
+      return this.props.onBlur(e)
     }
 
     if (this.props.input.onBlur) {
-      this.props.input.onBlur(this.getOldValue());
+      this.props.input.onBlur(this.getOldValue())
     }
-
   }
 
   handleSelectFocus = (e) => {
-    const onFocus = this.props.onFocus || this.props.input.onFocus;
-    onFocus && onFocus(e);
+    const onFocus = this.props.onFocus || this.props.input.onFocus
+    onFocus && onFocus(e)
   }
 
   handleLevelChange = (level) => (e) => {
-    if (e) e.preventDefault();
-    const onChange = this.props.onChange || this.props.input.onChange;
+    if (e) e.preventDefault()
+    const onChange = this.props.onChange || this.props.input.onChange
 
-    const oldVal = this.getOldValue();
+    const oldVal = this.getOldValue()
 
-    const newVal = {...oldVal, level};
+    const newVal = {...oldVal, level}
 
-    onChange(newVal, oldVal);
-    setTimeout(() => this.handleSelectBlur(), 1000);
+    onChange(newVal, oldVal)
+    setTimeout(() => this.handleSelectBlur(), 1000)
   }
 
   getOldValue = () => {
-    let oldValue = {};
+    let oldValue = {}
 
     if (!isEmpty(this.props.input.value)) {
-      return oldValue = this.props.input.value;
+      oldValue = this.props.input.value
+      return oldValue
     }
 
     if (!isEmpty(this.props.value)) {
-      return oldValue = this.props.value;
+      oldValue = this.props.value
+      return oldValue
     }
 
-    return oldValue;
+    return oldValue
   }
-
 }
 
-export default SelectWithLevels;
+export default SelectWithLevels

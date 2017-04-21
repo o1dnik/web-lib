@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import DoubleSelect from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import DoubleSelect from './index'
 
 const langLevels = [
   {value: '0', label: 'A1'},
@@ -10,7 +10,7 @@ const langLevels = [
   {value: '4', label: 'C1'},
   {value: '5', label: 'C2'},
   {value: '6', label: 'Native'}
-];
+]
 const langs = [
   {value: '40', label: 'English'},
   {value: '51', label: 'German'},
@@ -23,7 +23,7 @@ const langs = [
   {value: '72', label: 'Japanese'},
   {value: '59', label: 'Hindi'},
   {value: '20', label: 'Chineese'}
-];
+]
 
 storiesOf('DoubleSelect', module)
   .add('Default', () => (
@@ -146,7 +146,5 @@ storiesOf('DoubleSelect', module)
         />
       </div>
 
-
     </div>
-  ));
-
+  ))

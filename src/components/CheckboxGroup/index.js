@@ -1,9 +1,8 @@
-import React, {PropTypes, Component} from 'react';
-import Checkbox from '../Checkbox';
-import cn from 'classnames';
+import React, {PropTypes, Component} from 'react'
+import Checkbox from '../Checkbox'
+import cn from 'classnames'
 
 class CheckboxGroup extends Component {
-
   static propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
@@ -59,40 +58,38 @@ class CheckboxGroup extends Component {
     meta: {}
   };
 
-  render() {
-
+  render () {
     const {
       id, input, meta, label, options, value, disabled, valueKey, labelKey
-    } = this.props;
+    } = this.props
 
-    const {error, invalid, valid, touched, dirty} = meta;
+    const {error, invalid, valid, touched, dirty} = meta
 
     const css = cn({
       'checkbox-group': true,
       'checkbox-group-error': (touched && invalid),
       'checkbox-group-success': (touched && valid)
-    });
+    })
 
     const inputMessageCss = cn({
       'input-message': true,
       'input-message-error': (touched && invalid),
       'input-message-success': (touched && valid)
-    });
+    })
 
     const checkboxes = options.map(o => {
-
-      let checked = false;
+      let checked = false
 
       if (input.value) {
         checked = input.value
-          .map(i => i && i[valueKey] || i)
-          .includes(o[valueKey]);
+          .map(i => (i && i[valueKey]) || i)
+          .includes(o[valueKey])
       }
 
       if (value) {
         checked = value
-          .map(i => i && i[valueKey] || i)
-          .includes(o[valueKey]);
+          .map(i => (i && i[valueKey]) || i)
+          .includes(o[valueKey])
       }
 
       return (
@@ -107,8 +104,8 @@ class CheckboxGroup extends Component {
           checked={checked}
           disabled={disabled}
         />
-      );
-    });
+      )
+    })
 
     return (
       <div id={id} className={css}>
@@ -122,66 +119,60 @@ class CheckboxGroup extends Component {
         </span>
 
       </div>
-    );
+    )
   }
 
   handleBlur = () => {
-    const onBlur = this.props.onBlur || this.props.input.onBlur;
-    const val = this.props.value || this.props.input.value;
-    const {simpleValue, valueKey} = this.props;
+    const onBlur = this.props.onBlur || this.props.input.onBlur
+    const val = this.props.value || this.props.input.value
+    const {simpleValue, valueKey} = this.props
 
     if (val && onBlur) {
-
       if (simpleValue) {
-        return onBlur(val.map(v => v && v[valueKey] || v));
+        return onBlur(val.map(v => (v && v[valueKey]) || v))
       }
 
-      onBlur(val);
-
+      onBlur(val)
     }
-
   }
 
   handleFocus = (e) => {
-    const onFocus = this.props.onFocus || this.props.input.onFocus;
-    onFocus && onFocus(e);
+    const onFocus = this.props.onFocus || this.props.input.onFocus
+    onFocus && onFocus(e)
   }
 
   handleChange = (e) => {
-    const {name, checked} = e.target;
-    const {options, oneRequired, simpleValue, valueKey, labelKey} = this.props;
-    const onChange = this.props.onChange || this.props.input.onChange;
-    const oldValue = this.props.value || this.props.input.value;
+    const {name, checked} = e.target
+    const {options, oneRequired, simpleValue, valueKey, labelKey} = this.props
+    const onChange = this.props.onChange || this.props.input.onChange
+    const oldValue = this.props.value || this.props.input.value
 
-    let newValue;
+    let newValue
 
     if (checked) {
       newValue = oldValue
         .concat({
           [valueKey]: name,
           [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ''
-        });
+        })
     } else {
-      newValue = oldValue.filter(i => (i && i[valueKey] || i) !== name);
+      newValue = oldValue.filter(i => ((i && i[valueKey]) || i) !== name)
       if (oneRequired && newValue.length < 1) {
-        newValue = [...oldValue];
+        newValue = [...oldValue]
       }
     }
 
     if (newValue && onChange) {
-
       if (simpleValue) {
         return onChange(
-          newValue.map(v => v && v[valueKey] || v),
-          oldValue.map(v => v && v[valueKey] || v)
-        );
+          newValue.map(v => (v && v[valueKey]) || v),
+          oldValue.map(v => (v && v[valueKey]) || v)
+        )
       }
 
-      onChange(newValue, oldValue);
-
+      onChange(newValue, oldValue)
     }
   }
-
 }
 
-export default CheckboxGroup;
+export default CheckboxGroup

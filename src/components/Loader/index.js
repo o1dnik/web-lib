@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 const sizeMap = {
   xsmall: 16,
@@ -6,11 +6,10 @@ const sizeMap = {
   medium: 55,
   large: 75,
   xlarge: 95
-};
+}
 
 const Loader = (props) => {
-
-  const {animatedStrokeColor, strokeColor} = props;
+  const {animatedStrokeColor, strokeColor} = props
 
   return (
     <svg
@@ -40,20 +39,19 @@ const Loader = (props) => {
         className='inner-circle'
       />
     </svg>
-  );
-
-};
+  )
+}
 
 Loader.propTypes = {
   size: PropTypes.string.isRequired,
   animatedStrokeColor: PropTypes.string.isRequired,
   strokeColor: PropTypes.string.isRequired
-};
+}
 
 Loader.defaultProps = {
   size: 'medium',
   animatedStrokeColor: '#111111',
   strokeColor: '#eeeeee'
-};
+}
 
-export default Loader;
+export default Loader

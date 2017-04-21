@@ -1,66 +1,64 @@
 import {
   GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME
-} from '../constants';
-import {unionBy, flatten} from 'lodash';
-import {getActionType} from '../helpers/utils';
+} from '../constants'
+import {unionBy, flatten} from 'lodash'
+import {getActionType} from '../helpers/utils'
 
 const defaultState = {
   loading: false,
   count: null,
   entities: []
-};
+}
 
 export default (state = defaultState, action) => {
-  const {type, res} = action;
+  const {type, res} = action
 
   switch (type) {
-
     case getActionType(SKILLS, GET, START): {
-      return {...state, loading: true};
+      return {...state, loading: true}
     }
 
     case getActionType(SKILLS, GET, SUCCESS): {
-      const {results, count} = res.data;
+      const {results, count} = res.data
 
       return {
         ...state,
         entities: unionBy(state.entities, results, 'id'),
         count,
         loading: false
-      };
+      }
     }
 
     case getActionType(SKILLS, GET, FAIL): {
-      return {...state, loading: false};
+      return {...state, loading: false}
     }
 
     case getActionType(JOBS_BY_COMPANY_ID, GET, SUCCESS): {
-      const results = flatten(res.data.results.map(r => r.skills));
+      const results = flatten(res.data.results.map(r => r.skills))
       return {
         ...state,
         entities: unionBy(state.entities, results, 'id')
-      };
+      }
     }
 
     case getActionType(JOB, GET, SUCCESS): {
-      const {skills} = res.data;
+      const {skills} = res.data
       return {
         ...state,
         entities: unionBy(state.entities, skills, 'id')
-      };
+      }
     }
 
     case getActionType(ME, GET, SUCCESS): {
-      const {skills} = res.data;
+      const {skills} = res.data
       return {
         ...state,
-        entities: (skills ?
-          unionBy(state.entities, skills, 'id') :
-          state.entities)
-      };
+        entities: (skills
+          ? unionBy(state.entities, skills, 'id')
+          : state.entities)
+      }
     }
-
   }
 
-  return state;
-};
+  return state
+}

@@ -732,4 +732,4 @@ export default [
   'ion-woman',
   'ion-wrench',
   'ion-xbox'
-];
+]

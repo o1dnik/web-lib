@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import cn from 'classnames';
-import {Notification} from 'react-notification';
-import {hideAlertBar} from '../../actions/alertbar-actions';
+import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import cn from 'classnames'
+import {Notification} from 'react-notification'
+import {hideAlertBar} from '../../actions/alertbar-actions'
 
 class AlertBar extends Component {
   static PropTypes = {
@@ -24,37 +24,37 @@ class AlertBar extends Component {
     action: ' '
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       if (nextProps.isActive && nextProps.hideOnRouteChange) {
-        nextProps.hideAlertBar();
+        nextProps.hideAlertBar()
       }
     }
   }
 
-  render() {
-    const {type, hideAlertBar, message, dismissAfter, ...rest} = this.props;
+  render () {
+    const {type, hideAlertBar, message, dismissAfter, ...rest} = this.props
 
     const activeClasses = cn({
       shown: true,
       [`alert-${type}`]: Boolean(type)
-    });
+    })
 
     const classes = cn({
       'alert-bar': true
-    });
+    })
 
     const iconClasses = cn({
       'ion-checkmark-round': type === 'success',
       'ion-close-circled': type === 'error',
       'ion-alert-circled': type === 'warning'
-    });
+    })
 
     const messageBody =
       <div>
-        <i className={iconClasses}/>
+        <i className={iconClasses} />
         <span>{message}</span>
-      </div>;
+      </div>
 
     return (
       <Notification
@@ -68,10 +68,10 @@ class AlertBar extends Component {
         onDismiss={dismissAfter ? hideAlertBar : null}
         onClick={hideAlertBar}
       />
-    );
+    )
   }
 }
 
 export default connect(({alertbar}) => ({
   ...alertbar
-}), {hideAlertBar})(AlertBar);
+}), {hideAlertBar})(AlertBar)

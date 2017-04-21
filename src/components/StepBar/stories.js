@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import StepBar from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import StepBar from './index'
 
 storiesOf('StepBar', module)
   .add('Default', () => (
@@ -18,4 +18,4 @@ storiesOf('StepBar', module)
         steps={['Select Subscription', 'Billing Information', 'Confirmation']}
       />
     </div>
-  ));
+  ))

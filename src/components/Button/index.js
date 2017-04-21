@@ -1,9 +1,8 @@
-import React, {PropTypes, Component, Children} from 'react';
-import {appendClassPrefix, as} from '../../helpers';
-import cn from 'classnames';
+import React, {PropTypes, Component, Children} from 'react'
+import {appendClassPrefix, as} from '../../helpers'
+import cn from 'classnames'
 
 class Button extends Component {
-
   static propTypes = {
     href: PropTypes.string,
     as,
@@ -49,7 +48,7 @@ class Button extends Component {
     outline: false
   };
 
-  render() {
+  render () {
     const {
       href,
       target,
@@ -68,21 +67,21 @@ class Button extends Component {
       children,
       as,
       ...rest
-    } = this.props;
+    } = this.props
 
-    const withPrefix = appendClassPrefix('button');
+    const withPrefix = appendClassPrefix('button')
 
-    const isDisabled = disabled || loading;
+    const isDisabled = disabled || loading
 
     const newCildren = Children.map(children, (c) => {
-      if (c === null) return null;
+      if (c === null) return null
       if (typeof c === 'string') {
-        return <span>{c}</span>;
+        return <span>{c}</span>
       }
-      return React.cloneElement(c, c.props);
-    });
+      return React.cloneElement(c, c.props)
+    })
 
-    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i');
+    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i')
 
     const css = cn({
       button: true,
@@ -96,10 +95,9 @@ class Button extends Component {
       [withPrefix('loading')]: Boolean(loading),
       [withPrefix('link')]: Boolean(href || link),
       [withPrefix('icon')]: Boolean(hasIcon)
-    }, className);
+    }, className)
 
-    if (href && typeof href === 'string' && href.length > 0 || link) {
-
+    if ((href && typeof href === 'string' && href.length > 0) || link) {
       return (
         <a
           href={href || '#'}
@@ -110,11 +108,10 @@ class Button extends Component {
         >
           {newCildren}
         </a>
-      );
-
+      )
     }
 
-    const Element = as;
+    const Element = as
 
     return (
       <Element
@@ -125,14 +122,13 @@ class Button extends Component {
         disabled={isDisabled}
       >
 
-        {loading && <i className='ion-load-c animate-spin'/>}
+        {loading && <i className='ion-load-c animate-spin' />}
 
         {newCildren}
 
       </Element>
-    );
-
+    )
   }
 }
 
-export default Button;
+export default Button

@@ -1,15 +1,15 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import ProgressBar from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import ProgressBar from './index'
 
 const labelIntros =
   <div className='progressbar-label'>
     <span>Intros Left</span>
     <span>
-        <span className='text-light'>50</span>
-        <span>/80</span>
-      </span>
-  </div>;
+      <span className='text-light'>50</span>
+      <span>/80</span>
+    </span>
+  </div>
 
 storiesOf('ProgressBar', module)
   .add('Default', () => (
@@ -36,4 +36,4 @@ storiesOf('ProgressBar', module)
         trailColor='#F1F1F1'
       />
     </div>
-  ));
+  ))

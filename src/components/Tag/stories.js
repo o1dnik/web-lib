@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import Tag from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import Tag from './index'
 
 const sizes = [
   'xsmall',
@@ -8,14 +8,14 @@ const sizes = [
   'medium',
   'large',
   'xlarge'
-];
+]
 
 const colors = [
   'default',
   'primary',
   'light',
   'danger'
-];
+]
 
 storiesOf('Tag', module)
   .add('Default', () => (
@@ -98,7 +98,7 @@ storiesOf('Tag', module)
             voluptatibus. A animi, deserunt eius fugit ipsa minima pariatur
             quas ut.
           </span>
-          <i className='ion-plus' onClick={action('icon-clicked')}/>
+          <i className='ion-plus' onClick={action('icon-clicked')} />
         </Tag>
       </div>
 
@@ -108,7 +108,7 @@ storiesOf('Tag', module)
           <span>
             Lorem ipsum
           </span>
-          <i className='ion-plus' onClick={action('icon-clicked')}/>
+          <i className='ion-plus' onClick={action('icon-clicked')} />
         </Tag>
       </div>
 
@@ -120,7 +120,7 @@ storiesOf('Tag', module)
           </Tag>
           <Tag disabled onClick={action('clicked')}>
             <span>Disabled With Icon</span>
-            <i className='ion-close' onClick={action('icon-clicked')}/>
+            <i className='ion-close' onClick={action('icon-clicked')} />
           </Tag>
         </div>
       </div>
@@ -128,15 +128,15 @@ storiesOf('Tag', module)
       <div>
         <h4>With icon</h4>
         <Tag>
-          <i className='ion-checkmark'/>
+          <i className='ion-checkmark' />
           With icon left
         </Tag>
         <Tag>
           <span>With icon right</span>
-          <i className='ion-arrow-right-c'/>
+          <i className='ion-arrow-right-c' />
         </Tag>
         <Tag>
-          <i className='ion-navicon'/>
+          <i className='ion-navicon' />
         </Tag>
       </div>
 
@@ -147,13 +147,13 @@ storiesOf('Tag', module)
           {Number(5)}
           {null}
           {undefined}
-          <i className='ion-plus' onClick={action('icon-clicked')}/>
+          <i className='ion-plus' onClick={action('icon-clicked')} />
         </Tag>
         <Tag>
           <span>Clickable only icon</span>
-          <i className='ion-close' onClick={action('icon-clicked')}/>
+          <i className='ion-close' onClick={action('icon-clicked')} />
         </Tag>
       </div>
 
     </div>
-  ));
+  ))

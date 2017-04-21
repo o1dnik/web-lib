@@ -5,19 +5,19 @@ export const JOB_TYPES = [
   {id: '3', name: 'Contract'},
   {id: '4', name: 'Internship'},
   {id: '5', name: 'Temporary'}
-];
+]
 
 export const JOB_LEVELS = [
   {id: '0', name: '0 - 1 Years'},
   {id: '1', name: '2 - 3 Years'},
   {id: '2', name: '4 - 6 Years'},
   {id: '3', name: '7+ Years'}
-];
+]
 
 export const RELOCATE_OPTIONS = [
   {value: '0', label: 'Yes'},
   {value: '1', label: 'No'}
-];
+]
 
 export const LANG_LEVELS = [
   {id: '0', name: 'A1 - Beginner'},
@@ -27,7 +27,7 @@ export const LANG_LEVELS = [
   {id: '4', name: 'C1 - Advanced'},
   {id: '5', name: 'C2 - Mastery'},
   {id: '6', name: 'Native'}
-];
+]
 
 export const DEFAULT_LANGS = [
   {id: '40', name: 'English'},
@@ -41,7 +41,7 @@ export const DEFAULT_LANGS = [
   {id: '72', name: 'Japanese'},
   {id: '59', name: 'Hindi'},
   {id: '20', name: 'Chineese'}
-];
+]
 
 export const CAREER_LEVELS = [
   {id: '0', name: 'Student'},
@@ -51,7 +51,7 @@ export const CAREER_LEVELS = [
   {id: '4', name: 'Lead'},
   {id: '5', name: 'Head'},
   {id: '6', name: 'Executive'}
-];
+]
 
 export const CONFIRMATION_REASONS = [
   {id: '1', name: 'Education'},
@@ -62,7 +62,7 @@ export const CONFIRMATION_REASONS = [
   {id: '6', name: 'Location'},
   {id: '7', name: 'References'},
   {id: '0', name: 'Other'}
-];
+]
 
 export const AVAILABLE_SUBSCRIPTIONS = [
   {
@@ -81,7 +81,7 @@ export const AVAILABLE_SUBSCRIPTIONS = [
     jobs_max: 30,
     additions: []
   }
-];
+]
 
 // JOB STATUSES:
 export const STATUSES_TEXT_MAP = {
@@ -89,18 +89,18 @@ export const STATUSES_TEXT_MAP = {
   REV: 'Pending review',
   PAU: 'Paused',
   DEL: 'Deleted'
-};
+}
 
 export const STATUSES_COLOR_MAP = {
   ACT: 'primary',
   REV: 'danger',
   PAU: 'default',
   DEL: 'default'
-};
+}
 
 export const STATUSES_ICONS_MAP = {
   ACT: 'ion-checkmark',
   REV: 'ion-ios-clock',
   PAU: 'ion-pause',
   DEL: 'ion-close-circled'
-};
+}

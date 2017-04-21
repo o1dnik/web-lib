@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 export default (Component) => {
   return class OpenCloseDecorator extends React.Component {
@@ -19,21 +19,21 @@ export default (Component) => {
     }
 
     toggle = e => {
-      if (e) e.preventDefault();
-      this.setState(prevState => ({...prevState, isOpen: !prevState.isOpen}));
+      if (e) e.preventDefault()
+      this.setState(prevState => ({...prevState, isOpen: !prevState.isOpen}))
     }
 
     close = e => {
-      if (e) e.preventDefault();
-      this.setState((prevState) => ({...prevState, isOpen: false}));
+      if (e) e.preventDefault()
+      this.setState((prevState) => ({...prevState, isOpen: false}))
     }
 
     open = e => {
-      if (e) e.preventDefault();
-      this.setState((prevState) => ({...prevState, isOpen: true}));
+      if (e) e.preventDefault()
+      this.setState((prevState) => ({...prevState, isOpen: true}))
     }
 
-    render() {
+    render () {
       return (
         <Component
           {...this.state}
@@ -42,7 +42,7 @@ export default (Component) => {
           close={this.close}
           {...this.props}
         />
-      );
+      )
     }
-  };
-};
+  }
+}

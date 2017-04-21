@@ -1,6 +1,6 @@
-import {DEFAULT_ERROR} from './constants';
-import React from 'react';
-import {Link} from 'react-router-dom';
+import {DEFAULT_ERROR} from './constants'
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 const serverErrorsMap = {
   'default_error': DEFAULT_ERROR,
@@ -30,6 +30,6 @@ const serverErrorsMap = {
   'job_not_found': 'Job not found !',
   'job_inactive': 'Job has been disactivated !',
   'wrong_password': 'Sorry, but this password is not correct.'
-};
+}
 
-export default serverErrorsMap;
+export default serverErrorsMap

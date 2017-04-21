@@ -1,17 +1,16 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {NotificationStack} from 'react-notification';
-import {hideNotification} from '../../actions/notifications-actions';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {NotificationStack} from 'react-notification'
+import {hideNotification} from '../../actions/notifications-actions'
 
 class Notifications extends Component {
-
   handleDismiss = (notification) => {
-    this.props.hideNotification(notification);
+    this.props.hideNotification(notification)
   }
 
-  render() {
-    const {notifications} = this.props;
-    if (!notifications.length) return null;
+  render () {
+    const {notifications} = this.props
+    if (!notifications.length) return null
 
     return (
       <NotificationStack
@@ -21,11 +20,10 @@ class Notifications extends Component {
         }
         onDismiss={this.handleDismiss}
       />
-    );
+    )
   }
-
 }
 
 export default connect(({notifications}) => ({
   notifications: notifications.entities
-}), {hideNotification})(Notifications);
+}), {hideNotification})(Notifications)

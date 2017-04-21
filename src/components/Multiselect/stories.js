@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import Multiselect from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import Multiselect from './index'
 
 const hrStyle = {
   display: 'block',
@@ -9,7 +9,7 @@ const hrStyle = {
   borderTop: '3px solid #ccc',
   margin: '1em 0',
   padding: '0'
-};
+}
 
 const options = [
   {id: 'copastor', name: 'thermetrograph'},
@@ -23,16 +23,16 @@ const options = [
   {id: 'insinuant', name: 'phosphoroscope'},
   {id: 'budget', name: 'Mercatorial'},
   {id: 'multituberculy', name: 'fossula'}
-];
+]
 const selectedValues = [
   'multituberculy',
   'budget',
   'insinuant'
-];
+]
 
 const selectLabel = <span style={{color: 'red', textTransform: 'lowercase'}}>
   Select label
-</span>;
+</span>
 
 storiesOf('Multiselect', module)
   .add('Default', () => (
@@ -107,7 +107,7 @@ storiesOf('Multiselect', module)
 
       <div>
         <h4>Success</h4>
-        <hr style={hrStyle}/>
+        <hr style={hrStyle} />
         <Multiselect
           selectProps={{
             options,
@@ -127,7 +127,7 @@ storiesOf('Multiselect', module)
       </div>
       <div>
         <h4>Error</h4>
-        <hr style={hrStyle}/>
+        <hr style={hrStyle} />
         <Multiselect
           selectProps={{
             options,
@@ -149,7 +149,7 @@ storiesOf('Multiselect', module)
 
       <div>
         <h4>ReadOnly</h4>
-        <hr style={hrStyle}/>
+        <hr style={hrStyle} />
         <Multiselect
           selectProps={{
             options,
@@ -172,7 +172,7 @@ storiesOf('Multiselect', module)
 
       <div>
         <h4>Redux form</h4>
-        <hr style={hrStyle}/>
+        <hr style={hrStyle} />
         <Multiselect
           selectProps={{
             options,
@@ -195,4 +195,4 @@ storiesOf('Multiselect', module)
       </div>
 
     </div>
-  ));
+  ))

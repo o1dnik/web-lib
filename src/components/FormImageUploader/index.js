@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import Dropzone from 'react-dropzone';
-import Button from '../Button';
-import ImageCropper from '../ImageCropper';
+import React, {Component, PropTypes} from 'react'
+import Dropzone from 'react-dropzone'
+import Button from '../Button'
+import ImageCropper from '../ImageCropper'
 
 class FormImageUploader extends Component {
   static propTypes = {
@@ -45,25 +45,24 @@ class FormImageUploader extends Component {
     croppingImage: null
   }
 
-  render() {
-
+  render () {
     const {
       id, input, meta, placeholder, wrapperClass,
       type, alt, width, className, defaultImg
-    } = this.props;
+    } = this.props
 
-    const {croppingImage} = this.state;
-    const {error, invalid, touched} = meta;
+    const {croppingImage} = this.state
+    const {error, invalid, touched} = meta
 
-    const src = croppingImage && croppingImage.preview ||
-      input.value || defaultImg;
+    const src = (croppingImage && croppingImage.preview) ||
+      input.value || defaultImg
 
     const logoUploader =
       <div className={wrapperClass}>
         <div>
           {
-            croppingImage ?
-              (
+            croppingImage
+              ? (
                 <ImageCropper
                   image={croppingImage.preview}
                   onCrop={this.handleCrop}
@@ -71,23 +70,22 @@ class FormImageUploader extends Component {
                   placeholder={placeholder}
                   id={id}
                   type={type}
-                  onCancel={this.handleCancelCrop}/>
+                  onCancel={this.handleCancelCrop} />
               )
-              :
-              (
+              : (
                 <Dropzone onDrop={this.handleUpload}
-                          className='dropzone'
-                          activeClassName='active'
-                          rejectClassName='reject'
-                          multiple={false}
-                          maxSize={1000000}
-                          accept='image/*'>
+                  className='dropzone'
+                  activeClassName='active'
+                  rejectClassName='reject'
+                  multiple={false}
+                  maxSize={1000000}
+                  accept='image/*'>
                   <div className='split-group'>
                     <div className='short'>
                       <img alt={alt}
-                           src={src}
-                           width={width}
-                           className={className}/>
+                        src={src}
+                        width={width}
+                        className={className} />
                     </div>
                     {this.props.children ||
                     <div className='long'>
@@ -100,7 +98,7 @@ class FormImageUploader extends Component {
               )
           }
         </div>
-      </div>;
+      </div>
 
     return (
       <div className='input-icon-wrapper'>
@@ -109,34 +107,32 @@ class FormImageUploader extends Component {
 
         <span>{touched && invalid && error}</span>
       </div>
-    );
-
+    )
   }
 
   handleUpload = ([file], reject, e) => {
-    e.preventDefault();
-    if (!file) return;
-    this.setState({croppingImage: file});
+    e.preventDefault()
+    if (!file) return
+    this.setState({croppingImage: file})
   }
 
   handleCrop = (image) => {
-    const {onChange} = this.props;
+    const {onChange} = this.props
 
     if (onChange) {
-      onChange(image);
+      onChange(image)
     }
 
     if (this.props.input.onChange) {
-      this.props.input.onChange(image);
+      this.props.input.onChange(image)
     }
 
-    this.setState({croppingImage: null});
+    this.setState({croppingImage: null})
   }
 
   handleCancelCrop = () => {
-    this.setState({croppingImage: null});
+    this.setState({croppingImage: null})
   }
-
 }
 
-export default FormImageUploader;
+export default FormImageUploader

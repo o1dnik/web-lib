@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import ImageUploader from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import ImageUploader from './index'
 
 storiesOf('FormImageUploader', module)
   .add('Default', () => (
@@ -8,7 +8,7 @@ storiesOf('FormImageUploader', module)
 
       <h1>Image Uploader</h1>
 
-      <ImageUploader/>
+      <ImageUploader />
 
     </div>
-  ));
+  ))

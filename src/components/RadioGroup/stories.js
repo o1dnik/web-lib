@@ -1,13 +1,13 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import RadioGroup from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import RadioGroup from './index'
 
 const options = [
   {value: '0', label: 'Yes'},
   {value: '1', label: 'No'}
-];
+]
 
-const value = {value: '0', label: 'Yes'};
+const value = {value: '0', label: 'Yes'}
 
 storiesOf('RadioGroup', module)
   .add('Default', () => (
@@ -47,4 +47,4 @@ storiesOf('RadioGroup', module)
         onChange={action('changed')}
       />
     </div>
-  ));
+  ))

@@ -1,19 +1,18 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 const Checkbox = (props) => {
+  const {id, label, input, name, onChange, onFocus, onBlur, disabled} = props
 
-  const {id, label, input, name, onChange, onFocus, onBlur, disabled} = props;
-
-  let checked = false;
+  let checked = false
 
   if (input) {
     if (typeof input.value === 'boolean' || typeof input.checked === 'boolean') {
-      checked = input.checked;
+      checked = input.checked
     }
   }
 
   if (typeof props.checked === 'boolean') {
-    checked = props.checked;
+    checked = props.checked
   }
 
   const checkbox =
@@ -26,10 +25,10 @@ const Checkbox = (props) => {
       onFocus={onFocus || input.onFocus}
       onBlur={onBlur || input.onBlur}
       type='checkbox'
-    />;
+    />
 
   if (!props.label) {
-    return checkbox;
+    return checkbox
   }
 
   return (
@@ -37,9 +36,8 @@ const Checkbox = (props) => {
       {checkbox}
       {label}
     </label>
-  );
-
-};
+  )
+}
 
 Checkbox.propTypes = {
   id: PropTypes.string,
@@ -75,11 +73,11 @@ Checkbox.propTypes = {
     visited: PropTypes.bool,
     warning: PropTypes.string
   })
-};
+}
 
 Checkbox.defaultProps = {
   input: {},
   meta: {}
-};
+}
 
-export default Checkbox;
+export default Checkbox

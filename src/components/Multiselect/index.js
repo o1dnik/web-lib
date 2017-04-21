@@ -1,11 +1,10 @@
-import React, {PropTypes, Component} from 'react';
-import {union} from 'lodash';
-import cn from 'classnames';
-import Select from '../Select';
-import Tag from '../Tag';
+import React, {PropTypes, Component} from 'react'
+import {union} from 'lodash'
+import cn from 'classnames'
+import Select from '../Select'
+import Tag from '../Tag'
 
 class Multiselect extends Component {
-
   static propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     selectProps: PropTypes.object.isRequired,
@@ -63,26 +62,25 @@ class Multiselect extends Component {
     }
   };
 
-  render() {
-
-    const {meta, input, label, id, disabled, valueKey, labelKey} = this.props;
-    const {error, invalid, touched, dirty, valid} = meta;
-    const value = this.props.value || input.value;
+  render () {
+    const {meta, input, label, id, disabled, valueKey, labelKey} = this.props
+    const {error, invalid, touched, dirty, valid} = meta
+    const value = this.props.value || input.value
     const selectProps = Object.assign(
       {}, Multiselect.defaultProps.selectProps, this.props.selectProps
-    );
+    )
 
     const css = cn({
       'multiselect': true,
       'multiselect-error': (touched && invalid),
       'multiselect-success': (touched && valid)
-    });
+    })
 
     const inputMessageCss = cn({
       'input-message': true,
       'input-message-error': (touched && invalid),
       'input-message-success': (touched && valid)
-    });
+    })
 
     return (
       <div className={css}>
@@ -106,10 +104,9 @@ class Multiselect extends Component {
 
           {
             value.map(v => {
+              const item = selectProps.options.find(o => o[valueKey] === v)
 
-              const item = selectProps.options.find(o => o[valueKey] === v);
-
-              if (!item || !item[labelKey]) return null;
+              if (!item || !item[labelKey]) return null
 
               return (
                 <Tag
@@ -124,7 +121,7 @@ class Multiselect extends Component {
                     onClick={this.handleValueRemove(v)}
                   />
                 </Tag>
-              );
+              )
             })
           }
 
@@ -135,79 +132,68 @@ class Multiselect extends Component {
         </span>
 
       </div>
-    );
+    )
   }
 
   handleBlur = (e) => {
+    const {simpleValue, valueKey, input, selectProps} = this.props
+    const val = this.props.value || input.value
 
-    const {simpleValue, valueKey, input, selectProps} = this.props;
-    const val = this.props.value || input.value;
-
-    if (this.props.onBlur) return this.props.onBlur(e);
+    if (this.props.onBlur) return this.props.onBlur(e)
 
     if (val && input && input.onBlur) {
-
       if (simpleValue) {
-        return input.onBlur(val);
+        return input.onBlur(val)
       }
 
       input.onBlur(
-        selectProps.options.filter(o => val.includes((o && o[valueKey] || o)))
-      );
-
+        selectProps.options.filter(o => val.includes(((o && o[valueKey]) || o)))
+      )
     }
-
   }
 
   handleValueAdd = (updVal) => {
-    const {simpleValue, valueKey, input, selectProps} = this.props;
-    const onChange = this.props.onChange || input.onChange;
-    const val = this.props.value || input.value;
+    const {simpleValue, valueKey, input, selectProps} = this.props
+    const onChange = this.props.onChange || input.onChange
+    const val = this.props.value || input.value
 
     // multi => arrays merge
     const newValues = union(
-      val, updVal.map(v => v && v[valueKey] || v)
-    );
+      val, updVal.map(v => (v && v[valueKey]) || v)
+    )
 
     if (onChange && newValues) {
-
       if (simpleValue) {
-        return onChange(newValues);
+        return onChange(newValues)
       }
 
       onChange(
         selectProps.options.filter(o =>
-          newValues.includes((o && o[valueKey] || o)))
-      );
-
+          newValues.includes(((o && o[valueKey]) || o)))
+      )
     }
-
   }
 
   handleValueRemove = (tag) => (e) => {
-    if (e) e.preventDefault();
+    if (e) e.preventDefault()
 
-    const {simpleValue, valueKey, input, selectProps} = this.props;
-    const onChange = this.props.onChange || input.onChange;
-    const val = this.props.value || input.value;
+    const {simpleValue, valueKey, input, selectProps} = this.props
+    const onChange = this.props.onChange || input.onChange
+    const val = this.props.value || input.value
 
-    const newValues = val.filter(v => v !== tag);
+    const newValues = val.filter(v => v !== tag)
 
     if (onChange) {
-
       if (simpleValue) {
-        return onChange(newValues);
+        return onChange(newValues)
       }
 
       onChange(
         selectProps.options.filter(o =>
-          newValues.includes((o && o[valueKey] || o)))
-      );
-
+          newValues.includes(((o && o[valueKey]) || o)))
+      )
     }
-
   }
-
 }
 
-export default Multiselect;
+export default Multiselect

@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import {Field} from 'redux-form';
-import cn from 'classnames';
-import Select from '../Select';
+import React, {Component, PropTypes} from 'react'
+import {Field} from 'redux-form'
+import cn from 'classnames'
+import Select from '../Select'
 
 class SmartDoubleSelect extends Component {
   static propTypes = {
@@ -28,41 +28,40 @@ class SmartDoubleSelect extends Component {
     inOneRow: false
   }
 
-  render() {
-
+  render () {
     const {
       levelProps, selectProps, onRemove, inOneRow,
       resetLevelOnSelectChange, selectKey, levelKey
-    } = this.props;
+    } = this.props
 
-    const select = this.props[selectKey];
-    const level = this.props[levelKey];
+    const select = this.props[selectKey]
+    const level = this.props[levelKey]
 
-    const valid = select.meta.valid && level.meta.valid;
+    const valid = select.meta.valid && level.meta.valid
 
     const levelDisabled = Boolean(
       !select.input.value || select.meta.invalid || levelProps.disabled
-    );
+    )
 
     const selectDisabled = (selectProps.disabledIfValid && select.meta.valid) ||
-      selectProps.disabled;
+      selectProps.disabled
 
     const css = cn({
       'smart-double-select': true,
       'options-box': true,
       done: valid
-    });
+    })
 
     const wrapperCss = cn({
       'select-group-wrapper': inOneRow
-    });
+    })
 
     return (
       <div className={css}>
 
         {onRemove &&
         <span className='close' onClick={onRemove}>
-          <i className='ion-close'/>
+          <i className='ion-close' />
         </span>}
 
         <div className={wrapperCss}>
@@ -71,7 +70,7 @@ class SmartDoubleSelect extends Component {
             {...selectProps}
             component={Select}
             onChange={() => {
-              resetLevelOnSelectChange && level.input.onChange(undefined);
+              resetLevelOnSelectChange && level.input.onChange(undefined)
             }}
             disabled={selectDisabled}
             noArrow={selectDisabled}
@@ -89,9 +88,8 @@ class SmartDoubleSelect extends Component {
         </div>
 
       </div>
-    );
+    )
   }
-
 }
 
-export default SmartDoubleSelect;
+export default SmartDoubleSelect

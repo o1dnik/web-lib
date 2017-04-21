@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import Loader from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import Loader from './index'
 
 const sizes = [
   'xsmall',
@@ -8,7 +8,7 @@ const sizes = [
   'medium',
   'large',
   'xlarge'
-];
+]
 
 storiesOf('Loader', module)
   .add('Default', () => (
@@ -16,9 +16,9 @@ storiesOf('Loader', module)
 
       {sizes.map(s =>
         <div key={s}>
-          <Loader size={s}/>
+          <Loader size={s} />
         </div>
       )}
 
     </div>
-  ));
+  ))

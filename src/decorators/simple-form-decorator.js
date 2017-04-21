@@ -1,9 +1,8 @@
-import React, {PropTypes} from 'react';
-import {has, mapValues} from 'lodash';
+import React, {PropTypes} from 'react'
+import {has, mapValues} from 'lodash'
 
 export default (options) => {
-
-  options = {initialValues: {}, validators: {}, ...options};
+  options = {initialValues: {}, validators: {}, ...options}
 
   return Component => class SimpleFormDecorator extends React.Component {
     static propTypes = {
@@ -33,8 +32,7 @@ export default (options) => {
       isValid: false
     }
 
-    render() {
-
+    render () {
       return (
         <Component
           {...this.props}
@@ -45,24 +43,23 @@ export default (options) => {
           resetForm={this.resetForm}
           reinitializeForm={this.reinitializeForm}
         />
-      );
+      )
     }
 
     handleFieldChange = (e) => {
-      if (e) e.preventDefault();
+      if (e) e.preventDefault()
 
-      const {value, name} = e.target;
+      const {value, name} = e.target
 
-      const error = this.validateField(value, name);
+      const error = this.validateField(value, name)
 
       this.setState((prevState) => {
-
         const dirty = {
           ...prevState.dirty,
           [name]: value !== prevState.initialValues[name]
-        };
+        }
 
-        const errors = {...prevState.errors, [name]: error};
+        const errors = {...prevState.errors, [name]: error}
 
         return {
           values: {...prevState.values, [name]: value},
@@ -70,55 +67,49 @@ export default (options) => {
           errors,
           isDirty: Object.keys(dirty).some(i => dirty[i] !== false),
           isValid: Object.keys(errors).every(i => errors[i] === null)
-        };
-      });
-
+        }
+      })
     }
 
     handleFieldBlur = (e) => {
-      if (e) e.preventDefault();
+      if (e) e.preventDefault()
 
-      const {value, name} = e.target;
+      const {value, name} = e.target
 
-      const error = this.validateField(value, name);
+      const error = this.validateField(value, name)
 
       this.setState((prevState) => {
-
-        const touched = {...prevState.touched, [name]: true};
-        const errors = {...prevState.errors, [name]: error};
+        const touched = {...prevState.touched, [name]: true}
+        const errors = {...prevState.errors, [name]: error}
 
         return {
           touched,
           errors,
           isTouched: Object.keys(touched).some(i => touched[i] === true),
           isValid: Object.keys(errors).every(i => errors[i] === null)
-        };
-      });
-
+        }
+      })
     }
 
     validateField = (value, name) => {
+      const {validators} = this.props
 
-      const {validators} = this.props;
-
-      let error = null;
+      let error = null
 
       if (
         has(validators, name) && Array.isArray(validators[name])
       ) {
         validators[name].forEach(fn => {
-          if (error) return;
-          error = fn(value, this.state.values);
-        });
+          if (error) return
+          error = fn(value, this.state.values)
+        })
       }
 
-      return error;
-
+      return error
     }
 
     getMetaForField = (name) => {
-
-      const {errors, touched, dirty} = this.state;
+      const {errors, touched, dirty} = this.state
 
       return {
         touched: touched[name],
@@ -126,12 +117,11 @@ export default (options) => {
         dirty: dirty[name],
         valid: errors[name] === null,
         error: errors[name]
-      };
-
+      }
     }
 
     resetForm = (e) => {
-      if (e) e.preventDefault();
+      if (e) e.preventDefault()
 
       this.setState((prevState) => ({
         values: {...prevState.initialValues},
@@ -141,11 +131,10 @@ export default (options) => {
         isDirty: false,
         isTouched: false,
         isValid: false
-      }));
+      }))
     }
 
     reinitializeForm = (values) => {
-
       this.setState((prevState) => ({
 
         initialValues: {
@@ -172,9 +161,7 @@ export default (options) => {
         isDirty: false,
         isTouched: false,
         isValid: false
-      }));
+      }))
     }
-
-  };
-
-};
+  }
+}
