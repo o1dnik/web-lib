@@ -64,7 +64,6 @@
     "cross-env": "^4.0.0",
     "date-fns": "^1.28.2",
     "lodash": "^4.17.4",
-    "lodash-es": "^4.17.4",
     "normalize.css": "^6.0.0",
     "rc-progress": "^2.1.0",
     "react": "^15.4.2",
