@@ -1,22 +1,22 @@
-import React, {PropTypes} from 'react';
-import classNames from 'classnames';
-import {getOldValue} from '../../helpers/getOldValue';
+import React, {PropTypes} from 'react'
+import classNames from 'classnames'
+import {getOldValue} from '../../helpers/getOldValue'
 
 const Input = (props) => {
-  const {id, input, meta, placeholder, type, label, disabled} = props;
-  const {error, invalid, valid, touched, dirty} = meta;
+  const {id, input, meta, placeholder, type, label, disabled} = props
+  const {error, invalid, valid, touched, dirty} = meta
 
   const inputCss = classNames({
     'input': true,
     'input-error': (touched && invalid),
     'input-success': (touched && valid)
-  });
+  })
 
   const inputMessageCss = classNames({
     'input-message': true,
     'input-message-error': (touched && invalid),
     'input-message-success': (touched && valid)
-  });
+  })
 
   return (
     <div>
@@ -41,15 +41,14 @@ const Input = (props) => {
       </span>
 
     </div>
-  );
-
-};
+  )
+}
 
 Input.defaultProps = {
   input: {},
   meta: {},
   type: 'text'
-};
+}
 
 Input.PropTypes = {
   id: PropTypes.string,
@@ -88,6 +87,6 @@ Input.PropTypes = {
     visited: PropTypes.bool,
     warning: PropTypes.string
   })
-};
+}
 
-export default Input;
+export default Input

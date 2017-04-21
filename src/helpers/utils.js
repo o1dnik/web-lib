@@ -1,75 +1,67 @@
-import {distanceInWordsToNow, differenceInMilliseconds} from 'date-fns';
-import {isEmpty, isNil, has} from 'lodash';
+import {distanceInWordsToNow, differenceInMilliseconds} from 'date-fns'
+import {isEmpty, isNil, has} from 'lodash'
 
-export function arrayToObject(array, idProp) {
-  const obj = {};
-  array.forEach(i => obj[i[idProp]] = i);
-  return obj;
+export function arrayToObject (array, idProp) {
+  const obj = {}
+  array.forEach(i => { obj[i[idProp]] = i })
+  return obj
 }
 
-export function getBase64(file) {
+export function getBase64 (file) {
   return new Promise((resolve, reject) => {
+    const reader = new window.FileReader()
 
-    const reader = new FileReader();
-
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file)
 
     reader.onload = () => {
-      resolve(reader.result);
-    };
+      resolve(reader.result)
+    }
 
     reader.onerror = (error) => {
-      reject(error);
-    };
-
-  });
+      reject(error)
+    }
+  })
 }
 
-export function renderExpires(expiresAt) {
+export function renderExpires (expiresAt) {
+  const diff = differenceInMilliseconds(expiresAt, Date.now())
+  const time = distanceInWordsToNow(expiresAt, {addSuffix: true})
 
-  const diff = differenceInMilliseconds(expiresAt, Date.now());
-  const time = distanceInWordsToNow(expiresAt, {addSuffix: true});
-
-  return diff > 0 ? `Expires ${time}` : `Expired ${time}`;
-
+  return diff > 0 ? `Expires ${time}` : `Expired ${time}`
 }
 
-export function handleFieldArrayItemAdd(fields) {
-  return () => fields.push({});
+export function handleFieldArrayItemAdd (fields) {
+  return () => fields.push({})
 }
 
-export function handleFieldArrayItemRemove(fields, idx, amountRequired = 0) {
+export function handleFieldArrayItemRemove (fields, idx, amountRequired = 0) {
   return () => {
     if (fields.length > amountRequired) {
-      fields.remove(idx);
+      fields.remove(idx)
     }
-  };
+  }
 }
 
-export function filterDoubleSelectEmptyValues(item) {
+export function filterDoubleSelectEmptyValues (item) {
+  if (!item || isEmpty(item)) return false
 
-  if (!item || isEmpty(item)) return false;
+  if (isNil(item.id) || item.id === '') return false
 
-  if (isNil(item.id) || item.id === '') return false;
+  if (isNil(item.level) || item.level === '') return false
 
-  if (isNil(item.level) || item.level === '') return false;
-
-  return true;
-
+  return true
 }
 
-export function createReducer(actionHandlers, defaultState) {
-  return function(state = defaultState, action) {
-
+export function createReducer (actionHandlers, defaultState) {
+  return function (state = defaultState, action) {
     if (has(actionHandlers, action.type)) {
-      return actionHandlers[action.type](state, action);
+      return actionHandlers[action.type](state, action)
     }
 
-    return state;
-
-  };
+    return state
+  }
 }
 
-export function getActionType(...strings) {
-  return strings.join('_');
+export function getActionType (...strings) {
+  return strings.join('_')
 }

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from 'react'
 
 export default (Component) => {
   return class MultipleActiveItemDecorator extends React.Component {
@@ -19,27 +19,27 @@ export default (Component) => {
     }
 
     toggleActive = item => e => {
-      if (e) e.preventDefault();
+      if (e) e.preventDefault()
 
       this.setState((prevState) => {
-        const {activeItems} = prevState;
+        const {activeItems} = prevState
 
-        const newItems = this.isActive(item) ?
-          activeItems.filter(i => i !== item) :
-          activeItems.concat(item);
+        const newItems = this.isActive(item)
+          ? activeItems.filter(i => i !== item)
+          : activeItems.concat(item)
 
-        return {...prevState, activeItems: newItems};
-      });
+        return {...prevState, activeItems: newItems}
+      })
     }
 
     isActive = item => this.state.activeItems.includes(item);
 
     disableAll = (e) => {
-      if (e) e.preventDefault();
-      this.setState((prevState => ({...prevState, activeItems: []})));
+      if (e) e.preventDefault()
+      this.setState(prevState => ({...prevState, activeItems: []}))
     }
 
-    render() {
+    render () {
       return (
         <Component
           {...this.state}
@@ -48,7 +48,7 @@ export default (Component) => {
           disableAll={this.disableAll}
           {...this.props}
         />
-      );
+      )
     }
-  };
-};
+  }
+}

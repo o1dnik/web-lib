@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react'
 
 class StatsCircle extends Component {
   static PropTypes = {
@@ -32,69 +32,68 @@ class StatsCircle extends Component {
     textDY: '.35em'
   };
 
-  render() {
-
+  render () {
     const {
       r, cx, cy, color, fill, width, value, textColor,
       containerWidth, containerHeight, transition, fontSize, textDY
-    } = this.props;
+    } = this.props
 
-    let {percent} = this.props;
+    let {percent} = this.props
 
     if (isNaN(percent)) {
-      percent = 100;
+      percent = 100
     }
 
-    const strokeDasharray = 2 * Math.PI * r;
+    const strokeDasharray = 2 * Math.PI * r
 
-    const c = Math.PI * (r * 2);
+    const c = Math.PI * (r * 2)
 
     if (percent < 0) {
-      percent = 0;
+      percent = 0
     }
 
     if (percent > 100) {
-      percent = 100;
+      percent = 100
     }
 
-    const pct = ((100 - percent) / 100) * c;
+    const pct = ((100 - percent) / 100) * c
 
-    const rotateX = parseInt(containerWidth, 10) / 2;
-    const rotateY = parseInt(containerHeight, 10) / 2;
-    const transform = `rotate(-90, ${rotateX}, ${rotateY})`;
+    const rotateX = parseInt(containerWidth, 10) / 2
+    const rotateY = parseInt(containerHeight, 10) / 2
+    const transform = `rotate(-90, ${rotateX}, ${rotateY})`
 
     return (
       <svg style={{width: containerWidth, height: containerHeight}}>
         <circle r={r}
-                cx={cx}
-                cy={cy}
-                stroke='#999'
-                fill={fill}
-                strokeWidth={width}
-                strokeDasharray={strokeDasharray}
-                strokeDashoffset='0'
+          cx={cx}
+          cy={cy}
+          stroke='#999'
+          fill={fill}
+          strokeWidth={width}
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset='0'
         />
         <circle r={r}
-                cx={cx}
-                cy={cy}
-                style={{transition}}
-                transform={transform}
-                stroke={color}
-                fill={fill}
-                strokeWidth={width}
-                strokeDasharray={strokeDasharray}
-                strokeDashoffset={pct}
+          cx={cx}
+          cy={cy}
+          style={{transition}}
+          transform={transform}
+          stroke={color}
+          fill={fill}
+          strokeWidth={width}
+          strokeDasharray={strokeDasharray}
+          strokeDashoffset={pct}
         />
         <text x='50%'
-              y='50%'
-              textAnchor='middle'
-              color={textColor}
-              strokeWidth='1px'
-              fontSize={fontSize}
-              dy={textDY}>{value || percent}</text>
+          y='50%'
+          textAnchor='middle'
+          color={textColor}
+          strokeWidth='1px'
+          fontSize={fontSize}
+          dy={textDY}>{value || percent}</text>
       </svg>
-    );
+    )
   }
 }
 
-export default StatsCircle;
+export default StatsCircle

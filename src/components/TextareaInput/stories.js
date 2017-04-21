@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import TextareaInput from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import TextareaInput from './index'
 
 storiesOf('TextareaInput', module)
   .add('Default', () => (
@@ -69,4 +69,4 @@ storiesOf('TextareaInput', module)
       </div>
 
     </div>
-  ));
+  ))

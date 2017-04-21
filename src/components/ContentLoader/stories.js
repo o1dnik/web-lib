@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import ContentLoader from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import ContentLoader from './index'
 
 storiesOf('ContentLoader', module)
   .add('Default', () => (
@@ -16,7 +16,7 @@ storiesOf('ContentLoader', module)
         <h3>with header</h3>
         <ContentLoader
           height={90}
-          header={true}
+          header
         />
       </div>
       <div>
@@ -27,5 +27,4 @@ storiesOf('ContentLoader', module)
         />
       </div>
     </div>
-  ));
-
+  ))

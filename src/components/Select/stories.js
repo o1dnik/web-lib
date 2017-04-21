@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import Select from './index';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import Select from './index'
 
 const options = [
   {value: 'saraad', label: 'anorthosite', isCategory: true},
@@ -14,7 +14,7 @@ const options = [
   {value: 'respirability', label: 'photodynamics'},
   {value: 'unmeetly', label: 'overobese', isCategory: true},
   {value: 'Primates', label: 'anthropodeoxycholic'}
-];
+]
 
 storiesOf('Select', module)
   .add('Default', () => (
@@ -226,4 +226,4 @@ storiesOf('Select', module)
       </div>
 
     </div>
-  ));
+  ))

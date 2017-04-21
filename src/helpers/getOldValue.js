@@ -1,8 +1,7 @@
 // import isEmpty from 'lodash/isEmpty';
 
-export function getOldValue(props) {
-
-  const {value, input} = props;
+export function getOldValue (props) {
+  const {value, input} = props
 
   if (
     value ||
@@ -11,9 +10,8 @@ export function getOldValue(props) {
     // !isEmpty(value) ||  // useful ?
     value === false
   ) {
-    return value;
+    return value
   }
 
-  return input.value || '';
-
+  return input.value || ''
 }

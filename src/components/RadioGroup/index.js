@@ -1,26 +1,26 @@
-import React, {PropTypes} from 'react';
-import cn from 'classnames';
+import React, {PropTypes} from 'react'
+import cn from 'classnames'
 
-const safeValueProp = obj => obj ? obj['value'] : '';
+const safeValueProp = obj => obj ? obj['value'] : ''
 const RadioGroup = props => {
-  const {name, label, options, value, onChange, input, meta} = props;
-  const {error, invalid, valid, touched, dirty} = meta;
+  const {name, label, options, value, onChange, input, meta} = props
+  const {error, invalid, valid, touched, dirty} = meta
 
   const styles = cn({
     'radio-group': true,
     'radio-group-error': (touched && invalid),
     'radio-group-success': (touched && valid)
-  });
+  })
 
   const inputMessageCss = cn({
     'input-message': true,
     'input-message-error': (touched && invalid),
     'input-message-success': (touched && valid)
-  });
+  })
 
   const selected = safeValueProp(value) === ''
     ? safeValueProp(input)
-    : safeValueProp(value);
+    : safeValueProp(value)
 
   return (
     <div className={styles}>
@@ -40,8 +40,8 @@ const RadioGroup = props => {
         {(dirty || touched) && invalid && error}
       </span>
     </div>
-  );
-};
+  )
+}
 
 RadioGroup.propTypes = {
   name: PropTypes.string.isRequired,
@@ -83,12 +83,12 @@ RadioGroup.propTypes = {
     visited: PropTypes.bool,
     warning: PropTypes.string
   })
-};
+}
 
 RadioGroup.defaultProps = {
   options: [],
   input: {},
   meta: {}
-};
+}
 
-export default RadioGroup;
+export default RadioGroup

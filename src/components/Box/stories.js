@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import Box from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import Box from './index'
 
 storiesOf('Box', module)
   .add('Default', () => (
@@ -17,4 +17,4 @@ storiesOf('Box', module)
       <Box as='li'>Li</Box>
       <Box as='li'>Li</Box>
     </ul>
-  ));
+  ))

@@ -1,6 +1,6 @@
-import React, {Component, PropTypes, Children} from 'react';
-import {appendClassPrefix, wrapToStopPropagation} from '../../helpers';
-import cn from 'classnames';
+import React, {Component, PropTypes, Children} from 'react'
+import {appendClassPrefix, wrapToStopPropagation} from '../../helpers'
+import cn from 'classnames'
 
 class Tag extends Component {
   static propTypes = {
@@ -37,8 +37,7 @@ class Tag extends Component {
     value: false
   };
 
-  render() {
-
+  render () {
     const {
       children,
       onClick,
@@ -50,42 +49,42 @@ class Tag extends Component {
       disabled,
       value,
       className
-    } = this.props;
+    } = this.props
 
-    const withPrefix = appendClassPrefix('tag');
+    const withPrefix = appendClassPrefix('tag')
 
     const newCildren = Children.map(children, (c) => {
       if (typeof c === 'string' || typeof c === 'number') {
-        return <span>{c}</span>;
+        return <span>{c}</span>
       }
 
       if (c === null || c === undefined) {
-        return null;
+        return null
       }
 
-      let childClick;
-      let className = c.props.className;
+      let childClick
+      let className = c.props.className
 
       if (c.props.onClick) {
-        childClick = c.props.onClick;
+        childClick = c.props.onClick
       }
 
       if (c.type === 'i' && c.props.onClick) {
-        childClick = wrapToStopPropagation(c.props.onClick);
+        childClick = wrapToStopPropagation(c.props.onClick)
         className = cn({
           close: Boolean(childClick),
           'cursor-disabled': Boolean(disabled)
-        }, className);
+        }, className)
       }
 
       return React.cloneElement(c, {
         ...c.props,
         onClick: !disabled && childClick,
         className
-      });
-    });
+      })
+    })
 
-    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i');
+    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i')
 
     const css = cn({
       tag: true,
@@ -98,7 +97,7 @@ class Tag extends Component {
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('value')]: Boolean(value),
       [withPrefix('icon')]: Boolean(hasIcon)
-    }, className);
+    }, className)
 
     return (
       <span
@@ -107,9 +106,8 @@ class Tag extends Component {
       >
         {newCildren}
       </span>
-    );
+    )
   }
-
 }
 
-export default Tag;
+export default Tag

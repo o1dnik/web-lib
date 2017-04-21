@@ -1,15 +1,14 @@
-import React, {PropTypes} from 'react';
-import {Line} from 'rc-progress';
-import {omit} from 'lodash';
-import cn from 'classnames';
+import React, {PropTypes} from 'react'
+import {Line} from 'rc-progress'
+import {omit} from 'lodash'
+import cn from 'classnames'
 
 const ProgressBarComponent = (props) => {
-
-  const {className, label} = props;
+  const {className, label} = props
 
   const css = cn({
     progressbar: true
-  }, className);
+  }, className)
 
   return (
     <div className={css}>
@@ -22,12 +21,12 @@ const ProgressBarComponent = (props) => {
             }
       />
     </div>
-  );
-};
+  )
+}
 
 ProgressBarComponent.propTypes = {
   className: PropTypes.string,
   label: PropTypes.node
-};
+}
 
-export default ProgressBarComponent;
+export default ProgressBarComponent

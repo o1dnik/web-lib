@@ -1,8 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import Button from '../Button';
+import React, {Component, PropTypes} from 'react'
+import Button from '../Button'
 
 class ConfirmModalComponent extends Component {
-
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -40,8 +39,7 @@ class ConfirmModalComponent extends Component {
     cancelLoading: false
   };
 
-  render() {
-
+  render () {
     const {
       title,
       content,
@@ -57,7 +55,7 @@ class ConfirmModalComponent extends Component {
       cancelDisabled,
       confirmLoading,
       cancelLoading
-    } = this.props;
+    } = this.props
 
     return (
       <div className='popup__box'>
@@ -102,10 +100,8 @@ class ConfirmModalComponent extends Component {
           </div>
         </footer>
       </div>
-    );
-
+    )
   }
-
 }
 
-export default ConfirmModalComponent;
+export default ConfirmModalComponent

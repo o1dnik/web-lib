@@ -1,17 +1,16 @@
-import React, {PropTypes, Component} from 'react';
-import {range} from 'lodash';
+import React, {PropTypes, Component} from 'react'
+import {range} from 'lodash'
 
-//Sizes
-//90
-//120
-//190
-//350
-//870
+// Sizes
+// 90
+// 120
+// 190
+// 350
+// 870
 
-const widths = [230, 300, 380, 420, 480];
+const widths = [230, 300, 380, 420, 480]
 
 export class ContentLoader extends Component {
-
   static PropTypes = {
     height: PropTypes.number.isRequired,
     lineHeight: PropTypes.number.isRequired
@@ -23,13 +22,12 @@ export class ContentLoader extends Component {
     header: false
   };
 
-  render() {
+  render () {
+    const {height, lineHeight, header} = this.props
 
-    const {height, lineHeight, header} = this.props;
+    const linesCount = height / lineHeight
 
-    const linesCount = height / lineHeight;
-
-    const lines = range(header ? 4 : 0, Math.floor(linesCount));
+    const lines = range(header ? 4 : 0, Math.floor(linesCount))
 
     return (
 
@@ -38,17 +36,16 @@ export class ContentLoader extends Component {
 
           {header &&
           <div>
-            <div className='background-masker header-top'/>
-            <div className='background-masker header-left'/>
-            <div className='background-masker header-right'/>
-            <div className='background-masker header-bottom'/>
-            <div className='background-masker subheader-left'/>
-            <div className='background-masker subheader-right'/>
-            <div className='background-masker subheader-bottom'/>
+            <div className='background-masker header-top' />
+            <div className='background-masker header-left' />
+            <div className='background-masker header-right' />
+            <div className='background-masker header-bottom' />
+            <div className='background-masker subheader-left' />
+            <div className='background-masker subheader-right' />
+            <div className='background-masker subheader-bottom' />
           </div>}
 
           {lines.map(i => {
-
             if (i % 2 === 0) {
               return (
                 <div
@@ -61,7 +58,7 @@ export class ContentLoader extends Component {
                     height: `${lineHeight}px`
                   }}
                 />
-              );
+              )
             }
 
             return (
@@ -74,16 +71,15 @@ export class ContentLoader extends Component {
                   left: `${widths[Math.floor(Math.random() * widths.length)]}px`,
                   height: `${lineHeight}px`
                 }}
-              ></div>
-            );
-
+               />
+            )
           })}
 
         </div>
       </div>
 
-    );
+    )
   }
 }
 
-export default ContentLoader;
+export default ContentLoader

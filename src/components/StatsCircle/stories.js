@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import StatsCircle from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import StatsCircle from './index'
 
 storiesOf('StatsCircle', module)
   .add('Default', () => (
@@ -32,4 +32,4 @@ storiesOf('StatsCircle', module)
         </span>
       </div>
     </div>
-  ));
+  ))

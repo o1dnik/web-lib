@@ -1,13 +1,13 @@
-import yup from 'yup';
+import yup from 'yup'
 
-import citySchema from './city-schema';
-import countrySchema from './country-schema';
-import jobTypesSchema from './job-types-schema';
-import languageSchema from './language-schema';
-import roleSchema from './role-schema';
-import skillSchema from './skill-schema';
-import webReferenceSchema from './web-reference-schema';
-import statisticsSchema from './statistics-schema';
+import citySchema from './city-schema'
+import countrySchema from './country-schema'
+import jobTypesSchema from './job-types-schema'
+import languageSchema from './language-schema'
+import roleSchema from './role-schema'
+import skillSchema from './skill-schema'
+import webReferenceSchema from './web-reference-schema'
+import statisticsSchema from './statistics-schema'
 
 export default yup.object().shape({
 
@@ -74,4 +74,4 @@ export default yup.object().shape({
   picture: yup.string().required().default('')
 
 })
-  .noUnknown();
+  .noUnknown()

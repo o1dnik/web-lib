@@ -1,4 +1,4 @@
-import yup from 'yup';
+import yup from 'yup'
 
 export default yup.object().shape({
 
@@ -6,4 +6,4 @@ export default yup.object().shape({
 
   url: yup.string().required().default('')
 
-}).noUnknown();
+}).noUnknown()

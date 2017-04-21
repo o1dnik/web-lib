@@ -1,7 +1,7 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
-import SelectWithLevels from './index';
-import {flatten} from 'lodash';
+import React from 'react'
+import {storiesOf, action} from '@kadira/storybook'
+import SelectWithLevels from './index'
+import {flatten} from 'lodash'
 
 let roles = [
   {
@@ -68,19 +68,19 @@ let roles = [
       }
     ]
   }
-];
+]
 
 const jobLevels = [
   {value: '0', label: '0-1'},
   {value: '1', label: '2-3'},
   {value: '2', label: '4-5'},
   {value: '3', label: '5+'}
-];
+]
 
-//roles should be mapped in container's connect
+// roles should be mapped in container's connect
 roles = flatten(
   roles.map(c => [{name: c.name, isCategory: true, id: c.name}, ...c.roles])
-).map(c => ({value: c.id, label: c.name, isCategory: c.isCategory || false}));
+).map(c => ({value: c.id, label: c.name, isCategory: c.isCategory || false}))
 
 storiesOf('SelectWithLevels', module)
   .add('Default', () => (
@@ -224,5 +224,4 @@ storiesOf('SelectWithLevels', module)
       </div>
 
     </div>
-  ));
-
+  ))

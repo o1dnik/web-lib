@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import classNames from 'classnames';
+import React, {PropTypes} from 'react'
+import classNames from 'classnames'
 
 const TextareaInput = (
   {
@@ -16,18 +16,18 @@ const TextareaInput = (
     input
   }
 ) => {
-  const {error, invalid, valid, touched, dirty} = meta;
+  const {error, invalid, valid, touched, dirty} = meta
   const styles = classNames({
     'textareainput': true,
     'textareainput-success': (touched && valid),
     'textareainput-error': (touched && invalid)
-  });
+  })
 
   const inputMessageCss = classNames({
     'input-message': true,
     'input-message-error': (touched && invalid),
     'input-message-success': (touched && valid)
-  });
+  })
 
   return (
     <div>
@@ -47,8 +47,8 @@ const TextareaInput = (
         {(dirty || touched) && invalid && error}
       </span>
     </div>
-  );
-};
+  )
+}
 
 TextareaInput.propTypes = {
   id: PropTypes.string,
@@ -86,11 +86,11 @@ TextareaInput.propTypes = {
     visited: PropTypes.bool,
     warning: PropTypes.string
   })
-};
+}
 
 TextareaInput.defaultProps = {
   input: {},
   meta: {}
-};
+}
 
-export default TextareaInput;
+export default TextareaInput

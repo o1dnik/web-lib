@@ -1,4 +1,4 @@
-import yup from 'yup';
+import yup from 'yup'
 
 export default yup.object().shape({
 
@@ -18,4 +18,4 @@ export default yup.object().shape({
   last_match_at: yup.string().required().default(''),
   last_activity: yup.string().required().default('')
 
-}).noUnknown();
+}).noUnknown()

@@ -1,6 +1,6 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import FontLoader from './index';
+import React from 'react'
+import {storiesOf} from '@kadira/storybook'
+import FontLoader from './index'
 
 const sizes = [
   'xsmall',
@@ -8,7 +8,7 @@ const sizes = [
   'medium',
   'large',
   'xlarge'
-];
+]
 
 storiesOf('FontLoader', module)
   .add('Default', () => (
@@ -16,9 +16,9 @@ storiesOf('FontLoader', module)
 
       {sizes.map(s =>
         <div key={s}>
-          <FontLoader size={s}/>
+          <FontLoader size={s} />
         </div>
       )}
 
     </div>
-  ));
+  ))
