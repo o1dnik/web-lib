@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import {distanceInWordsToNow} from 'date-fns'
 import cn from 'classnames'
 
 import DEFAULT_PROFILE_IMAGE from '../../assets/img/default-logo.png'
@@ -7,22 +8,18 @@ class ThreadCard extends Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    expiresAt: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
     isRead: PropTypes.bool.isRequired
   };
 
   static defaultProps = {
-    id: '',
-    title: 'Joobla Descriptionenene',
-    subtitle: 'Paramaribaladam Pirindirimobola',
-    image: '',
-    expiresAt: '9 days',
-    isRead: false
+    image: DEFAULT_PROFILE_IMAGE
   };
 
   render () {
-    const {image, title, subtitle, expiresAt, isRead} = this.props
+    const {image, title, subtitle, date, isRead} = this.props
 
     const listItemCss = cn({
       'list-item': true,
@@ -36,9 +33,9 @@ class ThreadCard extends Component {
         <div className={listItemCss}>
 
           <div className='list-body'>
-            <div className='list-thumb large hide-m'>
-              <img alt='trololo'
-                src={image || DEFAULT_PROFILE_IMAGE}
+            <div className='list-thumb large'>
+              <img alt='Avatar'
+                src={image}
                 onError={(e) => { e.target.src = DEFAULT_PROFILE_IMAGE }}
               />
             </div>
@@ -54,8 +51,8 @@ class ThreadCard extends Component {
           </div>
 
           <div className='list-controlls text-right'>
-            <div className='expire hide-m'>
-              {expiresAt}
+            <div className='expire'>
+              {distanceInWordsToNow(date)}
             </div>
           </div>
 
