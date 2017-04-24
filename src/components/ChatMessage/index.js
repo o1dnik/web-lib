@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { distanceInWordsToNow } from 'date-fns'
-import defaultPicture from '../../assets/img/mb-logo.svg'
+import defaultPicture from '../../../src/assets/img/default-logo.png'
 
 class Message extends Component {
   static propTypes = {

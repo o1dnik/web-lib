@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import cn from 'classnames'
 
-import DEFAULT_PROFILE_IMAGE from '../../assets/img/default-logo.png'
+import DEFAULT_PROFILE_IMAGE from '../../../src/assets/img/default-logo.png'
 
 class ThreadCard extends Component {
   static propTypes = {
