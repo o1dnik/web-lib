@@ -6,7 +6,6 @@ import DEFAULT_PROFILE_IMAGE from '../../assets/img/default-logo.png'
 
 class ThreadCard extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
