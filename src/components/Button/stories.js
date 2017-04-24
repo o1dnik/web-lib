@@ -65,6 +65,17 @@ storiesOf('Button', module)
       </div>
 
       <div>
+        <h4>Outline ColorsOutline ColorsOutline ColorsOutline ColorsOutline Colors</h4>
+        {
+          colors.map(s =>
+            <Button key={s} outline disabled color={s} onClick={action('clicked')}>
+              <span>{s}</span>
+            </Button>
+          )
+        }
+      </div>
+
+      <div>
         <h4>Extended</h4>
         <Button extended onClick={action('clicked')}>
           <span>Extended</span>

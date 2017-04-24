@@ -50,11 +50,11 @@ class Pagination extends Component {
           </Button>
         )
       }
-      pages.push(<Button key={totalPages + 1} disabled>...</Button>)
+      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
     }
 
     if (page > 3 && page <= totalPages - 3 && totalPages >= 6) {
-      pages.push(<Button key={totalPages + 1} disabled>...</Button>)
+      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
 
       for (let i = page - 2; i <= page + 2; i++) {
         pages.push(
@@ -70,11 +70,11 @@ class Pagination extends Component {
         )
       }
 
-      pages.push(<Button key={totalPages + 2} disabled>...</Button>)
+      pages.push(<Button key={totalPages + 2} disabled outline>...</Button>)
     }
 
     if (page > totalPages - 3 && totalPages >= 6) {
-      pages.push(<Button key={totalPages + 1} disabled>...</Button>)
+      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
       for (let i = totalPages - 6 + 2; i <= totalPages; i++) {
         pages.push(
           <Button
