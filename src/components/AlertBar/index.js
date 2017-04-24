@@ -1,8 +1,8 @@
-import React, {Component, PropTypes} from 'react'
-import {connect} from 'react-redux'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import cn from 'classnames'
-import {Notification} from 'react-notification'
-import {hideAlertBar} from '../../actions/alertbar-actions'
+import { Notification } from 'react-notification'
+import { hideAlertBar } from '../../actions/alertbar-actions'
 
 class AlertBar extends Component {
   static PropTypes = {
@@ -14,7 +14,7 @@ class AlertBar extends Component {
     action: PropTypes.string.isRequired,
     hideAlertBar: PropTypes.func.isRequired,
     hideOnRouteChange: PropTypes.bool.isRequired
-  };
+  }
 
   static defaultProps = {
     type: 'success',
@@ -22,13 +22,19 @@ class AlertBar extends Component {
     dismissAfter: false,
     hideOnRouteChange: true,
     action: ' '
-  };
+  }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       if (nextProps.isActive && nextProps.hideOnRouteChange) {
         nextProps.hideAlertBar()
       }
+    }
+  }
+
+  componentDidMount () {
+    if (this.props.isActive && this.props.hideOnRouteChange) {
+      this.props.hideAlertBar()
     }
   }
 
@@ -61,7 +67,9 @@ class AlertBar extends Component {
         {...rest}
         message={messageBody}
         style={false}
-        isLast={false} // https://github.com/pburtchaell/react-notification/pull/108 someone did pull request and added check that clear timeout on willReceiveProps
+        isLast={false} // https://github.com/pburtchaell/react-notification/pull/108
+        // someone did pull request and added check that clear
+        // timeout on willReceiveProps
         dismissAfter={dismissAfter}
         activeClassName={activeClasses}
         className={classes}
