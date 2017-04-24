@@ -6,3 +6,12 @@
 .box-shadow {
   box-shadow: $base-box-shadow;
 }
+
+.send-form {
+  // display: flex;
+  // flex: 0 0 100%;
+
+  .send-btn {
+    justify-content: flex-end;
+  }
+}

@@ -28,6 +28,7 @@ function loadStories () {
   require('../src/components/Pagination/stories')
   require('../src/components/ChatMessage/stories')
   require('../src/components/ThreadCard/stories')
+  require('../src/components/NewMessageForm/stories')
 }
 
 configure(loadStories, module)
