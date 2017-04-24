@@ -26,6 +26,7 @@ function loadStories() {
   require('../src/components/StepBar/stories');
   require('../src/components/ProgressBar/stories');
   require('../src/components/Pagination/stories');
+  require('../src/components/ChatMessage/stories');
 }
 
 configure(loadStories, module);
