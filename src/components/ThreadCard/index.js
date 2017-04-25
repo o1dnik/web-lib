@@ -10,7 +10,8 @@ class ThreadCard extends Component {
     subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    isRead: PropTypes.bool.isRequired
+    isRead: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -18,7 +19,7 @@ class ThreadCard extends Component {
   };
 
   render () {
-    const {image, title, subtitle, date, isRead} = this.props
+    const {image, title, subtitle, date, isRead, onClick} = this.props
 
     const listItemCss = cn({
       'list-item': true,
@@ -28,7 +29,7 @@ class ThreadCard extends Component {
     })
 
     return (
-      <li className='list-wrapper'>
+      <li className='list-wrapper' onClick={onClick}>
         <div className={listItemCss}>
 
           <div className='list-body'>
