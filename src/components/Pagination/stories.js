@@ -101,32 +101,5 @@ storiesOf('Pagination', module)
     <div>
       <h4>Pagination</h4>
       <PaginationWrappaer />
-      <ul className='pagination'>
-        <li className='pagination-first disabled'>
-          <a>
-            <i className='ion-chevron-left' />
-          </a>
-        </li>
-        <li className='pagination-previous disabled'>
-          <a>
-            <i className='ion-chevron-left' />
-          </a>
-        </li>
-        <li><a>1</a></li>
-        <li className='current'><a href='#'>2</a></li>
-        <li><a>3</a></li>
-        <li><a>4</a></li>
-        <li><a>5</a></li>
-        <li className='pagination-next'>
-          <a>
-            <i className='ion-chevron-right' />
-          </a>
-        </li>
-        <li className='pagination-last'>
-          <a>
-            <i className='ion-chevron-right' />
-          </a>
-        </li>
-      </ul>
     </div>
   ))

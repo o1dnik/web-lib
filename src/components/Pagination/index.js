@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import Button from '../Button'
+import PaginationItem from './pagination-item'
 
 class Pagination extends Component {
   static propTypes = {
@@ -23,15 +23,14 @@ class Pagination extends Component {
     if (totalPages < 6) {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(
-          <Button
-            outline
-            color={page === i ? 'primary' : 'default'}
+          <PaginationItem
+            className={page === i ? 'current' : ''}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
           >
-            <span>{i}</span>
-          </Button>
+            {i}
+          </PaginationItem>
         )
       }
     }
@@ -39,99 +38,102 @@ class Pagination extends Component {
     if (page <= 3 && totalPages >= 6) {
       for (let i = 1; i < 6; i++) {
         pages.push(
-          <Button
-            outline
-            color={page === i ? 'primary' : 'default'}
+          <PaginationItem
+            className={page === i ? 'current' : ''}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
           >
-            <span>{i}</span>
-          </Button>
+            {i}
+          </PaginationItem>
         )
       }
-      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
+      pages.push(
+        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+      )
     }
 
     if (page > 3 && page <= totalPages - 3 && totalPages >= 6) {
-      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
+      pages.push(
+        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+      )
 
       for (let i = page - 2; i <= page + 2; i++) {
         pages.push(
-          <Button
-            outline
-            color={page === i ? 'primary' : 'default'}
+          <PaginationItem
+            className={page === i ? 'current' : ''}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
           >
-            <span>{i}</span>
-          </Button>
+            {i}
+          </PaginationItem>
         )
       }
 
-      pages.push(<Button key={totalPages + 2} disabled outline>...</Button>)
+      pages.push(
+        <PaginationItem key={totalPages + 2} disabled>...</PaginationItem>
+      )
     }
 
     if (page > totalPages - 3 && totalPages >= 6) {
-      pages.push(<Button key={totalPages + 1} disabled outline>...</Button>)
+      pages.push(
+        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+      )
       for (let i = totalPages - 6 + 2; i <= totalPages; i++) {
         pages.push(
-          <Button
-            outline
-            color={page === i ? 'primary' : 'default'}
+          <PaginationItem
+            className={page === i ? 'current' : ''}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
           >
-            <span>{i}</span>
-          </Button>
+            {i}
+          </PaginationItem>
         )
       }
     }
 
     return (
-      <div className='pagination'>
+      <ul className='pagination'>
 
-        <Button
-          outline
+        <PaginationItem
           disabled={page === 1 || disabled}
+          className='pagination-first'
           onClick={this.handleChange(1, page === 1 || disabled)}
         >
-          <i className='ion-ios-arrow-back' />
-          <i className='ion-ios-arrow-back' />
-        </Button>
+          <i className='ion-chevron-left' />
+        </PaginationItem>
 
-        <Button
-          outline
+        <PaginationItem
           disabled={page === 1 || disabled}
+          className='pagination-previous'
           onClick={this.handleChange(page - 1, page === 1 || disabled)}
         >
-          <i className='ion-ios-arrow-back' />
-        </Button>
+          <i className='ion-chevron-left' />
+        </PaginationItem>
 
         {pages}
 
-        <Button
-          outline
+        <PaginationItem
           disabled={page === totalPages || disabled}
+          className='pagination-next'
           onClick={this.handleChange(page + 1, page === totalPages || disabled)}
         >
-          <i className='ion-ios-arrow-forward' />
-        </Button>
+          <i className='ion-chevron-right' />
+        </PaginationItem>
 
-        <Button
-          outline
+        <PaginationItem
           disabled={page === totalPages || disabled}
+          className='pagination-last'
           onClick={
             this.handleChange(totalPages, page === totalPages || disabled)
           }
         >
-          <i className='ion-ios-arrow-forward' />
-          <i className='ion-ios-arrow-forward' />
-        </Button>
+          <i className='ion-chevron-right' />
+        </PaginationItem>
 
-      </div>
+      </ul>
     )
   }
 
