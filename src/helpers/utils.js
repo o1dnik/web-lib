@@ -1,10 +1,14 @@
-import {distanceInWordsToNow, differenceInMilliseconds} from 'date-fns'
-import {isEmpty, isNil, has} from 'lodash'
+import { distanceInWordsToNow, differenceInMilliseconds } from 'date-fns'
+import { isEmpty, isNil, has } from 'lodash'
 
 export function arrayToObject (array, idProp) {
   const obj = {}
   array.forEach(i => { obj[i[idProp]] = i })
   return obj
+}
+
+export function pageToOffset (page, limit) {
+  return limit * (page - 1)
 }
 
 export function getBase64 (file) {
