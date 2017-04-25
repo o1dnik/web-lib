@@ -6,7 +6,7 @@ class Message extends Component {
   static propTypes = {
     picture: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     text: PropTypes.string.isRequired
   }
 
