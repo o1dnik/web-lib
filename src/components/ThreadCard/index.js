@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {distanceInWordsToNow, isValid as isValidDate} from 'date-fns'
+import {distanceInWordsToNow} from 'date-fns'
 import cn from 'classnames'
 
 import DEFAULT_PROFILE_IMAGE from '../../../src/assets/img/default-logo.png'
@@ -9,18 +9,17 @@ class ThreadCard extends Component {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    date: PropTypes.string,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     isRead: PropTypes.bool.isRequired,
     onClick: PropTypes.func
   };
 
   static defaultProps = {
-    image: DEFAULT_PROFILE_IMAGE,
-    date: null
+    image: DEFAULT_PROFILE_IMAGE
   };
 
   render () {
-    const {image, title, subtitle, date, isRead} = this.props
+    const {image, title, subtitle, date, isRead, onClick} = this.props
 
     const listItemCss = cn({
       'list-item': true,
@@ -30,7 +29,7 @@ class ThreadCard extends Component {
     })
 
     return (
-      <li className='list-wrapper' onClick={this.handleClick}>
+      <li className='list-wrapper' onClick={onClick}>
         <div className={listItemCss}>
 
           <div className='list-body'>
@@ -51,23 +50,17 @@ class ThreadCard extends Component {
             </div>
           </div>
 
+          {date &&
           <div className='list-controlls text-right'>
             <div className='expire'>
-              {date && isValidDate(date) && distanceInWordsToNow(date)}
+              {distanceInWordsToNow(date)}
             </div>
           </div>
+          }
 
         </div>
       </li>
     )
-  }
-
-  handleClick = (e) => {
-    if (e) e.preventDefault()
-
-    if (this.props.onClick) {
-      this.props.onClick()
-    }
   }
 }
 
