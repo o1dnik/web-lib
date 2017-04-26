@@ -9,7 +9,7 @@ class ThreadCard extends Component {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     isRead: PropTypes.bool.isRequired,
     onClick: PropTypes.func
   };
