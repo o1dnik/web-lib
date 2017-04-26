@@ -9,7 +9,7 @@
 .list-item{
   display: flex;
 
-  &.is-read {
+  &.is-unread {
     background-color : $grey-light !important;
     // background-color: green;
   }
