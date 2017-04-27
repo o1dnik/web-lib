@@ -15,7 +15,8 @@ class ThreadCard extends Component {
   };
 
   static defaultProps = {
-    image: DEFAULT_PROFILE_IMAGE
+    image: DEFAULT_PROFILE_IMAGE,
+    isUnread: false
   };
 
   render () {
