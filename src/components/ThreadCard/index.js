@@ -10,22 +10,23 @@ class ThreadCard extends Component {
     subtitle: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    isRead: PropTypes.bool.isRequired,
+    isUnread: PropTypes.bool.isRequired,
     onClick: PropTypes.func
   };
 
   static defaultProps = {
-    image: DEFAULT_PROFILE_IMAGE
+    image: DEFAULT_PROFILE_IMAGE,
+    isUnread: false
   };
 
   render () {
-    const {image, title, subtitle, date, isRead, onClick} = this.props
+    const {image, title, subtitle, date, isUnread, onClick} = this.props
 
     const listItemCss = cn({
       'list-item': true,
       'box': true,
       'box-shadow': true,
-      'is-read': isRead
+      'is-unread': isUnread
     })
 
     return (

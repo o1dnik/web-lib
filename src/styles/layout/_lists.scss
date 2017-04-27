@@ -2,10 +2,14 @@
   margin-bottom: .5rem;
 }
 
+.thin-list-wrapper{
+  margin-bottom: .05rem;
+}
+
 .list-item{
   display: flex;
 
-  &.is-read {
+  &.is-unread {
     background-color : $grey-light !important;
     // background-color: green;
   }
