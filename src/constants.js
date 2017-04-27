@@ -111,6 +111,7 @@ export const INITIAL = 'INITIAL'
 export const CONNECT = 'CONNECT'
 export const DISCONNECT = 'DISCONNECT'
 export const CONFIRM = 'CONFIRM'
+export const COUNT = 'COUNT'
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = 'CHANGE_REQUEST'
