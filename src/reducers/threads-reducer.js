@@ -11,7 +11,8 @@ import {
   LOGOUT,
   SESSION_EXPIRED,
   SET,
-  FILTER
+  FILTER,
+  MESSAGES
 } from '../constants'
 
 import { get } from 'lodash'
@@ -64,6 +65,19 @@ export const actionHandlers = {
   },
 
   [getActionType(THREADS, GET, FAIL)]: (state) => ({...state, loading: FAIL}),
+
+  [getActionType(MESSAGES, GET, SUCCESS)]: (state, action) => {
+    return {
+      ...state,
+      entities: {
+        ...state.entities,
+        [action.payload.threadId]: {
+          ...state.entities[action.payload.threadId],
+          unread_count: 0
+        }
+      }
+    }
+  },
 
   [getActionType(THREAD, CREATE, START)]: (state) => ({
     ...state,
