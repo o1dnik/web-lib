@@ -3,7 +3,7 @@
 }
 
 .message-text {
-  padding: 1rem 0 0;
+  padding-top: 1rem;
   @include breakpoint(tablet) {
     padding-left: rem(60);
     padding-right: rem(136);
@@ -12,5 +12,10 @@
 
 .message-send-form {
   background-color: $grey200;
+  padding: 1rem;
+  @include breakpoint(tablet) {
+    padding-left: rem(60);
+    padding-right: rem(136);
+  }
 }
 
