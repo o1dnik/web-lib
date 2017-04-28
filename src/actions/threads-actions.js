@@ -16,7 +16,7 @@ export function getThreadList (opts = {}) {
     candidateId: null,
     limit: 10,
     page: 1,
-    ordering: 'modified',
+    ordering: 'last_message_timestamp',
     ...opts
   }
 
