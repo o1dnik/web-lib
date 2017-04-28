@@ -3,7 +3,7 @@
 }
 
 .message-text {
-  padding: 1rem;
+  padding: 1rem 0 0;
   @include breakpoint(tablet) {
     padding-left: rem(60);
     padding-right: rem(136);
