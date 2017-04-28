@@ -19,7 +19,7 @@ class NewMessageForm extends Component {
     const {onSubmit, onChange, value, disabled, loading} = this.props
 
     return (
-      <div className='box box-shadow send-form'>
+      <div className='message-send-form message-text box-shadow'>
         <TextareaInput value={value} onChange={onChange} />
         <Button
           className='send-btn'

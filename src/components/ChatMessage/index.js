@@ -18,7 +18,7 @@ class Message extends Component {
     const {picture, name, date, text} = this.props
 
     return (
-      <div className='box box-shadow'>
+      <div className='box message'>
         <div className='list-item'>
           <div className='list-body'>
             <div className='list-thumb small hide-m'>

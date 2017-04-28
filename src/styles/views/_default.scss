@@ -1,3 +1,10 @@
+body {
+  background-color: $base-background-color;
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
 .box {
   background: $white;
   padding: 1rem;
