@@ -73,7 +73,7 @@ export const actionHandlers = {
   [getActionType(MESSAGE, CREATE, SUCCESS)]: (state, action) => {
     const message = get(action, 'res.data')
     const result = state.filter.page === 1
-      ? [...state.result, message.id]
+      ? [message.id, ...state.result]
       : state.result
 
     return {
