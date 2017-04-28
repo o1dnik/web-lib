@@ -1,21 +1,21 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import classNames from 'classnames'
+import { getOldValue } from '../../helpers/getOldValue'
 
-const TextareaInput = (
-  {
+const TextareaInput = (props) => {
+  const {
     id,
     name,
     label,
     onBlur,
     onChange,
     onFocus,
-    value,
     placeholder,
     rows,
     meta,
     input
-  }
-) => {
+  } = props
+
   const {error, invalid, valid, touched, dirty} = meta
   const styles = classNames({
     'textareainput': true,
@@ -34,7 +34,7 @@ const TextareaInput = (
       {label && <label htmlFor={id}>{label}</label>}
       <textarea
         name={name || input.name}
-        value={value || input.value}
+        value={getOldValue(props)}
         onChange={onChange || input.onChange}
         onBlur={onBlur || input.onBlur}
         onFocus={onFocus || input.onFocus}
