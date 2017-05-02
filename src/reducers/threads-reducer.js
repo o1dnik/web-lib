@@ -54,7 +54,9 @@ export const actionHandlers = {
         limit: action.payload.limit,
         page: action.payload.page
       },
-      count: get(action, 'res.data.count'),
+      count: action.payload.appendToList
+        ? get(action, 'res.data.count')
+        : state.count,
       result: action.payload.appendToList
         ? threads.map(t => t.id)
         : [...state.result],
