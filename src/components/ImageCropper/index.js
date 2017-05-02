@@ -1,18 +1,19 @@
+import PropTypes from 'prop-types'
 /**
  * Inspired by:
  * http://dropsofserenity.github.io/react-avatar-cropper/
  * https://github.com/DropsOfSerenity/react-avatar-cropper/
  */
-import React, {Component, PropTypes} from 'react'
+import React, { Component } from 'react'
 import isDataURI from 'validator/lib/isDataURI'
 
 export class ImageCropper extends Component {
   static propTypes = {
-    image: React.PropTypes.string.isRequired,
-    onCrop: React.PropTypes.func.isRequired,
-    onCancel: React.PropTypes.func,
-    closeButtonCopy: React.PropTypes.string,
-    cropButtonCopy: React.PropTypes.string,
+    image: PropTypes.string.isRequired,
+    onCrop: PropTypes.func.isRequired,
+    onCancel: PropTypes.func,
+    closeButtonCopy: PropTypes.string,
+    cropButtonCopy: PropTypes.string,
     // width: numberableType,
     // height: : numberableType,
     width: PropTypes.oneOfType([

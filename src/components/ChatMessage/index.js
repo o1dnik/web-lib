@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 import { distanceInWordsToNow } from 'date-fns'
 import defaultPicture from '../../../src/assets/img/default-logo.png'
 

@@ -1,7 +1,9 @@
 import cn from 'classnames'
 import Range from 'react-input-range'
 
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+
+import React from 'react'
 
 const InputRange = (props) => {
   const {id, input, onChange, label, disabled} = props

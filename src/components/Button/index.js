@@ -1,4 +1,5 @@
-import React, {PropTypes, Component, Children} from 'react'
+import PropTypes from 'prop-types'
+import React, { Component, Children } from 'react'
 import {appendClassPrefix, as} from '../../helpers'
 import cn from 'classnames'
 

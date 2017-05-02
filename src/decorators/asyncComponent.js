@@ -1,13 +1,14 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import Loader from '../components/Loader'
 
 export default function (loaderFunc) {
   return class AsyncComponentDecorator extends React.Component {
     static propTypes = {
-      onLoadStart: React.PropTypes.func,
-      onLoadSuccess: React.PropTypes.func,
-      onLoadFail: React.PropTypes.func,
-      renderLoader: React.PropTypes.func
+      onLoadStart: PropTypes.func,
+      onLoadSuccess: PropTypes.func,
+      onLoadFail: PropTypes.func,
+      renderLoader: PropTypes.func
     }
 
     state = {

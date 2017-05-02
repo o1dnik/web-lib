@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Checkbox = (props) => {
   const {id, label, input, name, onChange, onFocus, onBlur, disabled} = props
