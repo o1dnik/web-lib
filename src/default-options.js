@@ -40,7 +40,7 @@ export const DEFAULT_LANGS = [
   {id: '7', name: 'Arabic'},
   {id: '72', name: 'Japanese'},
   {id: '59', name: 'Hindi'},
-  {id: '20', name: 'Chineese'}
+  {id: '20', name: 'Chinese'}
 ]
 
 export const CAREER_LEVELS = [
