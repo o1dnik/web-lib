@@ -97,7 +97,7 @@ export const actionHandlers = {
         ...state.entities,
         [thread.id]: thread
       },
-      result: [thread, ...state.result],
+      result: [thread.id, ...state.result],
       count: state.count ? state.count + 1 : 1,
       creating: SUCCESS
     }
