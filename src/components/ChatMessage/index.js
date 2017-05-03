@@ -43,7 +43,7 @@ class Message extends Component {
           </div>
         </div>
         <div className='message-text'>
-          {text}
+          {text.split(/\r\n|\r|\n/g).map(chunk => <p key={chunk}>{chunk}</p>)}
         </div>
       </div>
     )
