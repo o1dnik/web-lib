@@ -89,9 +89,16 @@ export const actionHandlers = {
   }),
 
   [getActionType(THREAD, CREATE, SUCCESS)]: (state, action) => {
-    // TODO improve it according to api response, used only in company?
+    const thread = get(action, 'res.data')
+
     return {
       ...state,
+      entities: {
+        ...state.entities,
+        [thread.id]: thread
+      },
+      result: [thread, ...state.result],
+      count: state.count ? state.count + 1 : 1,
       creating: SUCCESS
     }
   },
