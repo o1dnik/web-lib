@@ -1,5 +1,6 @@
 import { distanceInWordsToNow, differenceInMilliseconds } from 'date-fns'
 import { isEmpty, isNil, has } from 'lodash'
+import { SUCCESS, START, FAIL, LOADING } from '../constants'
 
 export function arrayToObject (array, idProp) {
   const obj = {}
@@ -68,4 +69,16 @@ export function createReducer (actionHandlers, defaultState) {
 
 export function getActionType (...strings) {
   return strings.join('_')
+}
+
+export function getAsyncActionHandler ({type, prop, handler}) {
+  return {
+    [getActionType(type, START)]: state => ({...state, [prop]: LOADING}),
+    [getActionType(type, SUCCESS)]: (state, action) => ({
+      ...state,
+      [prop]: SUCCESS,
+      ...handler(state, action)
+    }),
+    [getActionType(type + FAIL)]: state => ({...state, [prop]: FAIL})
+  }
 }
