@@ -22,7 +22,7 @@ export default yup.object().shape({
   company: yup.object({
     id: yup.string().required().default(''),
     name: yup.string().required().default(''),
-    logo: yup.string().required().default(''),
+    logo: yup.string().nullable(true).required().default(''),
     website: yup.string().required().default(''),
     about: yup.string().required().default('')
   }).nullable(true).default(null),
