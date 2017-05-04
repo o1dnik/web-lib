@@ -74,11 +74,12 @@ export function getActionType (...strings) {
 export function getAsyncActionHandler ({type, prop, handler}) {
   return {
     [getActionType(type, START)]: state => ({...state, [prop]: LOADING}),
-    [getActionType(type, SUCCESS)]: (state, action) => ({
-      ...state,
-      [prop]: SUCCESS,
-      ...handler(state, action)
-    }),
+    [getActionType(type, SUCCESS)]: (state, action) => {
+      const result = {...state, [prop]: SUCCESS}
+
+      if (handler) return {...result, ...handler(state, action)}
+      return result
+    },
     [getActionType(type + FAIL)]: state => ({...state, [prop]: FAIL})
   }
 }
