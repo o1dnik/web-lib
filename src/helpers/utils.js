@@ -113,8 +113,8 @@ export function getAsyncActionHandler ({
   onFail
 }) {
   const start = buildReduce(props, LOADING, onStart)
-  const success = buildReduce(props, SUCCESS, onStart)
-  const fail = buildReduce(props, FAIL, onStart)
+  const success = buildReduce(props, SUCCESS, onSuccess)
+  const fail = buildReduce(props, FAIL, onFail)
   return {
     [getActionType(type, START)]: start,
     [getActionType(type, SUCCESS)]: success,
