@@ -80,6 +80,6 @@ export function getAsyncActionHandler ({type, prop, handler}) {
       if (handler) return {...result, ...handler(state, action)}
       return result
     },
-    [getActionType(type + FAIL)]: state => ({...state, [prop]: FAIL})
+    [getActionType(type, FAIL)]: state => ({...state, [prop]: FAIL})
   }
 }
