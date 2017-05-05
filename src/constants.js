@@ -40,6 +40,7 @@ export const JOBS = 'JOBS'
 export const JOB = 'JOB'
 
 export const CANDIDATES_ACCEPTED = 'CANDIDATES_ACCEPTED'
+export const MATCHES_ACCEPTED = 'MATCHES_ACCEPTED'
 export const CANDIDATES_REFERRED = 'CANDIDATES_REFERRED'
 export const CANDIDATE = 'CANDIDATE'
 
