@@ -84,33 +84,40 @@ export function getActionType (...strings) {
 //   }
 // }
 
-export function getAsyncActionHandler ({type, props, handler}) {
-  return {
-    [getActionType(type, START)]: state => ({
-      ...state,
-      ...props.reduce((acc, cur) => {
-        acc[cur] = LOADING
-        return acc
-      }, {})
-    }),
-    [getActionType(type, SUCCESS)]: (state, action) => {
-      const result = {
-        ...state,
-        ...props.reduce((acc, cur) => {
-          acc[cur] = SUCCESS
-          return acc
-        }, {})
-      }
+function buildReduce (props, type, cb) {
+  const result = props.reduce((acc, cur) => {
+    acc[cur] = type
+    return acc
+  }, {})
 
-      if (handler) return {...result, ...handler(state, action)}
-      return result
-    },
-    [getActionType(type, FAIL)]: state => ({
+  return (state, action) => {
+    if (cb) {
+      return {
+        ...state,
+        ...result,
+        ...cb(state, action)
+      }
+    }
+    return {
       ...state,
-      ...props.reduce((acc, cur) => {
-        acc[cur] = FAIL
-        return acc
-      }, {})
-    })
+      ...result
+    }
+  }
+}
+
+export function getAsyncActionHandler ({
+  type,
+  props,
+  onStart,
+  onSuccess,
+  onFail
+}) {
+  const start = buildReduce(props, LOADING, onStart)
+  const success = buildReduce(props, SUCCESS, onStart)
+  const fail = buildReduce(props, FAIL, onStart)
+  return {
+    [getActionType(type, START)]: start,
+    [getActionType(type, SUCCESS)]: success,
+    [getActionType(type, FAIL)]: fail
   }
 }
