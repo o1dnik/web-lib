@@ -71,15 +71,46 @@ export function getActionType (...strings) {
   return strings.join('_')
 }
 
-export function getAsyncActionHandler ({type, prop, handler}) {
+// export function alwaysReturnObj (o, prop) {
+//   if (typeof o === 'string') return {[o]: prop}
+
+//   if (Array.isArray(o)) {
+//     return arr.reduce((acc, cur) => {
+//       acc[cur] = prop
+//       return acc
+//     }, {})
+//   } else {
+//     throw new Error('Only types of Array or String allowed')
+//   }
+// }
+
+export function getAsyncActionHandler ({type, props, handler}) {
   return {
-    [getActionType(type, START)]: state => ({...state, [prop]: LOADING}),
+    [getActionType(type, START)]: state => ({
+      ...state,
+      ...props.reduce((acc, cur) => {
+        acc[cur] = LOADING
+        return acc
+      }, {})
+    }),
     [getActionType(type, SUCCESS)]: (state, action) => {
-      const result = {...state, [prop]: SUCCESS}
+      const result = {
+        ...state,
+        ...props.reduce((acc, cur) => {
+          acc[cur] = SUCCESS
+          return acc
+        }, {})
+      }
 
       if (handler) return {...result, ...handler(state, action)}
       return result
     },
-    [getActionType(type, FAIL)]: state => ({...state, [prop]: FAIL})
+    [getActionType(type, FAIL)]: state => ({
+      ...state,
+      ...props.reduce((acc, cur) => {
+        acc[cur] = FAIL
+        return acc
+      }, {})
+    })
   }
 }
