@@ -70,6 +70,7 @@
     "create-react-class": "^15.5.2",
     "cross-env": "^4.0.0",
     "date-fns": "^1.28.4",
+    "linkifyjs": "^2.1.4",
     "lodash": "^4.17.4",
     "normalize.css": "^6.0.0",
     "prop-types": "^15.5.8",

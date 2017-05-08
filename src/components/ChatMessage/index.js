@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { distanceInWordsToNow } from 'date-fns'
 import defaultPicture from '../../../src/assets/img/default-logo.png'
+import Linkify from 'linkifyjs/react'
 
 class Message extends Component {
   static propTypes = {
@@ -43,7 +44,9 @@ class Message extends Component {
           </div>
         </div>
         <div className='message-text'>
-          {text.split(/\r\n|\r|\n/g).map((chunk, idx) => <p key={idx}>{chunk}</p>)}
+          {text.split(/\r\n|\r|\n/g).map((chunk, idx) => {
+            return <Linkify key={idx} tagName='p'>{chunk}</Linkify>
+          })}
         </div>
       </div>
     )
