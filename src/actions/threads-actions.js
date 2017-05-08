@@ -31,7 +31,8 @@ export function getThreadList (opts = {}) {
       candidate: candidateId
     })}`,
     payload: {jobId, candidateId, limit, page, ordering, appendToList},
-    apiV: 'v2'
+    apiV: 'v2',
+    alert: null
   }
 }
 
