@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import TextareaInput from '../TextareaInput'
+import Textarea from 'react-textarea-autosize'
 import Button from '../Button'
+
+const style = {minHeight: '87px'}
 
 class NewMessageForm extends Component {
   static propTypes = {
@@ -21,7 +23,13 @@ class NewMessageForm extends Component {
 
     return (
       <div className='message-send-form box-shadow'>
-        <TextareaInput value={value} onChange={onChange} />
+        <Textarea
+          style={style}
+          value={value}
+          onChange={onChange}
+          minRows={3}
+          maxRows={15}
+        />
         <Button
           className='send-btn'
           onClick={onSubmit}
