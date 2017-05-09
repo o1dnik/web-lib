@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Textarea from 'react-textarea-autosize'
 import Button from '../Button'
 
-const style = {minHeight: '87px'}
+const style = {minHeight: '87px', marginBottom: '10px'}
 
 class NewMessageForm extends Component {
   static propTypes = {
