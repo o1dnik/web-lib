@@ -11,6 +11,7 @@ import {
   LOGOUT,
   SESSION_EXPIRED,
   SET,
+  THREAD,
   FILTER
 } from '../constants'
 
@@ -97,6 +98,14 @@ export const actionHandlers = {
     ...state,
     filter: {...get(action, 'payload.filter', state.filter)}
   }),
+
+  [getActionType(THREAD, CREATE, SUCCESS)]: (state, action) => {
+    return {
+      ...state,
+      result: [],
+      count: null
+    }
+  },
 
   [getActionType(LOGOUT)]: () => ({...defaultState}),
 
