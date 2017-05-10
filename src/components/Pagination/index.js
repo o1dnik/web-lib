@@ -50,13 +50,23 @@ class Pagination extends Component {
         )
       }
       pages.push(
-        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+        <PaginationItem
+          className='hide-inline-m'
+          key={totalPages + 1}
+          disabled>
+          ...
+        </PaginationItem>
       )
     }
 
     if (page > 3 && page <= totalPages - 3 && totalPages >= 6) {
       pages.push(
-        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+        <PaginationItem
+          className='hide-inline-m'
+          key={totalPages + 1}
+          disabled>
+          ...
+        </PaginationItem>
       )
 
       for (let i = page - 2; i <= page + 2; i++) {
@@ -73,13 +83,25 @@ class Pagination extends Component {
       }
 
       pages.push(
-        <PaginationItem key={totalPages + 2} disabled>...</PaginationItem>
+        <PaginationItem
+          className='hide-inline-m'
+          key={totalPages + 2}
+          disabled
+        >
+          ...
+        </PaginationItem>
       )
     }
 
     if (page > totalPages - 3 && totalPages >= 6) {
       pages.push(
-        <PaginationItem key={totalPages + 1} disabled>...</PaginationItem>
+        <PaginationItem
+          className='hide-inline-m'
+          key={totalPages + 1}
+          disabled
+        >
+          ...
+        </PaginationItem>
       )
       for (let i = totalPages - 6 + 2; i <= totalPages; i++) {
         pages.push(
