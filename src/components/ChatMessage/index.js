@@ -39,7 +39,7 @@ class Message extends Component {
           </div>
           <div className='list-controlls text-right'>
             <div className='expire hide-m'>
-              {distanceInWordsToNow(date)}
+              {distanceInWordsToNow(date)} ago
             </div>
           </div>
         </div>
