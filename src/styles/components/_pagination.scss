@@ -25,11 +25,14 @@
       color: #434343;
       line-height: 1;
       display: inline-block;
-      padding: rem(10) rem(12);
+      padding: rem(10);
       font-weight: bold;
       cursor: pointer;
       &:hover{
         background-color: $grey200;
+      }
+      @include breakpoint(tablet){
+        padding: rem(10) rem(12);
       }
     }
     &.current,
