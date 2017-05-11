@@ -14,6 +14,9 @@
   line-height: 1;
   white-space: nowrap;
   vertical-align:top;
+  max-width: 15em;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &.tag-extended{
     display: block;
     text-align: center;
@@ -74,8 +77,11 @@
     padding: .5em;
   }
   &.tag-small{
-    font-size: rem(12);
-    padding: .7em;
+    font-size: rem(10);
+    padding: .5em .7em;
+    @include breakpoint(tablet){
+      font-size: rem(12);
+    }
   }
   &.tag-medium{
     font-size: rem(14);
