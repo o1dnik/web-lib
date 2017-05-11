@@ -3,6 +3,12 @@
   li{
     display: inline-block;
     margin-right: 1px;
+    &.hide-inline-m{
+      display: none;
+      @include breakpoint(tablet){
+        display: inline-block;
+      }
+    }
     &:first-child{
       a{
         border-radius: 2px 0 0 2px;
