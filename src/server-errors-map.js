@@ -10,7 +10,11 @@ const serverErrorsMap = {
   'account_already_confirmed': 'This account is already confirmed',
   'wrong_credentials': 'Sorry, but these credentials are not correct.',
   'invalid_data': 'Sorry, an error has occurred. Please check your input.',
-  'token_invalid': 'Sorry, but this code is expired or invalid.',
+  'token_invalid': (
+    <span>
+      Sorry, but this code is expired or invalid. <Link to='/resend'>Resend E-mail.</Link>
+    </span>
+  ),
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
   'email_not_unique': 'Sorry, but we already have an account with this email address.',
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
@@ -20,7 +24,7 @@ const serverErrorsMap = {
   'not_confirmed': (
     <span>
       This email address is not yet confirmed.&nbsp;
-      Please request new confirmation code <Link to='/resend-email'>here</Link>, if expired.
+      Please request new confirmation code <Link to='/resend'>here</Link>, if expired.
     </span>
   ),
   'candidate_inactive': 'Candidate disactivated his profile',
