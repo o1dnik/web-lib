@@ -67,7 +67,7 @@ class ConfirmModalComponent extends Component {
         </header>
         <div className='popup__box__body'>
           <div>
-            <p>{content}</p>
+            <div>{content}</div>
             {onInputChange &&
             <input
               type={inputType}
