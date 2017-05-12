@@ -13,5 +13,15 @@ export function getOldValue (props) {
     return value
   }
 
-  return input.value || ''
+  if (
+    input.value ||
+    input.value === '' ||
+    input.value === 0 ||
+    // !isEmpty(value) ||  // useful ?
+    input.value === false
+  ) {
+    return input.value
+  }
+
+  return ''
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
-import {getOldValue} from '../../helpers/getOldValue'
+import { getOldValue } from '../../helpers/getOldValue'
 
 const Input = (props) => {
   const {id, input, meta, placeholder, type, label, disabled} = props

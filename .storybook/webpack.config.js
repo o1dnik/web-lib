@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = function(storybookBaseConfig, configType) {
 
-  storybookBaseConfig.output.publicPath = 'http://localhost:3001/';
+  storybookBaseConfig.output.publicPath = '/';
 
   storybookBaseConfig.module.loaders.push(
     {

@@ -29,6 +29,7 @@ function loadStories () {
   require('../src/components/ChatMessage/stories')
   require('../src/components/ThreadCard/stories')
   require('../src/components/NewMessageForm/stories')
+  require('../src/components/NumberInput/stories')
 }
 
 configure(loadStories, module)
