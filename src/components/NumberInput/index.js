@@ -71,36 +71,37 @@ class NumberInput extends Component {
               <i className='ion-minus-round' />
             </Button>
           </div>
-        </div>
 
-        <div className='long'>
-          <input
-            pattern='\d*'
-            min={this.props.minValue}
-            max={this.props.maxValue}
-            step={this.props.step}
-            name={this.props.name || input.name}
-            value={getOldValue(this.props)}
-            id={id}
-            placeholder={placeholder}
-            disabled={disabled}
-            type='number'
-            onChange={this.handleInputChange}
-            onBlur={this.handleInputBlur}
-            onFocus={this.handleInputFocus}
-          />
-        </div>
+          <div className='long'>
+            <input
+              pattern='\d*'
+              min={this.props.minValue}
+              max={this.props.maxValue}
+              step={this.props.step}
+              name={this.props.name || input.name}
+              value={getOldValue(this.props)}
+              id={id}
+              placeholder={placeholder}
+              disabled={disabled}
+              type='number'
+              onChange={this.handleInputChange}
+              onBlur={this.handleInputBlur}
+              onFocus={this.handleInputFocus}
+            />
+          </div>
 
-        <div className='short'>
-          <Button
-            disabled={disabled || getOldValue(this.props) >= this.props.maxValue}
-            onMouseUp={this.handleButtonUp(add)}
-            onMouseDown={this.handleButtonDown(add)}
-            onTouchEnd={this.handleButtonUp(add)}
-            onTouchStart={this.handleButtonDown(add)}
-          >
-            <i className='ion-plus-round' />
-          </Button>
+          <div className='short'>
+            <Button
+              disabled={disabled || getOldValue(this.props) >= this.props.maxValue}
+              onMouseUp={this.handleButtonUp(add)}
+              onMouseDown={this.handleButtonDown(add)}
+              onTouchEnd={this.handleButtonUp(add)}
+              onTouchStart={this.handleButtonDown(add)}
+            >
+              <i className='ion-plus-round' />
+            </Button>
+          </div>
+
         </div>
 
       </div>
