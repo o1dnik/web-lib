@@ -43,6 +43,11 @@ export const DEFAULT_LANGS = [
   {id: '20', name: 'Chinese'}
 ]
 
+export const TEMPLATE_LANGS = [
+  {id: 'EN', name: 'English'},
+  {id: 'DE', name: 'German'}
+]
+
 export const CAREER_LEVELS = [
   {id: '0', name: 'Student'},
   {id: '1', name: 'Entry level'},
