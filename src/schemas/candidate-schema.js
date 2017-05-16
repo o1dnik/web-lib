@@ -66,10 +66,7 @@ export default yup.object().shape({
 
   email: yup.string().email().required().default(''),
 
-  salary: yup.object({
-    min: yup.number().required().default(10000),
-    max: yup.number().required().default(100000)
-  }).required(),
+  salary_min: yup.number().default(0).required(),
 
   picture: yup.string().required().default('')
 
