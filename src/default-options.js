@@ -69,6 +69,14 @@ export const CONFIRMATION_REASONS = [
   {id: '0', name: 'Other'}
 ]
 
+export const REJECTION_REASONS = [
+  {id: '1', name: 'Not responding'},
+  {id: '2', name: 'Qualification'},
+  {id: '3', name: 'Cultural fit'},
+  {id: '4', name: 'Salary expectation'},
+  {id: '0', name: 'Other'}
+]
+
 export const AVAILABLE_SUBSCRIPTIONS = [
   {
     name: 'Basic',
