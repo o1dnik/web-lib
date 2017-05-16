@@ -73,6 +73,11 @@
   flex-direction: column;
   justify-content: space-around;
   height: 100%
+  .tag{
+    max-width: 15em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .list-item-subtitle{
