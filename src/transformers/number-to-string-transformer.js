@@ -10,7 +10,8 @@ export default function (res) {
       'category_id',
       'ref_id',
       'job_types',
-      'user'
+      'user',
+      'status'
     ]
   )
 
