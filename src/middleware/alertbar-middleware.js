@@ -1,7 +1,7 @@
-import {showAlertBar} from '../actions/alertbar-actions'
+import { showAlertBar } from '../actions/alertbar-actions'
 import serverErrorsMap from '../server-errors-map'
 import config from 'config'
-import {get, has} from 'lodash'
+import { get, has } from 'lodash'
 
 import {
   START,
@@ -78,7 +78,16 @@ function getErrorMessage (action) {
   errorCode = get(action, 'err.data.code')
 
   if (!errorCode && has(action, 'err.data')) {
-    message = `Backend error: ${action.err.data}`
+    if (typeof action.err.data === 'object') {
+      try {
+        const error = JSON.stringify(action.err.data)
+        message = `Backend error: ${error}`
+      } catch (err) {
+        message = `Backend error: ${action.err.data}`
+      }
+    } else {
+      message = `Backend error: ${action.err.data}`
+    }
   }
 
   if (errorCode && serverErrorsMap[errorCode]) {
