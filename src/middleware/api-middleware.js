@@ -56,6 +56,10 @@ export default () => next => action => {
         next({type: getActionType(SESSION_EXPIRED)})
       }
 
+      if (!err.response) {
+        err.response = {data: {code: 'network_error'}}
+      }
+
       next({type: getActionType(type, FAIL), err: err.response, ...rest})
     })
 }
