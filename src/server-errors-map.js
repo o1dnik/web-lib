@@ -10,7 +10,8 @@ const serverErrorsMap = {
   'account_already_confirmed': 'This account is already confirmed',
   'wrong_credentials': 'Sorry, but these credentials are not correct.',
   'invalid_data': 'Sorry, an error has occurred. Please check your input.',
-  'token_invalid': (
+  'invalid_token': 'Session expired. Please login.', // JWT fails
+  'token_invalid': ( // email confirmation token fails
     <span>
       Sorry, but this code is expired or invalid. <Link to='/resend'>Resend E-mail.</Link>
     </span>
