@@ -1,4 +1,4 @@
-import {DEFAULT_ERROR} from './constants'
+import {DEFAULT_ERROR, NETWORK_ERROR} from './constants'
 import React from 'react'
 import {Link} from 'react-router-dom'
 
@@ -7,7 +7,7 @@ const serverErrorsMap = {
   'unknown_code': DEFAULT_ERROR,
   'bad_request': DEFAULT_ERROR,
   'server_error': DEFAULT_ERROR,
-  'network_error': 'Please check your internet connection and try again.',
+  'network_error': NETWORK_ERROR,
   'account_already_confirmed': 'This account is already confirmed',
   'wrong_credentials': 'Sorry, but these credentials are not correct.',
   'invalid_data': 'Sorry, an error has occurred. Please check your input.',
