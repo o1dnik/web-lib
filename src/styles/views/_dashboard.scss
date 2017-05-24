@@ -1,0 +1,53 @@
+.matches-title{
+	flex: 2;
+	h1{
+		font-size: rem(25);
+		// margin: 0;
+	}
+	span.counter{
+		display: inline-block;
+		font-size: rem(20);
+		padding: 0 .4rem;
+		color: $white;
+		background-color: $green;
+		border-radius: $base-border-radius;
+	}
+}
+
+.content-row{
+	@include breakpoint(desktop){
+		display: flex;
+	}
+}
+
+.main-content{
+	@include breakpoint(desktop){
+		flex: 3;
+	}
+}
+
+.sidebar{
+	display: none;
+	@include breakpoint(desktop){
+		display: block;
+		flex: 1;
+		padding-left: 1em;
+	}
+}
+
+.padded-sidebar{
+	display: none;
+	padding-top: rem(109);
+	@include breakpoint(desktop){
+		display: block;
+		flex: 1;
+		padding-left: 1em;
+	}
+}
+
+img.wait {
+	margin: 50px;
+	max-width: 350px;
+}
+
+

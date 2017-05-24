@@ -4,18 +4,16 @@
 @import 'helpers/extends';
 @import 'helpers/mixins';
 
-//@import 'fonts/mb-icons';
 @import 'fonts/ionicons/ionicons';
 @import 'fonts/animation-min';
 
 @import 'vendors/bourbon/bourbon';
 @import 'vendors/bitters/base';
 
-
 @import 'components/buttons';
 @import 'components/dropdown';
 @import 'components/tooltips';
-//@import 'components/alertbar';
+@import 'components/alertbar';
 @import 'components/tabs';
 @import 'components/step-bar';
 @import 'components/radial-progress';
@@ -32,5 +30,22 @@
 @import 'components/pagination';
 @import 'components/messages';
 
-@import 'views/default';
+@import 'components/popup';
+@import 'components/progressbar';
+@import 'components/modal';
+@import 'components/gallery';
+@import 'components/text-editor';
+@import 'components/slide-right-left-transition';
+
+@import 'layout/header';
+@import 'layout/sidebar';
 @import 'layout/lists';
+@import 'layout/footer';
+@import 'layout/mobile-menu';
+
+@import 'views/default';
+@import 'views/dashboard';
+@import 'views/signup';
+@import 'views/detail';
+// @import 'views/company';
+@import 'views/profile';
