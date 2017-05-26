@@ -1,7 +1,10 @@
-.sidebar {
-  // > * {
-  //   margin-bottom : $base-spacing;
-  // }
+.sidebar{
+  display: none;
+  @include breakpoint(desktop){
+    display: block;
+    flex: 1;
+    padding-left: 1em;
+  }
   .box {
     .header {
       padding     : ($base-spacing / 3) ($base-spacing / 2);
