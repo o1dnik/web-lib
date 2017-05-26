@@ -76,7 +76,7 @@ class Button extends Component {
 
     const newCildren = Children.map(children, (c) => {
       if (c === null) return null
-      if (typeof c === 'string') {
+      if (typeof c === 'string' || typeof c === 'number') {
         return <span>{c}</span>
       }
       return React.cloneElement(c, c.props)
