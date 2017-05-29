@@ -1,8 +1,83 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $base-background-color;
   &.noscroll {
     overflow: hidden;
   }
+}
+
+a {
+  cursor: pointer;
+  color: $lipstick;
+  // text-decoration: underline;
+}
+
+a.u {
+  text-decoration: underline;
+}
+
+.mb {
+  margin-bottom: $base-spacing;
+}
+
+.hide-m, .hide-inline-m {
+  display: none;
+  &.hide-m {
+    @include breakpoint(tablet) {
+      display: block;
+    }
+  }
+  &.hide-inline-m {
+    @include breakpoint(tablet) {
+      display: inline-block;
+    }
+  }
+}
+
+.show-m-only {
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+
+.text-center {
+  @extend %text-center;
+}
+
+.text-right {
+  @extend %text-right;
+}
+
+.text-left {
+  @extend %text-left;
+}
+
+strong, b {
+  font-weight: $bold;
+}
+
+.title-highlight {
+  color: $green;
+  font-size: rem(26);
+  font-weight: $regular;
+}
+
+// Containers & Grids
+.container {
+  @include outer-container(rem(1180));
+  padding: 0 1rem;
+}
+
+.small-container {
+  @include outer-container(rem(890));
+  padding: 0 1rem;
+}
+
+.content-wrapper {
+  margin-bottom: $base-spacing;
 }
 
 .box {
@@ -14,11 +89,213 @@ body {
   box-shadow: $base-box-shadow;
 }
 
-.send-form {
-  // display: flex;
-  // flex: 0 0 100%;
-
-  .send-btn {
-    justify-content: flex-end;
+.grey-box {
+  padding: 1em;
+  background-color: $grey-light;
+  border: 1px solid $grey-md-light;
+  border-radius: $base-border-radius;
+  .title {
+    font-size: rem(12);
+    text-transform: uppercase;
+    font-weight: $semibold;
+    margin-bottom: 1em;
   }
+}
+
+.half-row {
+  @include breakpoint(tablet) {
+    display: flex;
+    flex-wrap: nowrap;
+    > * {
+      flex: 1 1 50%;
+    }
+  }
+}
+
+.table {
+  display: table;
+  > * {
+    display: table-row;
+    > * {
+      display: table-cell;
+      padding-bottom: rem(4);
+      &:first-child {
+        padding-right: 2em;
+      }
+    }
+  }
+}
+
+// Page Head
+.page-header {
+  padding: rem(30) 0 rem(10);
+  &.fixed {
+    background-color: $white;
+    box-shadow: 0 1px 0 0 rgba($black, .06);
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    top: rem(70);
+    left: 0;
+  }
+}
+
+.page-header-content {
+  display: flex;
+  .page-header-title {
+    flex: 2;
+    display: flex;
+  }
+}
+
+h1 {
+  font-weight: $bold;
+}
+
+h1.title-underlined {
+  text-align: left;
+  span {
+    line-height: 2;
+    display: inline-block;
+    border-bottom: 4px solid $grey-dark;
+  }
+}
+
+small {
+  font-size: 80%;
+}
+
+// span.underlined-red{
+//   line-height: 2;
+//   display: inline-block;
+//   border-bottom: 4px solid $another-red;
+// }
+
+.optional-info {
+  opacity: .4;
+}
+
+.button-wrapper {
+  padding: $base-spacing 0;
+  @extend %text-center;
+}
+
+.list-header {
+  padding: 2rem 0 1rem;
+  > * {
+    margin: 0;
+  }
+  h1 {
+    font-size: rem(30);
+    font-weight: $regular;
+  }
+  .description {
+    color: tint($black, 60%);
+  }
+}
+
+a.underlined-link {
+  position: relative;
+  color: $grey-md-dark;
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: rem(-5);
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: $grey;
+    transition: opacity $base-duration $base-timing;
+    opacity: .5;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+// Tags
+.tags-wrapper {
+  margin: .65em 0;
+}
+
+.inline-values {
+  display: flex;
+  justify-content: space-between;
+  > * {
+    flex-grow: 1;
+    margin: 0 .25rem;
+    &:first-child { margin-left: 0; }
+    &:last-child { margin-right: 0; }
+  }
+}
+
+.close {
+  color: $grey;
+  cursor: pointer;
+}
+
+.split-group {
+  display: flex;
+  flex-wrap: nowrap;
+  .long {
+    flex-grow: 2;
+  }
+  > :last-child {
+    padding-left: .75em;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  .button {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%)
+  }
+}
+
+.top-border-devider {
+  border-top: 2px solid $grey-light;
+}
+
+.right-border-devider {
+  border-right: 2px solid $grey-light;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+  @extend %text-center;
+  &.bordered {
+    border: 1px solid $grey-md-light;
+  }
+  h1 {
+    text-transform: uppercase;
+    font-size: rem(24);
+  }
+  > * {
+    margin-bottom: 1em;
+    &:nth-last-child(2) {
+      flex-grow: 2;
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+  .price {
+    font-size: rem(18);
+    font-weight: $bold;
+    color: $grey-md-dark;
+    b { color: $green; }
+  }
+}
+
+ul.list {
+  list-style-type: disc;
+  list-style-position: inside;
 }

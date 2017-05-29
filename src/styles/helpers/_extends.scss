@@ -1,11 +1,9 @@
-// Vertical Centering
 %vertical-align {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
 
-// Text aligment
 %text-center {
   text-align: center;
 }
@@ -14,10 +12,10 @@
   text-align: left;
 }
 
+%text-right{
+  text-align: right;
+}
+
 %bottom-spacing{
 	margin-bottom: $small-spacing;
 }
-
-
-
-

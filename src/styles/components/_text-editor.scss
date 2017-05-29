@@ -1,0 +1,18 @@
+.text-editor-input.RichTextEditor__root___2QXK-{
+  font-family: $base-font-family;
+  .public-DraftEditor-content {
+    min-height: 200px;
+  }
+  @each $name, $color in $alert-colors {
+    &.text-editor-input-#{$name} {
+      border-color: $color;
+      .DraftEditor-editorContainer{
+      background-color: tint($color, 90%);
+      }
+    }
+  }
+  .RichTextEditor__editor___1QqIU{
+    font-size: rem(12);
+    line-height: 1.5;
+  }
+}

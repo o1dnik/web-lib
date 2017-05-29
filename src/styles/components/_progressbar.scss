@@ -1,0 +1,20 @@
+.progressbar{
+	// margin-top: .85em;
+	.progressbar-label{
+		padding: 2em 0 .5em;
+		display: flex;
+		justify-content: space-between;
+		text-transform: uppercase;
+		font-size: rem(12);
+		font-weight: $semibold;
+	}
+	.text-light{
+		color: $grey;
+	}
+	svg{
+		display: block;
+	}
+	.rc-progress-line {
+		max-height: 5px;
+	}
+}
