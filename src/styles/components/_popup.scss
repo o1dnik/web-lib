@@ -77,6 +77,12 @@
     border-radius: $base-border-radius;
     overflow: hidden;
     z-index: 100;
+
+    .ion-close {
+        float: right;
+        margin-right: 0.5em;
+        cursor: pointer;
+    }
 }
 
 .popup__box__header, .popup__box__body, .popup__box__footer{

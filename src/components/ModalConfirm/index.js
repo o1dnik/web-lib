@@ -17,6 +17,7 @@ class ConfirmModalComponent extends Component {
 
     onConfirm: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
 
     confirmDisabled: PropTypes.bool.isRequired,
     cancelDisabled: PropTypes.bool.isRequired,
@@ -52,6 +53,7 @@ class ConfirmModalComponent extends Component {
       inputType,
       onConfirm,
       onCancel,
+      onClose,
       confirmDisabled,
       cancelDisabled,
       confirmLoading,
@@ -60,6 +62,7 @@ class ConfirmModalComponent extends Component {
 
     return (
       <div className='popup__box'>
+        <i className='ion-close' onClick={onClose} />
         <header className='popup__box__header'>
           <h1 className='popup__box__header__title'>
             <span>{title}</span>

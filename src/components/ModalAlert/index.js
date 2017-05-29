@@ -14,6 +14,7 @@ class AlertComponent extends Component {
     inputPlaceholder: PropTypes.string,
 
     onConfirm: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
 
     confirmDisabled: PropTypes.bool.isRequired,
 
@@ -40,12 +41,14 @@ class AlertComponent extends Component {
       inputPlaceholder,
       inputValue,
       onConfirm,
+      onClose,
       confirmDisabled,
       confirmLoading
     } = this.props
 
     return (
       <div className='popup__box'>
+        <i className='ion-close' onClick={onClose} />
         <header className='popup__box__header'>
           <h1 className='popup__box__header__title'>
             <span>{title}</span>
