@@ -1,6 +1,6 @@
-import {GET, START, SUCCESS, FAIL, ROLES} from '../constants'
-import {unionBy} from 'lodash'
-import {getActionType} from '../helpers/utils'
+import { GET, START, SUCCESS, FAIL, ROLES } from '../constants'
+import { unionBy } from 'lodash'
+import { getActionType } from '../helpers/utils'
 
 const defaultState = {
   loading: false,

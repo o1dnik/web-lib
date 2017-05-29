@@ -4,6 +4,7 @@ import {
   SUCCESS,
   FAIL,
   JOB,
+  ME,
   LANGUAGES,
   JOBS_BY_COMPANY_ID
 } from '../constants'
@@ -55,6 +56,16 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         entities: unionBy(state.entities, languages, 'id')
+      }
+    }
+
+    case getActionType(ME, GET, SUCCESS): {
+      const {languages} = res.data
+      return {
+        ...state,
+        entities: (languages
+          ? unionBy(state.entities, languages, 'id')
+          : state.entities)
       }
     }
   }
