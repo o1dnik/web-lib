@@ -87,6 +87,7 @@
     "react-select": "^1.0.0-rc.4",
     "react-textarea-autosize": "^4.3.2",
     "react-tooltip": "^3.3.0",
-    "validator": "^7.0.0"
+    "validator": "^7.0.0",
+    "yup": "^0.21.3"
   }
 }
