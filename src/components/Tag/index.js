@@ -49,7 +49,8 @@ class Tag extends Component {
       apart,
       disabled,
       value,
-      className
+      className,
+      ...rest
     } = this.props
 
     const withPrefix = appendClassPrefix('tag')
@@ -102,6 +103,7 @@ class Tag extends Component {
 
     return (
       <span
+        {...rest}
         onClick={!disabled && onClick}
         className={css}
       >
