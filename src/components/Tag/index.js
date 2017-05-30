@@ -23,7 +23,9 @@ class Tag extends Component {
       'default',
       'primary',
       'light',
-      'danger'
+      'danger',
+      'warm',
+      'hot'
     ])
   };
 

@@ -54,6 +54,14 @@
       border-color: $warning-yellow;
     }
   }
+  &.tag-warm{
+    color: $warning-yellow;
+    border-color: transparent;
+    background-color: tint($warning-yellow, 95%);
+    &.tag-bordered{
+      border-color: $warning-yellow;
+    }
+  }
   &.tag-light{
     color: $grey;
     background-color: tint($grey-light, 40%);
@@ -70,10 +78,23 @@
       border-color: $lipstick;
     }
   }
+  &.tag-hot{
+    color: $lipstick;
+    background-color: tint($lipstick, 95%);
+    border-color: transparent;
+    &.tag-bordered{
+      border-color: $lipstick;
+    }
+  }
 
   &.tag-value{
     background-color: $white;
     border-color: $grey;
+  }
+
+  &.tag-popular{
+    margin-left: 1em;
+    font-weight: normal;
   }
 
   // Sizes
