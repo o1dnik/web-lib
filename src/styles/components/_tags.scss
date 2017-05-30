@@ -92,6 +92,9 @@
     border-color: $grey;
   }
 
+  &.tag-popular-wrapper{
+    display: inline;
+  }
   &.tag-popular{
     margin-left: 1em;
     font-weight: normal;
