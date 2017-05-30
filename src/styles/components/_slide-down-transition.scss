@@ -1,0 +1,17 @@
+.slide-down-enter {
+  max-height: 0;
+}
+
+.slide-down-enter.slide-down-enter-active {
+  max-height: 3000px;
+  transition: max-height .5s ease-in;
+}
+
+.slide-down-leave {
+  max-height: 3000px;
+}
+
+.slide-down-leave.slide-down-leave-active {
+  max-height: 0;
+  transition: max-height .5s ease-out;
+}
