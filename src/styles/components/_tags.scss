@@ -62,6 +62,14 @@
       border-color: $grey;
     }
   }
+  &.tag-error{
+    color: $lipstick;
+    background-color: tint($lipstick, 40%);
+    border-color: transparent;
+    &.tag-bordered{
+      border-color: $lipstick;
+    }
+  }
 
   &.tag-value{
     background-color: $white;
