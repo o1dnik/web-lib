@@ -1,6 +1,5 @@
-import axios from 'axios'
-import {get} from 'lodash'
-import {getActionType} from '../helpers/utils'
+import { get } from 'lodash'
+import { getActionType } from '../helpers/utils'
 
 import {
   START,
@@ -13,7 +12,7 @@ import {
   SESSION_EXPIRED
 } from '../constants'
 
-export default () => next => action => {
+export default (axios) => () => next => action => {
   const {endpoint, apiConfig, apiV = 'v1', type, token, ...rest} = action
 
   if (!endpoint) return next(action)
