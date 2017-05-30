@@ -4,6 +4,9 @@
     margin-bottom: .5rem;
   }
 }
+.tag-popular-wrapper{
+  display: inline;
+}
 .tag{
   // Basics
   display: inline-block;
@@ -92,9 +95,6 @@
     border-color: $grey;
   }
 
-  &.tag-popular-wrapper{
-    display: inline;
-  }
   &.tag-popular{
     margin-left: 1em;
     font-weight: normal;
