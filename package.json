@@ -14,6 +14,7 @@
     "lint:fix": "standard --fix | snazzy",
     "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook",
+    "build:watch": "cross-env BABEL_ENV=production babel src -d lib -w --ignore __tests__,stories.js,container.js && git add .",
     "build:prod": "rimraf lib && cross-env BABEL_ENV=production babel src -d lib --ignore __tests__,stories.js,container.js && git add ."
   },
   "repository": {
@@ -69,6 +70,7 @@
     "create-react-class": "^15.5.3",
     "cross-env": "^5.0.0",
     "date-fns": "^1.28.4",
+    "history": "^4.6.1",
     "linkifyjs": "^2.1.4",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
@@ -81,9 +83,11 @@
     "react-input-range": "^1.1.3",
     "react-modal": "^1.7.7",
     "react-notification": "^6.7.0",
+    "react-router-dom": "^4.1.1",
     "react-select": "^1.0.0-rc.4",
     "react-textarea-autosize": "^4.3.2",
     "react-tooltip": "^3.3.0",
-    "validator": "^7.0.0"
+    "validator": "^7.0.0",
+    "yup": "^0.21.3"
   }
 }
