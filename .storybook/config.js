@@ -30,6 +30,7 @@ function loadStories () {
   require('../src/components/ThreadCard/stories')
   require('../src/components/NewMessageForm/stories')
   require('../src/components/NumberInput/stories')
+  require('../src/components/Tooltip/stories')
 }
 
 configure(loadStories, module)
