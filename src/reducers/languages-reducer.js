@@ -6,14 +6,15 @@ import {
   JOB,
   ME,
   LANGUAGES,
-  JOBS_BY_COMPANY_ID
+  JOBS_BY_COMPANY_ID,
+  BACKGROUND
 } from '../constants'
 
-import {DEFAULT_LANGS} from '../default-options'
+import { DEFAULT_LANGS } from '../default-options'
 
-import {getActionType} from '../helpers/utils'
+import { getActionType } from '../helpers/utils'
 
-import {flatten, unionBy} from 'lodash'
+import { flatten, unionBy } from 'lodash'
 
 const defaultState = {
   loading: false,
@@ -60,6 +61,16 @@ export default (state = defaultState, action) => {
     }
 
     case getActionType(ME, GET, SUCCESS): {
+      const {languages} = res.data
+      return {
+        ...state,
+        entities: (languages
+          ? unionBy(state.entities, languages, 'id')
+          : state.entities)
+      }
+    }
+
+    case getActionType(ME, BACKGROUND, GET, SUCCESS): {
       const {languages} = res.data
       return {
         ...state,

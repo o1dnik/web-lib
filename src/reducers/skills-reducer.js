@@ -1,8 +1,8 @@
 import {
-  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME
+  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME, BACKGROUND
 } from '../constants'
-import {unionBy, flatten} from 'lodash'
-import {getActionType} from '../helpers/utils'
+import { unionBy, flatten } from 'lodash'
+import { getActionType } from '../helpers/utils'
 
 const defaultState = {
   loading: false,
@@ -50,6 +50,16 @@ export default (state = defaultState, action) => {
     }
 
     case getActionType(ME, GET, SUCCESS): {
+      const {skills} = res.data
+      return {
+        ...state,
+        entities: (skills
+          ? unionBy(state.entities, skills, 'id')
+          : state.entities)
+      }
+    }
+
+    case getActionType(ME, BACKGROUND, GET, SUCCESS): {
       const {skills} = res.data
       return {
         ...state,
