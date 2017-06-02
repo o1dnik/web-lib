@@ -31,6 +31,12 @@ export function getThreadList (opts = {}) {
       candidate: candidateId
     })}`,
     payload: {jobId, candidateId, limit, page, ordering, appendToList},
+    tracking: {
+      success: {
+        event: 'getThreadList',
+        responseFields: ['results']
+      }
+    },
     apiV: 'v2',
     alert: null
   }
@@ -45,6 +51,12 @@ export function createThread (message, jobId, candidateId) {
       jobId,
       candidateId,
       data: {message, job_id: jobId, candidate_id: candidateId}
+    },
+    tracking: {
+      success: {
+        event: 'createMessage',
+        responseFields: ['id']
+      }
     },
     apiV: 'v2'
   }
