@@ -22,20 +22,24 @@
 $badge-size: rem(14);
 
 .messenger-badge {
-  // padding-right: .2em;
   position: relative;
   span {
     color: white;
     display: inline-block;
+    padding: 0 rem(3);
     background-color: $lipstick;
     position: absolute;
     top: -$badge-size/2;
-    right: -$badge-size/2;
+    left: 50%;
     height: $badge-size;
-    width: $badge-size;
     line-height: $badge-size;
     text-align: center;
-    font-size: rem(10);
-    border-radius: 50%;
+    font-size: rem(8);
+    border-radius: $badge-size/2;
   }
+}
+
+.big-icon{
+  font-size: rem(100);
+  line-height: 1;
 }

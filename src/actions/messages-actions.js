@@ -30,6 +30,14 @@ export function createMessage (threadId, message) {
   return {
     type: getActionType(MESSAGE, CREATE),
     payload: {threadId, message, data: {text: message}},
+    tracking: {
+      success: {
+        event: 'createMessage',
+        payload: {
+          id: threadId
+        }
+      }
+    },
     endpoint: `/threads/${threadId}/messages/`,
     apiV: 'v2'
   }

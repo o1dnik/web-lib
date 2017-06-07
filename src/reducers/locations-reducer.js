@@ -7,11 +7,12 @@ import {
   LOCATIONS,
   JOB,
   JOBS_BY_COMPANY_ID,
-  ME
+  ME,
+  BACKGROUND
 } from '../constants'
 
-import {unionBy, get} from 'lodash'
-import {getActionType} from '../helpers/utils'
+import { unionBy, get } from 'lodash'
+import { getActionType } from '../helpers/utils'
 
 const defaultState = {
   loading: false,
@@ -69,6 +70,19 @@ export default (state = defaultState, action) => {
     }
 
     case getActionType(ME, GET, SUCCESS): {
+      const relocations = get(res, 'data.relocations')
+
+      if (relocations && relocations.length > 0) {
+        return {
+          ...state,
+          entities: unionBy(state.entities, relocations, 'id')
+        }
+      }
+
+      return state
+    }
+
+    case getActionType(ME, BACKGROUND, GET, SUCCESS): {
       const relocations = get(res, 'data.relocations')
 
       if (relocations && relocations.length > 0) {
