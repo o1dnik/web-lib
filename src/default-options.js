@@ -59,13 +59,15 @@ export const CAREER_LEVELS = [
 ]
 
 export const CONFIRMATION_REASONS = [
+  // Leadership & References were commented-out intentionally
+  // The order of ids should not change according to backend API
   {id: '1', name: 'Education'},
   {id: '2', name: 'Experience'},
   {id: '3', name: 'Skill-set'},
-  {id: '4', name: 'Leadership'},
+  // {id: '4', name: 'Leadership'},
   {id: '5', name: 'Languages'},
   {id: '6', name: 'Location'},
-  {id: '7', name: 'References'},
+  // {id: '7', name: 'References'},
   {id: '0', name: 'Other'}
 ]
 
