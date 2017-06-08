@@ -127,7 +127,7 @@ export const DELETE_REQUEST = 'DELETE_REQUEST'
 // 3 - company declined - show rejected
 // 4 - company accepted - show accepted
 // 5 - candidated expired - show expired
-// 6 - company expired - show expired.
+// 6 - company expired - show expired
 
 export const CANDIDATE_PENDING = 'CANDIDATE_PENDING'
 export const CANDIDATE_DECLINED = 'CANDIDATE_DECLINED'

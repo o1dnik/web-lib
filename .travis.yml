@@ -8,7 +8,7 @@ cache:
   directories:
   - node_modules
 
-install: npm run build:prod
+install: yarn
 
 branches:
   only:
