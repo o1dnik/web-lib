@@ -19,6 +19,7 @@ export const DELETE = 'DELETE'
 export const RELOAD = 'RELOAD'
 export const BACKGROUND = 'BACKGROUND'
 export const PENDING = 'PENDING'
+export const FORBIDDEN = 'FORBIDDEN'
 
 // Resources Actions
 export const ME = 'ME'
