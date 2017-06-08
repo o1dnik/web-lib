@@ -15,7 +15,8 @@
     "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook",
     "build:watch": "cross-env BABEL_ENV=production babel src -d lib -w --ignore __tests__,stories.js,container.js && git add .",
-    "build:prod": "rimraf lib && cross-env BABEL_ENV=production babel src -d lib --ignore __tests__,stories.js,container.js && git add ."
+    "build:prod": "rimraf lib && cross-env BABEL_ENV=production babel src -d lib --ignore __tests__,stories.js,container.js && git add .",
+    "deploy": "surge storybook-static styleguide.moberries.com"
   },
   "repository": {
     "type": "git",
