@@ -7,7 +7,7 @@ import {
   DEFAULT_ERROR,
   IMG_UPLOAD_LIMIT,
   IMG_ACCEPTED_TYPES
-} from '../constants'
+} from '../../constants'
 
 class FormImageUploader extends Component {
   static propTypes = {
