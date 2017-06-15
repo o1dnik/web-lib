@@ -3,6 +3,11 @@ import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import Button from '../Button'
 import ImageCropper from '../ImageCropper'
+import {
+  DEFAULT_ERROR,
+  IMG_UPLOAD_LIMIT,
+  IMG_ACCEPTED_TYPES
+} from '../constants'
 
 class FormImageUploader extends Component {
   static propTypes = {
@@ -79,8 +84,8 @@ class FormImageUploader extends Component {
                   activeClassName='active'
                   rejectClassName='reject'
                   multiple={false}
-                  maxSize={1000000}
-                  accept='image/*'>
+                  maxSize={IMG_UPLOAD_LIMIT}
+                  accept={IMG_ACCEPTED_TYPES}>
                   <div className='split-group'>
                     <div className='short'>
                       <img alt={alt}
@@ -111,8 +116,29 @@ class FormImageUploader extends Component {
     )
   }
 
-  handleUpload = ([file], reject, e) => {
-    e.preventDefault()
+  handleUpload = ([file], [reject], e) => {
+    if (e) e.preventDefault()
+
+    // show AlertBar if upload been rejected
+    if (reject && !!this.props.showAlertBar) {
+      let message = DEFAULT_ERROR
+
+      if (reject.size >= IMG_UPLOAD_LIMIT) {
+        message = 'Picture is too big, please upload your picture up to 1 mb'
+      }
+
+      if (!reject.type.includes('image')) {
+        message = 'Unknown picture format'
+      }
+
+      return this.props.showAlertBar({
+        type: 'error',
+        message
+      })
+    } else {
+      console.warn('FormImageUploader: props.showAlertBar is not defined!')
+    }
+
     if (!file) return
     this.setState({croppingImage: file})
   }

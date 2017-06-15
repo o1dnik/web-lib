@@ -151,3 +151,7 @@ export const MATCH_STATUSES = {
   [COMPANY_REJECTED]: '7',
   [COMPANY_APPROVED]: '8'
 }
+
+// Image uploader / cropper
+export const IMG_UPLOAD_LIMIT = 1000000 // ~1mb limit
+export const IMG_ACCEPTED_TYPES = 'image/*'
