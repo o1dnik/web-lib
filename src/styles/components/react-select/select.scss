@@ -35,7 +35,7 @@ $select-option-focused-color:       $select-text-color !default;
 $select-option-focused-bg:          $grey-md-light; // pale blue
 $select-option-selected-color:      $select-text-color !default;
 $select-option-selected-bg:         #f5faff !default; // lightest blue
-$select-option-disabled-color:      lighten($select-text-color, 60%) !default;
+$select-option-disabled-color:      lighten($select-text-color, 50%) !default;
 
 $select-noresults-color:            lighten($select-text-color, 40%) !default;
 
