@@ -149,7 +149,7 @@ class FormImageUploader extends Component {
 
     // warn if width-height exceeds 200x200
     browserImageSize(file)
-      .then(function (size) {
+      .then((size) => {
         if (size.width < 200 || size.height < 200) {
           return showAlertBar({
             type: 'error',
