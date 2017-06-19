@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import Button from '../Button'
 import ImageCropper from '../ImageCropper'
+import browserImageSize from 'browser-image-size'
 import {
   DEFAULT_ERROR,
   IMG_UPLOAD_LIMIT,
@@ -39,7 +40,8 @@ class FormImageUploader extends Component {
     }),
     name: PropTypes.string,
     placeholder: PropTypes.string,
-    type: PropTypes.string
+    type: PropTypes.string,
+    showAlertBar: PropTypes.func
   };
 
   static defaultProps = {
@@ -120,7 +122,13 @@ class FormImageUploader extends Component {
     if (e) e.preventDefault()
 
     // show AlertBar if upload been rejected
-    if (reject && !!this.props.showAlertBar) {
+    const {showAlertBar} = this.props
+
+    if (!showAlertBar) {
+      console.warn('FormImageUploader: props.showAlertBar is not defined!')
+    }
+
+    if (reject) {
       let message = DEFAULT_ERROR
 
       if (reject.size >= IMG_UPLOAD_LIMIT) {
@@ -131,16 +139,25 @@ class FormImageUploader extends Component {
         message = 'Unknown picture format'
       }
 
-      return this.props.showAlertBar({
+      return showAlertBar({
         type: 'error',
         message
       })
-    } else {
-      console.warn('FormImageUploader: props.showAlertBar is not defined!')
     }
 
-    if (!file) return
-    this.setState({croppingImage: file})
+    // warn if width-height exceeds 200x200
+    browserImageSize(file)
+      .then(function (size) {
+        if (size.width < 200 || size.height < 200) {
+          return showAlertBar({
+            type: 'error',
+            message: 'Image size should be at least 200x200'
+          })
+        }
+
+        if (!file) return
+        this.setState({croppingImage: file})
+      })
   }
 
   handleCrop = (image) => {

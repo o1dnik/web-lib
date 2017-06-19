@@ -1347,6 +1347,12 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
+browser-image-size@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/browser-image-size/-/browser-image-size-1.1.0.tgz#476914a871749f05f66b023b21dd2ed4318ffbb7"
+  dependencies:
+    object-url "^1.0.0"
+
 browserify-aes@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/browserify-aes/-/browserify-aes-0.4.0.tgz#067149b668df31c4b58533e02d01e806d8608e2c"
@@ -3930,6 +3936,10 @@ object-keys@^1.0.10, object-keys@^1.0.8:
 object-path@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.9.2.tgz#0fd9a74fc5fad1ae3968b586bda5c632bd6c05a5"
+
+object-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/object-url/-/object-url-1.0.0.tgz#248e5549f4726c33791469e2dcf49050f9d0f124"
 
 object.assign@^4.0.4:
   version "4.0.4"
