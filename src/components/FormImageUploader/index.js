@@ -145,6 +145,8 @@ class FormImageUploader extends Component {
       })
     }
 
+    if (!file) return
+
     // warn if width-height exceeds 200x200
     browserImageSize(file)
       .then(function (size) {
@@ -155,7 +157,6 @@ class FormImageUploader extends Component {
           })
         }
 
-        if (!file) return
         this.setState({croppingImage: file})
       })
   }
