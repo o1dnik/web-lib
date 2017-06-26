@@ -5,7 +5,7 @@
       "presets": ["react", ["env", {"modules": false}], "stage-2", "react-hmre"]
     },
     "production": {
-      "plugins": ["add-module-exports", "syntax-dynamic-import", "lodash", "date-fns"],
+      "plugins": ["syntax-dynamic-import", "lodash", "date-fns"],
       "presets": ["react", ["env", {"modules": false}], "stage-2"]
     }
   }
