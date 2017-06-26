@@ -1,5 +1,6 @@
 import React from 'react'
-import {storiesOf, action} from '@storybook/react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import Button from './index'
 
 const sizes = [
@@ -65,10 +66,18 @@ storiesOf('Button', module)
       </div>
 
       <div>
-        <h4>Outline ColorsOutline ColorsOutline ColorsOutline ColorsOutline Colors</h4>
+        <h4>Outline ColorsOutline ColorsOutline ColorsOutline ColorsOutline
+            Colors
+        </h4>
         {
           colors.map(s =>
-            <Button key={s} outline disabled color={s} onClick={action('clicked')}>
+            <Button
+              key={s}
+              outline
+              disabled
+              color={s}
+              onClick={action('clicked')}
+            >
               <span>{s}</span>
             </Button>
           )
