@@ -10,3 +10,4 @@ node_modules
 TODO.txt
 
 storybook-static
+package-lock.json
