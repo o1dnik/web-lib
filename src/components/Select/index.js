@@ -106,7 +106,7 @@ class Select extends Component {
     if (!renderTags) valueComponent.valueComponent = () => null
 
     return (
-      <div className={css}>
+      <div className={css} id={`ghost-${id}`}>
 
         {label && <label htmlFor={id}>{label}</label>}
 

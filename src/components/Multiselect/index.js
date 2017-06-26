@@ -84,7 +84,7 @@ class Multiselect extends Component {
     })
 
     return (
-      <div className={css}>
+      <div className={css} id={`ghost-${id}`}>
 
         {label && <label htmlFor={id}>{label}</label>}
 
