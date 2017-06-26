@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
 import ThreadCard from './index'
 import { addYears, addMinutes } from 'date-fns'
 
