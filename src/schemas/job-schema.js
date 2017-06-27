@@ -12,6 +12,8 @@ export default yup.object().shape({
 
   title: yup.string().default(''),
 
+  description: yup.string().default(''),
+
   city: citySchema.nullable(true).default(null),
 
   country: countrySchema.nullable(true).default(null),
