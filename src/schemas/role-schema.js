@@ -1,4 +1,5 @@
 import yup from 'yup'
+import roleCategory from './role-category-schema'
 
 export default yup.object().shape({
 
@@ -8,8 +9,6 @@ export default yup.object().shape({
 
   level: yup.string().required().default(''),
 
-  category_id: yup.string().default(''),
-
-  category_name: yup.string().default('')
+  category: roleCategory.nullable(true).default(null)
 
 }).noUnknown()
