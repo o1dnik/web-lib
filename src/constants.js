@@ -76,6 +76,7 @@ export const CAREER_LEVEL = 'CAREER_LEVEL'
 export const SALARY = 'SALARY'
 export const CITY = 'CITY'
 export const RELOCATION = 'RELOCATION'
+export const LOCATION = 'LOCATION'
 export const SIMILAR = 'SIMILAR'
 
 export const INQUIRY = 'INQUIRY'
