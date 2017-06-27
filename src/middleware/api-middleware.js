@@ -9,6 +9,7 @@ import {
   UPDATE,
   DELETE,
   CREATE,
+  PATCH,
   SESSION_EXPIRED
 } from '../constants'
 
@@ -40,6 +41,10 @@ export default (axios) => () => next => action => {
       break
 
     case type.includes(UPDATE):
+      promise = axios.put(apiEndpoit, get(action, 'payload.data'), apiConfig)
+      break
+
+    case type.includes(PATCH):
       promise = axios.put(apiEndpoit, get(action, 'payload.data'), apiConfig)
       break
 
