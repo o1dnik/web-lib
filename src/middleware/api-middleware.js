@@ -45,7 +45,7 @@ export default (axios) => () => next => action => {
       break
 
     case type.includes(PATCH):
-      promise = axios.put(apiEndpoit, get(action, 'payload.data'), apiConfig)
+      promise = axios.patch(apiEndpoit, get(action, 'payload.data'), apiConfig)
       break
 
     case type.includes(DELETE):
