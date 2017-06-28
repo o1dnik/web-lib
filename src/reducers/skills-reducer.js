@@ -1,5 +1,13 @@
 import {
-  GET, START, SUCCESS, FAIL, SKILLS, JOBS_BY_COMPANY_ID, JOB, ME, BACKGROUND
+  GET,
+  START,
+  SUCCESS,
+  FAIL,
+  SKILLS,
+  JOBS_BY_COMPANY_ID,
+  JOB,
+  ME,
+  BACKGROUND
 } from '../constants'
 import { unionBy, flatten } from 'lodash'
 import { getActionType } from '../helpers/utils'
