@@ -1,7 +1,6 @@
 import yup from 'yup'
 
 import citySchema from './city-schema'
-import countrySchema from './country-schema'
 import languageSchema from './language-schema'
 import roleSchema from './role-schema'
 import skillSchema from './skill-schema'
@@ -15,8 +14,6 @@ export default yup.object().shape({
   description: yup.string().default(''),
 
   city: citySchema.nullable(true).default(null),
-
-  country: countrySchema.nullable(true).default(null),
 
   skills: yup.array().of(skillSchema).required().ensure(),
 

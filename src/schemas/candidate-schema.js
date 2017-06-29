@@ -1,7 +1,6 @@
 import yup from 'yup'
 
 import citySchema from './city-schema'
-import countrySchema from './country-schema'
 import languageSchema from './language-schema'
 import roleSchema from './role-schema'
 import skillSchema from './skill-schema'
@@ -25,8 +24,6 @@ export default yup.object().shape({
   completion: yup.number().default(0),
 
   statistics: statisticsSchema.nullable(true).default(null),
-
-  country: countrySchema.nullable(true).default(null),
 
   candidate_cv: yup.object({
     txt: yup.string().url(),
