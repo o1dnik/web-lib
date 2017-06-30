@@ -153,7 +153,8 @@ class FormImageUploader extends Component {
         if (size.width < 200 || size.height < 200) {
           return showAlertBar({
             type: 'error',
-            message: 'Image size should be at least 200x200'
+            message: 'Sorry, this Image is too small. Should be at least 200x200 pixels',
+            dismissAfter: 3000
           })
         }
 
