@@ -70,12 +70,12 @@ export default (state = defaultState, action) => {
     }
 
     case getActionType(ME, GET, SUCCESS): {
-      const relocations = get(res, 'data.relocations')
+      const locations = get(res, 'data.locations')
 
-      if (relocations && relocations.length > 0) {
+      if (locations && locations.length > 0) {
         return {
           ...state,
-          entities: unionBy(state.entities, relocations, 'id')
+          entities: unionBy(state.entities, locations, 'id')
         }
       }
 
@@ -83,12 +83,12 @@ export default (state = defaultState, action) => {
     }
 
     case getActionType(ME, BACKGROUND, GET, SUCCESS): {
-      const relocations = get(res, 'data.relocations')
+      const locations = get(res, 'data.locations')
 
-      if (relocations && relocations.length > 0) {
+      if (locations && locations.length > 0) {
         return {
           ...state,
-          entities: unionBy(state.entities, relocations, 'id')
+          entities: unionBy(state.entities, locations, 'id')
         }
       }
 

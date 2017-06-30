@@ -1,12 +1,9 @@
 import yup from 'yup'
 
 import citySchema from './city-schema'
-import countrySchema from './country-schema'
-import jobTypesSchema from './job-types-schema'
 import languageSchema from './language-schema'
 import roleSchema from './role-schema'
 import skillSchema from './skill-schema'
-import webReferenceSchema from './web-reference-schema'
 import statisticsSchema from './statistics-schema'
 
 export default yup.object().shape({
@@ -20,7 +17,7 @@ export default yup.object().shape({
 
   city: citySchema.nullable(true).default(null),
 
-  complete: yup.bool().required().default(false),
+  is_complete: yup.bool().required().default(false),
 
   completed_at: yup.string(),
 
@@ -28,9 +25,7 @@ export default yup.object().shape({
 
   statistics: statisticsSchema.nullable(true).default(null),
 
-  country: countrySchema.nullable(true).default(null),
-
-  cv_files: yup.object({
+  candidate_cv: yup.object({
     txt: yup.string().url(),
     pdf: yup.string().url(),
     original: yup.string(),
@@ -42,7 +37,7 @@ export default yup.object().shape({
 
   is_deleted: yup.bool().required().default(false),
 
-  job_types: yup.array().of(jobTypesSchema).required().ensure(),
+  job_types: yup.array().of(yup.number()).required().ensure(),
 
   languages: yup.array().of(languageSchema).required().ensure(),
 
@@ -58,17 +53,19 @@ export default yup.object().shape({
 
   user: yup.string().required().default(''),
 
-  relocations: yup.array().of(citySchema).required().ensure(),
+  locations: yup.array().of(citySchema).required().ensure(),
 
-  web_references: yup.array().of(webReferenceSchema).required().ensure(),
+  references: yup.array().of(yup.string()).required().ensure(),
 
-  roles: yup.array().of(roleSchema).required().ensure(),
+  job_roles: yup.array().of(roleSchema).required().ensure(),
 
   email: yup.string().email().required().default(''),
 
   salary_min: yup.number().default(0).required(),
 
-  picture: yup.string().required().default('')
+  picture: yup.string().required().default(''),
+
+  tracking: yup.object().nullable(true).default(null)
 
 })
   .noUnknown()

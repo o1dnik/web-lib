@@ -1,8 +1,6 @@
 import yup from 'yup'
 
 import citySchema from './city-schema'
-import countrySchema from './country-schema'
-import jobTypesSchema from './job-types-schema'
 import languageSchema from './language-schema'
 import roleSchema from './role-schema'
 import skillSchema from './skill-schema'
@@ -13,9 +11,9 @@ export default yup.object().shape({
 
   title: yup.string().default(''),
 
-  city: citySchema.nullable(true).default(null),
+  description: yup.string().default(''),
 
-  country: countrySchema.nullable(true).default(null),
+  city: citySchema.nullable(true).default(null),
 
   skills: yup.array().of(skillSchema).required().ensure(),
 
@@ -24,14 +22,15 @@ export default yup.object().shape({
     name: yup.string().required().default(''),
     logo: yup.string().nullable(true).required().default(''),
     website: yup.string().required().default(''),
+    slug: yup.string().required().default(''),
     about: yup.string().required().default('')
   }).nullable(true).default(null),
 
   languages: yup.array().of(languageSchema).required().ensure(),
 
-  job_types: yup.array().of(jobTypesSchema).required().ensure(),
+  job_types: yup.array().of(yup.number()).required().ensure(),
 
-  roles: yup.array().of(roleSchema).required().ensure(),
+  job_roles: yup.array().of(roleSchema).required().ensure(),
 
   status: yup.string().required().default(''),
 

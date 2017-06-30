@@ -1,10 +1,11 @@
-import {LOCATIONS, GET} from '../constants'
-import {getActionType} from '../helpers/utils'
+import { LOCATIONS, GET } from '../constants'
+import { getActionType } from '../helpers/utils'
 import qs from 'qs'
 
-export function getLocations (q = '', limit = 100, offset = 0) {
+export function getLocations (search = '', limit = 100, offset = 0) {
   return {
     type: getActionType(LOCATIONS, GET),
-    endpoint: `/locations/cities/?${qs.stringify({limit, offset, q})}`
+    endpoint: `/cities/?${qs.stringify({limit, offset, search})}`,
+    apiV: 'v2'
   }
 }
