@@ -8,7 +8,7 @@ export const JOB_TYPES = [
 ]
 
 export const JOB_LEVELS = [
-  {id: '0', name: '0 - 1 Years'},
+  {id: '0', name: '0 - 1 Year'},
   {id: '1', name: '2 - 3 Years'},
   {id: '2', name: '4 - 6 Years'},
   {id: '3', name: '7+ Years'}
