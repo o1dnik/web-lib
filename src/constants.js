@@ -42,6 +42,9 @@ export const JOBS_BY_COMPANY_ID = 'JOBS_BY_COMPANY_ID'
 export const JOBS = 'JOBS'
 export const JOB = 'JOB'
 
+export const REFRESH = 'REFRESH'
+export const TOKEN = 'TOKEN'
+
 export const CANDIDATES_ACCEPTED = 'CANDIDATES_ACCEPTED'
 export const MATCHES_ACCEPTED = 'MATCHES_ACCEPTED'
 export const CANDIDATES_REFERRED = 'CANDIDATES_REFERRED'
