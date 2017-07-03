@@ -105,6 +105,12 @@ class Select extends Component {
     const valueComponent = {}
     if (!renderTags) valueComponent.valueComponent = () => null
 
+    let val = value || input.value
+
+    if (val === '') {
+      val = null
+    }
+
     return (
       <div className={css} id={`ghost-${id}`}>
 
@@ -114,7 +120,7 @@ class Select extends Component {
           {...rest}
           {...valueComponent}
           name={name || input.name}
-          value={value || input.value}
+          value={val}
           onChange={onChange || input.onChange}
           onFocus={onFocus || input.onFocus}
           onBlur={this.handleBlur}

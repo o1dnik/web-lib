@@ -71,7 +71,7 @@ const RenderLanguages = ({fields, /* meta, name, */ label}) => {
               labelKey: 'name',
               options: languagesOptions,
               searchable: true,
-              clearable: false,
+              clearable: true,
               validate: (val) => val ? null : 'Value is required.',
               simpleValue: true
             }}
@@ -81,7 +81,7 @@ const RenderLanguages = ({fields, /* meta, name, */ label}) => {
               valueKey: 'id',
               labelKey: 'name',
               options: langLevels,
-              clearable: false,
+              clearable: true,
               searchable: false,
               simpleValue: true,
               validate: (val) => val ? null : 'Value is required.'
