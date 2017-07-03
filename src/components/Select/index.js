@@ -124,6 +124,7 @@ class Select extends Component {
           onChange={onChange || input.onChange}
           onFocus={onFocus || input.onFocus}
           ref={this.handleSelectRef}
+          onOpen={this.handleOpen}
           onBlur={this.handleBlur}
           optionRenderer={this.optionRenderer}
           arrowRenderer={this.arrowRenderer}
@@ -213,10 +214,13 @@ class Select extends Component {
   }
 
   handleSelectRef = (element) => {
-    let val = this.props.value || this.props.input.value
+    this.element = element
+  }
 
-    if (element && !val && this.props.options.some(e => e.isCategory)) {
-      element.hasScrolledToOption = true
+  handleOpen = () => {
+    let val = this.props.value || this.props.input.value
+    if (this.element && !val && this.props.options.some(e => e.isCategory)) {
+      this.element.hasScrolledToOption = true
     }
   }
 }
