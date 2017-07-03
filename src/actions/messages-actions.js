@@ -22,6 +22,13 @@ export function getMessagesList (
       offset: pageToOffset(page, limit)
     })}`,
     payload: {threadId, limit, page},
+    tracking: {
+      success: {
+        event: 'getMessagesList',
+        payload: {id: threadId},
+        responseFields: ['results']
+      }
+    },
     apiV: 'v2'
   }
 }
