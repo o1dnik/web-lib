@@ -118,3 +118,10 @@ $progressValueColour : $lipstick-dark;
   }
 }
 
+.subscription-active {
+  color: $green;
+}
+
+.subscription-non-active {
+  color: $lipstick;
+}
