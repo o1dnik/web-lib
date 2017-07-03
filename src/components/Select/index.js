@@ -60,7 +60,7 @@ class Select extends Component {
       warning: PropTypes.string
     })
 
-  };
+  }
 
   static defaultProps = {
     input: {},
@@ -123,6 +123,7 @@ class Select extends Component {
           value={val}
           onChange={onChange || input.onChange}
           onFocus={onFocus || input.onFocus}
+          ref={this.handleSelectRef}
           onBlur={this.handleBlur}
           optionRenderer={this.optionRenderer}
           arrowRenderer={this.arrowRenderer}
@@ -209,6 +210,14 @@ class Select extends Component {
         <span>{option[labelKey]}</span>
       </div>
     )
+  }
+
+  handleSelectRef = (element) => {
+    let val = this.props.value || this.props.input.value
+
+    if (element && !val && this.props.options.some(e => e.isCategory)) {
+      element.hasScrolledToOption = true
+    }
   }
 }
 
