@@ -95,6 +95,10 @@ export const AVAILABLE_SUBSCRIPTIONS = [
     intros_max: 50,
     jobs_max: 30,
     additions: []
+  },
+  {
+    name: 'Trial',
+    id: '1'
   }
 ]
 
