@@ -14,19 +14,23 @@
 		li{
 			padding: 0 rem(20);
 			a{
-				font-size: rem(14);
+				font-size: rem(18);
 				font-weight: $semibold;
 				color: $base-font-color;
 				text-decoration: none;
 				i{
 					vertical-align: middle;
-					font-size: rem(16);
-					margin-right: rem(16);
+					font-size: rem(18);
+					float:left;
+					position: absolute;
 				}
 			}
 		}
 		&:nth-last-child(2) {
 			flex-grow: 2;
+		}
+		.nav-label{
+			padding-left: rem(24);
 		}
 		.mm-userpic{
 			display: inline-block;
