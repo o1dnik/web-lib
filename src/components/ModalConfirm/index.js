@@ -62,8 +62,8 @@ class ConfirmModalComponent extends Component {
 
     return (
       <div className='popup__box'>
-        <i className='ion-close' onClick={onClose} />
         <header className='popup__box__header'>
+          <i className='ion-close' onClick={onClose} />
           <h1 className='popup__box__header__title'>
             <span>{title}</span>
           </h1>
