@@ -11,6 +11,7 @@ $button-colors: (
   font-weight: 700;
   font-size: $base-font-size;
   line-height: 1;
+  border: transparent 1px solid;
   // Sizes
   &.button-xsmall{
     font-size: rem(11);
@@ -85,6 +86,7 @@ $button-colors: (
     background-color: $white;
     border-style: solid;
     border-width: 1px;
+    border-color: $grey-dark;
     color: $grey-dark;
     @each $name, $color in $button-colors {
       &.#{$name} {
