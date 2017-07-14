@@ -58,7 +58,7 @@ class NumberInput extends Component {
 
         {label && <label htmlFor={id}>{label}</label>}
 
-        <div className='split-group'>
+        <div className='split-group number-input'>
 
           <div className='short'>
             <Button
@@ -72,7 +72,7 @@ class NumberInput extends Component {
             </Button>
           </div>
 
-          <div className='long'>
+          <div className='long input-block'>
             <input
               pattern='\d*'
               min={this.props.minValue}
