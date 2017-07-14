@@ -243,8 +243,11 @@ a.underlined-link {
   .long {
     flex-grow: 2;
   }
+  > :first-child {
+    padding-right: 1em;
+  }
   > :last-child {
-    padding-left: .75em;
+    padding-left: 1em;
   }
 }
 
