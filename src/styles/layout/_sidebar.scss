@@ -118,10 +118,13 @@ $progressValueColour : $lipstick-dark;
   }
 }
 
-.subscription-active {
+.subscription-active,
+.matching-active {
   color: $green;
 }
 
-.subscription-non-active {
+.subscription-non-active,
+.matching-non-active,
+.edit-matching {
   color: $lipstick;
 }
