@@ -32,7 +32,10 @@ class Multiselect extends Component {
       onBlur: PropTypes.func,
       onChange: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.arrayOf(PropTypes.string)
+      value: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.object)
+      ])
     }),
 
     meta: PropTypes.shape({
