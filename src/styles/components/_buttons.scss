@@ -26,9 +26,6 @@ $button-colors: (
     @include breakpoint(tablet){
       min-width: rem(140);
     }
-    &.button-outline{
-      padding: $base-font-size+1px 1em;
-    }
   }
   &.button-large{
     padding: rem(20) 2.4em;
