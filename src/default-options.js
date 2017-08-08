@@ -93,7 +93,7 @@ export const AVAILABLE_SUBSCRIPTIONS = [
     price: '999',
     id: '3',
     intros_max: 50,
-    jobs_max: 30,
+    jobs_max: 1000,
     additions: []
   },
   {
