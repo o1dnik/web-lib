@@ -54,7 +54,10 @@ export default (axios) => () => next => action => {
   }
 
   return promise
-    .then(res => next({type: getActionType(type, SUCCESS), res, ...rest}))
+    .then(res => {
+      next({type: getActionType(type, SUCCESS), res, ...rest})
+      return res
+    })
     .catch(err => {
       if (get(err, 'response.status') === 403) {
         next({type: getActionType(SESSION_EXPIRED)})
@@ -65,5 +68,6 @@ export default (axios) => () => next => action => {
       }
 
       next({type: getActionType(type, FAIL), err: err.response, ...rest})
+      throw err
     })
 }
