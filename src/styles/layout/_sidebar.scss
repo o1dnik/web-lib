@@ -26,6 +26,15 @@
   .job-tags{
     margin-bottom : $base-spacing;
   }
+  .ref-priority-level {
+    font-weight: bold;
+    .low {
+      color: red;
+    }
+    .normal {
+      color: green;
+    }
+  }
 }
 
 .badge{
