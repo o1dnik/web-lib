@@ -29,10 +29,10 @@
   .ref-priority-level {
     font-weight: bold;
     &.low {
-      color: red;
+      color: rgb(255, 0, 0);
     }
     &.normal {
-      color: green;
+      color: rgb(0, 255, 0);
     }
   }
 }
