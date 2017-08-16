@@ -12,7 +12,6 @@ class AlertComponent extends Component {
     onInputChange: PropTypes.func,
     inputValue: PropTypes.string,
     inputPlaceholder: PropTypes.string,
-    style: PropTypes.object,
 
     onConfirm: PropTypes.func,
     onClose: PropTypes.func.isRequired,
@@ -30,13 +29,7 @@ class AlertComponent extends Component {
     inputValue: '',
     inputPlaceholder: '',
     confirmDisabled: false,
-    confirmLoading: false,
-    style: {
-      box: '',
-      header: '',
-      body: '',
-      footer: ''
-    }
+    confirmLoading: false
   };
 
   render () {
@@ -50,21 +43,20 @@ class AlertComponent extends Component {
       onConfirm,
       onClose,
       confirmDisabled,
-      confirmLoading,
-      style
+      confirmLoading
     } = this.props
 
     return (
-      <div className='popup__box' style={style.box}>
+      <div className='popup__box'>
 
-        <header className='popup__box__header' style={style.header}>
+        <header className='popup__box__header'>
           <i className='ion-close' onClick={onClose} />
           <h1 className='popup__box__header__title'>
             <span>{title}</span>
           </h1>
         </header>
 
-        <div className='popup__box__body' style={style.body}>
+        <div className='popup__box__body'>
           <div>
             <div>{content}</div>
             {onInputChange &&
@@ -79,7 +71,7 @@ class AlertComponent extends Component {
         </div>
 
         {onConfirm &&
-        <footer className='popup__box__footer' style={style.footer}>
+        <footer className='popup__box__footer'>
           <Button
             className='mm-popup__btn mm-popup__btn--danger'
             onClick={onConfirm}
