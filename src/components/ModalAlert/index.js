@@ -12,7 +12,7 @@ class AlertComponent extends Component {
     onInputChange: PropTypes.func,
     inputValue: PropTypes.string,
     inputPlaceholder: PropTypes.string,
-    style: PropTypes.obj,
+    style: PropTypes.object,
 
     onConfirm: PropTypes.func,
     onClose: PropTypes.func.isRequired,
@@ -32,10 +32,10 @@ class AlertComponent extends Component {
     confirmDisabled: false,
     confirmLoading: false,
     style: {
-      box: {},
-      header: {},
-      body: {},
-      footer: {}
+      box: '',
+      header: '',
+      body: '',
+      footer: ''
     }
   };
 
