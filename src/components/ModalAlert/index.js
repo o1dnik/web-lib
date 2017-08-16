@@ -12,6 +12,7 @@ class AlertComponent extends Component {
     onInputChange: PropTypes.func,
     inputValue: PropTypes.string,
     inputPlaceholder: PropTypes.string,
+    className: PropTypes.string,
 
     onConfirm: PropTypes.func,
     onClose: PropTypes.func.isRequired,
@@ -29,7 +30,8 @@ class AlertComponent extends Component {
     inputValue: '',
     inputPlaceholder: '',
     confirmDisabled: false,
-    confirmLoading: false
+    confirmLoading: false,
+    className: ''
   };
 
   render () {
@@ -43,11 +45,12 @@ class AlertComponent extends Component {
       onConfirm,
       onClose,
       confirmDisabled,
-      confirmLoading
+      confirmLoading,
+      className
     } = this.props
 
     return (
-      <div className='popup__box'>
+      <div className={'popup__box ' + className}>
 
         <header className='popup__box__header'>
           <i className='ion-close' onClick={onClose} />
