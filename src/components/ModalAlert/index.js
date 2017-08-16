@@ -32,10 +32,10 @@ class AlertComponent extends Component {
     confirmDisabled: false,
     confirmLoading: false,
     style: {
-      box: '',
-      header: '',
-      body: '',
-      footer: ''
+      box: {},
+      header: {},
+      body: {},
+      footer: {}
     }
   };
 
