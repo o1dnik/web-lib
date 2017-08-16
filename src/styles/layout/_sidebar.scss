@@ -29,7 +29,7 @@
   .ref-priority-level {
     font-weight: bold;
     &.low {
-      color: 'red';
+      color: $lipstick;
     }
     &.normal {
       color: $green;
