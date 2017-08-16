@@ -13,7 +13,7 @@ class AlertComponent extends Component {
     inputValue: PropTypes.string,
     inputPlaceholder: PropTypes.string,
 
-    onConfirm: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func,
     onClose: PropTypes.func.isRequired,
 
     confirmDisabled: PropTypes.bool.isRequired,
@@ -48,12 +48,14 @@ class AlertComponent extends Component {
 
     return (
       <div className='popup__box'>
+
         <header className='popup__box__header'>
           <i className='ion-close' onClick={onClose} />
           <h1 className='popup__box__header__title'>
             <span>{title}</span>
           </h1>
         </header>
+
         <div className='popup__box__body'>
           <div>
             <div>{content}</div>
@@ -67,6 +69,8 @@ class AlertComponent extends Component {
             />}
           </div>
         </div>
+
+        {onConfirm &&
         <footer className='popup__box__footer'>
           <Button
             className='mm-popup__btn mm-popup__btn--danger'
@@ -76,7 +80,8 @@ class AlertComponent extends Component {
           >
             {confirmContent}
           </Button>
-        </footer>
+        </footer>}
+
       </div>
     )
   }
