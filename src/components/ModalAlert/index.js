@@ -30,7 +30,13 @@ class AlertComponent extends Component {
     inputValue: '',
     inputPlaceholder: '',
     confirmDisabled: false,
-    confirmLoading: false
+    confirmLoading: false,
+    style: {
+      box: '',
+      header: '',
+      body: '',
+      footer: ''
+    }
   };
 
   render () {
