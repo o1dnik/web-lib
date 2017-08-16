@@ -44,16 +44,15 @@
 
 // adjusted sizes around video in iframe inside video modal
 .video-modal {
+    width: 680px;  // 640 + 20 + 20
+    padding: 0 20px 20px 20px;
+
     .popup__box__header,
     .popup__box__body,
     .popup__box__footer {
         max-width: 100%;
     }
 
-    .popup__box {
-        width: 680px;  // 640 + 20 + 20
-        padding: 0 20px 20px 20px;
-    }
     .popup__box__header {
         padding: 0;
         max-width: 100%;
