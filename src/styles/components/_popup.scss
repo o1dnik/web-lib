@@ -42,6 +42,15 @@
     // padding: 0 rem(12);
 // }
 
+// removed the margin on left & right side around video iframe
+.video-modal {
+    .popup__box__header,
+    .popup__box__body,
+    .popup__box__footer {
+        max-width: 100%;
+    }
+}
+
 .mm-popup__btn {
     padding: rem(20) 2.4em;
     display: block;
