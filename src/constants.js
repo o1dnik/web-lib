@@ -99,8 +99,8 @@ export const LOGIN = 'LOGIN'
 
 export const SESSION_EXPIRED = 'SESSION_EXPIRED'
 
-export const LINKEDIN = 'LINKEDIN'
-export const FACEBOOK = 'FACEBOOK'
+export const LINKEDIN = 'linkedin'
+export const FACEBOOK = 'facebook'
 export const PROVIDER = 'PROVIDER'
 
 // common Actions
