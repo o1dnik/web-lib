@@ -33,12 +33,6 @@ class AlertBar extends Component {
     }
   }
 
-  componentDidMount () {
-    if (this.props.isActive && this.props.hideOnRouteChange) {
-      this.props.hideAlertBar()
-    }
-  }
-
   render () {
     const {type, hideAlertBar, message, dismissAfter, ...rest} = this.props
 
