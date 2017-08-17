@@ -99,6 +99,10 @@ export const LOGIN = 'LOGIN'
 
 export const SESSION_EXPIRED = 'SESSION_EXPIRED'
 
+export const LINKEDIN = 'LINKEDIN'
+export const FACEBOOK = 'FACEBOOK'
+export const PROVIDER = 'PROVIDER'
+
 // common Actions
 export const ALERT = 'ALERT'
 export const NOTIFICATION = 'NOTIFICATION'
