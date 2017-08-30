@@ -59,7 +59,7 @@ export default (axios) => () => next => action => {
       return res
     })
     .catch(err => {
-      if (get(err, 'response.status') === 403) {
+      if (get(err, 'response.status') === 403 || get(err, 'response.status') === 401) {
         next({type: getActionType(SESSION_EXPIRED)})
       }
 
