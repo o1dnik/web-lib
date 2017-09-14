@@ -19,6 +19,7 @@ const serverErrorsMap = {
   ),
   'email_not_found': 'Sorry, but we do not have an account with this email address.',
   'email_not_unique': 'Sorry, but we already have an account with this email address.',
+  'email_permission_missing': 'Please visit settings of your social network to allow usage of your Email for your MoBerries registration.',
   'account_not_confirmed': 'The E-mail was already used. Please check your inbox.',
   'auth_failed': 'Authentication failed.',
   'account_exists': 'User with this E-mail already exists',
