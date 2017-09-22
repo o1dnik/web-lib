@@ -52,6 +52,6 @@ export default yup.object().shape({
     expired_at: yup.string().required().default('')
   }).required().nullable(true).default(null),
 
-  liked: yup.bool().required().default(false)
+  liked: yup.bool().nullable(true).required().default(null)
 
 })
