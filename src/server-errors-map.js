@@ -38,6 +38,7 @@ const serverErrorsMap = {
   'job_inactive': 'Job has been disactivated !',
   'wrong_password': 'Sorry, but this password is not correct.',
   'authentication_failed': 'There was a problem with your authentication. Please, try to login again',
+  'invalid_mime_type': 'Sorry, we support only PDF and Doc/DocX file formats',
   'not_found': 'Sorry, this job is not found.'
 }
 
