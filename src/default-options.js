@@ -54,8 +54,7 @@ export const CAREER_LEVELS = [
   {id: '2', name: 'Intermediate'},
   {id: '3', name: 'Senior'},
   {id: '4', name: 'Lead'},
-  {id: '5', name: 'Head'},
-  {id: '6', name: 'Executive'}
+  {id: '5', name: 'Executive'}
 ]
 
 export const CONFIRMATION_REASONS = [
