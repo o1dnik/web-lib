@@ -173,3 +173,4 @@ export const IMG_ACCEPTED_TYPES = 'image/*'
 
 // Facebook MessengerExtension plugin for chatbot webhooks
 export const FINISHED_REGISTRATION = 'FINISHED_REGISTRATION'
+export const CONTEXT = 'CONTEXT'
