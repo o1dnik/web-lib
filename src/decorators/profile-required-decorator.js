@@ -1,6 +1,6 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router-dom'
-import {get} from 'lodash'
+import { Route, Redirect } from 'react-router-dom'
+import { get } from 'lodash'
 
 const ProfileRequired = ({component, isLogged, profileComplete, ...rest}) => {
   return (
@@ -25,8 +25,13 @@ const ProfileRequired = ({component, isLogged, profileComplete, ...rest}) => {
       }
 
       if (!profileComplete) {
+        const search = get(rest, 'location.search', '')
+
         return (
-          <Redirect to={{pathname: '/registration'}} />
+          <Redirect to={{
+            pathname: `/registration`,
+            search
+          }} />
         )
       }
 
