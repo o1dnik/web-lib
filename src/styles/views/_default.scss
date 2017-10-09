@@ -302,3 +302,9 @@ ul.list {
   list-style-type: disc;
   list-style-position: inside;
 }
+
+.uptext {
+  font-size: rem(12);
+  text-transform: uppercase;
+  font-weight: $semibold;
+}

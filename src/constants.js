@@ -170,3 +170,7 @@ export const MATCH_STATUSES = {
 // Image uploader / cropper
 export const IMG_UPLOAD_LIMIT = 1000000 // ~1mb limit
 export const IMG_ACCEPTED_TYPES = 'image/*'
+
+// Facebook MessengerExtension plugin for chatbot webhooks
+export const FINISHED_REGISTRATION = 'FINISHED_REGISTRATION'
+export const CONTEXT = 'CONTEXT'
