@@ -42,6 +42,7 @@ export const CONNECTION = 'CONNECTION'
 export const CODE = 'CODE'
 
 export const JOBS_BY_COMPANY_ID = 'JOBS_BY_COMPANY_ID'
+export const JOB_TITLES_BY_COMPANY_ID = 'JOB_TITLES_BY_COMPANY_ID'
 export const JOBS = 'JOBS'
 export const JOB = 'JOB'
 
