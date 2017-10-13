@@ -17,6 +17,10 @@ const isDev = Boolean(config.env.isDev || config.branch.isMaster)
 export default ({dispatch}) => next => action => {
   const {type, alert, ...rest} = action
 
+  if (action.type.includes('redux-form')) {
+    return next(action)
+  }
+
   switch (true) {
     case Boolean(type.includes(SUCCESS) && alert && alert.success):
       dispatch(showAlertBar({
