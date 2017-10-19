@@ -102,11 +102,12 @@ $button-colors: (
   }
   &.button-link{
     min-width: 0;
-    color: $base-font-color;
     padding: .25em 0;
     background-color: transparent;
     border: 0;
+    color: $lipstick;
     text-decoration: underline;
+    text-decoration-color: $lipstick;
     vertical-align: baseline;
   }
 }
