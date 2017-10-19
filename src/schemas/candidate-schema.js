@@ -25,6 +25,11 @@ export default yup.object().shape({
 
   statistics: statisticsSchema.nullable(true).default(null),
 
+  settings: yup.object({
+    notify_alerts: yup.bool().required().default(false),
+    notify_news: yup.bool().required().default(false)
+  }).nullable(false).default({}),
+
   candidate_cv: yup.object({
     txt: yup.string().url(),
     pdf: yup.string().url(),
