@@ -38,7 +38,7 @@ const serverErrorsMap = {
   'job_inactive': 'Job has been disactivated !',
   'wrong_password': 'Sorry, but this password is not correct.',
   'authentication_failed': 'There was a problem with your authentication. Please, try to login again',
-  'not_found': 'Sorry, this job is not found.'
+  'not_found': 'Not found.'
 }
 
 export default serverErrorsMap
