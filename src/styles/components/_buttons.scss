@@ -105,8 +105,9 @@ $button-colors: (
     color: $base-font-color;
     padding: .25em 0;
     background-color: transparent;
-    border-radius: 0;
-    border-bottom: 1px solid $base-font-color;
+    border: 0;
+    text-decoration: underline;
+    vertical-align: baseline;
   }
 }
 
