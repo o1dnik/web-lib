@@ -81,6 +81,13 @@ function getErrorMessage (action) {
 
   errorCode = get(action, 'err.data.code')
 
+  if (
+    has(action, 'err.data.non_field_errors') &&
+    action.err.data.non_field_errors.length
+  ) {
+    errorCode = action.err.data.non_field_errors[0].code
+  }
+
   if (!errorCode && has(action, 'err.data')) {
     if (typeof action.err.data === 'object') {
       try {
