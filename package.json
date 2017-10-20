@@ -87,7 +87,7 @@
     "react-modal": "^3.0.4",
     "react-notification": "^6.8.2",
     "react-router-dom": "^4.1.1",
-    "react-select": "^1.0.0-rc.5",
+    "react-select": "^1.0.0-rc.10",
     "react-textarea-autosize": "^5.0.7",
     "react-tooltip": "^3.4.0",
     "validator": "^9.0.0",
