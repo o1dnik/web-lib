@@ -7,11 +7,11 @@
   transition: max-height .5s ease-in;
 }
 
-.slide-down-leave {
+.slide-down-exit {
   max-height: 3000px;
 }
 
-.slide-down-leave.slide-down-leave-active {
+.slide-down-exit.slide-down-exit-active {
   max-height: 0;
   transition: max-height .5s ease-out;
 }
