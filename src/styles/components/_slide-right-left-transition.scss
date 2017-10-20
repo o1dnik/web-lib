@@ -16,23 +16,23 @@
   transition: height 500ms ease-in-out;
 }
 
-.slide-left-leave {
+.slide-left-exit {
   height: 120px;
   transform: translate(0, 0);
 }
 
-.slide-left-leave.slide-left-leave-active {
+.slide-left-exit.slide-left-exit-active {
   transform: translate(-300%, 0);
   height: 0;
   transition: transform 500ms ease-in-out, height 500ms ease-in-out;
 }
 
-.slide-right-leave {
+.slide-right-exit {
   height: 120px;
   transform: translate(0, 0);
 }
 
-.slide-right-leave.slide-right-leave-active {
+.slide-right-exit.slide-right-exit-active {
   transform: translate(300%, 0);
   height: 0;
   transition: transform 500ms ease-in-out, height 500ms ease-in-out;
