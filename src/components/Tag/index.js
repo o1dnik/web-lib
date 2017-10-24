@@ -25,7 +25,8 @@ class Tag extends Component {
       'light',
       'danger',
       'warm',
-      'hot'
+      'hot',
+      'exclusive'
     ])
   };
 
