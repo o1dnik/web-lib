@@ -1,3 +1,4 @@
+import Raven from 'raven-js'
 import { get } from 'lodash'
 import { getActionType } from '../helpers/utils'
 
@@ -59,6 +60,25 @@ export default (axios) => () => next => action => {
       return res
     })
     .catch(err => {
+      // report all 50X server failures to Sentry
+      if (get(err, 'response.status') >= 500) {
+        Raven.captureBreadcrumb({
+          category: 'server_error',
+          message: action.type,
+          data: JSON.stringify(action) // use breadcrumbDataFromAction() ?
+        })
+        Raven.captureException(err, {
+          extra: {
+            action: JSON.stringify(action) // use actionTransformer() ?
+            // state: stateTransformer(store.getState())
+          }
+        })
+
+        if (!err.response) {
+          err.response = {data: {code: 'server_error'}}
+        }
+      }
+
       if (get(err, 'response.status') === 403 || get(err, 'response.status') === 401) {
         next({type: getActionType(SESSION_EXPIRED)})
       }
