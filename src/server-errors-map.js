@@ -1,4 +1,4 @@
-import {DEFAULT_ERROR, NETWORK_ERROR} from './constants'
+import {DEFAULT_ERROR, NETWORK_ERROR, SERVER_ERROR} from './constants'
 import React from 'react'
 import {Link} from 'react-router-dom'
 
@@ -6,7 +6,7 @@ const serverErrorsMap = {
   'default_error': DEFAULT_ERROR,
   'unknown_code': DEFAULT_ERROR,
   'bad_request': DEFAULT_ERROR,
-  'server_error': DEFAULT_ERROR,
+  'server_error': SERVER_ERROR,
   'network_error': NETWORK_ERROR,
   'account_already_confirmed': 'This account is already confirmed',
   'wrong_credentials': 'Sorry, but these credentials are not correct.',
