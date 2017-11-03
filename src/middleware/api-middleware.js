@@ -74,7 +74,9 @@ export default (axios) => () => next => action => {
           }
         })
 
-        err.response = {data: {code: 'server_error'}}
+        if (!err.response) {
+          err.response = {data: {code: 'server_error'}}
+        }
       }
 
       if (get(err, 'response.status') === 403 || get(err, 'response.status') === 401) {
