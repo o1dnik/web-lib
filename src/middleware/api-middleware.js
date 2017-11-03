@@ -61,7 +61,7 @@ export default (axios) => () => next => action => {
     })
     .catch(err => {
       // report all 50X server failures to Sentry
-      if ((get(err, 'response.status') - (get(err, 'response.status') % 10)) === 500) {
+      if (get(err, 'response.status') >= 500) {
         Raven.captureBreadcrumb({
           category: 'server_error',
           message: action.type,
