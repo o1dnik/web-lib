@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component, Children } from 'react'
 import {appendClassPrefix, wrapToStopPropagation} from '../../helpers'
 import cn from 'classnames'
+import {noop} from 'lodash'
 
 class Tag extends Component {
   static propTypes = {
@@ -84,7 +85,7 @@ class Tag extends Component {
 
       return React.cloneElement(c, {
         ...c.props,
-        onClick: !disabled && childClick,
+        onClick: (!disabled && childClick) || noop,
         className
       })
     })
@@ -107,7 +108,7 @@ class Tag extends Component {
     return (
       <span
         {...rest}
-        onClick={!disabled && onClick}
+        onClick={(!disabled && onClick) || noop}
         className={css}
       >
         {newCildren}
