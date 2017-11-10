@@ -82,6 +82,18 @@ function getErrorMessage (action) {
   errorCode = get(action, 'err.data.code')
 
   if (
+    errorCode &&
+    errorCode === 'validation_error' &&
+    has(action, 'err.data.field_errors')
+  ) {
+    Object.values(action.err.data.field_errors).forEach(value => {
+      if (value && value.length) {
+        errorCode = value[0].code
+      }
+    })
+  }
+
+  if (
     has(action, 'err.data.non_field_errors') &&
     action.err.data.non_field_errors.length
   ) {
