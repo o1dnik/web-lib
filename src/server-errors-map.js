@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 const serverErrorsMap = {
   'default_error': DEFAULT_ERROR,
   'unknown_code': DEFAULT_ERROR,
+  'invalid_request': DEFAULT_ERROR,
   'bad_request': DEFAULT_ERROR,
   'server_error': SERVER_ERROR,
   'network_error': NETWORK_ERROR,
