@@ -49,6 +49,7 @@ const serverErrorsMap = {
   'authentication_failed': 'There was a problem with your authentication. Please, try to login again',
   'user_cancelled_login': 'Oops! Looks like you have cancelled the authorization process',
   'user_cancelled_authorize': 'Oops! Looks like you have cancelled the authorization process',
+  'access_denied': 'Oops! Looks like you have cancelled the authorization process',
   'not_found': DEFAULT_ERROR
 }
 

@@ -60,8 +60,13 @@ export function changeNumberToStringInArrayProps (array, key, paths) {
       }
     }
 
+    if (item === null || item === undefined) {
+      return item
+    }
+
     if (
-      typeof item === 'object' && !Array.isArray(item) &&
+      typeof item === 'object' &&
+      !Array.isArray(item) &&
       item.toString() === '[object Object]'
     ) {
       return changeNumberToStringInObjectProps(item, paths)
