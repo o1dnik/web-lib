@@ -91,6 +91,14 @@ export default (axios) => () => next => action => {
                 err.response.data.code = 'authorization_failed'
               }
             }
+          } else if (err.response.status === 404) {
+            if (!err.response.data) {
+              err.response.data = {code: 'not_found'}
+            }
+
+            if (!err.response.data.code) {
+              err.response.data.code = 'not_found'
+            }
           } else {
             if (!err.response.data) {
               err.response.data = {code: 'bad_request'}
