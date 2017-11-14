@@ -59,22 +59,24 @@ export default (axios) => () => next => action => {
       return res
     })
     .catch(err => {
-      if (get(err, 'response.status') >= 500) {
-        if (!err.response.data) {
-          err.response.data = {code: 'server_error'}
+      if (err.response) {
+        if (err.response.status >= 500) {
+          if (!err.response.data) {
+            err.response.data = {code: 'server_error'}
+          }
+
+          if (!err.response.data.code) {
+            err.response.data.code = 'server_error'
+          }
         }
 
-        if (!err.response.data.code) {
-          err.response.data.code = 'server_error'
+        if (err.response.status === 401 || err.response.status === 403) {
+          next({type: getActionType(SESSION_EXPIRED)})
         }
-      }
-
-      if (get(err, 'response.status') === 403 || get(err, 'response.status') === 401) {
-        next({type: getActionType(SESSION_EXPIRED)})
-      }
-
-      if (!err.response) {
+      } else if (err.request) {
         err.response = {data: {code: 'network_error'}}
+      } else {
+        err.response = {data: {code: 'default_error'}}
       }
 
       next({type: getActionType(type, FAIL), err: err.response, ...rest})
