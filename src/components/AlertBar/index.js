@@ -46,7 +46,7 @@ class AlertBar extends Component {
     })
 
     const iconClasses = cn({
-      'ion-checkmark-round': type === 'success',
+      'ion-checkmark-round': type === 'success' || type === 'info',
       'ion-close-circled': type === 'error',
       'ion-alert-circled': type === 'warning'
     })
