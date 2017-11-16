@@ -1,7 +1,9 @@
-export function filterSelectOptionOnlyWithValue (option, filter) {
-  if (filter && option && option.label) {
-    return option.label.toLowerCase().startsWith(filter.toLowerCase())
-  }
+export function filterSelectOptionOnlyWithValue (optionProp = 'label') {
+  return (option, filter) => {
+    if (filter && option && option[optionProp]) {
+      return option[optionProp].toLowerCase().startsWith(filter.toLowerCase())
+    }
 
-  return false
+    return false
+  }
 }
