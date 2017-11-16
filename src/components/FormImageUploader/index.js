@@ -56,7 +56,7 @@ class FormImageUploader extends Component {
   render () {
     const {
       id, input, meta, placeholder, wrapperClass,
-      type, alt, width, className, defaultImg
+      type, alt, width, className, defaultImg, closeButtonCopy, cropButtonCopy
     } = this.props
 
     const {croppingImage} = this.state
@@ -74,6 +74,8 @@ class FormImageUploader extends Component {
                 <ImageCropper
                   image={croppingImage.preview}
                   onCrop={this.handleCrop}
+                  closeButtonCopy={closeButtonCopy}
+                  cropButtonCopy={cropButtonCopy}
                   {...input}
                   placeholder={placeholder}
                   id={id}
