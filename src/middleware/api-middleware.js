@@ -110,6 +110,17 @@ export default (axios) => () => next => action => {
           }
         }
       } else if (err.request) {
+        if ('onLine' in window.navigator) {
+          const {onLine} = window.navigator
+
+          if (onLine) {
+            err.response = {data: {code: 'default_error', onLine}}
+          } else {
+            err.response = {data: {code: 'network_error', onLine}}
+          }
+        } else {
+          err.response = {data: {code: 'network_error', onLine: 'unknown'}}
+        }
         err.response = {data: {code: 'network_error'}}
       } else {
         err.response = {data: {code: 'default_error'}}
