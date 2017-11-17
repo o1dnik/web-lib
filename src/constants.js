@@ -57,6 +57,7 @@ export const CANDIDATE = 'CANDIDATE'
 
 export const LOCATIONS = 'LOCATIONS'
 export const LANGUAGES = 'LANGUAGES'
+export const LOCALE = 'LOCALE'
 export const MATCHES = 'MATCHES'
 export const MATCH = 'MATCH'
 export const LIKE = 'LIKE'
