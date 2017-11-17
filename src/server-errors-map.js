@@ -13,7 +13,7 @@ const serverErrorsMap = {
   wrong_credentials: action => (
     <span>
       Forgot your password? Please&nbsp;
-      <Link className='underlined-link' to={{pathname: '/password-recovery', state: {email: action.email}}}>
+      <Link className='u' to={{pathname: '/password-recovery', state: {email: action.email}}}>
         click here
       </Link>
       &nbsp;to recover.
