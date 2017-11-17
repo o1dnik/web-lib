@@ -13,10 +13,10 @@ const serverErrorsMap = {
   wrong_credentials: action => (
     <span>
       Forgot your password? Please&nbsp;
-      <Link to={{pathname: '/password-recovery', state: {email: action.email}}}>
-        click
+      <Link className='underlined-link' to={{pathname: '/password-recovery', state: {email: action.email}}}>
+        click here
       </Link>
-      &nbsp;here to recover.
+      &nbsp;to recover.
     </span>
   ),
   invalid_data: 'Sorry, an error has occurred. Please check your input.',
