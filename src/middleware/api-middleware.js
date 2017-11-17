@@ -121,7 +121,6 @@ export default (axios) => () => next => action => {
         } else {
           err.response = {data: {code: 'network_error', onLine: 'unknown'}}
         }
-        err.response = {data: {code: 'network_error'}}
       } else {
         err.response = {data: {code: 'default_error'}}
       }
