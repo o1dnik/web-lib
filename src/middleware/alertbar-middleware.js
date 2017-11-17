@@ -125,5 +125,9 @@ function getErrorMessage (action) {
     message = DEFAULT_ERROR
   }
 
+  if (typeof message === 'function') {
+    message = message(action)
+  }
+
   return message
 }

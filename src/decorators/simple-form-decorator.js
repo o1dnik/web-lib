@@ -6,6 +6,27 @@ export default (options) => {
   options = {initialValues: {}, validators: {}, ...options}
 
   return Component => class SimpleFormDecorator extends React.Component {
+    constructor (props, context) {
+      super(props, context)
+
+      this.state = {
+        initialValues: {...this.props.initialValues},
+        values: {...this.props.initialValues},
+        dirty: mapValues(this.props.initialValues, () => false),
+        touched: mapValues(this.props.initialValues, () => false),
+        isDirty: false,
+        isTouched: false
+      }
+
+      this.state.errors = mapValues(this.props.initialValues, (val, key) => {
+        return this.validateField(val, key)
+      })
+
+      this.state.isValid = Object
+        .keys(this.state.errors)
+        .every(i => this.state.errors[i] === null)
+    }
+
     static propTypes = {
       onSubmit: PropTypes.func,
 
@@ -21,17 +42,6 @@ export default (options) => {
       initialValues: options.initialValues,
       validators: options.validators
     };
-
-    state = {
-      initialValues: {...this.props.initialValues},
-      values: {...this.props.initialValues},
-      dirty: mapValues(this.props.initialValues, () => false),
-      touched: mapValues(this.props.initialValues, () => false),
-      errors: mapValues(this.props.initialValues, () => null),
-      isDirty: false,
-      isTouched: false,
-      isValid: false
-    }
 
     render () {
       return (
