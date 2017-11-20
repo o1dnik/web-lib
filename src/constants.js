@@ -92,6 +92,7 @@ export const INQUIRY = 'INQUIRY'
 
 export const RESEND = 'RESEND'
 export const SET = 'SET'
+export const INIT = 'INIT'
 export const APPLICATION = 'APPLICATION'
 export const FLAG = 'FLAG'
 export const FILTER = 'FILTER'
