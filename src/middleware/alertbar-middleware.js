@@ -2,15 +2,19 @@ import { showAlertBar } from '../actions/alertbar-actions'
 import serverErrorsMap from '../server-errors-map'
 import config from 'config'
 import { get, has } from 'lodash'
+import {defineMessages} from 'react-intl'
 
 import {
   START,
   SUCCESS,
   FAIL,
-  DEFAULT_ERROR,
   DEFAULT_SUCCESS,
   DEFAULT_START
 } from '../constants'
+
+const messages = defineMessages({
+  defaultError: {id: 'app.error.code.default_error'}
+})
 
 const isDev = Boolean(config.env.isDev || config.branch.isMaster)
 
@@ -26,6 +30,7 @@ export default ({dispatch}) => next => action => {
       dispatch(showAlertBar({
         type: get(alert, 'success.type', 'success'),
         message: get(alert, 'success.message', DEFAULT_SUCCESS),
+        values: alert.success.values,
         dismissAfter: get(alert, 'success.dismissAfter', 3000),
         hideOnRouteChange: get(alert, 'success.hideOnRouteChange')
       }))
@@ -35,6 +40,7 @@ export default ({dispatch}) => next => action => {
       dispatch(showAlertBar({
         type: get(alert, 'start.type', 'success'),
         message: get(alert, 'start.message', DEFAULT_START),
+        values: alert.start.values,
         dismissAfter: get(alert, 'start.dismissAfter', 3000),
         hideOnRouteChange: get(alert, 'start.hideOnRouteChange')
       }))
@@ -44,6 +50,7 @@ export default ({dispatch}) => next => action => {
       dispatch(showAlertBar({
         type: get(alert, 'fail.type', 'error'),
         message: get(alert, 'fail.message', getErrorMessage(action)),
+        values: alert.fail.values,
         dismissAfter: get(alert, 'fail.dismissAfter', false),
         hideOnRouteChange: get(alert, 'fail.hideOnRouteChange')
       }))
@@ -53,6 +60,7 @@ export default ({dispatch}) => next => action => {
       dispatch(showAlertBar({
         type: alert.type || 'success',
         message: alert.message || DEFAULT_SUCCESS,
+        values: alert.values,
         dismissAfter: alert.dismissAfter || 3000,
         hideOnRouteChange: alert.hideOnRouteChange
       }))
@@ -77,7 +85,7 @@ export default ({dispatch}) => next => action => {
 
 function getErrorMessage (action) {
   let errorCode = null
-  let message = DEFAULT_ERROR
+  let message = messages.defaultError.id
 
   errorCode = get(action, 'err.data.code')
 
@@ -122,7 +130,7 @@ function getErrorMessage (action) {
   }
 
   if (!isDev && (!errorCode || !serverErrorsMap[errorCode])) {
-    message = DEFAULT_ERROR
+    message = messages.defaultError.id
   }
 
   if (typeof message === 'function') {

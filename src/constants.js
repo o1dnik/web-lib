@@ -6,9 +6,6 @@ export const LOADING = 'LOADING'
 export const STOP = 'STOP'
 export const NONE = 'NONE'
 
-export const DEFAULT_ERROR = 'Sorry, an error has occurred. We will take care of it. Please try later.'
-export const NETWORK_ERROR = 'Please check your internet connection and try again.'
-export const SERVER_ERROR = 'Oops! Sorry, our servers seem to be a bit busy at the moment. Please try again later.'
 export const DEFAULT_SUCCESS = 'Action performed successfully.'
 export const DEFAULT_START = 'Action started successfully.'
 

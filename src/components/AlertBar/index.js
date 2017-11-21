@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import cn from 'classnames'
 import { Notification } from 'react-notification'
+import {FormattedMessage} from 'react-intl'
 import { hideAlertBar } from '../../actions/alertbar-actions'
 
 class AlertBar extends Component {
@@ -10,6 +11,7 @@ class AlertBar extends Component {
     location: PropTypes.object.isRequired,
 
     type: PropTypes.string.isRequired,
+    values: PropTypes.object,
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     dismissAfter: PropTypes.number.isRequired,
     action: PropTypes.string.isRequired,
@@ -20,6 +22,7 @@ class AlertBar extends Component {
   static defaultProps = {
     type: 'success',
     message: '',
+    values: {},
     dismissAfter: false,
     hideOnRouteChange: true,
     action: ' '
@@ -34,7 +37,7 @@ class AlertBar extends Component {
   }
 
   render () {
-    const {type, hideAlertBar, message, dismissAfter, ...rest} = this.props
+    const {type, hideAlertBar, message, dismissAfter, values, ...rest} = this.props
 
     const activeClasses = cn({
       shown: true,
@@ -55,7 +58,8 @@ class AlertBar extends Component {
     const messageBody =
       <div>
         <i className={iconClasses} />
-        <span>{message}</span>
+        {message && typeof message === 'string' && <FormattedMessage id={message} values={values} />}
+        {(!message || typeof message !== 'string') && <span>{message}</span>}
       </div>
 
     return (
