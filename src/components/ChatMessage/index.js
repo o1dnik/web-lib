@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { distanceInWordsToNow } from 'date-fns'
+import {FormattedRelative} from 'react-intl'
 import defaultPicture from '../../../src/assets/img/default-logo.png'
 import Linkify from 'linkifyjs/react'
 
@@ -15,8 +15,6 @@ class Message extends Component {
   static defaultProps = {
     picture: defaultPicture
   }
-
-  // TODO format date
 
   render () {
     const {picture, name, date, text} = this.props
@@ -41,7 +39,7 @@ class Message extends Component {
           </div>
           <div className='list-controlls text-right'>
             <div className='expire hide-m'>
-              {distanceInWordsToNow(date)} ago
+              <FormattedRelative value={date} />
             </div>
           </div>
         </div>
