@@ -54,6 +54,7 @@ class FormImageUploader extends Component {
   };
 
   static defaultProps = {
+    uploadButton: 'Upload',
     meta: {},
     input: {}
   }
@@ -64,7 +65,7 @@ class FormImageUploader extends Component {
 
   render () {
     const {
-      id, input, meta, placeholder, wrapperClass,
+      id, input, meta, placeholder, wrapperClass, uploadButton,
       type, alt, width, className, defaultImg, closeButtonCopy, cropButtonCopy
     } = this.props
 
@@ -109,7 +110,7 @@ class FormImageUploader extends Component {
                     {this.props.children ||
                     <div className='long'>
                       <Button size='small'>
-                        Upload
+                        {uploadButton}
                       </Button>
                     </div>}
                   </div>

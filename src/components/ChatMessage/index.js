@@ -16,6 +16,8 @@ class Message extends Component {
     picture: defaultPicture
   }
 
+  // TODO format date
+
   render () {
     const {picture, name, date, text} = this.props
 
