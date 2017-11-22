@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 import { getOldValue } from '../../helpers/getOldValue'
+import { extractErrorMessage } from '../../helpers'
 
 const TextareaInput = (props) => {
   const {
@@ -45,7 +46,7 @@ const TextareaInput = (props) => {
         id={id}
       />
       <span className={inputMessageCss}>
-        {(dirty || touched) && invalid && error}
+        {(dirty || touched) && invalid && extractErrorMessage(error)}
       </span>
     </div>
   )

@@ -4,6 +4,7 @@ import Select from '../Select'
 import Tag from '../Tag/index'
 import cn from 'classnames'
 import {isEmpty} from 'lodash'
+import { extractErrorMessage } from '../../helpers'
 
 class SelectWithLevels extends Component {
   static propTypes = {
@@ -121,7 +122,7 @@ class SelectWithLevels extends Component {
         }
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
 
       </div>

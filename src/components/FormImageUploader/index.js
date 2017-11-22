@@ -5,6 +5,8 @@ import Button from '../Button'
 import ImageCropper from '../ImageCropper'
 import browserImageSize from 'browser-image-size'
 import {defineMessages} from 'react-intl'
+import { extractErrorMessage } from '../../helpers'
+
 import {
   IMG_UPLOAD_LIMIT,
   IMG_ACCEPTED_TYPES
@@ -122,7 +124,7 @@ class FormImageUploader extends Component {
 
         {logoUploader}
 
-        <span>{touched && invalid && error}</span>
+        <span>{touched && invalid && extractErrorMessage(error)}</span>
       </div>
     )
   }

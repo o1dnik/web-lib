@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cn from 'classnames'
+import { extractErrorMessage } from '../../helpers'
 
 const safeValueProp = obj => obj ? obj['value'] : ''
 const RadioGroup = props => {
@@ -38,7 +39,7 @@ const RadioGroup = props => {
         </label>
       ))}
       <span className={inputMessageCss}>
-        {(dirty || touched) && invalid && error}
+        {(dirty || touched) && invalid && extractErrorMessage(error)}
       </span>
     </div>
   )

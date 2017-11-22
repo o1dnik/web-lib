@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Select from '../Select'
 import cn from 'classnames'
 import {isEmpty} from 'lodash'
+import { extractErrorMessage } from '../../helpers'
 
 class DoubleSelect extends Component {
   static propTypes = {
@@ -130,7 +131,7 @@ class DoubleSelect extends Component {
         }
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
 
       </div>

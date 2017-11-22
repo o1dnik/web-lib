@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import ReactSelect from 'react-select'
 import cn from 'classnames'
+import { extractErrorMessage } from '../../helpers'
 
 class Select extends Component {
   // this represents only our props, for full list react-select props
@@ -133,7 +134,7 @@ class Select extends Component {
         />
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
 
       </div>
