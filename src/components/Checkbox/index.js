@@ -65,7 +65,10 @@ Checkbox.propTypes = {
     autofilled: PropTypes.bool,
     dirty: PropTypes.bool,
     dispatch: PropTypes.func,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object
+    ]),
     invalid: PropTypes.bool,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
