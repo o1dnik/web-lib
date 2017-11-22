@@ -57,6 +57,7 @@ export const CAREER_LEVELS = [
   {id: '5', name: 'Executive'}
 ]
 
+// tr
 export const CONFIRMATION_REASONS = [
   // Leadership & References were commented-out intentionally
   // The order of ids should not change according to backend API
@@ -69,7 +70,7 @@ export const CONFIRMATION_REASONS = [
   // {id: '7', name: 'References'},
   {id: '0', name: 'Other'}
 ]
-
+// tr
 export const REJECTION_REASONS = [
   {id: '1', name: 'Not responding'},
   {id: '2', name: 'Qualification'},
@@ -103,10 +104,10 @@ export const AVAILABLE_SUBSCRIPTIONS = [
 
 // JOB STATUSES:
 export const STATUSES_TEXT_MAP = {
-  ACT: 'Active',
-  REV: 'Pending review',
-  PAU: 'Paused',
-  DEL: 'Deleted'
+  ACT: 'app.job.status.active',
+  REV: 'app.job.status.review',
+  PAU: 'app.job.status.paused',
+  DEL: 'app.job.status.deleted'
 }
 
 export const STATUSES_COLOR_MAP = {
