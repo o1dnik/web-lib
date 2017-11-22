@@ -1,3 +1,12 @@
+import {defineMessages} from 'react-intl'
+
+const messages = defineMessages({
+  ACT: {id: 'app.job.status.active'},
+  REV: {id: 'app.job.status.review'},
+  PAU: {id: 'app.job.status.paused'},
+  DEL: {id: 'app.job.status.deleted'}
+})
+
 // Static values
 export const JOB_TYPES = [
   {id: '1', name: 'Full time'},
@@ -104,10 +113,10 @@ export const AVAILABLE_SUBSCRIPTIONS = [
 
 // JOB STATUSES:
 export const STATUSES_TEXT_MAP = {
-  ACT: 'app.job.status.active',
-  REV: 'app.job.status.review',
-  PAU: 'app.job.status.paused',
-  DEL: 'app.job.status.deleted'
+  ACT: messages.ACT,
+  REV: messages.REV,
+  PAU: messages.PAU,
+  DEL: messages.DEL
 }
 
 export const STATUSES_COLOR_MAP = {
