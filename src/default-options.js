@@ -4,7 +4,17 @@ const messages = defineMessages({
   ACT: {id: 'app.job.status.active'},
   REV: {id: 'app.job.status.review'},
   PAU: {id: 'app.job.status.paused'},
-  DEL: {id: 'app.job.status.deleted'}
+  DEL: {id: 'app.job.status.deleted'},
+  education: {id: 'app.matches.reasons.education'},
+  experience: {id: 'app.matches.reasons.experience'},
+  skills: {id: 'app.matches.reasons.skills'},
+  languages: {id: 'app.matches.reasons.languages'},
+  location: {id: 'app.matches.reasons.location'},
+  other: {id: 'app.matches.reasons.other'},
+  notResponding: {id: 'app.matches.reasons.not.responding'},
+  qualification: {id: 'app.matches.reasons.qualification'},
+  cultural: {id: 'app.matches.reasons.cultural'},
+  salary: {id: 'app.matches.reasons.salary'}
 })
 
 // Static values
@@ -66,26 +76,25 @@ export const CAREER_LEVELS = [
   {id: '5', name: 'Executive'}
 ]
 
-// tr
 export const CONFIRMATION_REASONS = [
   // Leadership & References were commented-out intentionally
   // The order of ids should not change according to backend API
-  {id: '1', name: 'Education'},
-  {id: '2', name: 'Experience'},
-  {id: '3', name: 'Skill-set'},
+  {id: '1', name: messages.education},
+  {id: '2', name: messages.experience},
+  {id: '3', name: messages.skills},
   // {id: '4', name: 'Leadership'},
-  {id: '5', name: 'Languages'},
-  {id: '6', name: 'Location'},
+  {id: '5', name: messages.languages},
+  {id: '6', name: messages.location},
   // {id: '7', name: 'References'},
-  {id: '0', name: 'Other'}
+  {id: '0', name: messages.other}
 ]
-// tr
+
 export const REJECTION_REASONS = [
-  {id: '1', name: 'Not responding'},
-  {id: '2', name: 'Qualification'},
-  {id: '3', name: 'Cultural fit'},
-  {id: '4', name: 'Salary expectation'},
-  {id: '0', name: 'Other'}
+  {id: '1', name: messages.notResponding},
+  {id: '2', name: messages.qualification},
+  {id: '3', name: messages.cultural},
+  {id: '4', name: messages.salary},
+  {id: '0', name: messages.other}
 ]
 
 export const AVAILABLE_SUBSCRIPTIONS = [
