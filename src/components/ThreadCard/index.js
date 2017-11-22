@@ -30,6 +30,8 @@ class ThreadCard extends Component {
       'is-unread': isUnread
     })
 
+    // TODO format date
+
     return (
       <li className='list-wrapper' onClick={onClick}>
         <div className={listItemCss}>
