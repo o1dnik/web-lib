@@ -41,13 +41,13 @@ const messages = defineMessages({
 })
 
 const serverErrorsMap = {
-  default_error: messages.defaultError.id,
-  unknown_code: messages.defaultError.id,
-  invalid_request: messages.defaultError.id,
-  bad_request: messages.defaultError.id,
-  server_error: messages.serverError.id,
-  network_error: messages.networkError.id,
-  account_already_confirmed: messages.accountAlreadyConfirmed.id,
+  default_error: messages.defaultError,
+  unknown_code: messages.defaultError,
+  invalid_request: messages.defaultError,
+  bad_request: messages.defaultError,
+  server_error: messages.serverError,
+  network_error: messages.networkError,
+  account_already_confirmed: messages.accountAlreadyConfirmed,
   wrong_credentials: action => (
     <span>
       <FormattedMessage {...messages.wrongCredentialsStartText} />&nbsp;
@@ -57,8 +57,8 @@ const serverErrorsMap = {
       &nbsp;<FormattedMessage {...messages.wrongCredentialsEndText} />
     </span>
   ),
-  invalid_data: messages.invalidData.id,
-  invalid_token: messages.invalidToken.id, // JWT fails
+  invalid_data: messages.invalidData,
+  invalid_token: messages.invalidToken, // JWT fails
   // email confirmation token fails
   token_invalid: (
     <span>
@@ -66,20 +66,20 @@ const serverErrorsMap = {
       <Link to='/resend'> <FormattedMessage {...messages.tokenInvalidLink} /></Link>
     </span>
   ),
-  email_not_found: messages.emailNotFound.id,
-  email_not_unique: messages.emailNotUniq.id,
-  email_permission_missing: messages.emailPermissionMissing.id,
-  account_not_confirmed: messages.accountNotConfirmed.id,
+  email_not_found: messages.emailNotFound,
+  email_not_unique: messages.emailNotUniq,
+  email_permission_missing: messages.emailPermissionMissing,
+  account_not_confirmed: messages.accountNotConfirmed,
   account_inactive: (
     <span>
       <FormattedMessage {...messages.accountInactiveText} />
       <Link to='/resend'> <FormattedMessage {...messages.accountInactiveLink} /></Link>
     </span>
   ),
-  auth_failed: messages.authFail.id,
-  account_exists: messages.accountExists.id,
-  wrong_format: messages.wrongFormat.id,
-  social_account_exists: messages.socialAccountExists.id,
+  auth_failed: messages.authFail,
+  account_exists: messages.accountExists,
+  wrong_format: messages.wrongFormat,
+  social_account_exists: messages.socialAccountExists,
   not_confirmed: (
     <span>
       <FormattedMessage {...messages.notConfirmedTextStart} />&nbsp;
@@ -87,19 +87,19 @@ const serverErrorsMap = {
       <FormattedMessage {...messages.notConfirmedTextEnd} />
     </span>
   ),
-  candidate_inactive: messages.candidateInactive.id,
-  candidate_not_found: messages.candidateNotFound.id,
-  not_completed: messages.notCompleted.id,
-  account_deleted: messages.accountDeleted.id,
-  job_not_found: messages.jobNotFound.id,
-  job_inactive: messages.jobInactive.id,
-  wrong_password: messages.wrongPassword.id,
-  authentication_failed: messages.authenticationFail.id,
-  authorization_failed: messages.authorizationFail.id,
-  user_cancelled_login: messages.userLoginCancel.id,
-  user_cancelled_authorize: messages.userLoginCancel.id,
-  access_denied: messages.accesDenied.id,
-  not_found: messages.defaultError.id
+  candidate_inactive: messages.candidateInactive,
+  candidate_not_found: messages.candidateNotFound,
+  not_completed: messages.notCompleted,
+  account_deleted: messages.accountDeleted,
+  job_not_found: messages.jobNotFound,
+  job_inactive: messages.jobInactive,
+  wrong_password: messages.wrongPassword,
+  authentication_failed: messages.authenticationFail,
+  authorization_failed: messages.authorizationFail,
+  user_cancelled_login: messages.userLoginCancel,
+  user_cancelled_authorize: messages.userLoginCancel,
+  access_denied: messages.accesDenied,
+  not_found: messages.defaultError
 }
 
 export default serverErrorsMap

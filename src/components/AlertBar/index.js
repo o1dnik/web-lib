@@ -58,8 +58,8 @@ class AlertBar extends Component {
     const messageBody =
       <div>
         <i className={iconClasses} />
-        {message && typeof message === 'string' && <FormattedMessage id={message} values={values} />}
-        {(!message || typeof message !== 'string') && <span>{message}</span>}
+        {message && message.id && typeof message.id === 'string' && <FormattedMessage {...message} values={values} />}
+        {(!message || !message.id) && <span>{message}</span>}
       </div>
 
     return (

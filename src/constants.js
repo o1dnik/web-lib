@@ -6,9 +6,6 @@ export const LOADING = 'LOADING'
 export const STOP = 'STOP'
 export const NONE = 'NONE'
 
-export const DEFAULT_SUCCESS = 'Action performed successfully.'
-export const DEFAULT_START = 'Action started successfully.'
-
 // Server Action
 export const GET = 'GET'
 export const CREATE = 'CREATE'

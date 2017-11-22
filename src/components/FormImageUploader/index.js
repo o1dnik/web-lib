@@ -141,14 +141,14 @@ class FormImageUploader extends Component {
     }
 
     if (reject) {
-      let message = messages.defaultError.id
+      let message = messages.defaultError
 
       if (reject.size >= IMG_UPLOAD_LIMIT) {
-        message = messages.badSize.id
+        message = messages.badSize
       }
 
       if (!reject.type.includes('image')) {
-        message = messages.unknownFormat.id
+        message = messages.unknownFormat
       }
 
       return showAlertBar({
