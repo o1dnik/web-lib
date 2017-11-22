@@ -14,7 +14,9 @@ const messages = defineMessages({
   notResponding: {id: 'app.matches.reasons.not.responding'},
   qualification: {id: 'app.matches.reasons.qualification'},
   cultural: {id: 'app.matches.reasons.cultural'},
-  salary: {id: 'app.matches.reasons.salary'}
+  salary: {id: 'app.matches.reasons.salary'},
+  englishLang: {id: 'app.common.english'},
+  germanLang: {id: 'app.common.german'}
 })
 
 // Static values
@@ -63,8 +65,8 @@ export const DEFAULT_LANGS = [
 ]
 
 export const TEMPLATE_LANGS = [
-  {id: 'EN', name: 'English'},
-  {id: 'DE', name: 'German'}
+  {id: 'EN', name: messages.englishLang},
+  {id: 'DE', name: messages.germanLang}
 ]
 
 export const CAREER_LEVELS = [
