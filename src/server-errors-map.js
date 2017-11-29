@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {defineMessages, FormattedMessage} from 'react-intl'
+import { defineMessages, FormattedMessage } from 'react-intl'
 
 const messages = defineMessages({
   defaultError: {id: 'app.error.code.default_error'},
@@ -17,16 +17,14 @@ const messages = defineMessages({
   accountNotConfirmed: {id: 'app.error.code.account_not_confirmed'},
   accountInactiveText: {id: 'app.error.code.account_inactive.text'},
   accountInactiveLink: {id: 'app.error.code.account_inactive.link'},
-  wrongCredentialsStartText: {id: 'app.error.code.wrong_credentials.start.text'},
+  wrongCredentialsText: {id: 'app.error.code.wrong_credentials.text'},
   wrongCredentialsLink: {id: 'app.error.code.wrong_credentials.link'},
-  wrongCredentialsEndText: {id: 'app.error.code.wrong_credentials.end.text'},
   authFail: {id: 'app.error.code.auth_failed'},
   accountExists: {id: 'app.error.code.account_exists'},
   wrongFormat: {id: 'app.error.code.wrong_format'},
   socialAccountExists: {id: 'app.error.code.social_account_exists'},
-  notConfirmedTextStart: {id: 'app.error.code.not_confirmed.text.start'},
+  notConfirmedText: {id: 'app.error.code.not_confirmed.text'},
   notConfirmedLink: {id: 'app.error.code.not_confirmed.link'},
-  notConfirmedTextEnd: {id: 'app.error.code.not_confirmed.text.end'},
   candidateInactive: {id: 'app.error.code.candidate_inactive'},
   candidateNotFound: {id: 'app.error.code.candidate_not_found'},
   notCompleted: {id: 'app.error.code.not_completed'},
@@ -49,13 +47,26 @@ const serverErrorsMap = {
   network_error: messages.networkError,
   account_already_confirmed: messages.accountAlreadyConfirmed,
   wrong_credentials: action => (
-    <span>
-      <FormattedMessage {...messages.wrongCredentialsStartText} />&nbsp;
-      <Link className='u' to={{pathname: '/password-recovery', state: {email: action.email}}}>
-        <FormattedMessage {...messages.wrongCredentialsLink} />
-      </Link>
-      &nbsp;<FormattedMessage {...messages.wrongCredentialsEndText} />
-    </span>
+    <FormattedMessage
+      {...messages.wrongCredentialsText}
+      values={{
+        link: (
+          <FormattedMessage {...messages.wrongCredentialsLink}>
+            {txt => (
+              <Link
+                className='u'
+                to={{
+                  pathname: '/password-recovery',
+                  state: {email: action.email}
+                }}
+              >
+                {txt}
+              </Link>
+            )}
+          </FormattedMessage>
+        )
+      }}
+    />
   ),
   invalid_data: messages.invalidData,
   invalid_token: messages.invalidToken, // JWT fails
@@ -63,7 +74,10 @@ const serverErrorsMap = {
   token_invalid: (
     <span>
       <FormattedMessage {...messages.tokenInvalidText} />
-      <Link to='/resend'> <FormattedMessage {...messages.tokenInvalidLink} /></Link>
+      <Link to='/resend'>
+        &nbsp;
+        <FormattedMessage {...messages.tokenInvalidLink} />
+      </Link>
     </span>
   ),
   email_not_found: messages.emailNotFound,
@@ -73,7 +87,10 @@ const serverErrorsMap = {
   account_inactive: (
     <span>
       <FormattedMessage {...messages.accountInactiveText} />
-      <Link to='/resend'> <FormattedMessage {...messages.accountInactiveLink} /></Link>
+      <Link to='/resend'>
+        &nbsp;
+        <FormattedMessage {...messages.accountInactiveLink} />
+      </Link>
     </span>
   ),
   auth_failed: messages.authFail,
@@ -81,11 +98,16 @@ const serverErrorsMap = {
   wrong_format: messages.wrongFormat,
   social_account_exists: messages.socialAccountExists,
   not_confirmed: (
-    <span>
-      <FormattedMessage {...messages.notConfirmedTextStart} />&nbsp;
-      <Link to='/resend'><FormattedMessage {...messages.notConfirmedLink} /></Link>
-      <FormattedMessage {...messages.notConfirmedTextEnd} />
-    </span>
+    <FormattedMessage
+      {...messages.notConfirmedText}
+      values={{
+        link: (
+          <FormattedMessage {...messages.notConfirmedLink}>
+            {txt => <Link to='/resend'>{txt}</Link>}
+          </FormattedMessage>
+        )
+      }}
+    />
   ),
   candidate_inactive: messages.candidateInactive,
   candidate_not_found: messages.candidateNotFound,
