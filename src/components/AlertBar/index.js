@@ -12,7 +12,7 @@ class AlertBar extends Component {
 
     type: PropTypes.string.isRequired,
     values: PropTypes.object,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    message: PropTypes.any,
     dismissAfter: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
     action: PropTypes.string.isRequired,
     hideAlertBar: PropTypes.func.isRequired,
