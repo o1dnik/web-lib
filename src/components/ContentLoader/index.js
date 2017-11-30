@@ -12,7 +12,7 @@ import {range} from 'lodash'
 const widths = [230, 300, 380, 420, 480]
 
 export class ContentLoader extends Component {
-  static PropTypes = {
+  static propTypes = {
     height: PropTypes.number.isRequired,
     lineHeight: PropTypes.number.isRequired
   };

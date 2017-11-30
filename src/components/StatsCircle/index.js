@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 class StatsCircle extends Component {
-  static PropTypes = {
+  static propTypes = {
     r: PropTypes.string,
     cx: PropTypes.string,
     cy: PropTypes.string,

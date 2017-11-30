@@ -52,7 +52,7 @@ Input.defaultProps = {
   type: 'text'
 }
 
-Input.PropTypes = {
+Input.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   onBlur: PropTypes.func,
