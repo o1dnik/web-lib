@@ -43,6 +43,7 @@ export const JOB = 'JOB'
 
 export const REFRESH = 'REFRESH'
 export const TOKEN = 'TOKEN'
+export const G8T = 'G8T'
 
 export const CANDIDATES_ACCEPTED = 'CANDIDATES_ACCEPTED'
 export const MATCHES_ACCEPTED = 'MATCHES_ACCEPTED'
