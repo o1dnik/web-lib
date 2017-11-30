@@ -7,7 +7,7 @@ import {FormattedMessage} from 'react-intl'
 import { hideAlertBar } from '../../actions/alertbar-actions'
 
 class AlertBar extends Component {
-  static PropTypes = {
+  static propTypes = {
     location: PropTypes.object.isRequired,
 
     type: PropTypes.string.isRequired,
