@@ -18,11 +18,11 @@ const messages = defineMessages({
   englishLang: {id: 'app.common.english'},
   germanLang: {id: 'app.common.german'},
 
-  jobTypesFullTime: {id: 'app.common.jobtypes.fulltime'},
-  jobTypesPartTime: {id: 'app.common.jobtypes.parttime'},
-  jobTypesContract: {id: 'app.common.jobtypes.contract'},
-  jobTypesIntership: {id: 'app.common.jobtypes.intership'},
-  jobTypesTemporary: {id: 'app.common.jobtypes.temporary'},
+  jobTypeFullTime: {id: 'app.common.job.type.fulltime'},
+  jobTypePartTime: {id: 'app.common.job.type.parttime'},
+  jobTypeContract: {id: 'app.common.job.type.contract'},
+  jobTypeIntership: {id: 'app.common.job.type.intership'},
+  jobTypeTemporary: {id: 'app.common.job.type.temporary'},
 
   jobExperienceLevelFirst: {id: 'app.common.job.experience.level.first'},
   jobExperienceLevelSecond: {id: 'app.common.job.experience.level.second'},
