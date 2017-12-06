@@ -130,7 +130,7 @@ img.wait {
 .pos-info-keys{
   border-bottom: $base-border;
   > *{
-    padding-bottom: 1em;
+    padding-bottom: .5em;
     &:last-child{padding: 0;}
   }
   .row{
@@ -146,6 +146,9 @@ img.wait {
         padding: 0;
       }
     }
+  }
+  .tag{
+    margin-bottom: .5em;
   }
 }
 
