@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Checkbox from '../Checkbox'
 import cn from 'classnames'
+import { extractErrorMessage } from '../../helpers'
 
 class CheckboxGroup extends Component {
   static propTypes = {
@@ -38,7 +39,10 @@ class CheckboxGroup extends Component {
       autofilled: PropTypes.bool,
       dirty: PropTypes.bool,
       dispatch: PropTypes.func,
-      error: PropTypes.string,
+      error: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+      ]),
       invalid: PropTypes.bool,
       pristine: PropTypes.bool,
       submitting: PropTypes.bool,
@@ -116,7 +120,7 @@ class CheckboxGroup extends Component {
         {checkboxes}
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
 
       </div>

@@ -4,6 +4,7 @@ import {union} from 'lodash'
 import cn from 'classnames'
 import Select from '../Select'
 import Tag from '../Tag'
+import { extractErrorMessage } from '../../helpers'
 
 class Multiselect extends Component {
   static propTypes = {
@@ -44,7 +45,7 @@ class Multiselect extends Component {
       autofilled: PropTypes.bool,
       dirty: PropTypes.bool,
       dispatch: PropTypes.func,
-      error: PropTypes.string,
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       invalid: PropTypes.bool,
       pristine: PropTypes.bool,
       submitting: PropTypes.bool,
@@ -135,7 +136,7 @@ class Multiselect extends Component {
         </div>
 
         <span className={inputMessageCss}>
-          {(dirty || touched) && invalid && error}
+          {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
 
       </div>

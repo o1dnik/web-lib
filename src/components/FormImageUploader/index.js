@@ -4,11 +4,20 @@ import Dropzone from 'react-dropzone'
 import Button from '../Button'
 import ImageCropper from '../ImageCropper'
 import browserImageSize from 'browser-image-size'
+import {defineMessages} from 'react-intl'
+import { extractErrorMessage } from '../../helpers'
+
 import {
-  DEFAULT_ERROR,
   IMG_UPLOAD_LIMIT,
   IMG_ACCEPTED_TYPES
 } from '../../constants'
+
+const messages = defineMessages({
+  defaultError: {id: 'app.error.code.default_error'},
+  unknownFormat: {id: 'app.alertbar.picture.unknown.format'},
+  badSize: {id: 'app.alertbar.picture.bad.size'},
+  badResolution: {id: 'app.alertbar.picture.bad.resolution'}
+})
 
 class FormImageUploader extends Component {
   static propTypes = {
@@ -29,7 +38,7 @@ class FormImageUploader extends Component {
       autofilled: PropTypes.bool,
       dirty: PropTypes.bool,
       dispatch: PropTypes.func,
-      error: PropTypes.string,
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       invalid: PropTypes.bool,
       pristine: PropTypes.bool,
       submitting: PropTypes.bool,
@@ -45,6 +54,7 @@ class FormImageUploader extends Component {
   };
 
   static defaultProps = {
+    uploadButton: 'Upload',
     meta: {},
     input: {}
   }
@@ -55,7 +65,7 @@ class FormImageUploader extends Component {
 
   render () {
     const {
-      id, input, meta, placeholder, wrapperClass,
+      id, input, meta, placeholder, wrapperClass, uploadButton,
       type, alt, width, className, defaultImg, closeButtonCopy, cropButtonCopy
     } = this.props
 
@@ -100,7 +110,7 @@ class FormImageUploader extends Component {
                     {this.props.children ||
                     <div className='long'>
                       <Button size='small'>
-                        Upload
+                        {uploadButton}
                       </Button>
                     </div>}
                   </div>
@@ -115,7 +125,7 @@ class FormImageUploader extends Component {
 
         {logoUploader}
 
-        <span>{touched && invalid && error}</span>
+        <span>{touched && invalid && extractErrorMessage(error)}</span>
       </div>
     )
   }
@@ -131,14 +141,14 @@ class FormImageUploader extends Component {
     }
 
     if (reject) {
-      let message = DEFAULT_ERROR
+      let message = messages.defaultError
 
       if (reject.size >= IMG_UPLOAD_LIMIT) {
-        message = 'Picture is too big, please upload your picture up to 1 mb'
+        message = messages.badSize
       }
 
       if (!reject.type.includes('image')) {
-        message = 'Unknown picture format'
+        message = messages.unknownFormat
       }
 
       return showAlertBar({
@@ -155,7 +165,7 @@ class FormImageUploader extends Component {
         if (size.width < 200 || size.height < 200) {
           return showAlertBar({
             type: 'error',
-            message: 'Sorry, this Image is too small. Should be at least 200x200 pixels',
+            message: messages.badResolution,
             dismissAfter: 3000
           })
         }

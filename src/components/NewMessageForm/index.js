@@ -15,11 +15,12 @@ class NewMessageForm extends Component {
   }
 
   static defaultProps = {
-    value: ''
+    value: '',
+    buttonText: 'Send'
   }
 
   render () {
-    const {onSubmit, onChange, value, disabled, loading} = this.props
+    const {onSubmit, onChange, value, disabled, loading, buttonText} = this.props
 
     return (
       <div className='message-send-form box-shadow'>
@@ -36,7 +37,7 @@ class NewMessageForm extends Component {
           loading={loading}
           disabled={disabled}
         >
-          Send
+          {buttonText}
         </Button>
       </div>
     )

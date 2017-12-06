@@ -7,6 +7,7 @@ const defaultState = {
   action: '',
   dismissAfter: false,
   hideOnRouteChange: true,
+  values: {},
   type: ' '
 }
 
@@ -20,12 +21,14 @@ export default (state = defaultState, action) => {
         type = 'success',
         dismissAfter,
         action,
-        hideOnRouteChange = true
+        hideOnRouteChange = true,
+        values
       } = payload.notification
 
       return {
         ...state,
         isActive: true,
+        values,
         message: message || '',
         type: type || 'success',
         dismissAfter: dismissAfter || (type === 'success' ? 3000 : false),

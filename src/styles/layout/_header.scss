@@ -1,139 +1,141 @@
 header.main-header{
-	background-color: $grey-dark;
-	padding: rem(15) 0;
-	transition: all $base-duration $base-timing;
-	&.fixed{
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index:99999;
-	}
-	&.scrolled{
-		padding: .25em 0;
-	}
-	.button{
-		padding-top: 0;
-		padding-bottom: 0;
-		line-height: rem(40);
-		&:last-child{
-			margin-left: .5rem;
-		}
-	}
+  background-color: $grey-dark;
+  padding: rem(15) 0;
+  transition: all $base-duration $base-timing;
+  &.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:99999;
+  }
+  &.scrolled{
+    padding: .25em 0;
+  }
+  .button{
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: rem(40);
+    &:last-child{
+      margin-left: .5rem;
+    }
+  }
 }
 
 .fixed-header-wrapper{
-	~ .content-wrapper{
-		padding-top: rem(80);
-	}
+  ~ .content-wrapper{
+    padding-top: rem(80);
+  }
 }
 
 .nav-links{
-	> li{
-		display: inline-block;
-		line-height: rem(40);
-		height: rem(40);
-		> a{
-			text-decoration: none;
-			color: $grey-light;
-			display: block;
-			i{
-				vertical-align: middle;
-				font-size: rem(16);
-				margin-right: rem(14);
-			}
-		}
-	}
+  > li{
+    display: inline-block;
+    line-height: rem(40);
+    height: rem(40);
+    > a{
+      text-decoration: none;
+      color: $grey-light;
+      display: block;
+      i{
+        vertical-align: middle;
+        font-size: rem(16);
+        margin-right: rem(14);
+      }
+    }
+  }
 }
 
 .header-wrapper{
-	display: flex;
-	justify-content: space-between;
-	&.signup-header{
-		justify-content: space-around;
-		h1.brand-wrapper{
-			margin: 0;
-			a.brand{
-				background-position: center center;
-			}
-		}
-	}
+  display: flex;
+  justify-content: space-between;
+  &.signup-header{    
+    .col{
+      min-width: 30%;
+    }
+    h1.brand-wrapper{
+      margin: 0 auto;
+      a.brand{
+        background-position: center center;
+      }
+    }
+  }
 }
 
 .main-nav{
-	display: none;
-	flex: 2;
-	@include breakpoint(tablet){
-		display: block;
-	}
-	> ul{
-		white-space: nowrap;
-		> li{
-			> a{
-				margin-right: 2rem;
-				font-weight: 600;
-				font-size: rem(13);
-				opacity: .7;
-				transition: all $base-duration $base-timing;
-				&:hover,
-				&.active{
-					opacity: 1;
-				}
-			}
-		}
-	}
+  display: none;
+  flex: 2;
+  @include breakpoint(tablet){
+    display: block;
+  }
+  > ul{
+    white-space: nowrap;
+    > li{
+      > a{
+        margin-right: 2rem;
+        font-weight: 600;
+        font-size: rem(13);
+        opacity: .7;
+        transition: all $base-duration $base-timing;
+        &:hover,
+        &.active{
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 h1.brand-wrapper{
-	width: rem(40);
-	margin: 0;
-	@include breakpoint(tablet){
-		margin-right: 1.5rem;
-	}
-		a.brand{
-		text-indent: -119988px;
-		width: rem(40);
-		height: rem(40);
-		background: url(../../assets/img/mb-logo.svg) left center/rem(34) rem(34) no-repeat;
-		overflow: hidden;
-		display: block;
-	}
+  width: rem(40);
+  margin: 0;
+  @include breakpoint(tablet){
+    margin-right: 1.5rem;
+  }
+    a.brand{
+    text-indent: -119988px;
+    width: rem(40);
+    height: rem(40);
+    background: url(../../assets/img/mb-logo.svg) left center/rem(34) rem(34) no-repeat;
+    overflow: hidden;
+    display: block;
+  }
 }
 
 .mobile-nav{
-	@include breakpoint(tablet){
-		display: none;
-	}
+  @include breakpoint(tablet){
+    display: none;
+  }
 }
 
 .user-nav{
-	// order: 3;
+  // order: 3;
 }
 
 .userpic-wrapper{
-	width: rem(40);
-	height: rem(40);
-	position: relative;
-	a{
-		display: block;
-		height: rem(40);
-		width: rem(40);
-		border-radius: rem(100);
-		overflow: hidden;
-	}
-	.message-counter{
-		display: block;
-		color: $white;
-		font-size: rem(10);
-		text-align: center;
-		width: rem(15);
-		height: rem(15);
-		line-height: rem(14);
-		background-color: $lipstick;
-		position: absolute;
-		top: -2px;
-		right: -2px;
-		border-radius: rem(100);
-		border: 1px solid $grey-dark;
-	}
+  width: rem(40);
+  height: rem(40);
+  position: relative;
+  a{
+    display: block;
+    height: rem(40);
+    width: rem(40);
+    border-radius: rem(100);
+    overflow: hidden;
+  }
+  .message-counter{
+    display: block;
+    color: $white;
+    font-size: rem(10);
+    text-align: center;
+    width: rem(15);
+    height: rem(15);
+    line-height: rem(14);
+    background-color: $lipstick;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border-radius: rem(100);
+    border: 1px solid $grey-dark;
+  }
 }

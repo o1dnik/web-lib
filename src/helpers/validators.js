@@ -1,11 +1,22 @@
 import isEmail from 'validator/lib/isEmail'
 import isURL from 'validator/lib/isURL'
 import isLength from 'validator/lib/isLength'
-import {isNil} from 'lodash'
+import { isNil } from 'lodash'
+import { defineMessages } from 'react-intl'
+
+const messages = defineMessages({
+  valueRequired: {id: 'app.validators.value.required'},
+  emailRequired: {id: 'app.validators.email.required'},
+  passwordLen: {id: 'app.validators.password.length.min'},
+  passwordEqual: {id: 'app.validators.password.equal'},
+  urlRequired: {id: 'app.validators.url.required'},
+  maxLen: {id: 'app.validators.length.max'},
+  maxJdLen: {id: 'app.validators.jd.length.max'}
+})
 
 export function required (val) {
   if (isNil(val) || val === '') {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
   return null
 }
@@ -13,28 +24,25 @@ export function required (val) {
 export function lengthValidator (val, opts) {
   opts = {min: 0, max: 30, ...opts}
   if (!isLength(val, opts)) {
-    return `Field must be at less then ${opts.max} characters`
+    return {...messages.maxLen, values: {max: opts.max}}
   }
   return null
 }
 
 export function requiredWysiwygDescription (val) {
   // default value of editor - '<p><br></p>' is empty and not valid for us
-  if (
-    isNil(val) ||
-    val === '' ||
-    val === '<p><br></p>'
-  ) {
-    return 'Value is required.'
+  if (isNil(val) || val === '' || val === '<p><br></p>') {
+    return {...messages.valueRequired}
   }
 
-  const plainText = val.replace(/<(?:.|\n)*?>/gm, '')
+  const plainText = val
+    .replace(/<(?:.|\n)*?>/gm, '')
     .replace(/(\r\n|\n|\r)/gm, '')
     .replace(/&nbsp;/gm, '')
     .trim()
 
   if (plainText && plainText.length < 250) {
-    return 'Job description should be at least 250 characters'
+    return {...messages.maxJdLen}
   }
 
   return null
@@ -42,22 +50,22 @@ export function requiredWysiwygDescription (val) {
 
 export function arrayRequired (val) {
   if (isNil(val) || val === '' || !val.length) {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
   return null
 }
 
 export function validateJobRole (val) {
   if (isNil(val) || val === '') {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   if (val && !val.select) {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   if (val && !val.level) {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   return null
@@ -65,15 +73,15 @@ export function validateJobRole (val) {
 
 export function validateJobLanguage (val) {
   if (isNil(val) || val === '') {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   if (val && !val.select) {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   if (val && !val.level) {
-    return 'Value is required.'
+    return {...messages.valueRequired}
   }
 
   return null
@@ -81,7 +89,7 @@ export function validateJobLanguage (val) {
 
 export function email (val) {
   if (isNil(val) || val === '' || !isEmail(val)) {
-    return 'Value should be a valid Email.'
+    return {...messages.emailRequired}
   }
   return null
 }
@@ -94,7 +102,7 @@ export function urlValidator (val) {
   }
 
   if (isNil(val) || !isURL(val, validationOptions)) {
-    return 'Value should be a valid URL.'
+    return {...messages.urlRequired}
   }
 
   return null
@@ -102,7 +110,7 @@ export function urlValidator (val) {
 
 export function password (val, allValues) {
   if (isNil(val) || val === '' || val.length < 8) {
-    return 'Password must be at least 8 characters long.'
+    return {...messages.passwordLen}
   }
 
   if (
@@ -113,7 +121,7 @@ export function password (val, allValues) {
     const password2 = allValues.password2
     if (password2.length >= 8) {
       if (allValues.password !== allValues.password2) {
-        return 'Both passwords must have same value'
+        return {...messages.passwordEqual}
       }
     }
   }
@@ -129,11 +137,11 @@ export function doubleSelectValidator (name, minLength) {
 
     if (minLength && allValues[name].length < minLength) {
       if (isNil(item.id)) {
-        return 'Value is required'
+        return {...messages.valueRequired}
       }
     }
 
-    if ((isNil(item.id)) && item.level === undefined) {
+    if (isNil(item.id) && item.level === undefined) {
       return null
     }
 
@@ -142,7 +150,7 @@ export function doubleSelectValidator (name, minLength) {
     }
 
     if (isNil(item.id)) {
-      return 'Values is required'
+      return {...messages.valueRequired}
     }
 
     return null
@@ -164,7 +172,7 @@ export function doubleSelectLevelValidator (name) {
     }
 
     if (isNil(item.level)) {
-      return 'Values is required'
+      return {...messages.valueRequired}
     }
 
     return null
