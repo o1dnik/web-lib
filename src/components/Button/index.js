@@ -5,7 +5,6 @@ import cn from 'classnames'
 
 class Button extends Component {
   static propTypes = {
-    href: PropTypes.string,
     as,
     link: PropTypes.bool,
     target: PropTypes.string,
@@ -51,7 +50,6 @@ class Button extends Component {
 
   render () {
     const {
-      href,
       target,
       type,
       className,
@@ -94,23 +92,9 @@ class Button extends Component {
       [withPrefix('apart')]: Boolean(apart),
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('loading')]: Boolean(loading),
-      [withPrefix('link')]: Boolean(href || link),
+      [withPrefix('link')]: Boolean(link),
       [withPrefix('icon')]: Boolean(hasIcon)
     }, className)
-
-    if ((href && typeof href === 'string' && href.length > 0) || link) {
-      return (
-        <a
-          href={href || '#'}
-          className={css}
-          target={target}
-          disabled={isDisabled}
-          onClick={onClick}
-        >
-          {newCildren}
-        </a>
-      )
-    }
 
     const Element = as
 
