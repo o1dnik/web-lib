@@ -34,3 +34,12 @@
     transform: rotate(0deg); }
   100% {
     transform: rotate(359deg); } }
+
+.animate-rotate {
+  transition: transform 500ms linear 0s;
+  display: inline-block;
+}
+
+.rotate-icon {
+  transform: rotate(180deg);
+}
