@@ -2,10 +2,11 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import ThreadCard from './index'
 import { addYears, addMinutes } from 'date-fns'
+import { IntlProvider } from 'react-intl'
 
 storiesOf('ThreadCard', module)
   .add('Default', () => (
-    <div>
+    <IntlProvider locale='en' messages={{}}>
       <ul>
         <ThreadCard
           isUnread
@@ -36,5 +37,5 @@ storiesOf('ThreadCard', module)
           subtitle='Paramaribaladam Pirindirimobola'
         />
       </ul>
-    </div>
+    </IntlProvider>
   ))

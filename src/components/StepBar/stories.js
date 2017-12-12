@@ -7,15 +7,27 @@ storiesOf('StepBar', module)
     <div>
       <StepBar
         currentStep={1}
-        steps={['Select Subscription', 'Billing Information', 'Confirmation']}
+        steps={[
+          {id: 'app.registration.steps.info'},
+          {id: 'app.registration.steps.references'},
+          {id: 'app.registration.steps.skills'}
+        ]}
       />
       <StepBar
         currentStep={2}
-        steps={['Select Subscription', 'Billing Information', 'Confirmation']}
+        steps={[
+          {id: 'app.registration.steps.info'},
+          {id: 'app.registration.steps.references'},
+          {id: 'app.registration.steps.skills'}
+        ]}
       />
       <StepBar
         currentStep={3}
-        steps={['Select Subscription', 'Billing Information', 'Confirmation']}
+        steps={[
+          {id: 'app.registration.steps.info'},
+          {id: 'app.registration.steps.references'},
+          {id: 'app.registration.steps.skills'}
+        ]}
       />
     </div>
   ))

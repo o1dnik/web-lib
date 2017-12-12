@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classNames from 'classnames'
 import { getOldValue } from '../../helpers/getOldValue'
+import { extractErrorMessage } from '../../helpers'
 
 const Input = (props) => {
   const {id, input, meta, placeholder, type, label, disabled} = props
@@ -38,7 +39,7 @@ const Input = (props) => {
       />
 
       <span className={inputMessageCss}>
-        {(dirty || touched) && invalid && error}
+        {(dirty || touched) && invalid && extractErrorMessage(error)}
       </span>
 
     </div>
@@ -51,7 +52,7 @@ Input.defaultProps = {
   type: 'text'
 }
 
-Input.PropTypes = {
+Input.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   onBlur: PropTypes.func,
@@ -79,7 +80,7 @@ Input.PropTypes = {
     autofilled: PropTypes.bool,
     dirty: PropTypes.bool,
     dispatch: PropTypes.func,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     invalid: PropTypes.bool,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,

@@ -1,6 +1,12 @@
-import { distanceInWordsToNow, differenceInMilliseconds } from 'date-fns'
+import { differenceInMilliseconds } from 'date-fns'
 import { isEmpty, isNil, has } from 'lodash'
+import { defineMessages } from 'react-intl'
 import { SUCCESS, START, FAIL, LOADING } from '../constants'
+
+const messages = defineMessages({
+  expires: {id: 'app.common.expires'},
+  expired: {id: 'app.common.expired'}
+})
 
 export function arrayToObject (array, idProp) {
   const obj = {}
@@ -22,17 +28,18 @@ export function getBase64 (file) {
       resolve(reader.result)
     }
 
-    reader.onerror = (error) => {
+    reader.onerror = error => {
       reject(error)
     }
   })
 }
 
-export function renderExpires (expiresAt) {
+export function getExpires (expiresAt) {
   const diff = differenceInMilliseconds(expiresAt, Date.now())
-  const time = distanceInWordsToNow(expiresAt, {addSuffix: true})
 
-  return diff > 0 ? `Expires ${time}` : `Expired ${time}`
+  return diff > 0
+    ? {...messages.expires, values: {time: expiresAt}}
+    : {...messages.expired, values: {time: expiresAt}}
 }
 
 export function handleFieldArrayItemAdd (fields) {

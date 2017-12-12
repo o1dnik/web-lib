@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import cn from 'classnames'
+import {FormattedMessage} from 'react-intl'
 
 const StepBarComponent = (props) => {
   const {steps, currentStep} = props
@@ -8,12 +9,12 @@ const StepBarComponent = (props) => {
   return (
     <ul className='progress-tabs'>
 
-      {steps.map((s, idx) => {
+      {steps.map((msg, idx) => {
         const className = getTabClassNames(currentStep, idx + 1)
 
         return (
-          <li key={s} className={className}>
-            {s}
+          <li key={msg.id} className={className}>
+            <FormattedMessage {...msg} />
             <i className='ion-checkmark' />
           </li>
         )

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { distanceInWordsToNow } from 'date-fns'
 import cn from 'classnames'
+import {FormattedRelative} from 'react-intl'
 
 import DEFAULT_PROFILE_IMAGE from '../../../src/assets/img/default-logo.png'
 
@@ -55,7 +55,7 @@ class ThreadCard extends Component {
           {date &&
           <div className='list-controlls text-right'>
             <div className='expire'>
-              {distanceInWordsToNow(date)} ago
+              <FormattedRelative value={date} />
             </div>
           </div>
           }
