@@ -200,7 +200,10 @@ h1.form-title {
   }
 }
 
-.dropzone{
+.dz-container{
+  padding: 1em;
+  background-color: $grey50;
+  border: 2px dashed $grey300;
   > *{
     @include breakpoint(tablet) {
       max-width: 50%;
@@ -208,8 +211,9 @@ h1.form-title {
     }
   } 
   &.ready{
+    border: 2px solid $grey300;
     .dz-icon-container{
-      i{color: $info-blue;}
+      i{color: $grey-dark;}
     }
   }
   .dz-icon-container{
