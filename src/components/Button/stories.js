@@ -123,7 +123,7 @@ storiesOf('Button', module)
 
       <div>
         <h4>As Link</h4>
-        <Button href='google.ru' onClick={action('clicked')}>
+        <Button onClick={action('clicked')} link>
           <span>As Link</span>
         </Button>
       </div>

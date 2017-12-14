@@ -12,7 +12,6 @@ body {
 a {
   cursor: pointer;
   color: $lipstick;
-  // text-decoration: underline;
 }
 
 a.u {
@@ -164,12 +163,6 @@ h1.title-underlined {
 small {
   font-size: 80%;
 }
-
-// span.underlined-red{
-//   line-height: 2;
-//   display: inline-block;
-//   border-bottom: 4px solid $another-red;
-// }
 
 .optional-info {
   opacity: .4;
