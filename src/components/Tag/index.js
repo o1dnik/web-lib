@@ -13,6 +13,7 @@ class Tag extends Component {
     extended: PropTypes.bool,
     apart: PropTypes.bool,
     value: PropTypes.bool,
+    extra: PropTypes.bool,
     size: PropTypes.oneOf([
       'xsmall',
       'small',
@@ -39,7 +40,8 @@ class Tag extends Component {
     extended: false,
     apart: false,
     bordered: false,
-    value: false
+    value: false,
+    extra: false
   };
 
   render () {
@@ -54,6 +56,7 @@ class Tag extends Component {
       disabled,
       value,
       className,
+      extra,
       ...rest
     } = this.props
 
@@ -102,7 +105,8 @@ class Tag extends Component {
       [withPrefix('apart')]: Boolean(apart),
       [withPrefix('disabled')]: Boolean(disabled),
       [withPrefix('value')]: Boolean(value),
-      [withPrefix('icon')]: Boolean(hasIcon)
+      [withPrefix('icon')]: Boolean(hasIcon),
+      [withPrefix('extra')]: Boolean(extra)
     }, className)
 
     return (
