@@ -233,3 +233,55 @@ h1.form-title {
     }
   }
 }
+
+.dz-container{
+  padding: 1em;
+  background-color: $grey50;
+  border: 2px dashed $grey300;
+  > *{
+    @include breakpoint(tablet) {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+  &.ready{
+    border: 2px solid $grey300;
+    .dz-icon-container{
+      i{color: $grey-dark;}
+    }
+  }
+  .dz-icon-container{
+    i{
+      font-size: rem(104);
+      line-height: 1;
+      color: $grey300;
+    }
+  }
+  .text,
+  .strikethrough{
+    font-size: rem(18);
+    color: $grey500;
+  }
+  .strikethrough{
+    position: relative;
+    &:after{
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $grey300;
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+    }
+    span{
+      padding: 0 .5em;
+      background-color: $grey-light;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  .button-extended{
+    margin: 0;
+  }
+}
