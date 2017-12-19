@@ -201,13 +201,15 @@ h1.form-title {
 }
 
 .job-role-select-container{
-  display: flex;
   padding: 1em;
   border: $base-border;
   margin-bottom: 1rem;
-  >*{
-    flex-grow: 1;
-    margin: 0 .5em;
+  @include breakpoint(tablet) {
+    display: flex;
+    >*{
+      flex-grow: 1;
+      margin: 0 .5em;
+    }
   }
   select{
     appearance: none;
