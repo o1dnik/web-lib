@@ -21,7 +21,7 @@
   &.tag-extended{
     display: block;
     text-align: center;
-    margin: 0;
+    margin-right: 0;
     &.tag-icon{
       display: flex;
       text-align: left;
@@ -32,6 +32,13 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+      &.tag-extra{
+        margin-bottom: .5rem;
+        :first-child{
+          flex-grow: 2;
+          font-weight: bold;
+        }
       }
     }
   }

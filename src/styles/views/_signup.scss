@@ -200,6 +200,42 @@ h1.form-title {
   }
 }
 
+.job-role-select-container{
+  padding: 1em;
+  border: $base-border;
+  margin-bottom: 1rem;
+  @include breakpoint(tablet) {
+    display: flex;
+    >*{
+      flex-grow: 1;
+      margin: 0 .5em;
+    }
+  }
+  select{
+    appearance: none;
+    background-color: $grey100;
+    border: 1px solid $grey300;
+    outline: none;
+    &:hover,
+    &:active,
+    &:focus{
+      outline: none;
+      > option:checked{
+        // background-color: $grey400;
+      }
+    }
+    option{
+      font-size: rem(12);
+      padding: .5em 1em;
+      &:hover,
+      &:checked
+      {
+        box-shadow: 0 0 10px 100px $grey400 inset;
+      }
+    }
+  }
+}
+
 .dz-container{
   padding: 1em;
   background-color: $grey50;
@@ -209,7 +245,7 @@ h1.form-title {
       max-width: 50%;
       margin: 0 auto;
     }
-  } 
+  }
   &.ready{
     border: 2px solid $grey300;
     .dz-icon-container{
