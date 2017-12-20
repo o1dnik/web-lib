@@ -128,29 +128,6 @@ export const REJECTION_REASONS = [
   {id: '0', name: messages.other}
 ]
 
-export const AVAILABLE_SUBSCRIPTIONS = [
-  {
-    name: 'Basic',
-    price: '349',
-    id: '2',
-    intros_max: 15,
-    jobs_max: 5,
-    additions: []
-  },
-  {
-    name: 'Professional',
-    price: '999',
-    id: '3',
-    intros_max: 50,
-    jobs_max: 25,
-    additions: []
-  },
-  {
-    name: 'Trial',
-    id: '1'
-  }
-]
-
 // JOB STATUSES:
 export const STATUSES_TEXT_MAP = {
   ACT: messages.ACT,
