@@ -237,10 +237,14 @@ h1.form-title {
         // background-color: $grey400;
       }
     }
-
     @include breakpoint(tablet) {
       padding: 0;
       background: $grey100;
+    }
+    &[disabled]{
+      > option{
+        color: $grey400;
+      }
     }
     option{
       font-size: rem(12);
