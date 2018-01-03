@@ -38,14 +38,19 @@
 			flex-grow: 2;
 		}
 	}
-	ul{
-		list-style: disc;
+	ol, ul {
 		margin-bottom: 1em;
 		li{
 			margin-left: 2em;
 			// text-indent: -1.5em;
 		}
 
+	}
+	ol {
+		list-style: decimal;
+	}
+	ul{
+		list-style: disc;
 	}
 }
 
