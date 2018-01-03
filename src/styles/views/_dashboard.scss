@@ -153,6 +153,10 @@ img.wait {
 }
 
 .pos-info-desc{
+  em {
+    font-style: italic;
+  }
+
   ol, ul {
     margin-bottom: 1em;
     li {
