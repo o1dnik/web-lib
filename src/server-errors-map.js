@@ -7,7 +7,8 @@ const messages = defineMessages({
   serverError: {id: 'app.error.code.server_error'},
   networkError: {id: 'app.error.code.network_error'},
   accountAlreadyConfirmed: {id: 'app.error.code.account_already_confirmed'},
-  invalidData: {id: 'app.error.code.invalid_data'},
+  invalid: {id: 'app.error.code.invalid'}, // invalida data as well
+  invalidData: {id: 'app.error.code.invalid_data'}, // v1
   invalidToken: {id: 'app.error.code.invalid_token'},
   tokenInvalidText: {id: 'app.error.code.token_invalid.text'},
   tokenInvalidLink: {id: 'app.error.code.token_invalid.link'},
@@ -68,6 +69,7 @@ const serverErrorsMap = {
       }}
     />
   ),
+  invalid: messages.invalid,
   invalid_data: messages.invalidData,
   invalid_token: messages.invalidToken, // JWT fails
   // email confirmation token fails
