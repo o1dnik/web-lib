@@ -28,6 +28,10 @@ export function getBase64 (file) {
       resolve(reader.result)
     }
 
+    reader.onabort = (error) => {
+      reject(error)
+    }
+
     reader.onerror = error => {
       reject(error)
     }
