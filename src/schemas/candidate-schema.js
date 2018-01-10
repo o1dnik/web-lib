@@ -148,6 +148,7 @@ export default yup
     picture: yup
       .string()
       .required()
+      .nullable(true)
       .default(""),
 
     tracking: yup
