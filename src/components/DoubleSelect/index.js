@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Select from '../Select'
-import cn from 'classnames'
-import {isEmpty} from 'lodash'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Select from "../Select"
+import cn from "classnames"
+import { isEmpty } from "lodash"
+import { extractErrorMessage } from "../../helpers"
 
 class DoubleSelect extends Component {
   static propTypes = {
@@ -43,33 +43,33 @@ class DoubleSelect extends Component {
       visited: PropTypes.bool,
       warning: PropTypes.string
     })
-  };
+  }
 
   static defaultProps = {
-    iconClassName: 'ion-close',
+    iconClassName: "ion-close",
     input: {},
     meta: {}
-  };
+  }
 
-  render () {
-    const {value, selectOptions, levelOptions, input, meta} = this.props
-    const {subLabel, label, onRemove, iconClassName, disabled} = this.props
-    const {searchableSelect, isLoading, disabledIfValid} = this.props
+  render() {
+    const { value, selectOptions, levelOptions, input, meta } = this.props
+    const { subLabel, label, onRemove, iconClassName, disabled } = this.props
+    const { searchableSelect, isLoading, disabledIfValid } = this.props
 
-    const {error, invalid, valid, touched, dirty} = meta
+    const { error, invalid, valid, touched, dirty } = meta
 
     const css = cn({
-      'select-double': true,
-      'options-box': true,
-      'select-double-error': (touched && invalid),
-      'select-double-success': (touched && valid),
+      "select-double": true,
+      "options-box": true,
+      "select-double-error": touched && invalid,
+      "select-double-success": touched && valid,
       done: valid
     })
 
     const inputMessageCss = cn({
-      'input-message': true,
-      'input-message-error': (touched && invalid),
-      'input-message-success': (touched && valid)
+      "input-message": true,
+      "input-message-error": touched && invalid,
+      "input-message-success": touched && valid
     })
 
     const selectValid = Boolean(
@@ -84,11 +84,11 @@ class DoubleSelect extends Component {
 
     return (
       <div className={css}>
-
-        {onRemove &&
-        <span className='close' onClick={!disabled && onRemove}>
-          <i className={iconClassName} />
-        </span>}
+        {onRemove && (
+          <span className="close" onClick={!disabled && onRemove}>
+            <i className={iconClassName} />
+          </span>
+        )}
 
         <Select
           label={label}
@@ -110,35 +110,34 @@ class DoubleSelect extends Component {
           disabled={disabled || (disabledIfValid && valid)}
         />
 
-        {selectValid &&
-        <Select
-          label={subLabel}
-          value={(value && value.level) || (input.value && input.value.level)}
-          onChange={this.handleLevelChange}
-          onBlur={this.handleLevelBlur}
-          onFocus={this.handleLevelFocus}
-          options={levelOptions}
-          clearable={false}
-          searchable={false}
-          meta={{
-            touched,
-            valid: levelValid,
-            invalid: levelInValid
-          }}
-          noArrow={disabled}
-          disabled={disabled}
-        />
-        }
+        {selectValid && (
+          <Select
+            label={subLabel}
+            value={(value && value.level) || (input.value && input.value.level)}
+            onChange={this.handleLevelChange}
+            onBlur={this.handleLevelBlur}
+            onFocus={this.handleLevelFocus}
+            options={levelOptions}
+            clearable={false}
+            searchable={false}
+            meta={{
+              touched,
+              valid: levelValid,
+              invalid: levelInValid
+            }}
+            noArrow={disabled}
+            disabled={disabled}
+          />
+        )}
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
-
       </div>
     )
   }
 
-  handleSelectChange = (selectValue) => {
+  handleSelectChange = selectValue => {
     const onChange = this.props.onChange || this.props.input.onChange
 
     const oldVal = this.getOldValue()
@@ -151,7 +150,7 @@ class DoubleSelect extends Component {
     onChange(newVal, oldVal)
   }
 
-  handleSelectBlur = (e) => {
+  handleSelectBlur = e => {
     if (this.props.onBlur) {
       return this.props.onBlur(e)
     }
@@ -161,12 +160,12 @@ class DoubleSelect extends Component {
     }
   }
 
-  handleSelectFocus = (e) => {
+  handleSelectFocus = e => {
     const onFocus = this.props.onFocus || this.props.input.onFocus
     onFocus && onFocus(e)
   }
 
-  handleLevelChange = (level) => {
+  handleLevelChange = level => {
     const onChange = this.props.onChange || this.props.input.onChange
 
     const oldVal = this.getOldValue()
@@ -179,7 +178,7 @@ class DoubleSelect extends Component {
     onChange(newVal, oldVal)
   }
 
-  handleLevelBlur = (e) => {
+  handleLevelBlur = e => {
     if (this.props.onBlur) {
       return this.props.onBlur(e)
     }
@@ -189,7 +188,7 @@ class DoubleSelect extends Component {
     }
   }
 
-  handleLevelFocus = (e) => {
+  handleLevelFocus = e => {
     const onFocus = this.props.onFocus || this.props.input.onFocus
     onFocus && onFocus(e)
   }

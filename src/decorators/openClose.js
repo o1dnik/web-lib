@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
-export default (Component) => {
+export default Component => {
   return class OpenCloseDecorator extends React.Component {
     static propTypes = {
       isOpen: PropTypes.bool,
@@ -21,20 +21,20 @@ export default (Component) => {
 
     toggle = e => {
       if (e) e.preventDefault()
-      this.setState(prevState => ({...prevState, isOpen: !prevState.isOpen}))
+      this.setState(prevState => ({ ...prevState, isOpen: !prevState.isOpen }))
     }
 
     close = e => {
       if (e) e.preventDefault()
-      this.setState((prevState) => ({...prevState, isOpen: false}))
+      this.setState(prevState => ({ ...prevState, isOpen: false }))
     }
 
     open = e => {
       if (e) e.preventDefault()
-      this.setState((prevState) => ({...prevState, isOpen: true}))
+      this.setState(prevState => ({ ...prevState, isOpen: true }))
     }
 
-    render () {
+    render() {
       return (
         <Component
           {...this.state}

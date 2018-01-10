@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Button from '../Button'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Button from "../Button"
 
 class ConfirmModalComponent extends Component {
   static propTypes = {
@@ -24,24 +24,23 @@ class ConfirmModalComponent extends Component {
 
     confirmLoading: PropTypes.bool.isRequired,
     cancelLoading: PropTypes.bool.isRequired
-
-  };
+  }
 
   static defaultProps = {
-    title: '',
-    content: '',
-    confirmContent: 'Confirm',
-    cancelContent: 'Cancel',
-    inputValue: '',
-    inputType: 'text',
-    inputPlaceholder: '',
+    title: "",
+    content: "",
+    confirmContent: "Confirm",
+    cancelContent: "Cancel",
+    inputValue: "",
+    inputType: "text",
+    inputPlaceholder: "",
     confirmDisabled: false,
     cancelDisabled: false,
     confirmLoading: false,
     cancelLoading: false
-  };
+  }
 
-  render () {
+  render() {
     const {
       title,
       content,
@@ -61,30 +60,31 @@ class ConfirmModalComponent extends Component {
     } = this.props
 
     return (
-      <div className='popup__box'>
-        <header className='popup__box__header'>
-          <i className='ion-close' onClick={onClose} />
-          <h1 className='popup__box__header__title'>
+      <div className="popup__box">
+        <header className="popup__box__header">
+          <i className="ion-close" onClick={onClose} />
+          <h1 className="popup__box__header__title">
             <span>{title}</span>
           </h1>
         </header>
-        <div className='popup__box__body'>
+        <div className="popup__box__body">
           <div>
             <div>{content}</div>
-            {onInputChange &&
-            <input
-              type={inputType}
-              className='mm-popup__input'
-              onChange={onInputChange}
-              placeholder={inputPlaceholder}
-              value={inputValue}
-            />}
+            {onInputChange && (
+              <input
+                type={inputType}
+                className="mm-popup__input"
+                onChange={onInputChange}
+                placeholder={inputPlaceholder}
+                value={inputValue}
+              />
+            )}
           </div>
         </div>
-        <footer className='popup__box__footer'>
-          <div className='popup__box__footer__left-space'>
+        <footer className="popup__box__footer">
+          <div className="popup__box__footer__left-space">
             <Button
-              className='mm-popup__btn mm-popup__btn--cancel'
+              className="mm-popup__btn mm-popup__btn--cancel"
               onClick={onCancel}
               disabled={cancelDisabled}
               loading={cancelLoading}
@@ -92,9 +92,9 @@ class ConfirmModalComponent extends Component {
               {cancelContent}
             </Button>
           </div>
-          <div className='popup__box__footer__right-space'>
+          <div className="popup__box__footer__right-space">
             <Button
-              className='mm-popup__btn mm-popup__btn--danger'
+              className="mm-popup__btn mm-popup__btn--danger"
               onClick={onConfirm}
               disabled={confirmDisabled}
               loading={confirmLoading}

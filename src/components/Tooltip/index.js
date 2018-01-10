@@ -1,20 +1,14 @@
-import React from 'react'
-import ReactTooltip from 'react-tooltip'
+import React from "react"
+import ReactTooltip from "react-tooltip"
 
-const TooltipComponent = (props) => {
-  const {children, ...rest} = props
+const TooltipComponent = props => {
+  const { children, ...rest } = props
 
   if (children) {
-    return (
-      <ReactTooltip {...rest}>
-        {children}
-      </ReactTooltip>
-    )
+    return <ReactTooltip {...rest}>{children}</ReactTooltip>
   }
 
-  return (
-    <ReactTooltip {...rest} />
-  )
+  return <ReactTooltip {...rest} />
 }
 
 TooltipComponent.propTypes = {}

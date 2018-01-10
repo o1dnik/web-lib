@@ -1,14 +1,12 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import cn from 'classnames'
+import PropTypes from "prop-types"
+import React from "react"
+import cn from "classnames"
 
-const PaginationItem = ({disabled, className, onClick, children}) => {
-  const css = cn({disabled}, className)
+const PaginationItem = ({ disabled, className, onClick, children }) => {
+  const css = cn({ disabled }, className)
   return (
     <li className={css} onClick={onClick}>
-      <a>
-        {children}
-      </a>
+      <a>{children}</a>
     </li>
   )
 }

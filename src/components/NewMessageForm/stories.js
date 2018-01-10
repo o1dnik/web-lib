@@ -1,70 +1,69 @@
-import React, { Component } from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import NewMessageForm from './index'
+import React, { Component } from "react"
+import { storiesOf } from "@storybook/react"
+import { action } from "@storybook/addon-actions"
+import NewMessageForm from "./index"
 
 class LiveForm extends Component {
   static propTypes = {}
 
   state = {
-    value: ''
+    value: ""
   }
 
-  render () {
+  render() {
     return (
       <div>
         <NewMessageForm
           value={this.state.value}
-          onSubmit={action('submit')}
+          onSubmit={action("submit")}
           onChange={this.handleValueChange}
         />
       </div>
     )
   }
 
-  handleValueChange = (e) => {
+  handleValueChange = e => {
     if (e) e.preventDefault()
-    const {value} = e.target
-    action('change')(e)
-    this.setState((prevState) => ({...prevState, value}))
+    const { value } = e.target
+    action("change")(e)
+    this.setState(prevState => ({ ...prevState, value }))
   }
 }
 
 export default LiveForm
 
-storiesOf('NewMessageForm', module)
-  .add('Default', () => (
+storiesOf("NewMessageForm", module).add("Default", () => (
+  <div>
+    <LiveForm />
     <div>
-      <LiveForm />
-      <div>
-        <NewMessageForm
-          value='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quae excepturi recusandae culpa iure aspernatur, explicabo repellat hic blanditiis provident veniam eius tempora doloribus dolorem quo, adipisci nulla, ut qui.'
-          onSubmit={action('submit')}
-          onChange={action('change')}
-        />
-      </div>
-      <div>
-        <NewMessageForm
-          value='Lo'
-          onSubmit={action('submit')}
-          onChange={action('change')}
-        />
-      </div>
-      <div>
-        <NewMessageForm
-          value='Lo'
-          loading
-          onSubmit={action('submit')}
-          onChange={action('change')}
-        />
-      </div>
-      <div>
-        <NewMessageForm
-          value='Lo'
-          disabled
-          onSubmit={action('submit')}
-          onChange={action('change')}
-        />
-      </div>
+      <NewMessageForm
+        value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quae excepturi recusandae culpa iure aspernatur, explicabo repellat hic blanditiis provident veniam eius tempora doloribus dolorem quo, adipisci nulla, ut qui."
+        onSubmit={action("submit")}
+        onChange={action("change")}
+      />
     </div>
-  ))
+    <div>
+      <NewMessageForm
+        value="Lo"
+        onSubmit={action("submit")}
+        onChange={action("change")}
+      />
+    </div>
+    <div>
+      <NewMessageForm
+        value="Lo"
+        loading
+        onSubmit={action("submit")}
+        onChange={action("change")}
+      />
+    </div>
+    <div>
+      <NewMessageForm
+        value="Lo"
+        disabled
+        onSubmit={action("submit")}
+        onChange={action("change")}
+      />
+    </div>
+  </div>
+))

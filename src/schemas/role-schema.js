@@ -1,14 +1,24 @@
-import yup from 'yup'
-import roleCategory from './role-category-schema'
+import yup from "yup"
+import roleCategory from "./role-category-schema"
 
-export default yup.object().shape({
+export default yup
+  .object()
+  .shape({
+    id: yup
+      .string()
+      .required()
+      .default(""),
 
-  id: yup.string().required().default(''),
+    name: yup
+      .string()
+      .required()
+      .default(""),
 
-  name: yup.string().required().default(''),
+    level: yup
+      .string()
+      .required()
+      .default(""),
 
-  level: yup.string().required().default(''),
-
-  category: roleCategory.nullable(true).default(null)
-
-}).noUnknown()
+    category: roleCategory.nullable(true).default(null)
+  })
+  .noUnknown()

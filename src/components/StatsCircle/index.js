@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
 
 class StatsCircle extends Component {
   static propTypes = {
@@ -15,31 +15,42 @@ class StatsCircle extends Component {
     transition: PropTypes.string,
     fontSize: PropTypes.string,
     textDY: PropTypes.string
-  };
+  }
 
   static defaultProps = {
-    r: '40',
-    cx: '50%',
-    cy: '50%',
-    color: 'blue',
-    fill: 'transparent',
-    width: '2',
+    r: "40",
+    cx: "50%",
+    cy: "50%",
+    color: "blue",
+    fill: "transparent",
+    width: "2",
     percent: 50,
-    containerWidth: '90px',
-    containerHeight: '90px',
-    transition: 'stroke-dashoffset .1s linear',
-    textColor: '#999',
-    fontSize: '2.5em',
-    textDY: '.35em'
-  };
+    containerWidth: "90px",
+    containerHeight: "90px",
+    transition: "stroke-dashoffset .1s linear",
+    textColor: "#999",
+    fontSize: "2.5em",
+    textDY: ".35em"
+  }
 
-  render () {
+  render() {
     const {
-      r, cx, cy, color, fill, width, value, textColor,
-      containerWidth, containerHeight, transition, fontSize, textDY
+      r,
+      cx,
+      cy,
+      color,
+      fill,
+      width,
+      value,
+      textColor,
+      containerWidth,
+      containerHeight,
+      transition,
+      fontSize,
+      textDY
     } = this.props
 
-    let {percent} = this.props
+    let { percent } = this.props
 
     if (isNaN(percent)) {
       percent = 100
@@ -57,27 +68,29 @@ class StatsCircle extends Component {
       percent = 100
     }
 
-    const pct = ((100 - percent) / 100) * c
+    const pct = (100 - percent) / 100 * c
 
     const rotateX = parseInt(containerWidth, 10) / 2
     const rotateY = parseInt(containerHeight, 10) / 2
     const transform = `rotate(-90, ${rotateX}, ${rotateY})`
 
     return (
-      <svg style={{width: containerWidth, height: containerHeight}}>
-        <circle r={r}
+      <svg style={{ width: containerWidth, height: containerHeight }}>
+        <circle
+          r={r}
           cx={cx}
           cy={cy}
-          stroke='#999'
+          stroke="#999"
           fill={fill}
           strokeWidth={width}
           strokeDasharray={strokeDasharray}
-          strokeDashoffset='0'
+          strokeDashoffset="0"
         />
-        <circle r={r}
+        <circle
+          r={r}
           cx={cx}
           cy={cy}
-          style={{transition}}
+          style={{ transition }}
           transform={transform}
           stroke={color}
           fill={fill}
@@ -85,13 +98,17 @@ class StatsCircle extends Component {
           strokeDasharray={strokeDasharray}
           strokeDashoffset={pct}
         />
-        <text x='50%'
-          y='50%'
-          textAnchor='middle'
+        <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
           color={textColor}
-          strokeWidth='1px'
+          strokeWidth="1px"
           fontSize={fontSize}
-          dy={textDY}>{value || percent}</text>
+          dy={textDY}
+        >
+          {value || percent}
+        </text>
       </svg>
     )
   }

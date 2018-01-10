@@ -1,42 +1,42 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { defineMessages, FormattedMessage } from 'react-intl'
+import React from "react"
+import { Link } from "react-router-dom"
+import { defineMessages, FormattedMessage } from "react-intl"
 
 const messages = defineMessages({
-  defaultError: {id: 'app.error.code.default_error'},
-  serverError: {id: 'app.error.code.server_error'},
-  networkError: {id: 'app.error.code.network_error'},
-  accountAlreadyConfirmed: {id: 'app.error.code.account_already_confirmed'},
-  invalid: {id: 'app.error.code.invalid'}, // invalida data as well
-  invalidData: {id: 'app.error.code.invalid_data'}, // v1
-  invalidToken: {id: 'app.error.code.invalid_token'},
-  tokenInvalidText: {id: 'app.error.code.token_invalid.text'},
-  tokenInvalidLink: {id: 'app.error.code.token_invalid.link'},
-  emailNotFound: {id: 'app.error.code.email_not_found'},
-  emailNotUniq: {id: 'app.error.code.email_not_unique'},
-  emailPermissionMissing: {id: 'app.error.code.email_permission_missing'},
-  accountNotConfirmed: {id: 'app.error.code.account_not_confirmed'},
-  accountInactiveText: {id: 'app.error.code.account_inactive.text'},
-  accountInactiveLink: {id: 'app.error.code.account_inactive.link'},
-  wrongCredentialsText: {id: 'app.error.code.wrong_credentials.text'},
-  wrongCredentialsLink: {id: 'app.error.code.wrong_credentials.link'},
-  authFail: {id: 'app.error.code.auth_failed'},
-  accountExists: {id: 'app.error.code.account_exists'},
-  wrongFormat: {id: 'app.error.code.wrong_format'},
-  socialAccountExists: {id: 'app.error.code.social_account_exists'},
-  notConfirmedText: {id: 'app.error.code.not_confirmed.text'},
-  notConfirmedLink: {id: 'app.error.code.not_confirmed.link'},
-  candidateInactive: {id: 'app.error.code.candidate_inactive'},
-  candidateNotFound: {id: 'app.error.code.candidate_not_found'},
-  notCompleted: {id: 'app.error.code.not_completed'},
-  accountDeleted: {id: 'app.error.code.account_deleted'},
-  jobNotFound: {id: 'app.error.code.job_not_found'},
-  jobInactive: {id: 'app.error.code.job_inactive'},
-  wrongPassword: {id: 'app.error.code.wrong_password'},
-  authenticationFail: {id: 'app.error.code.authentication_failed'},
-  authorizationFail: {id: 'app.error.code.authorization_failed'},
-  userLoginCancel: {id: 'app.error.code.user_cancelled_login'},
-  accesDenied: {id: 'app.error.code.access_denied'}
+  defaultError: { id: "app.error.code.default_error" },
+  serverError: { id: "app.error.code.server_error" },
+  networkError: { id: "app.error.code.network_error" },
+  accountAlreadyConfirmed: { id: "app.error.code.account_already_confirmed" },
+  invalid: { id: "app.error.code.invalid" }, // invalida data as well
+  invalidData: { id: "app.error.code.invalid_data" }, // v1
+  invalidToken: { id: "app.error.code.invalid_token" },
+  tokenInvalidText: { id: "app.error.code.token_invalid.text" },
+  tokenInvalidLink: { id: "app.error.code.token_invalid.link" },
+  emailNotFound: { id: "app.error.code.email_not_found" },
+  emailNotUniq: { id: "app.error.code.email_not_unique" },
+  emailPermissionMissing: { id: "app.error.code.email_permission_missing" },
+  accountNotConfirmed: { id: "app.error.code.account_not_confirmed" },
+  accountInactiveText: { id: "app.error.code.account_inactive.text" },
+  accountInactiveLink: { id: "app.error.code.account_inactive.link" },
+  wrongCredentialsText: { id: "app.error.code.wrong_credentials.text" },
+  wrongCredentialsLink: { id: "app.error.code.wrong_credentials.link" },
+  authFail: { id: "app.error.code.auth_failed" },
+  accountExists: { id: "app.error.code.account_exists" },
+  wrongFormat: { id: "app.error.code.wrong_format" },
+  socialAccountExists: { id: "app.error.code.social_account_exists" },
+  notConfirmedText: { id: "app.error.code.not_confirmed.text" },
+  notConfirmedLink: { id: "app.error.code.not_confirmed.link" },
+  candidateInactive: { id: "app.error.code.candidate_inactive" },
+  candidateNotFound: { id: "app.error.code.candidate_not_found" },
+  notCompleted: { id: "app.error.code.not_completed" },
+  accountDeleted: { id: "app.error.code.account_deleted" },
+  jobNotFound: { id: "app.error.code.job_not_found" },
+  jobInactive: { id: "app.error.code.job_inactive" },
+  wrongPassword: { id: "app.error.code.wrong_password" },
+  authenticationFail: { id: "app.error.code.authentication_failed" },
+  authorizationFail: { id: "app.error.code.authorization_failed" },
+  userLoginCancel: { id: "app.error.code.user_cancelled_login" },
+  accesDenied: { id: "app.error.code.access_denied" }
 })
 
 const serverErrorsMap = {
@@ -55,10 +55,10 @@ const serverErrorsMap = {
           <FormattedMessage {...messages.wrongCredentialsLink}>
             {txt => (
               <Link
-                className='u'
+                className="u"
                 to={{
-                  pathname: '/password-recovery',
-                  state: {email: action.email}
+                  pathname: "/password-recovery",
+                  state: { email: action.email }
                 }}
               >
                 {txt}
@@ -76,7 +76,7 @@ const serverErrorsMap = {
   token_invalid: (
     <span>
       <FormattedMessage {...messages.tokenInvalidText} />
-      <Link to='/resend'>
+      <Link to="/resend">
         &nbsp;
         <FormattedMessage {...messages.tokenInvalidLink} />
       </Link>
@@ -89,7 +89,7 @@ const serverErrorsMap = {
   account_inactive: (
     <span>
       <FormattedMessage {...messages.accountInactiveText} />
-      <Link to='/resend'>
+      <Link to="/resend">
         &nbsp;
         <FormattedMessage {...messages.accountInactiveLink} />
       </Link>
@@ -105,7 +105,7 @@ const serverErrorsMap = {
       values={{
         link: (
           <FormattedMessage {...messages.notConfirmedLink}>
-            {txt => <Link to='/resend'>{txt}</Link>}
+            {txt => <Link to="/resend">{txt}</Link>}
           </FormattedMessage>
         )
       }}

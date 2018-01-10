@@ -13,15 +13,11 @@ import {
   SET,
   THREAD,
   FILTER
-} from '../constants'
+} from "../constants"
 
-import { get } from 'lodash'
+import { get } from "lodash"
 
-import {
-  createReducer,
-  getActionType,
-  arrayToObject
-} from '../helpers/utils'
+import { createReducer, getActionType, arrayToObject } from "../helpers/utils"
 
 export const defaultState = {
   loading: NONE,
@@ -38,14 +34,13 @@ export const defaultState = {
 }
 
 export const actionHandlers = {
-
-  [getActionType(MESSAGES, GET, START)]: (state) => ({
+  [getActionType(MESSAGES, GET, START)]: state => ({
     ...state,
     loading: LOADING
   }),
 
   [getActionType(MESSAGES, GET, SUCCESS)]: (state, action) => {
-    const messages = get(action, 'res.data.results', [])
+    const messages = get(action, "res.data.results", [])
 
     return {
       ...state,
@@ -54,28 +49,27 @@ export const actionHandlers = {
         limit: action.payload.limit,
         page: action.payload.page
       },
-      count: get(action, 'res.data.count'),
+      count: get(action, "res.data.count"),
       result: messages.map(t => t.id),
       entities: {
         ...state.entities,
-        ...arrayToObject(messages, 'id')
+        ...arrayToObject(messages, "id")
       },
       loading: SUCCESS
     }
   },
 
-  [getActionType(MESSAGES, GET, FAIL)]: (state) => ({...state, loading: FAIL}),
+  [getActionType(MESSAGES, GET, FAIL)]: state => ({ ...state, loading: FAIL }),
 
-  [getActionType(MESSAGE, CREATE, START)]: (state) => ({
+  [getActionType(MESSAGE, CREATE, START)]: state => ({
     ...state,
     creating: LOADING
   }),
 
   [getActionType(MESSAGE, CREATE, SUCCESS)]: (state, action) => {
-    const message = get(action, 'res.data')
-    const result = state.filter.page === 1
-      ? [message.id, ...state.result]
-      : state.result
+    const message = get(action, "res.data")
+    const result =
+      state.filter.page === 1 ? [message.id, ...state.result] : state.result
 
     return {
       ...state,
@@ -89,14 +83,14 @@ export const actionHandlers = {
     }
   },
 
-  [getActionType(MESSAGE, CREATE, FAIL)]: (state) => ({
+  [getActionType(MESSAGE, CREATE, FAIL)]: state => ({
     ...state,
     creating: FAIL
   }),
 
   [getActionType(MESSAGES, FILTER, SET)]: (state, action) => ({
     ...state,
-    filter: {...get(action, 'payload.filter', state.filter)}
+    filter: { ...get(action, "payload.filter", state.filter) }
   }),
 
   [getActionType(THREAD, CREATE, SUCCESS)]: (state, action) => {
@@ -107,10 +101,9 @@ export const actionHandlers = {
     }
   },
 
-  [getActionType(LOGOUT)]: () => ({...defaultState}),
+  [getActionType(LOGOUT)]: () => ({ ...defaultState }),
 
-  [getActionType(SESSION_EXPIRED)]: () => ({...defaultState})
-
+  [getActionType(SESSION_EXPIRED)]: () => ({ ...defaultState })
 }
 
 export default createReducer(actionHandlers, defaultState)

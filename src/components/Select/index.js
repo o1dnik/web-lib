@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import ReactSelect from 'react-select'
-import cn from 'classnames'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import ReactSelect from "react-select"
+import cn from "classnames"
+import { extractErrorMessage } from "../../helpers"
 
 class Select extends Component {
   // this represents only our props, for full list react-select props
   // see https://github.com/JedWatson/react-select#further-options
   static propTypes = {
-
     name: PropTypes.string,
     value: PropTypes.oneOfType([
       PropTypes.string,
@@ -20,21 +19,21 @@ class Select extends Component {
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
-    matchPos: PropTypes.oneOf(['start', 'any']),
-    matchProp: PropTypes.oneOf(['label', 'value', 'any']),
+    matchPos: PropTypes.oneOf(["start", "any"]),
+    matchProp: PropTypes.oneOf(["label", "value", "any"]),
     arrowRenderer: PropTypes.func,
     simpleValue: PropTypes.bool,
     valueKey: PropTypes.string,
     labelKey: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    clearIconHTML: PropTypes.string,  // DANGER !
+    clearIconHTML: PropTypes.string, // DANGER !
     noArrow: PropTypes.bool,
     renderTags: PropTypes.bool,
 
     input: PropTypes.shape({
       name: PropTypes.string,
       onBlur: PropTypes.func,
-      onChange: PropTypes.func,  // mutates the redux-form Field data
+      onChange: PropTypes.func, // mutates the redux-form Field data
       onDragStart: PropTypes.func,
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
@@ -60,45 +59,54 @@ class Select extends Component {
       visited: PropTypes.bool,
       warning: PropTypes.string
     })
-
   }
 
   static defaultProps = {
     input: {},
     meta: {},
-    value: '',  // react-select expects a defined value
-    valueKey: 'value',
-    labelKey: 'label',
-    matchPos: 'start',
-    matchProp: 'label',
+    value: "", // react-select expects a defined value
+    valueKey: "value",
+    labelKey: "label",
+    matchPos: "start",
+    matchProp: "label",
     options: [],
     simpleValue: false,
     renderTags: true,
-    clearIconHTML: '<i class=\'mb-icons-cross\'/>'  // DANGER !
+    clearIconHTML: "<i class='mb-icons-cross'/>" // DANGER !
   }
 
-  render () {
+  render() {
     const {
-      id, input, value, name, meta, label, options, renderTags,
-      onChange, onFocus, clearIconHTML, ...rest
+      id,
+      input,
+      value,
+      name,
+      meta,
+      label,
+      options,
+      renderTags,
+      onChange,
+      onFocus,
+      clearIconHTML,
+      ...rest
     } = this.props
 
-    const {error, invalid, valid, touched, dirty} = meta
+    const { error, invalid, valid, touched, dirty } = meta
 
     // option ~= {label, value, [disabled, isCategory]}
     const updOptions = this.mapOptions(options)
 
     const css = cn({
-      'select-wrapper': true,
-      'select-input': true,
-      'select-input-error': (touched && invalid),
-      'select-input-success': (touched && valid)
+      "select-wrapper": true,
+      "select-input": true,
+      "select-input-error": touched && invalid,
+      "select-input-success": touched && valid
     })
 
     const inputMessageCss = cn({
-      'input-message': true,
-      'input-message-error': (touched && invalid),
-      'input-message-success': (touched && valid)
+      "input-message": true,
+      "input-message-error": touched && invalid,
+      "input-message-success": touched && valid
     })
 
     // 'react-select' expects a function in props.valueComponent
@@ -108,13 +116,12 @@ class Select extends Component {
 
     let val = value || input.value
 
-    if (val === '') {
+    if (val === "") {
       val = null
     }
 
     return (
       <div className={css} id={`ghost-${id}`}>
-
         {label && <label htmlFor={id}>{label}</label>}
 
         <ReactSelect
@@ -130,13 +137,12 @@ class Select extends Component {
           optionRenderer={this.optionRenderer}
           arrowRenderer={this.arrowRenderer}
           options={updOptions}
-          dangerouslySetInnerHTML={{__html: clearIconHTML}}
+          dangerouslySetInnerHTML={{ __html: clearIconHTML }}
         />
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
-
       </div>
     )
   }
@@ -144,17 +150,17 @@ class Select extends Component {
   // to make it work with redux-form:
   // https://github.com/erikras/redux-form/issues/82
   // https://github.com/JedWatson/react-select/issues/1129
-  handleBlur = (e) => {
-    const {onBlur, value, input, simpleValue, valueKey} = this.props
+  handleBlur = e => {
+    const { onBlur, value, input, simpleValue, valueKey } = this.props
 
-    if (onBlur && typeof onBlur === 'function') {
+    if (onBlur && typeof onBlur === "function") {
       return onBlur(e)
     }
 
-    if (input && input.onBlur && typeof input.onBlur === 'function') {
+    if (input && input.onBlur && typeof input.onBlur === "function") {
       const val = value || input.value
 
-      if (typeof val === 'string') {
+      if (typeof val === "string") {
         const obj = this.props.options.find(l => l[valueKey] === val)
 
         if (simpleValue && obj && obj[valueKey]) {
@@ -168,8 +174,8 @@ class Select extends Component {
     }
   }
 
-  mapOptions = (options) => {
-    const {labelKey, valueKey} = this.props
+  mapOptions = options => {
+    const { labelKey, valueKey } = this.props
 
     return options.map(o => {
       if (o.isCategory) {
@@ -184,13 +190,13 @@ class Select extends Component {
     })
   }
 
-  arrowRenderer = ({onMouseDown}) => {
-    const {arrowRenderer, noArrow} = this.props
+  arrowRenderer = ({ onMouseDown }) => {
+    const { arrowRenderer, noArrow } = this.props
 
     if (noArrow) return <span />
     if (!noArrow && !!arrowRenderer) return arrowRenderer()
     if (!noArrow && !arrowRenderer) {
-      return <span className='Select-arrow' onMouseDown={onMouseDown} />
+      return <span className="Select-arrow" onMouseDown={onMouseDown} />
     }
   }
 
@@ -198,23 +204,23 @@ class Select extends Component {
   // The box with items which has any number of categories in the beginning
   // of the list will render scrolled to 1st disabled=false item.
   optionRenderer = (option, key) => {
-    const {labelKey} = this.props
+    const { labelKey } = this.props
 
     if (option.isCategory) {
       return (
-        <div className='category' key={key}>
+        <div className="category" key={key}>
           <span>{option[labelKey]}</span>
         </div>
       )
     }
     return (
-      <div className='option' key={key}>
+      <div className="option" key={key}>
         <span>{option[labelKey]}</span>
       </div>
     )
   }
 
-  handleSelectRef = (element) => {
+  handleSelectRef = element => {
     this.element = element
   }
 

@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { storiesOf } from '@storybook/react'
-import Pagination from './index'
+import React, { Component } from "react"
+import { storiesOf } from "@storybook/react"
+import Pagination from "./index"
 
 class PaginationWrappaer extends Component {
   state = {
@@ -11,73 +11,75 @@ class PaginationWrappaer extends Component {
   }
 
   handlePageChange = page => {
-    this.setState((prevState) => ({...prevState, disabled: true}))
+    this.setState(prevState => ({ ...prevState, disabled: true }))
     // emulate async delay
     setTimeout(() => {
-      this.setState((prevState) => ({...prevState, page, disabled: false}))
+      this.setState(prevState => ({ ...prevState, page, disabled: false }))
     }, 300)
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     if (e) e.preventDefault()
-    const {value, name} = e.target
+    const { value, name } = e.target
 
-    this.setState((prevState) => {
-      return {...prevState, [name]: parseInt(value)}
+    this.setState(prevState => {
+      return { ...prevState, [name]: parseInt(value, 10) }
     })
   }
 
-  handleDisabledChange = (e) => {
-    const {checked, name} = e.target
+  handleDisabledChange = e => {
+    const { checked, name } = e.target
 
-    this.setState((prevState) => {
-      return {...prevState, [name]: checked}
+    this.setState(prevState => {
+      return { ...prevState, [name]: checked }
     })
   }
 
-  render () {
-    const {page, limit, count, disabled} = this.state
+  render() {
+    const { page, limit, count, disabled } = this.state
 
     return (
       <div>
-
         <div>
-          <label htmlFor='count'>Pages Count (count)</label>
+          <label htmlFor="count">Pages Count (count)</label>
           <input
-            type='number'
-            id='count'
-            name='count'
+            type="number"
+            id="count"
+            name="count"
             value={count}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange}
+          />
         </div>
 
         <div>
-          <label htmlFor='limit'>Items Per page (limit)</label>
+          <label htmlFor="limit">Items Per page (limit)</label>
           <input
-            type='number'
-            id='limit'
-            name='limit'
+            type="number"
+            id="limit"
+            name="limit"
             value={limit}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange}
+          />
         </div>
 
         <div>
-          <label htmlFor='page'>Current page (page)</label>
+          <label htmlFor="page">Current page (page)</label>
           <input
-            type='number'
-            id='page'
-            name='page'
+            type="number"
+            id="page"
+            name="page"
             value={page}
-            onChange={this.handleInputChange} />
+            onChange={this.handleInputChange}
+          />
         </div>
 
         <div>
-          <label htmlFor='disabled'>
+          <label htmlFor="disabled">
             Is disabled
             <input
-              type='checkbox'
-              id='disabled'
-              name='disabled'
+              type="checkbox"
+              id="disabled"
+              name="disabled"
               value={disabled}
               onChange={this.handleDisabledChange}
             />
@@ -96,10 +98,9 @@ class PaginationWrappaer extends Component {
   }
 }
 
-storiesOf('Pagination', module)
-  .add('Default', () => (
-    <div>
-      <h4>Pagination</h4>
-      <PaginationWrappaer />
-    </div>
-  ))
+storiesOf("Pagination", module).add("Default", () => (
+  <div>
+    <h4>Pagination</h4>
+    <PaginationWrappaer />
+  </div>
+))

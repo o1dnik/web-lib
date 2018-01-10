@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import classNames from 'classnames'
-import { getOldValue } from '../../helpers/getOldValue'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React from "react"
+import classNames from "classnames"
+import { getOldValue } from "../../helpers/getOldValue"
+import { extractErrorMessage } from "../../helpers"
 
-const TextareaInput = (props) => {
+const TextareaInput = props => {
   const {
     id,
     name,
@@ -18,17 +18,17 @@ const TextareaInput = (props) => {
     input
   } = props
 
-  const {error, invalid, valid, touched, dirty} = meta
+  const { error, invalid, valid, touched, dirty } = meta
   const styles = classNames({
-    'textareainput': true,
-    'textareainput-success': (touched && valid),
-    'textareainput-error': (touched && invalid)
+    textareainput: true,
+    "textareainput-success": touched && valid,
+    "textareainput-error": touched && invalid
   })
 
   const inputMessageCss = classNames({
-    'input-message': true,
-    'input-message-error': (touched && invalid),
-    'input-message-success': (touched && valid)
+    "input-message": true,
+    "input-message-error": touched && invalid,
+    "input-message-success": touched && valid
   })
 
   return (
@@ -79,9 +79,7 @@ TextareaInput.propTypes = {
     autofilled: PropTypes.bool,
     dirty: PropTypes.bool,
     dispatch: PropTypes.func,
-    error: PropTypes.oneOfType([
-      PropTypes.string, PropTypes.object
-    ]),
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     invalid: PropTypes.bool,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,

@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
 
-import PaginationItem from './pagination-item'
+import PaginationItem from "./pagination-item"
 
 class Pagination extends Component {
   static propTypes = {
@@ -12,8 +12,8 @@ class Pagination extends Component {
     onChange: PropTypes.func.isRequired
   }
 
-  render () {
-    const {disabled, count, page, limit} = this.props
+  render() {
+    const { disabled, count, page, limit } = this.props
 
     if (count === null || count === 0) return null
 
@@ -25,7 +25,7 @@ class Pagination extends Component {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(
           <PaginationItem
-            className={page === i ? 'current' : ''}
+            className={page === i ? "current" : ""}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
@@ -40,7 +40,7 @@ class Pagination extends Component {
       for (let i = 1; i < 6; i++) {
         pages.push(
           <PaginationItem
-            className={page === i ? 'current' : ''}
+            className={page === i ? "current" : ""}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
@@ -50,10 +50,7 @@ class Pagination extends Component {
         )
       }
       pages.push(
-        <PaginationItem
-          className='hide-inline-m'
-          key={totalPages + 1}
-          disabled>
+        <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
         </PaginationItem>
       )
@@ -61,10 +58,7 @@ class Pagination extends Component {
 
     if (page > 3 && page <= totalPages - 3 && totalPages >= 6) {
       pages.push(
-        <PaginationItem
-          className='hide-inline-m'
-          key={totalPages + 1}
-          disabled>
+        <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
         </PaginationItem>
       )
@@ -72,7 +66,7 @@ class Pagination extends Component {
       for (let i = page - 2; i <= page + 2; i++) {
         pages.push(
           <PaginationItem
-            className={page === i ? 'current' : ''}
+            className={page === i ? "current" : ""}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
@@ -83,11 +77,7 @@ class Pagination extends Component {
       }
 
       pages.push(
-        <PaginationItem
-          className='hide-inline-m'
-          key={totalPages + 2}
-          disabled
-        >
+        <PaginationItem className="hide-inline-m" key={totalPages + 2} disabled>
           ...
         </PaginationItem>
       )
@@ -95,18 +85,14 @@ class Pagination extends Component {
 
     if (page > totalPages - 3 && totalPages >= 6) {
       pages.push(
-        <PaginationItem
-          className='hide-inline-m'
-          key={totalPages + 1}
-          disabled
-        >
+        <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
         </PaginationItem>
       )
       for (let i = totalPages - 6 + 2; i <= totalPages; i++) {
         pages.push(
           <PaginationItem
-            className={page === i ? 'current' : ''}
+            className={page === i ? "current" : ""}
             key={i}
             disabled={disabled}
             onClick={this.handleChange(i, disabled)}
@@ -118,49 +104,48 @@ class Pagination extends Component {
     }
 
     return (
-      <ul className='pagination'>
-
+      <ul className="pagination">
         <PaginationItem
           disabled={page === 1 || disabled}
-          className='pagination-first'
+          className="pagination-first"
           onClick={this.handleChange(1, page === 1 || disabled)}
         >
-          <i className='ion-chevron-left' />
+          <i className="ion-chevron-left" />
         </PaginationItem>
 
         <PaginationItem
           disabled={page === 1 || disabled}
-          className='pagination-previous'
+          className="pagination-previous"
           onClick={this.handleChange(page - 1, page === 1 || disabled)}
         >
-          <i className='ion-chevron-left' />
+          <i className="ion-chevron-left" />
         </PaginationItem>
 
         {pages}
 
         <PaginationItem
           disabled={page === totalPages || disabled}
-          className='pagination-next'
+          className="pagination-next"
           onClick={this.handleChange(page + 1, page === totalPages || disabled)}
         >
-          <i className='ion-chevron-right' />
+          <i className="ion-chevron-right" />
         </PaginationItem>
 
         <PaginationItem
           disabled={page === totalPages || disabled}
-          className='pagination-last'
-          onClick={
-            this.handleChange(totalPages, page === totalPages || disabled)
-          }
+          className="pagination-last"
+          onClick={this.handleChange(
+            totalPages,
+            page === totalPages || disabled
+          )}
         >
-          <i className='ion-chevron-right' />
+          <i className="ion-chevron-right" />
         </PaginationItem>
-
       </ul>
     )
   }
 
-  handleChange = (page, disabled) => (e) => {
+  handleChange = (page, disabled) => e => {
     if (e) e.preventDefault()
 
     if (!disabled && this.props.page !== page) {

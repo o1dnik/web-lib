@@ -1,17 +1,16 @@
-import React from 'react'
-import {storiesOf} from '@storybook/react'
-import JobForm from './container'
-import {reducer as form} from 'redux-form'
-import {createStore, combineReducers} from 'redux'
-import {Provider} from 'react-redux'
+import React from "react"
+import { storiesOf } from "@storybook/react"
+import JobForm from "./container"
+import { reducer as form } from "redux-form"
+import { createStore, combineReducers } from "redux"
+import { Provider } from "react-redux"
 
-const store = createStore(combineReducers({form}), {})
+const store = createStore(combineReducers({ form }), {})
 
-storiesOf('SmartDoubleSelect', module)
-  .add('Default', () => (
-    <div>
-      <Provider store={store}>
-        <JobForm />
-      </Provider>
-    </div>
-  ))
+storiesOf("SmartDoubleSelect", module).add("Default", () => (
+  <div>
+    <Provider store={store}>
+      <JobForm />
+    </Provider>
+  </div>
+))

@@ -1,22 +1,25 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
-const Checkbox = (props) => {
-  const {id, label, input, name, onChange, onFocus, onBlur, disabled} = props
+const Checkbox = props => {
+  const { id, label, input, name, onChange, onFocus, onBlur, disabled } = props
 
   let checked = false
 
   if (input) {
-    if (typeof input.value === 'boolean' || typeof input.checked === 'boolean') {
+    if (
+      typeof input.value === "boolean" ||
+      typeof input.checked === "boolean"
+    ) {
       checked = input.checked
     }
   }
 
-  if (typeof props.checked === 'boolean') {
+  if (typeof props.checked === "boolean") {
     checked = props.checked
   }
 
-  const checkbox =
+  const checkbox = (
     <input
       id={id}
       disabled={disabled}
@@ -25,15 +28,16 @@ const Checkbox = (props) => {
       onChange={onChange || input.onChange}
       onFocus={onFocus || input.onFocus}
       onBlur={onBlur || input.onBlur}
-      type='checkbox'
+      type="checkbox"
     />
+  )
 
   if (!props.label) {
     return checkbox
   }
 
   return (
-    <label htmlFor={id} className='inline'>
+    <label htmlFor={id} className="inline">
       {checkbox}
       {label}
     </label>
@@ -65,10 +69,7 @@ Checkbox.propTypes = {
     autofilled: PropTypes.bool,
     dirty: PropTypes.bool,
     dispatch: PropTypes.func,
-    error: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object
-    ]),
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     invalid: PropTypes.bool,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,

@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import cn from 'classnames'
-import { Notification } from 'react-notification'
-import {FormattedMessage} from 'react-intl'
-import { hideAlertBar } from '../../actions/alertbar-actions'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import cn from "classnames"
+import { Notification } from "react-notification"
+import { FormattedMessage } from "react-intl"
+import { hideAlertBar } from "../../actions/alertbar-actions"
 
 class AlertBar extends Component {
   static propTypes = {
@@ -20,15 +20,15 @@ class AlertBar extends Component {
   }
 
   static defaultProps = {
-    type: 'success',
-    message: '',
+    type: "success",
+    message: "",
     values: {},
     dismissAfter: false,
     hideOnRouteChange: true,
-    action: ' '
+    action: " "
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       if (nextProps.isActive && nextProps.hideOnRouteChange) {
         nextProps.hideAlertBar()
@@ -36,8 +36,15 @@ class AlertBar extends Component {
     }
   }
 
-  render () {
-    const {type, hideAlertBar, message, dismissAfter, values, ...rest} = this.props
+  render() {
+    const {
+      type,
+      hideAlertBar,
+      message,
+      dismissAfter,
+      values,
+      ...rest
+    } = this.props
 
     const activeClasses = cn({
       shown: true,
@@ -45,28 +52,33 @@ class AlertBar extends Component {
     })
 
     const classes = cn({
-      'alert-bar': true
+      "alert-bar": true
     })
 
     const iconClasses = cn({
-      'ion-checkmark-round': type === 'success',
-      'ion-alert': type === 'info',
-      'ion-close-circled': type === 'error',
-      'ion-alert-circled': type === 'warning'
+      "ion-checkmark-round": type === "success",
+      "ion-alert": type === "info",
+      "ion-close-circled": type === "error",
+      "ion-alert-circled": type === "warning"
     })
 
-    const messageBody =
+    const messageBody = (
       <div>
         <i className={iconClasses} />
-        {message && message.id && typeof message.id === 'string' && <FormattedMessage {...message} values={values} />}
+        {message &&
+          message.id &&
+          typeof message.id === "string" && (
+            <FormattedMessage {...message} values={values} />
+          )}
         {(!message || !message.id) && <span>{message}</span>}
       </div>
+    )
 
     return (
       <Notification
         {...rest}
         message={messageBody}
-        style={false}
+        style={{}}
         isLast={false} // https://github.com/pburtchaell/react-notification/pull/108
         // someone did pull request and added check that clear
         // timeout on willReceiveProps
@@ -80,6 +92,9 @@ class AlertBar extends Component {
   }
 }
 
-export default connect(({alertbar}) => ({
-  ...alertbar
-}), {hideAlertBar})(AlertBar)
+export default connect(
+  ({ alertbar }) => ({
+    ...alertbar
+  }),
+  { hideAlertBar }
+)(AlertBar)

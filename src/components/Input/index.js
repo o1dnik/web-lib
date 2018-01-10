@@ -1,28 +1,27 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import classNames from 'classnames'
-import { getOldValue } from '../../helpers/getOldValue'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React from "react"
+import classNames from "classnames"
+import { getOldValue } from "../../helpers/getOldValue"
+import { extractErrorMessage } from "../../helpers"
 
-const Input = (props) => {
-  const {id, input, meta, placeholder, type, label, disabled} = props
-  const {error, invalid, valid, touched, dirty} = meta
+const Input = props => {
+  const { id, input, meta, placeholder, type, label, disabled } = props
+  const { error, invalid, valid, touched, dirty } = meta
 
   const inputCss = classNames({
-    'input': true,
-    'input-error': (touched && invalid),
-    'input-success': (touched && valid)
+    input: true,
+    "input-error": touched && invalid,
+    "input-success": touched && valid
   })
 
   const inputMessageCss = classNames({
-    'input-message': true,
-    'input-message-error': (touched && invalid),
-    'input-message-success': (touched && valid)
+    "input-message": true,
+    "input-message-error": touched && invalid,
+    "input-message-success": touched && valid
   })
 
   return (
     <div>
-
       {label && <label htmlFor={id}>{label}</label>}
 
       <input
@@ -41,7 +40,6 @@ const Input = (props) => {
       <span className={inputMessageCss}>
         {(dirty || touched) && invalid && extractErrorMessage(error)}
       </span>
-
     </div>
   )
 }
@@ -49,7 +47,7 @@ const Input = (props) => {
 Input.defaultProps = {
   input: {},
   meta: {},
-  type: 'text'
+  type: "text"
 }
 
 Input.propTypes = {

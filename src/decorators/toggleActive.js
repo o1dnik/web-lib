@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
-export default (Component) => {
+export default Component => {
   return class ActiveItemDecorator extends React.Component {
     static propTypes = {
       activeItem: PropTypes.any,
@@ -20,15 +20,15 @@ export default (Component) => {
 
     toggleActive = item => e => {
       if (e) e.preventDefault()
-      this.setState((prevState) => {
+      this.setState(prevState => {
         const activeItem = item === prevState.activeItem ? null : item
-        return {...prevState, activeItem}
+        return { ...prevState, activeItem }
       })
     }
 
-    isActive = id => this.state.activeItem === id;
+    isActive = id => this.state.activeItem === id
 
-    render () {
+    render() {
       return (
         <Component
           {...this.state}

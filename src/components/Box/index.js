@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import {as} from '../../helpers/customPropTypes'
+import PropTypes from "prop-types"
+import React from "react"
+import { as } from "../../helpers/customPropTypes"
 
-const Box = (props) => {
+const Box = props => {
   const style = {
     width: props.width,
     padding: props.padding,
@@ -12,7 +12,7 @@ const Box = (props) => {
   const Element = props.as
 
   return (
-    <Element className='white-box' style={style}>
+    <Element className="white-box" style={style}>
       {props.children}
     </Element>
   )
@@ -26,8 +26,8 @@ Box.propTypes = {
 }
 
 Box.defaultProps = {
-  as: 'div',
-  width: '100%',
+  as: "div",
+  width: "100%",
   style: {}
 }
 

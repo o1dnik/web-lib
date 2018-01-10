@@ -1,9 +1,9 @@
-import {REDIRECT, SUCCESS, START, FAIL} from '../constants'
-import {history} from '../history'
-import {redirectTo} from '../actions/redirect-actions'
+import { REDIRECT, SUCCESS, START, FAIL } from "../constants"
+import { history } from "../history"
+import { redirectTo } from "../actions/redirect-actions"
 
-export default ({dispatch}) => next => action => {
-  const {type, redirect} = action
+export default ({ dispatch }) => next => action => {
+  const { type, redirect } = action
 
   if (type !== REDIRECT && !redirect) return next(action)
 
@@ -27,15 +27,17 @@ export default ({dispatch}) => next => action => {
     case Boolean(redirect && redirect.path):
       dispatch(redirectTo(redirect.path, redirect.delay))
       break
+
+    default:
+      break
   }
 
   next(action)
 }
 
-function doRedirect (payload) {
+function doRedirect(payload) {
   if (payload.delay) {
-    setTimeout(() =>
-      history.push(payload.path), payload.delay)
+    setTimeout(() => history.push(payload.path), payload.delay)
   } else {
     history.push(payload.path)
   }

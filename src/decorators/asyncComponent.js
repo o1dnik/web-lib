@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Loader from '../components/Loader'
+import PropTypes from "prop-types"
+import React from "react"
+import Loader from "../components/Loader"
 
-export default function (loaderFunc) {
+export default function(loaderFunc) {
   return class AsyncComponentDecorator extends React.Component {
     static propTypes = {
       onLoadStart: PropTypes.func,
@@ -16,14 +16,14 @@ export default function (loaderFunc) {
       loadingError: null
     }
 
-    componentWillMount () {
+    componentWillMount() {
       if (this.props.onLoadStart) {
         this.props.onLoadStart()
       }
 
       loaderFunc()
         .then(component => {
-          this.setState((prevState) => {
+          this.setState(prevState => {
             if (this.props.onLoadSuccess) {
               this.props.onLoadSuccess()
             }
@@ -35,7 +35,7 @@ export default function (loaderFunc) {
           })
         })
         .catch(err => {
-          this.setState((prevState) => {
+          this.setState(prevState => {
             if (this.props.onLoadFail) {
               this.props.onLoadFail(err)
             }
@@ -48,12 +48,12 @@ export default function (loaderFunc) {
         })
     }
 
-    renderLoader () {
-      return <Loader size='large' />
+    renderLoader() {
+      return <Loader size="large" />
     }
 
-    render () {
-      const {renderLoader, ...rest} = this.props
+    render() {
+      const { renderLoader, ...rest } = this.props
 
       if (this.state.component) {
         return <this.state.component {...rest} />

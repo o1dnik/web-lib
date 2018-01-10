@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Select from '../Select'
-import Tag from '../Tag/index'
-import cn from 'classnames'
-import {isEmpty} from 'lodash'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Select from "../Select"
+import Tag from "../Tag/index"
+import cn from "classnames"
+import { isEmpty } from "lodash"
+import { extractErrorMessage } from "../../helpers"
 
 class SelectWithLevels extends Component {
   static propTypes = {
@@ -44,33 +44,33 @@ class SelectWithLevels extends Component {
       visited: PropTypes.bool,
       warning: PropTypes.string
     })
-  };
+  }
 
   static defaultProps = {
-    iconClassName: 'ion-close',
+    iconClassName: "ion-close",
     input: {},
     meta: {}
-  };
+  }
 
-  render () {
-    const {value, selectOptions, levelOptions, input, meta} = this.props
-    const {subLabel, label, onRemove, iconClassName, disabled} = this.props
-    const {disabledIfValid} = this.props
+  render() {
+    const { value, selectOptions, levelOptions, input, meta } = this.props
+    const { subLabel, label, onRemove, iconClassName, disabled } = this.props
+    const { disabledIfValid } = this.props
 
-    const {error, invalid, valid, touched, dirty} = meta
+    const { error, invalid, valid, touched, dirty } = meta
 
     const css = cn({
-      'select-with-levels': true,
-      'options-box': true,
-      'select-with-levels-error': (touched && invalid),
-      'select-with-levels-success': (touched && valid),
+      "select-with-levels": true,
+      "options-box": true,
+      "select-with-levels-error": touched && invalid,
+      "select-with-levels-success": touched && valid,
       done: valid
     })
 
     const inputMessageCss = cn({
-      'input-message': true,
-      'input-message-error': (touched && invalid),
-      'input-message-success': (touched && valid)
+      "input-message": true,
+      "input-message-error": touched && invalid,
+      "input-message-success": touched && valid
     })
 
     const selectValid = Boolean(
@@ -80,11 +80,11 @@ class SelectWithLevels extends Component {
 
     return (
       <div className={css}>
-
-        {onRemove &&
-        <span className='close' onClick={!disabled && onRemove}>
-          <i className={iconClassName} />
-        </span>}
+        {onRemove && (
+          <span className="close" onClick={!disabled && onRemove}>
+            <i className={iconClassName} />
+          </span>
+        )}
 
         <Select
           label={label}
@@ -105,32 +105,27 @@ class SelectWithLevels extends Component {
           disabled={disabled || (disabledIfValid && valid)}
         />
 
-        {selectValid &&
-        <div>
-          <label>{subLabel}</label>
+        {selectValid && (
+          <div>
+            <label>{subLabel}</label>
 
-          <div className='select-with-levels-tags-wrapper'>
-            {
-              levelOptions.map(o =>
-                <Tag {...this.getCurrentTagProps(o)}>
-                  {o.label}
-                </Tag>
-              )
-            }
+            <div className="select-with-levels-tags-wrapper">
+              {levelOptions.map(o => (
+                <Tag {...this.getCurrentTagProps(o)}>{o.label}</Tag>
+              ))}
+            </div>
           </div>
-        </div>
-        }
+        )}
 
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
-
       </div>
     )
   }
 
-  getCurrentTagProps = (currentTag) => {
-    const {disabled} = this.props
+  getCurrentTagProps = currentTag => {
+    const { disabled } = this.props
 
     // use gel old values, case its object with empty strings propetrys by
     // default
@@ -138,7 +133,7 @@ class SelectWithLevels extends Component {
 
     const props = {
       key: currentTag.value,
-      size: 'medium',
+      size: "medium",
       disabled,
       onClick: this.handleLevelChange(currentTag.value)
     }
@@ -146,17 +141,17 @@ class SelectWithLevels extends Component {
     // currentTag.value - from options
     // currentValue.level - from selected value
     if (currentTag.value === currentValue.level) {
-      props.color = 'primary'
+      props.color = "primary"
       props.bordered = true
     } else {
-      props.color = 'default'
+      props.color = "default"
       props.value = true
     }
 
     return props
   }
 
-  handleSelectChange = (selectValue) => {
+  handleSelectChange = selectValue => {
     const onChange = this.props.onChange || this.props.input.onChange
 
     const oldVal = this.getOldValue()
@@ -169,7 +164,7 @@ class SelectWithLevels extends Component {
     onChange(newVal, oldVal)
   }
 
-  handleSelectBlur = (e) => {
+  handleSelectBlur = e => {
     if (this.props.onBlur) {
       return this.props.onBlur(e)
     }
@@ -179,18 +174,18 @@ class SelectWithLevels extends Component {
     }
   }
 
-  handleSelectFocus = (e) => {
+  handleSelectFocus = e => {
     const onFocus = this.props.onFocus || this.props.input.onFocus
     onFocus && onFocus(e)
   }
 
-  handleLevelChange = (level) => (e) => {
+  handleLevelChange = level => e => {
     if (e) e.preventDefault()
     const onChange = this.props.onChange || this.props.input.onChange
 
     const oldVal = this.getOldValue()
 
-    const newVal = {...oldVal, level}
+    const newVal = { ...oldVal, level }
 
     onChange(newVal, oldVal)
     setTimeout(() => this.handleSelectBlur(), 1000)

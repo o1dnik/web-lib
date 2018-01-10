@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Checkbox from '../Checkbox'
-import cn from 'classnames'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Checkbox from "../Checkbox"
+import cn from "classnames"
+import { extractErrorMessage } from "../../helpers"
 
 class CheckboxGroup extends Component {
   static propTypes = {
@@ -39,10 +39,7 @@ class CheckboxGroup extends Component {
       autofilled: PropTypes.bool,
       dirty: PropTypes.bool,
       dispatch: PropTypes.func,
-      error: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object
-      ]),
+      error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
       invalid: PropTypes.bool,
       pristine: PropTypes.bool,
       submitting: PropTypes.bool,
@@ -51,35 +48,43 @@ class CheckboxGroup extends Component {
       visited: PropTypes.bool,
       warning: PropTypes.string
     })
-  };
+  }
 
   static defaultProps = {
     oneRequired: false,
     simpleValue: false,
-    valueKey: 'value',
-    labelKey: 'label',
+    valueKey: "value",
+    labelKey: "label",
     options: [],
     input: {},
     meta: {}
-  };
+  }
 
-  render () {
+  render() {
     const {
-      id, input, meta, label, options, value, disabled, valueKey, labelKey
+      id,
+      input,
+      meta,
+      label,
+      options,
+      value,
+      disabled,
+      valueKey,
+      labelKey
     } = this.props
 
-    const {error, invalid, valid, touched, dirty} = meta
+    const { error, invalid, valid, touched, dirty } = meta
 
     const css = cn({
-      'checkbox-group': true,
-      'checkbox-group-error': (touched && invalid),
-      'checkbox-group-success': (touched && valid)
+      "checkbox-group": true,
+      "checkbox-group-error": touched && invalid,
+      "checkbox-group-success": touched && valid
     })
 
     const inputMessageCss = cn({
-      'input-message': true,
-      'input-message-error': (touched && invalid),
-      'input-message-success': (touched && valid)
+      "input-message": true,
+      "input-message-error": touched && invalid,
+      "input-message-success": touched && valid
     })
 
     const checkboxes = options.map(o => {
@@ -92,9 +97,7 @@ class CheckboxGroup extends Component {
       }
 
       if (value) {
-        checked = value
-          .map(i => (i && i[valueKey]) || i)
-          .includes(o[valueKey])
+        checked = value.map(i => (i && i[valueKey]) || i).includes(o[valueKey])
       }
 
       return (
@@ -114,7 +117,6 @@ class CheckboxGroup extends Component {
 
     return (
       <div id={id} className={css}>
-
         {label && <label>{label}</label>}
 
         {checkboxes}
@@ -122,7 +124,6 @@ class CheckboxGroup extends Component {
         <span className={inputMessageCss}>
           {(dirty || touched) && invalid && extractErrorMessage(error)}
         </span>
-
       </div>
     )
   }
@@ -130,7 +131,7 @@ class CheckboxGroup extends Component {
   handleBlur = () => {
     const onBlur = this.props.onBlur || this.props.input.onBlur
     const val = this.props.value || this.props.input.value
-    const {simpleValue, valueKey} = this.props
+    const { simpleValue, valueKey } = this.props
 
     if (val && onBlur) {
       if (simpleValue) {
@@ -141,25 +142,24 @@ class CheckboxGroup extends Component {
     }
   }
 
-  handleFocus = (e) => {
+  handleFocus = e => {
     const onFocus = this.props.onFocus || this.props.input.onFocus
     onFocus && onFocus(e)
   }
 
-  handleChange = (e) => {
-    const {name, checked} = e.target
-    const {options, oneRequired, simpleValue, valueKey, labelKey} = this.props
+  handleChange = e => {
+    const { name, checked } = e.target
+    const { options, oneRequired, simpleValue, valueKey, labelKey } = this.props
     const onChange = this.props.onChange || this.props.input.onChange
     const oldValue = this.props.value || this.props.input.value
 
     let newValue
 
     if (checked) {
-      newValue = oldValue
-        .concat({
-          [valueKey]: name,
-          [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ''
-        })
+      newValue = oldValue.concat({
+        [valueKey]: name,
+        [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ""
+      })
     } else {
       newValue = oldValue.filter(i => ((i && i[valueKey]) || i) !== name)
       if (oneRequired && newValue.length < 1) {

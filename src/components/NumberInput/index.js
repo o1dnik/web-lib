@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
-import { clamp, inRange, add, subtract } from 'lodash'
-import { getOldValue } from '../../helpers/getOldValue'
+import { clamp, inRange, add, subtract } from "lodash"
+import { getOldValue } from "../../helpers/getOldValue"
 
-import Button from '../Button'
+import Button from "../Button"
 
 class NumberInput extends Component {
   static propTypes = {
@@ -50,31 +50,31 @@ class NumberInput extends Component {
     meta: {}
   }
 
-  render () {
-    const {id, input, placeholder, label, disabled} = this.props
+  render() {
+    const { id, input, placeholder, label, disabled } = this.props
 
     return (
       <div>
-
         {label && <label htmlFor={id}>{label}</label>}
 
-        <div className='split-group'>
-
-          <div className='short'>
+        <div className="split-group">
+          <div className="short">
             <Button
-              disabled={disabled || getOldValue(this.props) <= this.props.minValue}
+              disabled={
+                disabled || getOldValue(this.props) <= this.props.minValue
+              }
               onMouseUp={this.handleButtonUp(subtract)}
               onMouseDown={this.handleButtonDown(subtract)}
               onTouchEnd={this.handleButtonUp(subtract)}
               onTouchStart={this.handleButtonDown(subtract)}
             >
-              <i className='ion-minus-round' />
+              <i className="ion-minus-round" />
             </Button>
           </div>
 
-          <div className='long'>
+          <div className="long">
             <input
-              pattern='\d*'
+              pattern="\d*"
               min={this.props.minValue}
               max={this.props.maxValue}
               step={this.props.step}
@@ -83,36 +83,36 @@ class NumberInput extends Component {
               id={id}
               placeholder={placeholder}
               disabled={disabled}
-              type='number'
+              type="number"
               onChange={this.handleInputChange}
               onBlur={this.handleInputBlur}
               onFocus={this.handleInputFocus}
             />
           </div>
 
-          <div className='short'>
+          <div className="short">
             <Button
-              disabled={disabled || getOldValue(this.props) >= this.props.maxValue}
+              disabled={
+                disabled || getOldValue(this.props) >= this.props.maxValue
+              }
               onMouseUp={this.handleButtonUp(add)}
               onMouseDown={this.handleButtonDown(add)}
               onTouchEnd={this.handleButtonUp(add)}
               onTouchStart={this.handleButtonDown(add)}
             >
-              <i className='ion-plus-round' />
+              <i className="ion-plus-round" />
             </Button>
           </div>
-
         </div>
-
       </div>
     )
   }
 
-  handleButtonClick = (operator) => (e) => {
+  handleButtonClick = operator => e => {
     if (e) e.preventDefault()
     const onChange = this.props.onChange || this.props.input.onChange
     const oldValue = getOldValue(this.props)
-    const {minValue, maxValue, step} = this.props
+    const { minValue, maxValue, step } = this.props
 
     const newValue = clamp(operator(oldValue, step), minValue, maxValue)
 
@@ -121,10 +121,10 @@ class NumberInput extends Component {
     }
   }
 
-  handleButtonUp = (operator) => (e) => {
+  handleButtonUp = operator => e => {
     if (e) e.preventDefault()
     const onChange = this.props.onChange || this.props.input.onChange
-    const {minValue, maxValue, step} = this.props
+    const { minValue, maxValue, step } = this.props
 
     if (!this.pressed) {
       return
@@ -147,10 +147,10 @@ class NumberInput extends Component {
     }
   }
 
-  handleButtonDown = (operator) => (e) => {
+  handleButtonDown = operator => e => {
     if (e) e.preventDefault()
     const onChange = this.props.onChange || this.props.input.onChange
-    const {minValue, maxValue, step} = this.props
+    const { minValue, maxValue, step } = this.props
 
     if (this.pressed) {
       return
@@ -188,12 +188,12 @@ class NumberInput extends Component {
     }
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const onChange = this.props.onChange || this.props.input.onChange
-    const {value} = e.target
-    const {minValue, maxValue} = this.props
+    const { value } = e.target
+    const { minValue, maxValue } = this.props
 
-    if (value === '') {
+    if (value === "") {
       return onChange(value)
     }
 
@@ -204,7 +204,7 @@ class NumberInput extends Component {
     }
   }
 
-  handleInputBlur = (e) => {
+  handleInputBlur = e => {
     const oldValue = getOldValue(this.props)
 
     if (this.props.onBlur) {
@@ -216,7 +216,7 @@ class NumberInput extends Component {
     }
   }
 
-  handleInputFocus = (e) => {
+  handleInputFocus = e => {
     const onFocus = this.props.onFocus || this.props.input.onFocus
     if (onFocus) onFocus(e)
   }

@@ -1,24 +1,21 @@
-export default function (res) {
-  res.data = changeNumberToStringInObjectProps(
-    res.data,
-    [
-      'id',
-      'level',
-      'role_id',
-      'career_level',
-      'language_id',
-      'category_id',
-      'ref_id',
-      'job_types',
-      'user',
-      'status'
-    ]
-  )
+export default function(res) {
+  res.data = changeNumberToStringInObjectProps(res.data, [
+    "id",
+    "level",
+    "role_id",
+    "career_level",
+    "language_id",
+    "category_id",
+    "ref_id",
+    "job_types",
+    "user",
+    "status"
+  ])
 
   return res
 }
 
-export function changeNumberToStringInObjectProps (object, paths = ['id']) {
+export function changeNumberToStringInObjectProps(object, paths = ["id"]) {
   const newObject = {}
 
   Object.keys(object).forEach(key => {
@@ -27,23 +24,22 @@ export function changeNumberToStringInObjectProps (object, paths = ['id']) {
       return
     }
 
-    if (paths.includes(key) && typeof object[key] === 'number') {
+    if (paths.includes(key) && typeof object[key] === "number") {
       newObject[key] = String(object[key])
       return
     }
 
     if (
-      typeof object[key] === 'object' && !Array.isArray(object[key]) &&
-      object[key].toString() === '[object Object]'
+      typeof object[key] === "object" &&
+      !Array.isArray(object[key]) &&
+      object[key].toString() === "[object Object]"
     ) {
       newObject[key] = changeNumberToStringInObjectProps(object[key], paths)
       return
     }
 
     if (Array.isArray(object[key])) {
-      newObject[key] = changeNumberToStringInArrayProps(
-        object[key], key, paths
-      )
+      newObject[key] = changeNumberToStringInArrayProps(object[key], key, paths)
       return
     }
 
@@ -53,10 +49,10 @@ export function changeNumberToStringInObjectProps (object, paths = ['id']) {
   return newObject
 }
 
-export function changeNumberToStringInArrayProps (array, key, paths) {
+export function changeNumberToStringInArrayProps(array, key, paths) {
   return array.map(item => {
     if (paths.includes(key)) {
-      if (typeof item === 'number') {
+      if (typeof item === "number") {
         return String(item)
       }
     }
@@ -66,9 +62,9 @@ export function changeNumberToStringInArrayProps (array, key, paths) {
     }
 
     if (
-      typeof item === 'object' &&
+      typeof item === "object" &&
       !Array.isArray(item) &&
-      item.toString() === '[object Object]'
+      item.toString() === "[object Object]"
     ) {
       return changeNumberToStringInObjectProps(item, paths)
     }

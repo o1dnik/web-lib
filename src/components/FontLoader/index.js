@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
 const sizeMap = {
   xsmall: 16,
@@ -9,11 +9,11 @@ const sizeMap = {
   xlarge: 95
 }
 
-const FontLoader = (props) => {
+const FontLoader = props => {
   return (
     <i
-      style={{fontSize: sizeMap[props.size]}}
-      className='ion-load-c animate-spin font-loader'
+      style={{ fontSize: sizeMap[props.size] }}
+      className="ion-load-c animate-spin font-loader"
     />
   )
 }
@@ -23,7 +23,7 @@ FontLoader.propTypes = {
 }
 
 FontLoader.defaultProps = {
-  size: 'medium'
+  size: "medium"
 }
 
 export default FontLoader

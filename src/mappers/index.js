@@ -1,7 +1,9 @@
-import {memoize, flatMap} from 'lodash'
+import { memoize, flatMap } from "lodash"
 
-export const mapRolesFactory = () => memoize(items =>
-  flatMap(items, c =>
-    [{name: c.name, isCategory: true, id: c.name}, ...c.roles]
+export const mapRolesFactory = () =>
+  memoize(items =>
+    flatMap(items, c => [
+      { name: c.name, isCategory: true, id: c.name },
+      ...c.roles
+    ])
   )
-)

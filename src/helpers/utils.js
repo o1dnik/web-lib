@@ -1,24 +1,26 @@
-import { differenceInMilliseconds } from 'date-fns'
-import { isEmpty, isNil, has } from 'lodash'
-import { defineMessages } from 'react-intl'
-import { SUCCESS, START, FAIL, LOADING } from '../constants'
+import { differenceInMilliseconds } from "date-fns"
+import { isEmpty, isNil, has } from "lodash"
+import { defineMessages } from "react-intl"
+import { SUCCESS, START, FAIL, LOADING } from "../constants"
 
 const messages = defineMessages({
-  expires: {id: 'app.common.expires'},
-  expired: {id: 'app.common.expired'}
+  expires: { id: "app.common.expires" },
+  expired: { id: "app.common.expired" }
 })
 
-export function arrayToObject (array, idProp) {
+export function arrayToObject(array, idProp) {
   const obj = {}
-  array.forEach(i => { obj[i[idProp]] = i })
+  array.forEach(i => {
+    obj[i[idProp]] = i
+  })
   return obj
 }
 
-export function pageToOffset (page, limit) {
+export function pageToOffset(page, limit) {
   return limit * (page - 1)
 }
 
-export function getBase64 (file) {
+export function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new window.FileReader()
 
@@ -28,7 +30,7 @@ export function getBase64 (file) {
       resolve(reader.result)
     }
 
-    reader.onabort = (error) => {
+    reader.onabort = error => {
       reject(error)
     }
 
@@ -38,19 +40,19 @@ export function getBase64 (file) {
   })
 }
 
-export function getExpires (expiresAt) {
+export function getExpires(expiresAt) {
   const diff = differenceInMilliseconds(expiresAt, Date.now())
 
   return diff > 0
-    ? {...messages.expires, values: {time: expiresAt}}
-    : {...messages.expired, values: {time: expiresAt}}
+    ? { ...messages.expires, values: { time: expiresAt } }
+    : { ...messages.expired, values: { time: expiresAt } }
 }
 
-export function handleFieldArrayItemAdd (fields) {
+export function handleFieldArrayItemAdd(fields) {
   return () => fields.push({})
 }
 
-export function handleFieldArrayItemRemove (fields, idx, amountRequired = 0) {
+export function handleFieldArrayItemRemove(fields, idx, amountRequired = 0) {
   return () => {
     if (fields.length > amountRequired) {
       fields.remove(idx)
@@ -58,18 +60,18 @@ export function handleFieldArrayItemRemove (fields, idx, amountRequired = 0) {
   }
 }
 
-export function filterDoubleSelectEmptyValues (item) {
+export function filterDoubleSelectEmptyValues(item) {
   if (!item || isEmpty(item)) return false
 
-  if (isNil(item.id) || item.id === '') return false
+  if (isNil(item.id) || item.id === "") return false
 
-  if (isNil(item.level) || item.level === '') return false
+  if (isNil(item.level) || item.level === "") return false
 
   return true
 }
 
-export function createReducer (actionHandlers, defaultState) {
-  return function (state = defaultState, action) {
+export function createReducer(actionHandlers, defaultState) {
+  return function(state = defaultState, action) {
     if (has(actionHandlers, action.type)) {
       return actionHandlers[action.type](state, action)
     }
@@ -78,8 +80,8 @@ export function createReducer (actionHandlers, defaultState) {
   }
 }
 
-export function getActionType (...strings) {
-  return strings.join('_')
+export function getActionType(...strings) {
+  return strings.join("_")
 }
 
 // export function alwaysReturnObj (o, prop) {
@@ -95,7 +97,7 @@ export function getActionType (...strings) {
 //   }
 // }
 
-function buildReduce (props, type, cb) {
+function buildReduce(props, type, cb) {
   const result = props.reduce((acc, cur) => {
     acc[cur] = type
     return acc
@@ -116,7 +118,7 @@ function buildReduce (props, type, cb) {
   }
 }
 
-export function getAsyncActionHandler ({
+export function getAsyncActionHandler({
   type,
   props,
   onStart,

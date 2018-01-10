@@ -1,22 +1,19 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Dropzone from 'react-dropzone'
-import Button from '../Button'
-import ImageCropper from '../ImageCropper'
-import browserImageSize from 'browser-image-size'
-import {defineMessages} from 'react-intl'
-import { extractErrorMessage } from '../../helpers'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Dropzone from "react-dropzone"
+import Button from "../Button"
+import ImageCropper from "../ImageCropper"
+import browserImageSize from "browser-image-size"
+import { defineMessages } from "react-intl"
+import { extractErrorMessage } from "../../helpers"
 
-import {
-  IMG_UPLOAD_LIMIT,
-  IMG_ACCEPTED_TYPES
-} from '../../constants'
+import { IMG_UPLOAD_LIMIT, IMG_ACCEPTED_TYPES } from "../../constants"
 
 const messages = defineMessages({
-  defaultError: {id: 'app.error.code.default_error'},
-  unknownFormat: {id: 'app.alertbar.picture.unknown.format'},
-  badSize: {id: 'app.alertbar.picture.bad.size'},
-  badResolution: {id: 'app.alertbar.picture.bad.resolution'}
+  defaultError: { id: "app.error.code.default_error" },
+  unknownFormat: { id: "app.alertbar.picture.unknown.format" },
+  badSize: { id: "app.alertbar.picture.bad.size" },
+  badResolution: { id: "app.alertbar.picture.bad.resolution" }
 })
 
 class FormImageUploader extends Component {
@@ -51,10 +48,10 @@ class FormImageUploader extends Component {
     placeholder: PropTypes.string,
     type: PropTypes.string,
     showAlertBar: PropTypes.func
-  };
+  }
 
   static defaultProps = {
-    uploadButton: 'Upload',
+    uploadButton: "Upload",
     meta: {},
     input: {}
   }
@@ -63,66 +60,77 @@ class FormImageUploader extends Component {
     croppingImage: null
   }
 
-  render () {
+  render() {
     const {
-      id, input, meta, placeholder, wrapperClass, uploadButton,
-      type, alt, width, className, defaultImg, closeButtonCopy, cropButtonCopy
+      id,
+      input,
+      meta,
+      placeholder,
+      wrapperClass,
+      uploadButton,
+      type,
+      alt,
+      width,
+      className,
+      defaultImg,
+      closeButtonCopy,
+      cropButtonCopy
     } = this.props
 
-    const {croppingImage} = this.state
-    const {error, invalid, touched} = meta
+    const { croppingImage } = this.state
+    const { error, invalid, touched } = meta
 
-    const src = (croppingImage && croppingImage.preview) ||
-      input.value || defaultImg
+    const src =
+      (croppingImage && croppingImage.preview) || input.value || defaultImg
 
-    const logoUploader =
+    const logoUploader = (
       <div className={wrapperClass}>
         <div>
-          {
-            croppingImage
-              ? (
-                <ImageCropper
-                  image={croppingImage.preview}
-                  onCrop={this.handleCrop}
-                  closeButtonCopy={closeButtonCopy}
-                  cropButtonCopy={cropButtonCopy}
-                  {...input}
-                  placeholder={placeholder}
-                  id={id}
-                  type={type}
-                  onCancel={this.handleCancelCrop} />
-              )
-              : (
-                <Dropzone onDrop={this.handleUpload}
-                  className='dropzone'
-                  activeClassName='active'
-                  rejectClassName='reject'
-                  multiple={false}
-                  maxSize={IMG_UPLOAD_LIMIT}
-                  accept={IMG_ACCEPTED_TYPES}>
-                  <div className='split-group'>
-                    <div className='short'>
-                      <img alt={alt}
-                        src={src}
-                        width={width}
-                        className={className} />
-                    </div>
-                    {this.props.children ||
-                    <div className='long'>
-                      <Button size='small'>
-                        {uploadButton}
-                      </Button>
-                    </div>}
+          {croppingImage ? (
+            <ImageCropper
+              image={croppingImage.preview}
+              onCrop={this.handleCrop}
+              closeButtonCopy={closeButtonCopy}
+              cropButtonCopy={cropButtonCopy}
+              {...input}
+              placeholder={placeholder}
+              id={id}
+              type={type}
+              onCancel={this.handleCancelCrop}
+            />
+          ) : (
+            <Dropzone
+              onDrop={this.handleUpload}
+              className="dropzone"
+              activeClassName="active"
+              rejectClassName="reject"
+              multiple={false}
+              maxSize={IMG_UPLOAD_LIMIT}
+              accept={IMG_ACCEPTED_TYPES}
+            >
+              <div className="split-group">
+                <div className="short">
+                  <img
+                    alt={alt}
+                    src={src}
+                    width={width}
+                    className={className}
+                  />
+                </div>
+                {this.props.children || (
+                  <div className="long">
+                    <Button size="small">{uploadButton}</Button>
                   </div>
-                </Dropzone>
-              )
-          }
+                )}
+              </div>
+            </Dropzone>
+          )}
         </div>
       </div>
+    )
 
     return (
-      <div className='input-icon-wrapper'>
-
+      <div className="input-icon-wrapper">
         {logoUploader}
 
         <span>{touched && invalid && extractErrorMessage(error)}</span>
@@ -134,10 +142,10 @@ class FormImageUploader extends Component {
     if (e) e.preventDefault()
 
     // show AlertBar if upload been rejected
-    const {showAlertBar} = this.props
+    const { showAlertBar } = this.props
 
     if (!showAlertBar) {
-      console.warn('FormImageUploader: props.showAlertBar is not defined!')
+      console.warn("FormImageUploader: props.showAlertBar is not defined!")
     }
 
     if (reject) {
@@ -147,12 +155,12 @@ class FormImageUploader extends Component {
         message = messages.badSize
       }
 
-      if (!reject.type.includes('image')) {
+      if (!reject.type.includes("image")) {
         message = messages.unknownFormat
       }
 
       return showAlertBar({
-        type: 'error',
+        type: "error",
         message
       })
     }
@@ -160,22 +168,21 @@ class FormImageUploader extends Component {
     if (!file) return
 
     // warn if width-height exceeds 200x200
-    browserImageSize(file)
-      .then((size) => {
-        if (size.width < 200 || size.height < 200) {
-          return showAlertBar({
-            type: 'error',
-            message: messages.badResolution,
-            dismissAfter: 3000
-          })
-        }
+    browserImageSize(file).then(size => {
+      if (size.width < 200 || size.height < 200) {
+        return showAlertBar({
+          type: "error",
+          message: messages.badResolution,
+          dismissAfter: 3000
+        })
+      }
 
-        this.setState({croppingImage: file})
-      })
+      this.setState({ croppingImage: file })
+    })
   }
 
-  handleCrop = (image) => {
-    const {onChange} = this.props
+  handleCrop = image => {
+    const { onChange } = this.props
 
     if (onChange) {
       onChange(image)
@@ -185,11 +192,11 @@ class FormImageUploader extends Component {
       this.props.input.onChange(image)
     }
 
-    this.setState({croppingImage: null})
+    this.setState({ croppingImage: null })
   }
 
   handleCancelCrop = () => {
-    this.setState({croppingImage: null})
+    this.setState({ croppingImage: null })
   }
 }
 

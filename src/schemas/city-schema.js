@@ -1,12 +1,19 @@
-import yup from 'yup'
-import countrySchema from './country-schema'
+import yup from "yup"
+import countrySchema from "./country-schema"
 
-export default yup.object().shape({
+export default yup
+  .object()
+  .shape({
+    id: yup
+      .string()
+      .required()
+      .default(""),
 
-  id: yup.string().required().default(''),
+    name: yup
+      .string()
+      .required()
+      .default(""),
 
-  name: yup.string().required().default(''),
-
-  country: countrySchema.nullable(true).default(null)
-
-}).noUnknown()
+    country: countrySchema.nullable(true).default(null)
+  })
+  .noUnknown()

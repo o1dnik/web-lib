@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Textarea from 'react-textarea-autosize'
-import Button from '../Button'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Textarea from "react-textarea-autosize"
+import Button from "../Button"
 
-const style = {minHeight: '87px', marginBottom: '10px'}
+const style = { minHeight: "87px", marginBottom: "10px" }
 
 class NewMessageForm extends Component {
   static propTypes = {
@@ -15,15 +15,22 @@ class NewMessageForm extends Component {
   }
 
   static defaultProps = {
-    value: '',
-    buttonText: 'Send'
+    value: "",
+    buttonText: "Send"
   }
 
-  render () {
-    const {onSubmit, onChange, value, disabled, loading, buttonText} = this.props
+  render() {
+    const {
+      onSubmit,
+      onChange,
+      value,
+      disabled,
+      loading,
+      buttonText
+    } = this.props
 
     return (
-      <div className='message-send-form box-shadow'>
+      <div className="message-send-form box-shadow">
         <Textarea
           style={style}
           value={value}
@@ -32,7 +39,7 @@ class NewMessageForm extends Component {
           maxRows={15}
         />
         <Button
-          className='send-btn'
+          className="send-btn"
           onClick={onSubmit}
           loading={loading}
           disabled={disabled}

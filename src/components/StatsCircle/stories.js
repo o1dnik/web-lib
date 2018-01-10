@@ -1,35 +1,19 @@
-import React from 'react'
-import {storiesOf} from '@storybook/react'
-import StatsCircle from './index'
+import React from "react"
+import { storiesOf } from "@storybook/react"
+import StatsCircle from "./index"
 
-storiesOf('StatsCircle', module)
-  .add('Default', () => (
+storiesOf("StatsCircle", module).add("Default", () => (
+  <div>
     <div>
-      <div>
-        <StatsCircle
-          percent={60}
-          value={5}
-          color={'#dd1843'}
-          r='40'
-        />
-      </div>
-      <div>
-        <span>
-          <StatsCircle
-            percent={90}
-            value={9}
-            color={'#dd1843'}
-            r='35'
-          />
-        </span>
-        <span>
-          <StatsCircle
-            percent={3}
-            value={30}
-            color={'#dd1843'}
-            r='35'
-          />
-        </span>
-      </div>
+      <StatsCircle percent={60} value={5} color={"#dd1843"} r="40" />
     </div>
-  ))
+    <div>
+      <span>
+        <StatsCircle percent={90} value={9} color={"#dd1843"} r="35" />
+      </span>
+      <span>
+        <StatsCircle percent={3} value={30} color={"#dd1843"} r="35" />
+      </span>
+    </div>
+  </div>
+))

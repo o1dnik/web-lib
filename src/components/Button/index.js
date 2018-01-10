@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React, { Component, Children } from 'react'
-import {appendClassPrefix, as} from '../../helpers'
-import cn from 'classnames'
+import PropTypes from "prop-types"
+import React, { Component, Children } from "react"
+import { appendClassPrefix, as } from "../../helpers"
+import cn from "classnames"
 
 class Button extends Component {
   static propTypes = {
@@ -17,38 +17,32 @@ class Button extends Component {
     apart: PropTypes.bool,
     outline: PropTypes.bool,
     rounded: PropTypes.bool,
-    size: PropTypes.oneOf([
-      'xsmall',
-      'small',
-      'medium',
-      'large',
-      'xlarge'
-    ]),
+    size: PropTypes.oneOf(["xsmall", "small", "medium", "large", "xlarge"]),
     color: PropTypes.oneOf([
-      'default',
-      'primary',
-      'light',
-      'danger',
-      'fb',
-      'tw',
-      'ln'
+      "default",
+      "primary",
+      "light",
+      "danger",
+      "fb",
+      "tw",
+      "ln"
     ])
-  };
+  }
 
   static defaultProps = {
-    as: 'button',
-    type: 'button',
-    size: 'medium',
-    color: 'default',
-    className: '',
+    as: "button",
+    type: "button",
+    size: "medium",
+    color: "default",
+    className: "",
     loading: false,
     disabled: false,
     extended: false,
     apart: false,
     outline: false
-  };
+  }
 
-  render () {
+  render() {
     const {
       target,
       type,
@@ -68,33 +62,36 @@ class Button extends Component {
       ...rest
     } = this.props
 
-    const withPrefix = appendClassPrefix('button')
+    const withPrefix = appendClassPrefix("button")
 
     const isDisabled = disabled || loading
 
-    const newCildren = Children.map(children, (c) => {
+    const newCildren = Children.map(children, c => {
       if (c === null) return null
-      if (typeof c === 'string' || typeof c === 'number') {
+      if (typeof c === "string" || typeof c === "number") {
         return <span>{c}</span>
       }
       return React.cloneElement(c, c.props)
     })
 
-    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i')
+    const hasIcon = Children.toArray(newCildren).some(c => c.type === "i")
 
-    const css = cn({
-      button: true,
-      [withPrefix(color)]: Boolean(color),
-      [withPrefix(size)]: Boolean(size),
-      [withPrefix('rounded')]: Boolean(rounded),
-      [withPrefix('outline')]: Boolean(outline),
-      [withPrefix('extended')]: Boolean(extended),
-      [withPrefix('apart')]: Boolean(apart),
-      [withPrefix('disabled')]: Boolean(disabled),
-      [withPrefix('loading')]: Boolean(loading),
-      [withPrefix('link')]: Boolean(link),
-      [withPrefix('icon')]: Boolean(hasIcon)
-    }, className)
+    const css = cn(
+      {
+        button: true,
+        [withPrefix(color)]: Boolean(color),
+        [withPrefix(size)]: Boolean(size),
+        [withPrefix("rounded")]: Boolean(rounded),
+        [withPrefix("outline")]: Boolean(outline),
+        [withPrefix("extended")]: Boolean(extended),
+        [withPrefix("apart")]: Boolean(apart),
+        [withPrefix("disabled")]: Boolean(disabled),
+        [withPrefix("loading")]: Boolean(loading),
+        [withPrefix("link")]: Boolean(link),
+        [withPrefix("icon")]: Boolean(hasIcon)
+      },
+      className
+    )
 
     const Element = as
 
@@ -106,11 +103,9 @@ class Button extends Component {
         onClick={onClick}
         disabled={isDisabled}
       >
-
-        {loading && <i className='ion-load-c animate-spin' />}
+        {loading && <i className="ion-load-c animate-spin" />}
 
         {newCildren}
-
       </Element>
     )
   }

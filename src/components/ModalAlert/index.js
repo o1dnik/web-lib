@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import Button from '../Button'
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import Button from "../Button"
 
 class AlertComponent extends Component {
   static propTypes = {
@@ -20,21 +20,20 @@ class AlertComponent extends Component {
     confirmDisabled: PropTypes.bool.isRequired,
 
     confirmLoading: PropTypes.bool.isRequired
-
-  };
+  }
 
   static defaultProps = {
-    title: '',
-    content: '',
-    confirmContent: 'Ok',
-    inputValue: '',
-    inputPlaceholder: '',
+    title: "",
+    content: "",
+    confirmContent: "Ok",
+    inputValue: "",
+    inputPlaceholder: "",
     confirmDisabled: false,
     confirmLoading: false,
-    className: ''
-  };
+    className: ""
+  }
 
-  render () {
+  render() {
     const {
       title,
       content,
@@ -50,41 +49,41 @@ class AlertComponent extends Component {
     } = this.props
 
     return (
-      <div className={'popup__box ' + className}>
-
-        <header className='popup__box__header'>
-          <i className='ion-close' onClick={onClose} />
-          <h1 className='popup__box__header__title'>
+      <div className={"popup__box " + className}>
+        <header className="popup__box__header">
+          <i className="ion-close" onClick={onClose} />
+          <h1 className="popup__box__header__title">
             <span>{title}</span>
           </h1>
         </header>
 
-        <div className='popup__box__body'>
+        <div className="popup__box__body">
           <div>
             <div>{content}</div>
-            {onInputChange &&
-            <input
-              type='text'
-              className='mm-popup__input'
-              onChange={onInputChange}
-              placeholder={inputPlaceholder}
-              value={inputValue}
-            />}
+            {onInputChange && (
+              <input
+                type="text"
+                className="mm-popup__input"
+                onChange={onInputChange}
+                placeholder={inputPlaceholder}
+                value={inputValue}
+              />
+            )}
           </div>
         </div>
 
-        {onConfirm &&
-        <footer className='popup__box__footer'>
-          <Button
-            className='mm-popup__btn mm-popup__btn--danger'
-            onClick={onConfirm}
-            disabled={confirmDisabled}
-            loading={confirmLoading}
-          >
-            {confirmContent}
-          </Button>
-        </footer>}
-
+        {onConfirm && (
+          <footer className="popup__box__footer">
+            <Button
+              className="mm-popup__btn mm-popup__btn--danger"
+              onClick={onConfirm}
+              disabled={confirmDisabled}
+              loading={confirmLoading}
+            >
+              {confirmContent}
+            </Button>
+          </footer>
+        )}
       </div>
     )
   }

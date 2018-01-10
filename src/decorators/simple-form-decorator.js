@@ -1,178 +1,176 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import {has, mapValues} from 'lodash'
+import PropTypes from "prop-types"
+import React from "react"
+import { has, mapValues } from "lodash"
 
-export default (options) => {
-  options = {initialValues: {}, validators: {}, ...options}
+export default options => {
+  options = { initialValues: {}, validators: {}, ...options }
 
-  return Component => class SimpleFormDecorator extends React.Component {
-    constructor (props, context) {
-      super(props, context)
+  return Component =>
+    class SimpleFormDecorator extends React.Component {
+      constructor(props, context) {
+        super(props, context)
 
-      this.state = {
-        initialValues: {...this.props.initialValues},
-        values: {...this.props.initialValues},
-        dirty: mapValues(this.props.initialValues, () => false),
-        touched: mapValues(this.props.initialValues, () => false),
-        isDirty: false,
-        isTouched: false
+        this.state = {
+          initialValues: { ...this.props.initialValues },
+          values: { ...this.props.initialValues },
+          dirty: mapValues(this.props.initialValues, () => false),
+          touched: mapValues(this.props.initialValues, () => false),
+          isDirty: false,
+          isTouched: false
+        }
+
+        this.state.errors = mapValues(this.props.initialValues, (val, key) => {
+          return this.validateField(val, key)
+        })
+
+        this.state.isValid = Object.keys(this.state.errors).every(
+          i => this.state.errors[i] === null
+        )
       }
 
-      this.state.errors = mapValues(this.props.initialValues, (val, key) => {
-        return this.validateField(val, key)
-      })
+      static propTypes = {
+        onSubmit: PropTypes.func,
 
-      this.state.isValid = Object
-        .keys(this.state.errors)
-        .every(i => this.state.errors[i] === null)
-    }
+        submitting: PropTypes.bool,
 
-    static propTypes = {
-      onSubmit: PropTypes.func,
+        validators: PropTypes.object,
 
-      submitting: PropTypes.bool,
+        initialValues: PropTypes.object
+      }
 
-      validators: PropTypes.object,
+      static defaultProps = {
+        submitting: false,
+        initialValues: options.initialValues,
+        validators: options.validators
+      }
 
-      initialValues: PropTypes.object
-    };
+      render() {
+        return (
+          <Component
+            {...this.props}
+            {...this.state}
+            handleFieldChange={this.handleFieldChange}
+            handleFieldBlur={this.handleFieldBlur}
+            getMetaForField={this.getMetaForField}
+            resetForm={this.resetForm}
+            reinitializeForm={this.reinitializeForm}
+          />
+        )
+      }
 
-    static defaultProps = {
-      submitting: false,
-      initialValues: options.initialValues,
-      validators: options.validators
-    };
+      handleFieldChange = e => {
+        if (e) e.preventDefault()
 
-    render () {
-      return (
-        <Component
-          {...this.props}
-          {...this.state}
-          handleFieldChange={this.handleFieldChange}
-          handleFieldBlur={this.handleFieldBlur}
-          getMetaForField={this.getMetaForField}
-          resetForm={this.resetForm}
-          reinitializeForm={this.reinitializeForm}
-        />
-      )
-    }
+        const { value, name } = e.target
 
-    handleFieldChange = (e) => {
-      if (e) e.preventDefault()
+        const error = this.validateField(value, name)
 
-      const {value, name} = e.target
+        this.setState(prevState => {
+          const dirty = {
+            ...prevState.dirty,
+            [name]: value !== prevState.initialValues[name]
+          }
 
-      const error = this.validateField(value, name)
+          const errors = { ...prevState.errors, [name]: error }
 
-      this.setState((prevState) => {
-        const dirty = {
-          ...prevState.dirty,
-          [name]: value !== prevState.initialValues[name]
-        }
-
-        const errors = {...prevState.errors, [name]: error}
-
-        return {
-          values: {...prevState.values, [name]: value},
-          dirty,
-          errors,
-          isDirty: Object.keys(dirty).some(i => dirty[i] !== false),
-          isValid: Object.keys(errors).every(i => errors[i] === null)
-        }
-      })
-    }
-
-    handleFieldBlur = (e) => {
-      if (e) e.preventDefault()
-
-      const {value, name} = e.target
-
-      const error = this.validateField(value, name)
-
-      this.setState((prevState) => {
-        const touched = {...prevState.touched, [name]: true}
-        const errors = {...prevState.errors, [name]: error}
-
-        return {
-          touched,
-          errors,
-          isTouched: Object.keys(touched).some(i => touched[i] === true),
-          isValid: Object.keys(errors).every(i => errors[i] === null)
-        }
-      })
-    }
-
-    validateField = (value, name) => {
-      const {validators} = this.props
-
-      let error = null
-
-      if (
-        has(validators, name) && Array.isArray(validators[name])
-      ) {
-        validators[name].forEach(fn => {
-          if (error) return
-          error = fn(value, this.state.values)
+          return {
+            values: { ...prevState.values, [name]: value },
+            dirty,
+            errors,
+            isDirty: Object.keys(dirty).some(i => dirty[i] !== false),
+            isValid: Object.keys(errors).every(i => errors[i] === null)
+          }
         })
       }
 
-      return error
-    }
+      handleFieldBlur = e => {
+        if (e) e.preventDefault()
 
-    getMetaForField = (name) => {
-      const {errors, touched, dirty} = this.state
+        const { value, name } = e.target
 
-      return {
-        touched: touched[name],
-        invalid: errors[name] !== null,
-        dirty: dirty[name],
-        valid: errors[name] === null,
-        error: errors[name]
+        const error = this.validateField(value, name)
+
+        this.setState(prevState => {
+          const touched = { ...prevState.touched, [name]: true }
+          const errors = { ...prevState.errors, [name]: error }
+
+          return {
+            touched,
+            errors,
+            isTouched: Object.keys(touched).some(i => touched[i] === true),
+            isValid: Object.keys(errors).every(i => errors[i] === null)
+          }
+        })
+      }
+
+      validateField = (value, name) => {
+        const { validators } = this.props
+
+        let error = null
+
+        if (has(validators, name) && Array.isArray(validators[name])) {
+          validators[name].forEach(fn => {
+            if (error) return
+            error = fn(value, this.state.values)
+          })
+        }
+
+        return error
+      }
+
+      getMetaForField = name => {
+        const { errors, touched, dirty } = this.state
+
+        return {
+          touched: touched[name],
+          invalid: errors[name] !== null,
+          dirty: dirty[name],
+          valid: errors[name] === null,
+          error: errors[name]
+        }
+      }
+
+      resetForm = e => {
+        if (e) e.preventDefault()
+
+        this.setState(prevState => ({
+          values: { ...prevState.initialValues },
+          dirty: mapValues(prevState.initialValues, () => false),
+          errors: mapValues(prevState.initialValues, () => null),
+          touched: mapValues(prevState.initialValues, () => false),
+          isDirty: false,
+          isTouched: false,
+          isValid: false
+        }))
+      }
+
+      reinitializeForm = values => {
+        this.setState(prevState => ({
+          initialValues: {
+            ...Object.assign({}, values || prevState.values)
+          },
+
+          values: {
+            ...Object.assign({}, values || prevState.values)
+          },
+
+          dirty: mapValues(
+            Object.assign({}, values || prevState.values),
+            () => false
+          ),
+          errors: mapValues(
+            Object.assign({}, values || prevState.values),
+            () => null
+          ),
+          touched: mapValues(
+            Object.assign({}, values || prevState.values),
+            () => false
+          ),
+
+          isDirty: false,
+          isTouched: false,
+          isValid: false
+        }))
       }
     }
-
-    resetForm = (e) => {
-      if (e) e.preventDefault()
-
-      this.setState((prevState) => ({
-        values: {...prevState.initialValues},
-        dirty: mapValues(prevState.initialValues, () => false),
-        errors: mapValues(prevState.initialValues, () => null),
-        touched: mapValues(prevState.initialValues, () => false),
-        isDirty: false,
-        isTouched: false,
-        isValid: false
-      }))
-    }
-
-    reinitializeForm = (values) => {
-      this.setState((prevState) => ({
-
-        initialValues: {
-          ...Object.assign({}, values || prevState.values)
-        },
-
-        values: {
-          ...Object.assign({}, values || prevState.values)
-        },
-
-        dirty: mapValues(
-          Object.assign({}, values || prevState.values),
-          () => false
-        ),
-        errors: mapValues(
-          Object.assign({}, values || prevState.values),
-          () => null
-        ),
-        touched: mapValues(
-          Object.assign({}, values || prevState.values),
-          () => false
-        ),
-
-        isDirty: false,
-        isTouched: false,
-        isValid: false
-      }))
-    }
-  }
 }

@@ -1,14 +1,11 @@
-import React from 'react'
-import {storiesOf} from '@storybook/react'
-import ImageUploader from './index'
+import React from "react"
+import { storiesOf } from "@storybook/react"
+import ImageUploader from "./index"
 
-storiesOf('FormImageUploader', module)
-  .add('Default', () => (
-    <div>
+storiesOf("FormImageUploader", module).add("Default", () => (
+  <div>
+    <h1>Image Uploader</h1>
 
-      <h1>Image Uploader</h1>
-
-      <ImageUploader />
-
-    </div>
-  ))
+    <ImageUploader />
+  </div>
+))

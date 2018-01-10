@@ -1,24 +1,24 @@
-import {ALERT, SHOW, HIDE} from '../constants'
-import {getActionType} from '../helpers/utils'
+import { ALERT, SHOW, HIDE } from "../constants"
+import { getActionType } from "../helpers/utils"
 
 const defaultState = {
   isActive: false,
-  message: '',
-  action: '',
+  message: "",
+  action: "",
   dismissAfter: false,
   hideOnRouteChange: true,
   values: {},
-  type: ' '
+  type: " "
 }
 
 export default (state = defaultState, action) => {
-  const {type, payload} = action
+  const { type, payload } = action
 
   switch (type) {
     case getActionType(ALERT, SHOW): {
       const {
         message,
-        type = 'success',
+        type = "success",
         dismissAfter,
         action,
         hideOnRouteChange = true,
@@ -29,17 +29,18 @@ export default (state = defaultState, action) => {
         ...state,
         isActive: true,
         values,
-        message: message || '',
-        type: type || 'success',
-        dismissAfter: dismissAfter || (type === 'success' ? 3000 : false),
-        action: action || ' ',
+        message: message || "",
+        type: type || "success",
+        dismissAfter: dismissAfter || (type === "success" ? 3000 : false),
+        action: action || " ",
         hideOnRouteChange
       }
     }
 
     case getActionType(ALERT, HIDE):
-      return {...state, isActive: false, dismissAfter: false}
-  }
+      return { ...state, isActive: false, dismissAfter: false }
 
-  return state
+    default:
+      return state
+  }
 }

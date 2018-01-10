@@ -1,21 +1,20 @@
-import cn from 'classnames'
-import Range from 'react-input-range'
+import cn from "classnames"
+import Range from "react-input-range"
 
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
-import React from 'react'
+import React from "react"
 
-const InputRange = (props) => {
-  const {id, input, onChange, label, disabled} = props
-  const {minValue, maxValue, step, formatLabel} = props
+const InputRange = props => {
+  const { id, input, onChange, label, disabled } = props
+  const { minValue, maxValue, step, formatLabel } = props
 
   const wrapperCss = cn({
-    'input-range-wrapper': true
+    "input-range-wrapper": true
   })
 
   return (
     <div className={wrapperCss}>
-
       {label && <label htmlFor={id}>{label}</label>}
 
       <Range
@@ -31,7 +30,6 @@ const InputRange = (props) => {
         onChange={onChange || input.onChange}
         onChangeComplete={props.onChangeComplete}
       />
-
     </div>
   )
 }
@@ -62,7 +60,6 @@ InputRange.propTypes = {
     onFocus: PropTypes.func,
     value: PropTypes.any
   })
-
 }
 
 InputRange.defaultProps = {

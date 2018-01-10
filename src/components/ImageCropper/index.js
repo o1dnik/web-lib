@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 /**
  * Inspired by:
  * http://dropsofserenity.github.io/react-avatar-cropper/
  * https://github.com/DropsOfSerenity/react-avatar-cropper/
  */
-import React, { Component } from 'react'
-import isDataURI from 'validator/lib/isDataURI'
+import React, { Component } from "react"
+import isDataURI from "validator/lib/isDataURI"
 
 export class ImageCropper extends Component {
   static propTypes = {
@@ -26,26 +26,26 @@ export class ImageCropper extends Component {
       PropTypes.number
       // PropTypes.inctanceOf(Component),
     ])
-  };
+  }
 
   static defaultProps = {
     canvasWidth: 150,
     canvasHeight: 150,
-    closeButtonCopy: 'Cancel',
-    cropButtonCopy: 'Crop and Save'
-  };
+    closeButtonCopy: "Cancel",
+    cropButtonCopy: "Crop and Save"
+  }
 
   state = {
     dragging: false,
     image: {},
-    mouse: {x: null, y: null},
+    mouse: { x: null, y: null },
     preview: null,
     zoom: 1
   }
 
   listeners = []
 
-  componentDidMount () {
+  componentDidMount() {
     const canvas = this.canvas
 
     this.prepareImage(this.props.image)
@@ -56,27 +56,27 @@ export class ImageCropper extends Component {
       mousedown: e => this.mouseDownListener(e)
     }
 
-    window.addEventListener('mousemove', this.listeners.mousemove, false)
-    window.addEventListener('mouseup', this.listeners.mouseup, false)
-    canvas.addEventListener('mousedown', this.listeners.mousedown, false)
+    window.addEventListener("mousemove", this.listeners.mousemove, false)
+    window.addEventListener("mouseup", this.listeners.mouseup, false)
+    canvas.addEventListener("mousedown", this.listeners.mousedown, false)
     document.onselectstart = e => this.preventSelection(e)
   }
 
-  componentDidUpdate () {
-    const context = this.canvas.getContext('2d')
+  componentDidUpdate() {
+    const context = this.canvas.getContext("2d")
     context.clearRect(0, 0, this.props.canvasWidth, this.props.canvasHeight)
     this.addImageToCanvas(context, this.state.image)
   }
 
   // make sure we clean up listeners when unmounted.
-  componentWillUnmount () {
+  componentWillUnmount() {
     const canvas = this.canvas
-    window.removeEventListener('mousemove', this.listeners.mousemove)
-    window.removeEventListener('mouseup', this.listeners.mouseup)
-    canvas.removeEventListener('mousedown', this.listeners.mousedown)
+    window.removeEventListener("mousemove", this.listeners.mousemove)
+    window.removeEventListener("mouseup", this.listeners.mouseup)
+    canvas.removeEventListener("mousedown", this.listeners.mousedown)
   }
 
-  fitImageToCanvas (canvasWidth, canvasHeight) {
+  fitImageToCanvas(canvasWidth, canvasHeight) {
     let scaledHeight, scaledWidth
 
     const canvasAspectRatio = this.props.canvasHeight / this.props.canvasWidth
@@ -92,13 +92,13 @@ export class ImageCropper extends Component {
       scaledHeight = canvasHeight * scaleRatio
     }
 
-    return {width: scaledWidth, height: scaledHeight}
+    return { width: scaledWidth, height: scaledHeight }
   }
 
-  prepareImage (imageUri) {
+  prepareImage(imageUri) {
     const img = new window.Image()
 
-    if (!isDataURI(imageUri)) img.crossOrigin = 'anonymous'
+    if (!isDataURI(imageUri)) img.crossOrigin = "anonymous"
 
     img.onload = () => {
       const scaledImage = this.fitImageToCanvas(img.width, img.height)
@@ -115,27 +115,27 @@ export class ImageCropper extends Component {
     img.src = imageUri
   }
 
-  mouseDownListener () {
+  mouseDownListener() {
     this.setState({
       image: this.state.image,
       dragging: true,
-      mouse: {x: null, y: null}
+      mouse: { x: null, y: null }
     })
   }
 
-  preventSelection (e) {
+  preventSelection(e) {
     if (this.state.dragging) {
       e.preventDefault()
       return false
     }
   }
 
-  mouseUpListener () {
-    this.setState({dragging: false, preview: this.toDataURL()})
+  mouseUpListener() {
+    this.setState({ dragging: false, preview: this.toDataURL() })
   }
 
-  mouseMoveListener (e) {
-    const {image, mouse, dragging} = this.state
+  mouseMoveListener(e) {
+    const { image, mouse, dragging } = this.state
 
     if (!dragging) return
 
@@ -147,7 +147,7 @@ export class ImageCropper extends Component {
       const dx = mouse.x - mouseX
       const dy = mouse.y - mouseY
 
-      const {x, y} = this.boundedCoords(image.x, image.y, dx, dy)
+      const { x, y } = this.boundedCoords(image.x, image.y, dx, dy)
 
       newImage.x = x
       newImage.y = y
@@ -155,11 +155,11 @@ export class ImageCropper extends Component {
 
     this.setState({
       image: this.state.image,
-      mouse: {x: mouseX, y: mouseY}
+      mouse: { x: mouseX, y: mouseY }
     })
   }
 
-  boundedCoords (x, y, dx, dy) {
+  boundedCoords(x, y, dx, dy) {
     const newX = x - dx
     const newY = y - dy
 
@@ -173,7 +173,7 @@ export class ImageCropper extends Component {
 
     if (newX - dw > 0) {
       x = dw
-    } else if (newX < (-scaledWidth + rightEdge)) {
+    } else if (newX < -scaledWidth + rightEdge) {
       x = rightEdge - scaledWidth
     } else {
       x = newX
@@ -189,21 +189,21 @@ export class ImageCropper extends Component {
 
     if (newY - dh > 0) {
       y = dh
-    } else if (newY < (-scaledHeight + bottomEdge)) {
+    } else if (newY < -scaledHeight + bottomEdge) {
       y = bottomEdge - scaledHeight
     } else {
       y = newY
     }
 
-    return {x, y}
+    return { x, y }
   }
 
-  addImageToCanvas (context, image) {
+  addImageToCanvas(context, image) {
     if (!image.resource) return
 
     context.save()
 
-    context.globalCompositeOperation = 'destination-over'
+    context.globalCompositeOperation = "destination-over"
     const scaledWidth = this.state.image.width * this.state.zoom
     const scaledHeight = this.state.image.height * this.state.zoom
 
@@ -213,27 +213,31 @@ export class ImageCropper extends Component {
     // need to make sure we aren't going out of bounds here...
     x = Math.min(x, 0)
     y = Math.min(y, 0)
-    y = scaledHeight + y >= this.props.canvasHeight
-      ? y
-      : (y + (this.props.canvasHeight - (scaledHeight + y)))
-    x = scaledWidth + x >= this.props.canvasWidth
-      ? x
-      : (x + (this.props.canvasWidth - (scaledWidth + x)))
+    y =
+      scaledHeight + y >= this.props.canvasHeight
+        ? y
+        : y + (this.props.canvasHeight - (scaledHeight + y))
+    x =
+      scaledWidth + x >= this.props.canvasWidth
+        ? x
+        : x + (this.props.canvasWidth - (scaledWidth + x))
 
-    context.drawImage(image.resource,
+    context.drawImage(
+      image.resource,
       x,
       y,
       image.width * this.state.zoom,
-      image.height * this.state.zoom)
+      image.height * this.state.zoom
+    )
     context.restore()
   }
 
-  toDataURL () {
-    const {image} = this.state
-    const {canvasWidth, canvasHeight} = this.props
+  toDataURL() {
+    const { image } = this.state
+    const { canvasWidth, canvasHeight } = this.props
 
-    const canvas = document.createElement('canvas')
-    const context = canvas.getContext('2d')
+    const canvas = document.createElement("canvas")
+    const context = canvas.getContext("2d")
 
     canvas.width = canvasWidth
     canvas.height = canvasHeight
@@ -267,14 +271,17 @@ export class ImageCropper extends Component {
    }
    */
 
-  render () {
+  render() {
     return (
-      <div className='image-cropper'>
-        <figure className='user-thumbnail'>
+      <div className="image-cropper">
+        <figure className="user-thumbnail">
           <canvas
-            ref={(canvas) => { this.canvas = canvas }}
+            ref={canvas => {
+              this.canvas = canvas
+            }}
             width={this.props.canvasWidth}
-            height={this.props.canvasHeight} />
+            height={this.props.canvasHeight}
+          />
         </figure>
         {/*
          -zoom range input-
@@ -294,19 +301,16 @@ export class ImageCropper extends Component {
          />
          </div>
          */}
-        <ul className='thumbnail-upload-controls'>
+        <ul className="thumbnail-upload-controls">
           <li>
-            <a
-              onClick={this.props.onCancel}
-              className='button'
-            >{this.props.closeButtonCopy}</a>
-            <a
-              onClick={this.handleCrop}
-              className='button'
-            >{this.props.cropButtonCopy}</a>
+            <a onClick={this.props.onCancel} className="button">
+              {this.props.closeButtonCopy}
+            </a>
+            <a onClick={this.handleCrop} className="button">
+              {this.props.cropButtonCopy}
+            </a>
           </li>
         </ul>
-
       </div>
     )
   }

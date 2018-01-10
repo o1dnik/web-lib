@@ -3,15 +3,9 @@
   "version": "1.0.38",
   "description": "Moberries web-lib",
   "main": "lib/index.js",
-  "standard": {
-    "parser": "babel-eslint",
-    "ignore": [
-      "lib"
-    ]
-  },
   "scripts": {
-    "lint": "standard | snazzy",
-    "lint:fix": "standard --fix | snazzy",
+    "lint": "eslint \"src/**/*.js\"",
+    "format": "prettier --no-semi --write \"src/**/*.js\"",
     "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook",
     "build:watch": "cross-env BABEL_ENV=production babel src -d lib -w --ignore __tests__,stories.js,container.js && git add .",
@@ -29,6 +23,7 @@
     "url": "https://github.com/moberries/web-lib/issues"
   },
   "pre-commit": [
+    "format",
     "lint",
     "build:prod"
   ],
@@ -50,11 +45,25 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.8",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-config-standard-jsx": "^4.0.2",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.10",
     "pre-commit": "^1.2.2",
+    "prettier": "^1.10.1",
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
@@ -62,8 +71,6 @@
     "resolve-url-loader": "^2.2.1",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
-    "snazzy": "^7.0.0",
-    "standard": "^10.0.3",
     "style-loader": "^0.19.1",
     "surge": "^0.19.0",
     "url-loader": "^0.6.2"

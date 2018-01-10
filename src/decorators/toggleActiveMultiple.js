@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
-export default (Component) => {
+export default Component => {
   return class MultipleActiveItemDecorator extends React.Component {
     static propTypes = {
       activeItems: PropTypes.any,
@@ -22,25 +22,25 @@ export default (Component) => {
     toggleActive = item => e => {
       if (e) e.preventDefault()
 
-      this.setState((prevState) => {
-        const {activeItems} = prevState
+      this.setState(prevState => {
+        const { activeItems } = prevState
 
         const newItems = this.isActive(item)
           ? activeItems.filter(i => i !== item)
           : activeItems.concat(item)
 
-        return {...prevState, activeItems: newItems}
+        return { ...prevState, activeItems: newItems }
       })
     }
 
-    isActive = item => this.state.activeItems.includes(item);
+    isActive = item => this.state.activeItems.includes(item)
 
-    disableAll = (e) => {
+    disableAll = e => {
       if (e) e.preventDefault()
-      this.setState(prevState => ({...prevState, activeItems: []}))
+      this.setState(prevState => ({ ...prevState, activeItems: [] }))
     }
 
-    render () {
+    render() {
       return (
         <Component
           {...this.state}

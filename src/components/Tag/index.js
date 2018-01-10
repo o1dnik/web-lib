@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React, { Component, Children } from 'react'
-import {appendClassPrefix, wrapToStopPropagation} from '../../helpers'
-import cn from 'classnames'
-import {noop} from 'lodash'
+import PropTypes from "prop-types"
+import React, { Component, Children } from "react"
+import { appendClassPrefix, wrapToStopPropagation } from "../../helpers"
+import cn from "classnames"
+import { noop } from "lodash"
 
 class Tag extends Component {
   static propTypes = {
@@ -14,37 +14,31 @@ class Tag extends Component {
     apart: PropTypes.bool,
     value: PropTypes.bool,
     extra: PropTypes.bool,
-    size: PropTypes.oneOf([
-      'xsmall',
-      'small',
-      'medium',
-      'large',
-      'xlarge'
-    ]),
+    size: PropTypes.oneOf(["xsmall", "small", "medium", "large", "xlarge"]),
     color: PropTypes.oneOf([
-      'default',
-      'primary',
-      'light',
-      'danger',
-      'warm',
-      'hot',
-      'exclusive'
+      "default",
+      "primary",
+      "light",
+      "danger",
+      "warm",
+      "hot",
+      "exclusive"
     ])
-  };
+  }
 
   static defaultProps = {
-    size: 'medium',
-    color: 'default',
-    className: '',
+    size: "medium",
+    color: "default",
+    className: "",
     disabled: false,
     extended: false,
     apart: false,
     bordered: false,
     value: false,
     extra: false
-  };
+  }
 
-  render () {
+  render() {
     const {
       children,
       onClick,
@@ -60,10 +54,10 @@ class Tag extends Component {
       ...rest
     } = this.props
 
-    const withPrefix = appendClassPrefix('tag')
+    const withPrefix = appendClassPrefix("tag")
 
-    const newCildren = Children.map(children, (c) => {
-      if (typeof c === 'string' || typeof c === 'number') {
+    const newCildren = Children.map(children, c => {
+      if (typeof c === "string" || typeof c === "number") {
         return <span>{c}</span>
       }
 
@@ -78,12 +72,15 @@ class Tag extends Component {
         childClick = c.props.onClick
       }
 
-      if (c.type === 'i' && c.props.onClick) {
+      if (c.type === "i" && c.props.onClick) {
         childClick = wrapToStopPropagation(c.props.onClick)
-        className = cn({
-          close: Boolean(childClick),
-          'cursor-disabled': Boolean(disabled)
-        }, className)
+        className = cn(
+          {
+            close: Boolean(childClick),
+            "cursor-disabled": Boolean(disabled)
+          },
+          className
+        )
       }
 
       return React.cloneElement(c, {
@@ -93,28 +90,27 @@ class Tag extends Component {
       })
     })
 
-    const hasIcon = Children.toArray(newCildren).some(c => c.type === 'i')
+    const hasIcon = Children.toArray(newCildren).some(c => c.type === "i")
 
-    const css = cn({
-      tag: true,
-      [withPrefix(color)]: Boolean(color),
-      [withPrefix(size)]: Boolean(size),
-      [withPrefix('bordered')]: Boolean(bordered),
-      clickable: Boolean(onClick && !disabled),
-      [withPrefix('extended')]: Boolean(extended),
-      [withPrefix('apart')]: Boolean(apart),
-      [withPrefix('disabled')]: Boolean(disabled),
-      [withPrefix('value')]: Boolean(value),
-      [withPrefix('icon')]: Boolean(hasIcon),
-      [withPrefix('extra')]: Boolean(extra)
-    }, className)
+    const css = cn(
+      {
+        tag: true,
+        [withPrefix(color)]: Boolean(color),
+        [withPrefix(size)]: Boolean(size),
+        [withPrefix("bordered")]: Boolean(bordered),
+        clickable: Boolean(onClick && !disabled),
+        [withPrefix("extended")]: Boolean(extended),
+        [withPrefix("apart")]: Boolean(apart),
+        [withPrefix("disabled")]: Boolean(disabled),
+        [withPrefix("value")]: Boolean(value),
+        [withPrefix("icon")]: Boolean(hasIcon),
+        [withPrefix("extra")]: Boolean(extra)
+      },
+      className
+    )
 
     return (
-      <span
-        {...rest}
-        onClick={(!disabled && onClick) || noop}
-        className={css}
-      >
+      <span {...rest} onClick={(!disabled && onClick) || noop} className={css}>
         {newCildren}
       </span>
     )
