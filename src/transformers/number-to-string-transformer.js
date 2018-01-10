@@ -23,6 +23,7 @@ export function changeNumberToStringInObjectProps (object, paths = ['id']) {
 
   Object.keys(object).forEach(key => {
     if (object[key] === null || object[key] === undefined) {
+      newObject[key] = object[key]
       return
     }
 
