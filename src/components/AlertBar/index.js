@@ -78,7 +78,7 @@ class AlertBar extends Component {
       <Notification
         {...rest}
         message={messageBody}
-        style={{}}
+        style={false} // eslint-disable-line react/style-prop-object
         isLast={false} // https://github.com/pburtchaell/react-notification/pull/108
         // someone did pull request and added check that clear
         // timeout on willReceiveProps
