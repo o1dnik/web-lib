@@ -9,6 +9,7 @@ const messages = defineMessages({
   accountAlreadyConfirmed: { id: "app.error.code.account_already_confirmed" },
   invalid: { id: "app.error.code.invalid" }, // invalida data as well
   invalidData: { id: "app.error.code.invalid_data" }, // v1
+  invalidFile: { id: "app.error.code.invalid_file" },
   invalidToken: { id: "app.error.code.invalid_token" },
   tokenInvalidText: { id: "app.error.code.token_invalid.text" },
   tokenInvalidLink: { id: "app.error.code.token_invalid.link" },
@@ -71,6 +72,7 @@ const serverErrorsMap = {
   ),
   invalid: messages.invalid,
   invalid_data: messages.invalidData,
+  invalid_file: messages.invalidFile,
   invalid_token: messages.invalidToken, // JWT fails
   // email confirmation token fails
   token_invalid: (
