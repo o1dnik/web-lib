@@ -117,7 +117,7 @@ export default yup.object().shape({
         .string()
         .required()
         .default(""),
-      can_hired: yup.bool()
+      can_hired: yup.bool().nullable(true)
     })
     .required()
     .nullable(true)
