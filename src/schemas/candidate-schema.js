@@ -14,10 +14,15 @@ export default yup
     active: yup
       .bool()
       .required()
+      .nullable(true)
       .default(false),
-    active_at: yup.string(),
 
-    career_level: yup.string().default(""),
+    active_at: yup.string().nullable(true),
+
+    career_level: yup
+      .string()
+      .nullable(true)
+      .default(""),
 
     city: citySchema.nullable(true).default(null),
 
