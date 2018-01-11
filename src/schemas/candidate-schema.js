@@ -26,7 +26,7 @@ export default yup
       .required()
       .default(false),
 
-    completed_at: yup.string(),
+    completed_at: yup.string().nullable(true),
 
     completion: yup.number().default(0),
 
