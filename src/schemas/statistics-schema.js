@@ -54,14 +54,17 @@ export default yup
     last_offer_at: yup
       .string()
       .required()
+      .nullable(true)
       .default(""),
     last_match_at: yup
       .string()
       .required()
+      .nullable(true)
       .default(""),
     last_activity: yup
       .string()
       .required()
+      .nullable(true)
       .default("")
   })
   .noUnknown()
