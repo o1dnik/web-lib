@@ -51,6 +51,7 @@ export const CANDIDATES_REFERRED = "CANDIDATES_REFERRED"
 export const CANDIDATE = "CANDIDATE"
 
 export const LOCATIONS = "LOCATIONS"
+export const RECRUTIER = "RECRUTIER"
 export const LANGUAGES = "LANGUAGES"
 export const LOCALE = "LOCALE"
 export const MATCHES = "MATCHES"
@@ -132,6 +133,8 @@ export const CONNECT = "CONNECT"
 export const DISCONNECT = "DISCONNECT"
 export const CONFIRM = "CONFIRM"
 export const COUNT = "COUNT"
+export const CLOSE = "CLOSE"
+export const MODAL = "MODAL"
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = "CHANGE_REQUEST"
