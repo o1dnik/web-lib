@@ -135,6 +135,8 @@ export const CONFIRM = "CONFIRM"
 export const COUNT = "COUNT"
 export const CLOSE = "CLOSE"
 export const MODAL = "MODAL"
+export const MARK = "MARK"
+export const HIRED = "HIRED"
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = "CHANGE_REQUEST"
