@@ -116,7 +116,8 @@ export default yup.object().shape({
       expired_at: yup
         .string()
         .required()
-        .default("")
+        .default(""),
+      can_hired: yup.bool().nullable(true)
     })
     .required()
     .nullable(true)
