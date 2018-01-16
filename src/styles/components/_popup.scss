@@ -128,10 +128,6 @@
   }
 }
 
-// .popup__box__body {
-
-// }
-
 .popup__box__body p {
   margin: 0 0 rem(5);
 }
@@ -145,12 +141,6 @@
 
 .popup__box__footer__right-space {
   padding-left: 1em;
-  flex-grow: 1;
-}
-
-.popup__box__footer__left-space {
-  padding-right: 1em;
-  flex-grow: 1;
 }
 
 .popup__box--popover {
@@ -183,19 +173,9 @@
 
 @media (max-width: 420px) {
   .popup__box {
-    // width: auto;
-    // left: rem(10);
-    // right: rem(10);
-    // top: rem(10);
-    // margin-left: 0;
     margin-right: 1em;
     margin-left: 1em;
     padding: 0 1em;
-  }
-
-  .popup__box__footer__left-space, .popup__box__footer__right-space {
-    float: none;
-    width: 100%
   }
 
   .popup__box__footer {
