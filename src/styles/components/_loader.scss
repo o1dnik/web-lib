@@ -9,24 +9,28 @@
   }
 }
 
-@keyframes loader-spin {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-     transform: rotate(359deg);
-  }
+.loader #base-styles {
+  animation: loader-spin 2s infinite linear;
+  transform-origin: 50% 50%;
 }
 
 @keyframes loader-spin {
-  0%{
+  0% {
     transform: rotate(0deg);
   }
-  50%{
-    transform: rotate(179deg);
-  }
-  100%{
+  100% {
     transform: rotate(359deg);
   }
 }
 
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(179deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
