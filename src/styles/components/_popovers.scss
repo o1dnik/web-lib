@@ -1,0 +1,51 @@
+$popover-accent-color: $lipstick;
+
+$popover-dir: (
+  above: bottom,
+  below: top,
+  left: right,
+  right: left
+);
+
+svg.Popover-tip{
+  fill: $popover-accent-color;
+}
+
+.Popover-body{
+  position: relative;
+  background: $white;
+  padding: 1rem;
+  border-radius: $base-border-radius*2;
+  box-shadow: 0 0 6px transparentize($black, 0.9);
+  overflow: hidden;
+  p{
+    margin: 0;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: $popover-accent-color;
+    
+  }
+}
+
+.popover-header{
+  color: $popover-accent-color;
+  &:empty{
+    display: none;
+  }
+}
+
+@each $dir, $side in $popover-dir{
+  .Popover-#{$dir} {
+    .Popover-body{
+      padding-#{$side}: 1.25rem;
+      &:after{
+        #{$side}: 0;
+        @if $dir == above or $dir == below {left: 0; width: 100%; height: 5px;}
+        @else {top: 0; height: 100%; width: 5px;}
+      }
+    }
+  }
+}
