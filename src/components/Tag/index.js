@@ -51,6 +51,7 @@ class Tag extends Component {
       value,
       className,
       extra,
+      getRef,
       ...rest
     } = this.props
 
@@ -110,7 +111,12 @@ class Tag extends Component {
     )
 
     return (
-      <span {...rest} onClick={(!disabled && onClick) || noop} className={css}>
+      <span
+        {...rest}
+        ref={getRef}
+        onClick={(!disabled && onClick) || noop}
+        className={css}
+      >
         {newCildren}
       </span>
     )

@@ -31,6 +31,7 @@ function loadStories () {
   require('../src/components/NewMessageForm/stories')
   require('../src/components/NumberInput/stories')
   require('../src/components/Tooltip/stories')
+  require('../src/components/Popover/stories')
 }
 
 configure(loadStories, module)
