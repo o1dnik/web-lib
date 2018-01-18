@@ -15,7 +15,6 @@ storiesOf("Popover", module).add("Default", () => (
   <div style={{ paddingTop: "150px", paddingLeft: "400px", height: "900px" }}>
     <div>
       <Popover
-        className="myclassname"
         preferPlace="left"
         body={body}
         toggleOnOut
@@ -25,7 +24,6 @@ storiesOf("Popover", module).add("Default", () => (
       </Popover>
 
       <Popover
-        className="myclassname"
         preferPlace="above"
         body={body}
         toggleOnOut
@@ -35,7 +33,6 @@ storiesOf("Popover", module).add("Default", () => (
       </Popover>
 
       <Popover
-        className="myclassname"
         preferPlace="below"
         body={body}
         toggleOnOut
@@ -45,7 +42,6 @@ storiesOf("Popover", module).add("Default", () => (
       </Popover>
 
       <Popover
-        className="myclassname"
         preferPlace="right"
         body={body}
         toggleOnOut
@@ -59,7 +55,6 @@ storiesOf("Popover", module).add("Default", () => (
     <br />
     <div>
       <Popover
-        className="myclassname"
         preferPlace="above"
         body={body}
         toggleOnOut
