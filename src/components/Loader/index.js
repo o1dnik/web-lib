@@ -15,7 +15,7 @@ const Loader = props => {
       className="loader-container"
       width={sizeMap[props.size]}
       height={sizeMap[props.size]}
-      viewBox="0 0 120 120"
+      viewBox="0 0 126 126"
     >
       <g
         className="loader"

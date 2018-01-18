@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { storiesOf } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
 import Input from "./index"
@@ -10,7 +10,12 @@ storiesOf("Input", module).add("Default", () => (
       <Input
         name="my-input"
         id="my-input"
-        label="my-input"
+        label={
+          <Fragment>
+            <span>my-input</span>
+            <i className="ion-information-circled" />
+          </Fragment>
+        }
         placeholder="my-input"
         type="text"
         onChange={e => action("change")(e, e.target.value, e.target.name)}
