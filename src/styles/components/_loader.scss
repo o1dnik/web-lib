@@ -1,6 +1,12 @@
 .loader {
+  display: inline-block;
+  border-color: rgba(42, 42, 42, 0.1);
+  border-left-color: #2a2a2a;
+  border-radius: 50%;
   animation: loader-spin 2s infinite linear;
-  transform-origin: 50% 50%;
+  border-style: solid;
+  position: relative;
+  left: 50%; 
 }
 
 @keyframes loader-spin {
