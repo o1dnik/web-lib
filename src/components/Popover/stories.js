@@ -5,9 +5,11 @@ import Popover from "./index"
 import Tag from "../Tag"
 
 const body = (
-  <div>
+  <div className="popover-container">
     <h3 className="popover-header">Lorem ipsum</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p className="popover-content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
   </div>
 )
 

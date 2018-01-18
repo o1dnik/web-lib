@@ -11,14 +11,14 @@ svg.Popover-tip{
   fill: $popover-accent-color;
 }
 
-.Popover-body{
+.popover-container{
   position: relative;
   background: $white;
   padding: 1rem;
   border-radius: $base-border-radius*2;
   box-shadow: 0 0 6px transparentize($black, 0.9);
   overflow: hidden;
-  p{
+  .popover-content{
     margin: 0;
   }
   &:after{
@@ -26,7 +26,6 @@ svg.Popover-tip{
     position: absolute;
     display: block;
     background: $popover-accent-color;
-    
   }
 }
 
@@ -39,7 +38,7 @@ svg.Popover-tip{
 
 @each $dir, $side in $popover-dir{
   .Popover-#{$dir} {
-    .Popover-body{
+    .popover-container{
       padding-#{$side}: 1.25rem;
       &:after{
         #{$side}: 0;
