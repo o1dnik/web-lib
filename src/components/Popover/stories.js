@@ -7,9 +7,9 @@ import Tag from "../Tag"
 const body = (
   <div className="popover-container">
     <h3 className="popover-header">Lorem ipsum</h3>
-    <p className="popover-content">
+    <div className="popover-content">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
+    </div>
   </div>
 )
 
