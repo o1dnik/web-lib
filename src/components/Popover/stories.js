@@ -28,7 +28,6 @@ storiesOf("Popover", module).add("Default", () => (
 
       <Popover
         preferPlace="above"
-        className="popover-info"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}

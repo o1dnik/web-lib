@@ -35,7 +35,7 @@ export const PopoverComponent = props => {
 
 PopoverComponent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string.isRequired,
   place: PropTypes.string,
   preferPlace: PropTypes.string,
   body: PropTypes.node.isRequired,
@@ -45,7 +45,8 @@ PopoverComponent.propTypes = {
 
 PopoverComponent.defaultProps = {
   isOpen: false,
-  toggleOnOut: false
+  toggleOnOut: false,
+  className: "popover-info"
 }
 
 export default openClose(PopoverComponent)
