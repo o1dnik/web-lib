@@ -4,12 +4,17 @@ import { action } from "@storybook/addon-actions"
 import Popover from "./index"
 import Tag from "../Tag"
 
+// default
+// primary
+// light
+// danger
+
 const body = (
   <div className="popover-container">
     <h3 className="popover-header">Lorem ipsum</h3>
-    <p className="popover-content">
+    <div className="popover-content">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
+    </div>
   </div>
 )
 

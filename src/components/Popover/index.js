@@ -35,7 +35,7 @@ export const PopoverComponent = props => {
 
 PopoverComponent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   place: PropTypes.string,
   preferPlace: PropTypes.string,
   body: PropTypes.node.isRequired,
