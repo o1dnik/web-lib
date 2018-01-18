@@ -12,7 +12,7 @@ const body = (
 )
 
 storiesOf("Popover", module).add("Default", () => (
-  <div style={{ paddingTop: "150px", paddingLeft: "400px", height: "900px" }}>
+  <div style={{ paddingTop: "20%", textAlign: "center", height: "900px" }}>
     <div>
       <Popover
         className="myclassname"
