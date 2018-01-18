@@ -12,13 +12,13 @@ const sizeMap = {
 const Loader = props => {
   return (
     <svg
-      className="loader"
+      className="loader-container"
       width={sizeMap[props.size]}
       height={sizeMap[props.size]}
-      viewBox="0 0 120 120"
+      viewBox="0 0 122 122"
     >
       <g
-        id="base-styles"
+        className="loader"
         stroke="none"
         strokeWidth="1"
         fill="none"

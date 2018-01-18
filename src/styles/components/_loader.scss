@@ -1,15 +1,10 @@
-.loader{
+.loader-container {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  .inner-circle{
-    stroke-dasharray: 80% 100%;
-    transform-origin: 50% 50%;
-    animation: loader-spin 2s infinite linear;
-  }
 }
 
-.loader #base-styles {
+.loader {
   animation: loader-spin 2s infinite linear;
   transform-origin: 50% 50%;
 }
@@ -17,18 +12,6 @@
 @keyframes loader-spin {
   0% {
     transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
-}
-
-@keyframes loader-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(179deg);
   }
   100% {
     transform: rotate(359deg);
