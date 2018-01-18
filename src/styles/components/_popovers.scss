@@ -12,15 +12,10 @@ $popover-dir: (
   right: left
 );
 
-// Colors
-@each $name, $color in $popover-accent-colors{
-  .popover-#{$name} {
-    svg.Popover-tip{fill: $color;}
-    .popover-container:after{background: $color;}
-    .popover-header{color: $color;}
-  }
+.Popover{
+  max-width: rem(400);
+  z-index: 100000;
 }
-
 
 .popover-container{
   position: relative;
@@ -56,5 +51,14 @@ $popover-dir: (
         @else {top: 0; height: 100%; width: 5px;}
       }
     }
+  }
+}
+
+// Colors
+@each $name, $color in $popover-accent-colors{
+  .popover-#{$name} {
+    svg.Popover-tip{fill: $color;}
+    .popover-container:after{background: $color;}
+    .popover-header{color: $color;}
   }
 }
