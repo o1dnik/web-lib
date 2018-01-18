@@ -13,7 +13,7 @@ storiesOf("Input", module).add("Default", () => (
         label={
           <Fragment>
             <span>my-input</span>
-            <i className="ion-information-circled" />
+            <i className="ion-help-circled" />
           </Fragment>
         }
         placeholder="my-input"

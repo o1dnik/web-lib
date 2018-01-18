@@ -11,6 +11,14 @@ label , .sublabel{
   	text-transform: none;
   	color: $grey-md-dark;
   }
+  *+*{
+  	padding-left: .25rem;
+  }
+  i{
+  	color: $info-blue;
+  	font-size: 1.25em;
+  	line-height: 1;
+  }
 }
 
 #{$all-text-inputs} {
