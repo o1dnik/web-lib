@@ -1,4 +1,9 @@
-$popover-accent-color: $lipstick;
+$popover-accent-colors: (
+  success: #93e9aa,
+  info: #648bdd,
+  error:   #e86041,
+  warning: #ffcb6c
+);
 
 $popover-dir: (
   above: bottom,
@@ -7,9 +12,15 @@ $popover-dir: (
   right: left
 );
 
-svg.Popover-tip{
-  fill: $popover-accent-color;
+// Colors
+@each $name, $color in $popover-accent-colors{
+  .popover-#{$name} {
+    svg.Popover-tip{fill: $color;}
+    .popover-container:after{background: $color;}
+    .popover-header{color: $color;}
+  }
 }
+
 
 .popover-container{
   position: relative;
@@ -25,17 +36,16 @@ svg.Popover-tip{
     content: '';
     position: absolute;
     display: block;
-    background: $popover-accent-color;
   }
 }
 
 .popover-header{
-  color: $popover-accent-color;
   &:empty{
     display: none;
   }
 }
 
+// Directions
 @each $dir, $side in $popover-dir{
   .Popover-#{$dir} {
     .popover-container{

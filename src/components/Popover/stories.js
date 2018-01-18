@@ -18,6 +18,7 @@ storiesOf("Popover", module).add("Default", () => (
     <div>
       <Popover
         preferPlace="left"
+        className="popover-success"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}
@@ -27,6 +28,7 @@ storiesOf("Popover", module).add("Default", () => (
 
       <Popover
         preferPlace="above"
+        className="popover-info"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}
@@ -36,6 +38,7 @@ storiesOf("Popover", module).add("Default", () => (
 
       <Popover
         preferPlace="below"
+        className="popover-error"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}
@@ -45,6 +48,7 @@ storiesOf("Popover", module).add("Default", () => (
 
       <Popover
         preferPlace="right"
+        className="popover-warning"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}
@@ -58,6 +62,7 @@ storiesOf("Popover", module).add("Default", () => (
     <div>
       <Popover
         preferPlace="above"
+        className="popover-info"
         body={body}
         toggleOnOut
         onOuterAction={action("onOuterAction")}
