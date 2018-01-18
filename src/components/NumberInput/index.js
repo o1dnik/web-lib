@@ -13,7 +13,7 @@ class NumberInput extends Component {
     onChange: PropTypes.func,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
-    label: PropTypes.string,
+    label: PropTypes.node,
     placeholder: PropTypes.string,
 
     disabled: PropTypes.bool,
