@@ -53,7 +53,7 @@ PopoverComponent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   className: PropTypes.string.isRequired,
   place: PropTypes.string,
-  eventType: PropTypes.oneOf("click", "hover"),
+  eventType: PropTypes.oneOf(["click", "hover"]),
   preferPlace: PropTypes.string,
   body: PropTypes.node.isRequired,
   onOuterAction: PropTypes.func,
