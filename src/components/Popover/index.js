@@ -7,6 +7,8 @@ export const PopoverComponent = props => {
   const {
     children,
     toggle,
+    open,
+    close,
     onOuterAction,
     toggleOnOut,
     eventType,
@@ -24,8 +26,8 @@ export const PopoverComponent = props => {
       if (eventType === "click") {
         props.onClick = toggle
       } else if (eventType === "hover") {
-        props.onMouseOver = toggle
-        props.onMouseOut = toggle
+        props.onMouseOver = open
+        props.onMouseOut = close
       }
 
       return React.cloneElement(child, {
