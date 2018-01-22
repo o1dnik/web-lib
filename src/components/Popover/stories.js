@@ -68,6 +68,16 @@ storiesOf("Popover", module).add("Default", () => (
       >
         {props => <Tag onClick={props.toggle}>As a function child</Tag>}
       </Popover>
+      <Popover
+        preferPlace="right"
+        className="popover-warning"
+        body={body}
+        eventType="hover"
+        toggleOnOut
+        onOuterAction={action("onOuterAction")}
+      >
+        <Tag>Right</Tag>
+      </Popover>
     </div>
   </div>
 ))

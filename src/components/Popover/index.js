@@ -4,7 +4,14 @@ import PropTypes from "prop-types"
 import openClose from "../../decorators/openClose"
 
 export const PopoverComponent = props => {
-  const { children, toggle, onOuterAction, toggleOnOut, ...rest } = props
+  const {
+    children,
+    toggle,
+    onOuterAction,
+    toggleOnOut,
+    eventType,
+    ...rest
+  } = props
 
   let newChildren
 
@@ -12,9 +19,18 @@ export const PopoverComponent = props => {
     newChildren = children(props)
   } else {
     newChildren = React.Children.map(children, child => {
+      const props = {}
+
+      if (eventType === "click") {
+        props.onClick = toggle
+      } else if (eventType === "hover") {
+        props.onMouseOver = toggle
+        props.onMouseOut = toggle
+      }
+
       return React.cloneElement(child, {
         ...child.props,
-        onClick: toggle
+        ...props
       })
     })
   }
@@ -37,6 +53,7 @@ PopoverComponent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   className: PropTypes.string.isRequired,
   place: PropTypes.string,
+  eventType: PropTypes.oneOf("click", "hover"),
   preferPlace: PropTypes.string,
   body: PropTypes.node.isRequired,
   onOuterAction: PropTypes.func,
@@ -46,6 +63,7 @@ PopoverComponent.propTypes = {
 PopoverComponent.defaultProps = {
   isOpen: false,
   toggleOnOut: false,
+  eventType: "click",
   className: "popover-info"
 }
 
