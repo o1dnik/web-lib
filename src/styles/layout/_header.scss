@@ -39,7 +39,7 @@ header.main-header{
       display: block;
       i{
         font-size: rem(16);
-        margin-right: rem(8);
+        margin-left: rem(8);
         position: relative;
         top: 1px;
       }
@@ -64,12 +64,12 @@ header.main-header{
 }
 
 .main-nav{
-  display: none;
-  flex: 2;
-  @include breakpoint(tablet){
-    display: block;
-  }
+  display: flex;
   > ul{
+    display: none;
+    @include breakpoint(tablet){
+      display: block;
+    }
     white-space: nowrap;
     > li{
       > a{
