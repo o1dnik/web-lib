@@ -22,6 +22,7 @@
 $badge-size: rem(14);
 
 .messenger-badge {
+  &:empty{display:none}
   color: white;
   display: inline-block;
   padding: 0 rem(3);
@@ -31,6 +32,7 @@ $badge-size: rem(14);
   right: -.25rem;
   height: $badge-size;
   line-height: $badge-size;
+  min-width: $badge-size;
   text-align: center;
   font-size: rem(8);
   border-radius: $badge-size/2;
