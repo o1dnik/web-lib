@@ -105,12 +105,12 @@
     // display: flex;
     background-color: $white;
     margin: 1px 0;
-    > *{
-      &:last-child{
-        line-height: rem(30);
-        padding-left: .25em;
-      }
-    }
+    // > *{
+    //   &:last-child{
+    //     line-height: rem(30);
+    //     padding-left: .25em;
+    //   }
+    // }
   }
 }
 
