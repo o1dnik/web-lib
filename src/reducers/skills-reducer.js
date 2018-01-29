@@ -7,7 +7,8 @@ import {
   JOBS_BY_COMPANY_ID,
   JOB,
   ME,
-  BACKGROUND
+  BACKGROUND,
+  SUGGESTED
 } from "../constants"
 import { unionBy, flatten } from "lodash"
 import { getActionType } from "../helpers/utils"
@@ -26,6 +27,7 @@ export default (state = defaultState, action) => {
       return { ...state, loading: true }
     }
 
+    case getActionType(SUGGESTED, SKILLS, GET, SUCCESS):
     case getActionType(SKILLS, GET, SUCCESS): {
       const { results, count } = res.data
 
