@@ -37,7 +37,6 @@
       margin: 0;
     }
   }
-  .button-icon,
   .tag.tag-icon{
     * + *{
       margin: 0;
@@ -102,15 +101,8 @@
 // Small & Interested List
 .small-list, .liked-list{
   li{
-    // display: flex;
     background-color: $white;
     margin: 1px 0;
-    // > *{
-    //   &:last-child{
-    //     line-height: rem(30);
-    //     padding-left: .25em;
-    //   }
-    // }
   }
 }
 
