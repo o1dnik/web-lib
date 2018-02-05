@@ -117,12 +117,13 @@ class Multiselect extends Component {
             return (
               <Tag
                 key={v}
-                color={touched && valid ? "primary" : "default"}
+                color="primary"
                 size="small"
                 disabled={disabled}
+                onClick={this.handleValueRemove(v)}
               >
                 {item[labelKey]}
-                <i className="ion-close" onClick={this.handleValueRemove(v)} />
+                <i className="ion-close" />
               </Tag>
             )
           })}
