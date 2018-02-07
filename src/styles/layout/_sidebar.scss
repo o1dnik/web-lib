@@ -163,7 +163,7 @@ $progressValueColour : $lipstick-dark;
       }
       > *{
           &:first-child{
-          width: 2em;
+          min-width: 2em;
           color: $grey500;
         }
       }
