@@ -9,6 +9,11 @@ export default yup
       .required()
       .default(""),
 
+    place_id: yup
+      .string()
+      .required()
+      .default(""),
+
     name: yup
       .string()
       .required()
