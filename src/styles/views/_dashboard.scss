@@ -151,22 +151,26 @@ img.wait {
 
 .pos-info-keys{
   border-bottom: $base-border;
-  > *{
+  > *:not(:last-child){
     padding-bottom: .7em;
-    &:last-child{padding: 0;}
   }
   .row{
+    @include breakpoint(tablet){
+      display: flex;
+      .title{
+        min-width: 6rem;
+        padding: 0;
+      }
+    }
     .title{
       padding: .25em 0;
       color: $grey600;
       text-transform: uppercase;
     }
+  }
+  &.candidate-info {
     @include breakpoint(tablet){
-      display: flex;
-      .title{
-        min-width: 11rem;
-        padding: 0;
-      }
+      .title{min-width: 10rem;}
     }
   }
   .tag{
