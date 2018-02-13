@@ -14,6 +14,11 @@ export default yup
       .required()
       .default(""),
 
+    formatted_address: yup
+      .string()
+      .required()
+      .default(""),
+
     name: yup
       .string()
       .required()
