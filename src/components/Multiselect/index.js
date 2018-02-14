@@ -100,7 +100,6 @@ class Multiselect extends Component {
           name={this.props.name || input.name}
           disabled={selectProps.disabled || disabled}
           noArrow={selectProps.noArrow || disabled}
-          value={value}
           valueKey={valueKey}
           labelKey={labelKey}
           onChange={this.handleValueAdd}
