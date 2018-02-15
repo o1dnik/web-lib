@@ -12,6 +12,7 @@ export default yup
     place_id: yup
       .string()
       .required()
+      .nullable(true)
       .default(""),
 
     formatted_address: yup
