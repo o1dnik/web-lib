@@ -123,6 +123,7 @@ $button-colors: (
 }
 
 .button-group{
+  white-space: nowrap;
   > .button:not(:last-child){
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
