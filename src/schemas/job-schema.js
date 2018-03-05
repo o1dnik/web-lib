@@ -14,6 +14,12 @@ export default yup.object().shape({
 
   city: citySchema.nullable(true).default(null),
 
+  locations: yup
+    .array()
+    .of(citySchema)
+    .required()
+    .ensure(),
+
   skills: yup
     .array()
     .of(skillSchema)
