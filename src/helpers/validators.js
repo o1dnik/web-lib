@@ -55,6 +55,20 @@ export function arrayRequired(val) {
   return null
 }
 
+export function arrayMaxLengthValidator(val, opts) {
+  opts = { min: 0, max: 100, ...opts }
+
+  if (arrayRequired(val)) {
+    return arrayRequired(val)
+  }
+
+  if (val.length > opts.max) {
+    return { ...messages.maxLen, values: { max: opts.max } }
+  }
+
+  return null
+}
+
 export function validateJobRole(val) {
   if (isNil(val) || val === "") {
     return { ...messages.valueRequired }
