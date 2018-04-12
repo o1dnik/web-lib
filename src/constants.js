@@ -101,6 +101,7 @@ export const SESSION_EXPIRED = "SESSION_EXPIRED"
 
 export const LINKEDIN = "linkedin"
 export const FACEBOOK = "facebook"
+export const SLACK = "slack"
 export const PROVIDER = "PROVIDER"
 
 // common Actions
