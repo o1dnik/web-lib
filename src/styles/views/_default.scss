@@ -42,6 +42,12 @@ a.u {
   }
 }
 
+.show-tablet-only {
+  @include breakpoint(desktop) {
+    display: none;
+  }
+}
+
 .text-center {
   @extend %text-center;
 }
