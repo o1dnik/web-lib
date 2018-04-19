@@ -4,13 +4,22 @@ import { getActionType, pageToOffset } from "../helpers/utils"
 import qs from "qs"
 
 export function getThreadList(opts = {}) {
-  const { jobId, candidateId, limit, page, ordering, appendToList } = {
+  const {
+    jobId,
+    candidateId,
+    limit,
+    page,
+    ordering,
+    appendToList,
+    showLoader
+  } = {
     jobId: null,
     candidateId: null,
     limit: 10,
     page: 1,
     ordering: "last_message_timestamp",
     appendToList: true,
+    showLoader: true,
     ...opts
   }
 
@@ -23,7 +32,15 @@ export function getThreadList(opts = {}) {
       job: jobId,
       candidate: candidateId
     })}`,
-    payload: { jobId, candidateId, limit, page, ordering, appendToList },
+    payload: {
+      showLoader,
+      jobId,
+      candidateId,
+      limit,
+      page,
+      ordering,
+      appendToList
+    },
     tracking: {
       success: {
         event: "getThreadList",
