@@ -36,7 +36,7 @@ export const defaultState = {
 export const actionHandlers = {
   [getActionType(THREADS, GET, START)]: (state, action) => ({
     ...state,
-    loading: action.showLoader ? LOADING : state.loading
+    loading: action.payload.showLoader ? LOADING : state.loading
   }),
 
   [getActionType(THREADS, GET, SUCCESS)]: (state, action) => {
