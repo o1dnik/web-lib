@@ -140,6 +140,8 @@ export const MARK = "MARK"
 export const HIRED = "HIRED"
 export const NOT = "NOT"
 export const NEXT = "NEXT"
+export const INTEGRATIONS = "INTEGRATIONS"
+export const INTEGRATION = "INTEGRATION"
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = "CHANGE_REQUEST"
