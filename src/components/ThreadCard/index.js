@@ -37,7 +37,7 @@ class ThreadCard extends Component {
             <div className="list-thumb hide-m">
               <img
                 alt="Avatar"
-                src={image}
+                src={image === null ? DEFAULT_PROFILE_IMAGE : image}
                 onError={e => {
                   e.target.src = DEFAULT_PROFILE_IMAGE
                 }}

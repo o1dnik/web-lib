@@ -26,7 +26,7 @@ class Message extends Component {
             <div className="list-thumb small hide-m">
               <img
                 alt="User"
-                src={picture}
+                src={picture === null ? defaultPicture : picture}
                 onError={e => {
                   e.target.src = defaultPicture
                 }}
