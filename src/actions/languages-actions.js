@@ -6,6 +6,6 @@ export function getLanguages(search = "", limit = 100, offset = 0) {
   return {
     type: getActionType(LANGUAGES, GET),
     endpoint: `/languages/?${qs.stringify({ limit, offset, search })}`,
-    apiV: "v2"
+    apiV: "v2",
   }
 }

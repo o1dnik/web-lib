@@ -22,8 +22,8 @@ class Tag extends Component {
       "danger",
       "warm",
       "hot",
-      "exclusive"
-    ])
+      "exclusive",
+    ]),
   }
 
   static defaultProps = {
@@ -35,7 +35,7 @@ class Tag extends Component {
     apart: false,
     bordered: false,
     value: false,
-    extra: false
+    extra: false,
   }
 
   render() {
@@ -78,16 +78,16 @@ class Tag extends Component {
         className = cn(
           {
             close: Boolean(childClick),
-            "cursor-disabled": Boolean(disabled)
+            "cursor-disabled": Boolean(disabled),
           },
-          className
+          className,
         )
       }
 
       return React.cloneElement(c, {
         ...c.props,
         onClick: (!disabled && childClick) || noop,
-        className
+        className,
       })
     })
 
@@ -105,9 +105,9 @@ class Tag extends Component {
         [withPrefix("disabled")]: Boolean(disabled),
         [withPrefix("value")]: Boolean(value),
         [withPrefix("icon")]: Boolean(hasIcon),
-        [withPrefix("extra")]: Boolean(extra)
+        [withPrefix("extra")]: Boolean(extra),
       },
-      className
+      className,
     )
 
     return (

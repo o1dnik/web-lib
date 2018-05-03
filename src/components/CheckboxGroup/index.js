@@ -29,8 +29,8 @@ class CheckboxGroup extends Component {
       value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object,
-        PropTypes.array
-      ])
+        PropTypes.array,
+      ]),
     }),
 
     meta: PropTypes.shape({
@@ -46,8 +46,8 @@ class CheckboxGroup extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
@@ -57,7 +57,7 @@ class CheckboxGroup extends Component {
     labelKey: "label",
     options: [],
     input: {},
-    meta: {}
+    meta: {},
   }
 
   render() {
@@ -70,7 +70,7 @@ class CheckboxGroup extends Component {
       value,
       disabled,
       valueKey,
-      labelKey
+      labelKey,
     } = this.props
 
     const { error, invalid, valid, touched, dirty } = meta
@@ -78,13 +78,13 @@ class CheckboxGroup extends Component {
     const css = cn({
       "checkbox-group": true,
       "checkbox-group-error": touched && invalid,
-      "checkbox-group-success": touched && valid
+      "checkbox-group-success": touched && valid,
     })
 
     const inputMessageCss = cn({
       "input-message": true,
       "input-message-error": touched && invalid,
-      "input-message-success": touched && valid
+      "input-message-success": touched && valid,
     })
 
     const checkboxes = options.map(o => {
@@ -158,7 +158,7 @@ class CheckboxGroup extends Component {
     if (checked) {
       newValue = oldValue.concat({
         [valueKey]: name,
-        [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || ""
+        [labelKey]: options.find(i => i[valueKey] === name)[labelKey] || "",
       })
     } else {
       newValue = oldValue.filter(i => ((i && i[valueKey]) || i) !== name)
@@ -171,7 +171,7 @@ class CheckboxGroup extends Component {
       if (simpleValue) {
         return onChange(
           newValue.map(v => (v && v[valueKey]) || v),
-          oldValue.map(v => (v && v[valueKey]) || v)
+          oldValue.map(v => (v && v[valueKey]) || v),
         )
       }
 

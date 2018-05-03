@@ -25,8 +25,8 @@ class Button extends Component {
       "danger",
       "fb",
       "tw",
-      "ln"
-    ])
+      "ln",
+    ]),
   }
 
   static defaultProps = {
@@ -39,7 +39,7 @@ class Button extends Component {
     disabled: false,
     extended: false,
     apart: false,
-    outline: false
+    outline: false,
   }
 
   render() {
@@ -88,9 +88,9 @@ class Button extends Component {
         [withPrefix("disabled")]: Boolean(disabled),
         [withPrefix("loading")]: Boolean(loading),
         [withPrefix("link")]: Boolean(link),
-        [withPrefix("icon")]: Boolean(hasIcon)
+        [withPrefix("icon")]: Boolean(hasIcon),
       },
-      className
+      className,
     )
 
     const Element = as

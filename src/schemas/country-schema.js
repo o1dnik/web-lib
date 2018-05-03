@@ -11,6 +11,6 @@ export default yup
     name: yup
       .string()
       .required()
-      .default("")
+      .default(""),
   })
   .noUnknown()

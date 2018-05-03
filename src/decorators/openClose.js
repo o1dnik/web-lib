@@ -8,15 +8,15 @@ export default Component => {
       defaultIsOpen: PropTypes.bool,
       toggle: PropTypes.func,
       close: PropTypes.func,
-      open: PropTypes.func
+      open: PropTypes.func,
     }
 
     static defaultProps = {
-      defaultIsOpen: false
+      defaultIsOpen: false,
     }
 
     state = {
-      isOpen: this.props.defaultIsOpen
+      isOpen: this.props.defaultIsOpen,
     }
 
     toggle = e => {

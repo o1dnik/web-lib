@@ -65,6 +65,6 @@ export default yup
       .string()
       .required()
       .nullable(true)
-      .default("")
+      .default(""),
   })
   .noUnknown()

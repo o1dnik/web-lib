@@ -23,7 +23,7 @@ class ConfirmModalComponent extends Component {
     cancelDisabled: PropTypes.bool.isRequired,
 
     confirmLoading: PropTypes.bool.isRequired,
-    cancelLoading: PropTypes.bool.isRequired
+    cancelLoading: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -37,7 +37,7 @@ class ConfirmModalComponent extends Component {
     confirmDisabled: false,
     cancelDisabled: false,
     confirmLoading: false,
-    cancelLoading: false
+    cancelLoading: false,
   }
 
   render() {
@@ -56,7 +56,7 @@ class ConfirmModalComponent extends Component {
       confirmDisabled,
       cancelDisabled,
       confirmLoading,
-      cancelLoading
+      cancelLoading,
     } = this.props
 
     return (

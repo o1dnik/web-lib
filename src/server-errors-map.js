@@ -37,7 +37,7 @@ const messages = defineMessages({
   authenticationFail: { id: "app.error.code.authentication_failed" },
   authorizationFail: { id: "app.error.code.authorization_failed" },
   userLoginCancel: { id: "app.error.code.user_cancelled_login" },
-  accesDenied: { id: "app.error.code.access_denied" }
+  accesDenied: { id: "app.error.code.access_denied" },
 })
 
 const serverErrorsMap = {
@@ -59,14 +59,14 @@ const serverErrorsMap = {
                 className="u"
                 to={{
                   pathname: "/password-recovery",
-                  state: { email: action.email }
+                  state: { email: action.email },
                 }}
               >
                 {txt}
               </Link>
             )}
           </FormattedMessage>
-        )
+        ),
       }}
     />
   ),
@@ -109,7 +109,7 @@ const serverErrorsMap = {
           <FormattedMessage {...messages.notConfirmedLink}>
             {txt => <Link to="/resend">{txt}</Link>}
           </FormattedMessage>
-        )
+        ),
       }}
     />
   ),
@@ -125,7 +125,7 @@ const serverErrorsMap = {
   user_cancelled_login: messages.userLoginCancel,
   user_cancelled_authorize: messages.userLoginCancel,
   access_denied: messages.accesDenied,
-  not_found: messages.defaultError
+  not_found: messages.defaultError,
 }
 
 export default serverErrorsMap

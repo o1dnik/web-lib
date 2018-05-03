@@ -9,7 +9,7 @@ storiesOf("StepBar", module).add("Default", () => (
       steps={[
         { id: "app.registration.steps.info" },
         { id: "app.registration.steps.references" },
-        { id: "app.registration.steps.skills" }
+        { id: "app.registration.steps.skills" },
       ]}
     />
     <StepBar
@@ -17,7 +17,7 @@ storiesOf("StepBar", module).add("Default", () => (
       steps={[
         { id: "app.registration.steps.info" },
         { id: "app.registration.steps.references" },
-        { id: "app.registration.steps.skills" }
+        { id: "app.registration.steps.skills" },
       ]}
     />
     <StepBar
@@ -25,7 +25,7 @@ storiesOf("StepBar", module).add("Default", () => (
       steps={[
         { id: "app.registration.steps.info" },
         { id: "app.registration.steps.references" },
-        { id: "app.registration.steps.skills" }
+        { id: "app.registration.steps.skills" },
       ]}
     />
   </div>

@@ -7,7 +7,7 @@ class PaginationWrappaer extends Component {
     page: 1,
     limit: 10,
     count: 210,
-    disabled: false
+    disabled: false,
   }
 
   handlePageChange = page => {

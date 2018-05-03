@@ -14,13 +14,13 @@ const widths = [230, 300, 380, 420, 480]
 export class ContentLoader extends Component {
   static propTypes = {
     height: PropTypes.number.isRequired,
-    lineHeight: PropTypes.number.isRequired
+    lineHeight: PropTypes.number.isRequired,
   }
 
   static defaultProps = {
     height: 90,
     lineHeight: 10,
-    header: false
+    header: false,
   }
 
   render() {
@@ -55,7 +55,7 @@ export class ContentLoader extends Component {
                     top: `${lineHeight * i}px`,
                     left: "0",
                     right: "0",
-                    height: `${lineHeight}px`
+                    height: `${lineHeight}px`,
                   }}
                 />
               )
@@ -71,7 +71,7 @@ export class ContentLoader extends Component {
                   left: `${
                     widths[Math.floor(Math.random() * widths.length)]
                   }px`,
-                  height: `${lineHeight}px`
+                  height: `${lineHeight}px`,
                 }}
               />
             )

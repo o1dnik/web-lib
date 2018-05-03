@@ -6,7 +6,7 @@ const sizeMap = {
   small: 25,
   medium: 55,
   large: 75,
-  xlarge: 95
+  xlarge: 95,
 }
 
 const FontLoader = props => {
@@ -19,11 +19,11 @@ const FontLoader = props => {
 }
 
 FontLoader.propTypes = {
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
 }
 
 FontLoader.defaultProps = {
-  size: "medium"
+  size: "medium",
 }
 
 export default FontLoader

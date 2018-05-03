@@ -26,7 +26,7 @@ class SelectWithLevels extends Component {
       onDragStart: PropTypes.func,
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.any
+      value: PropTypes.any,
     }),
 
     meta: PropTypes.shape({
@@ -42,14 +42,14 @@ class SelectWithLevels extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
     iconClassName: "ion-close",
     input: {},
-    meta: {}
+    meta: {},
   }
 
   render() {
@@ -64,17 +64,17 @@ class SelectWithLevels extends Component {
       "options-box": true,
       "select-with-levels-error": touched && invalid,
       "select-with-levels-success": touched && valid,
-      done: valid
+      done: valid,
     })
 
     const inputMessageCss = cn({
       "input-message": true,
       "input-message-error": touched && invalid,
-      "input-message-success": touched && valid
+      "input-message-success": touched && valid,
     })
 
     const selectValid = Boolean(
-      (value && value.select) || (input.value && input.value.select)
+      (value && value.select) || (input.value && input.value.select),
     )
     const selectInValid = !selectValid
 
@@ -99,7 +99,7 @@ class SelectWithLevels extends Component {
           meta={{
             touched,
             valid: selectValid,
-            invalid: selectInValid
+            invalid: selectInValid,
           }}
           noArrow={disabled || (disabledIfValid && valid)}
           disabled={disabled || (disabledIfValid && valid)}
@@ -135,7 +135,7 @@ class SelectWithLevels extends Component {
       key: currentTag.value,
       size: "medium",
       disabled,
-      onClick: this.handleLevelChange(currentTag.value)
+      onClick: this.handleLevelChange(currentTag.value),
     }
 
     // currentTag.value - from options
@@ -158,7 +158,7 @@ class SelectWithLevels extends Component {
 
     const newVal = {
       ...oldVal,
-      select: (selectValue && selectValue.value) || selectValue
+      select: (selectValue && selectValue.value) || selectValue,
     }
 
     onChange(newVal, oldVal)

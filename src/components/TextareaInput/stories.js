@@ -24,7 +24,7 @@ storiesOf("TextareaInput", module).add("Default", () => (
         name="my-textarea"
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
         id="my-textarea"
         label="my-textarea"
@@ -42,7 +42,7 @@ storiesOf("TextareaInput", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "Error message"
+          error: "Error message",
         }}
         id="my-textarea"
         label="my-textarea"

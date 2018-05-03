@@ -15,20 +15,20 @@ const TextareaInput = props => {
     placeholder,
     rows,
     meta,
-    input
+    input,
   } = props
 
   const { error, invalid, valid, touched, dirty } = meta
   const styles = classNames({
     textareainput: true,
     "textareainput-success": touched && valid,
-    "textareainput-error": touched && invalid
+    "textareainput-error": touched && invalid,
   })
 
   const inputMessageCss = classNames({
     "input-message": true,
     "input-message-error": touched && invalid,
-    "input-message-success": touched && valid
+    "input-message-success": touched && valid,
   })
 
   return (
@@ -70,7 +70,7 @@ TextareaInput.propTypes = {
     onDragStart: PropTypes.func,
     onDrop: PropTypes.func,
     onFocus: PropTypes.func,
-    value: PropTypes.string
+    value: PropTypes.string,
   }),
 
   meta: PropTypes.shape({
@@ -86,13 +86,13 @@ TextareaInput.propTypes = {
     touched: PropTypes.bool,
     valid: PropTypes.bool,
     visited: PropTypes.bool,
-    warning: PropTypes.string
-  })
+    warning: PropTypes.string,
+  }),
 }
 
 TextareaInput.defaultProps = {
   input: {},
-  meta: {}
+  meta: {},
 }
 
 export default TextareaInput

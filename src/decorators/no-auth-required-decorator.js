@@ -5,11 +5,11 @@ import { get, defaultTo, omit, isEmpty } from "lodash"
 
 const NoAuthRequired = ({ component, isLogged, ...rest }) => {
   const query = qs.parse(
-    get(rest, "location.search", "?redirectTo=/").substring(1)
+    get(rest, "location.search", "?redirectTo=/").substring(1),
   )
 
   const redirectTo = {
-    pathname: defaultTo(query.redirectTo, "/")
+    pathname: defaultTo(query.redirectTo, "/"),
   }
 
   const searchQueryObject = omit(query, "redirectTo")
@@ -28,7 +28,7 @@ const NoAuthRequired = ({ component, isLogged, ...rest }) => {
 
         return React.createElement(component, {
           ...props,
-          renderLoader: rest.renderLoader
+          renderLoader: rest.renderLoader,
         })
       }}
     />

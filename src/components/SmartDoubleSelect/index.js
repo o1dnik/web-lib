@@ -17,7 +17,7 @@ class SmartDoubleSelect extends Component {
     selectProps: PropTypes.object,
 
     resetLevelOnSelectChange: PropTypes.bool,
-    inOneRow: PropTypes.bool
+    inOneRow: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -26,7 +26,7 @@ class SmartDoubleSelect extends Component {
     levelProps: {},
     selectProps: {},
     resetLevelOnSelectChange: false,
-    inOneRow: false
+    inOneRow: false,
   }
 
   render() {
@@ -37,7 +37,7 @@ class SmartDoubleSelect extends Component {
       inOneRow,
       resetLevelOnSelectChange,
       selectKey,
-      levelKey
+      levelKey,
     } = this.props
 
     const select = this.props[selectKey]
@@ -46,7 +46,7 @@ class SmartDoubleSelect extends Component {
     const valid = select.meta.valid && level.meta.valid
 
     const levelDisabled = Boolean(
-      !select.input.value || select.meta.invalid || levelProps.disabled
+      !select.input.value || select.meta.invalid || levelProps.disabled,
     )
 
     const selectDisabled =
@@ -55,11 +55,11 @@ class SmartDoubleSelect extends Component {
     const css = cn({
       "smart-double-select": true,
       "options-box": true,
-      done: valid
+      done: valid,
     })
 
     const wrapperCss = cn({
-      "select-group-wrapper": inOneRow
+      "select-group-wrapper": inOneRow,
     })
 
     return (

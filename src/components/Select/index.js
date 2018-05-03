@@ -12,7 +12,7 @@ class Select extends Component {
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.array,
-      PropTypes.object
+      PropTypes.object,
     ]),
     options: PropTypes.array,
     optionRenderer: PropTypes.bool,
@@ -40,8 +40,8 @@ class Select extends Component {
       value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.array,
-        PropTypes.object
-      ])
+        PropTypes.object,
+      ]),
     }),
 
     meta: PropTypes.shape({
@@ -57,8 +57,8 @@ class Select extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
@@ -72,7 +72,7 @@ class Select extends Component {
     options: [],
     simpleValue: false,
     renderTags: true,
-    clearIconHTML: "<i class='mb-icons-cross'/>" // DANGER !
+    clearIconHTML: "<i class='mb-icons-cross'/>", // DANGER !
   }
 
   render() {
@@ -100,13 +100,13 @@ class Select extends Component {
       "select-wrapper": true,
       "select-input": true,
       "select-input-error": touched && invalid,
-      "select-input-success": touched && valid
+      "select-input-success": touched && valid,
     })
 
     const inputMessageCss = cn({
       "input-message": true,
       "input-message-error": touched && invalid,
-      "input-message-success": touched && valid
+      "input-message-success": touched && valid,
     })
 
     // 'react-select' expects a function in props.valueComponent
@@ -183,7 +183,7 @@ class Select extends Component {
           [labelKey]: o[labelKey],
           [valueKey]: o[valueKey],
           disabled: true,
-          isCategory: true
+          isCategory: true,
         }
       }
       return o

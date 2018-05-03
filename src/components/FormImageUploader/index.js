@@ -13,7 +13,7 @@ const messages = defineMessages({
   defaultError: { id: "app.error.code.default_error" },
   unknownFormat: { id: "app.alertbar.picture.unknown.format" },
   badSize: { id: "app.alertbar.picture.bad.size" },
-  badResolution: { id: "app.alertbar.picture.bad.resolution" }
+  badResolution: { id: "app.alertbar.picture.bad.resolution" },
 })
 
 class FormImageUploader extends Component {
@@ -27,7 +27,7 @@ class FormImageUploader extends Component {
       onDragStart: PropTypes.func,
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.string
+      value: PropTypes.string,
     }),
     meta: PropTypes.shape({
       active: PropTypes.bool,
@@ -42,22 +42,22 @@ class FormImageUploader extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
+      warning: PropTypes.string,
     }),
     name: PropTypes.string,
     placeholder: PropTypes.string,
     type: PropTypes.string,
-    showAlertBar: PropTypes.func
+    showAlertBar: PropTypes.func,
   }
 
   static defaultProps = {
     uploadButton: "Upload",
     meta: {},
-    input: {}
+    input: {},
   }
 
   state = {
-    croppingImage: null
+    croppingImage: null,
   }
 
   render() {
@@ -74,7 +74,7 @@ class FormImageUploader extends Component {
       className,
       defaultImg,
       closeButtonCopy,
-      cropButtonCopy
+      cropButtonCopy,
     } = this.props
 
     const { croppingImage } = this.state
@@ -161,7 +161,7 @@ class FormImageUploader extends Component {
 
       return showAlertBar({
         type: "error",
-        message
+        message,
       })
     }
 
@@ -173,7 +173,7 @@ class FormImageUploader extends Component {
         return showAlertBar({
           type: "error",
           message: messages.badResolution,
-          dismissAfter: 3000
+          dismissAfter: 3000,
         })
       }
 

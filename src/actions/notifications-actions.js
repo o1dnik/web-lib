@@ -8,13 +8,13 @@ export function showNotification(notification) {
 
   return {
     type: getActionType(NOTIFICATION, SHOW),
-    payload: { notification }
+    payload: { notification },
   }
 }
 
 export function hideNotification(notification) {
   return {
     type: getActionType(NOTIFICATION, HIDE),
-    payload: { notification }
+    payload: { notification },
   }
 }

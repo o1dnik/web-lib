@@ -14,7 +14,7 @@ class StatsCircle extends Component {
     containerHeight: PropTypes.string,
     transition: PropTypes.string,
     fontSize: PropTypes.string,
-    textDY: PropTypes.string
+    textDY: PropTypes.string,
   }
 
   static defaultProps = {
@@ -30,7 +30,7 @@ class StatsCircle extends Component {
     transition: "stroke-dashoffset .1s linear",
     textColor: "#999",
     fontSize: "2.5em",
-    textDY: ".35em"
+    textDY: ".35em",
   }
 
   render() {
@@ -47,7 +47,7 @@ class StatsCircle extends Component {
       containerHeight,
       transition,
       fontSize,
-      textDY
+      textDY,
     } = this.props
 
     let { percent } = this.props

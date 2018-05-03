@@ -17,7 +17,7 @@ class Multiselect extends Component {
     onBlur: PropTypes.func,
     value: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.string),
-      PropTypes.arrayOf(PropTypes.object)
+      PropTypes.arrayOf(PropTypes.object),
     ]),
 
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -35,8 +35,8 @@ class Multiselect extends Component {
       onFocus: PropTypes.func,
       value: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.string),
-        PropTypes.arrayOf(PropTypes.object)
-      ])
+        PropTypes.arrayOf(PropTypes.object),
+      ]),
     }),
 
     meta: PropTypes.shape({
@@ -52,8 +52,8 @@ class Multiselect extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
@@ -65,8 +65,8 @@ class Multiselect extends Component {
     selectProps: {
       multi: true,
       renderTags: false,
-      options: []
-    }
+      options: [],
+    },
   }
 
   render() {
@@ -76,19 +76,19 @@ class Multiselect extends Component {
     const selectProps = Object.assign(
       {},
       Multiselect.defaultProps.selectProps,
-      this.props.selectProps
+      this.props.selectProps,
     )
 
     const css = cn({
       multiselect: true,
       "multiselect-error": touched && invalid,
-      "multiselect-success": touched && valid
+      "multiselect-success": touched && valid,
     })
 
     const inputMessageCss = cn({
       "input-message": true,
       "input-message-error": touched && invalid,
-      "input-message-success": touched && valid
+      "input-message-success": touched && valid,
     })
 
     return (
@@ -147,7 +147,7 @@ class Multiselect extends Component {
       }
 
       input.onBlur(
-        selectProps.options.filter(o => val.includes((o && o[valueKey]) || o))
+        selectProps.options.filter(o => val.includes((o && o[valueKey]) || o)),
       )
     }
   }
@@ -167,8 +167,8 @@ class Multiselect extends Component {
 
       onChange(
         selectProps.options.filter(o =>
-          newValues.includes((o && o[valueKey]) || o)
-        )
+          newValues.includes((o && o[valueKey]) || o),
+        ),
       )
     }
   }
@@ -189,8 +189,8 @@ class Multiselect extends Component {
 
       onChange(
         selectProps.options.filter(o =>
-          newValues.includes((o && o[valueKey]) || o)
-        )
+          newValues.includes((o && o[valueKey]) || o),
+        ),
       )
     }
   }

@@ -9,11 +9,11 @@ class Message extends Component {
     picture: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
-    picture: defaultPicture
+    picture: defaultPicture,
   }
 
   render() {

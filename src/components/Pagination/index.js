@@ -9,7 +9,7 @@ class Pagination extends Component {
     count: PropTypes.number,
     page: PropTypes.number.isRequired,
     limit: PropTypes.number.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
   }
 
   render() {
@@ -31,7 +31,7 @@ class Pagination extends Component {
             onClick={this.handleChange(i, disabled)}
           >
             {i}
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
     }
@@ -46,13 +46,13 @@ class Pagination extends Component {
             onClick={this.handleChange(i, disabled)}
           >
             {i}
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
       pages.push(
         <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
-        </PaginationItem>
+        </PaginationItem>,
       )
     }
 
@@ -60,7 +60,7 @@ class Pagination extends Component {
       pages.push(
         <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
-        </PaginationItem>
+        </PaginationItem>,
       )
 
       for (let i = page - 2; i <= page + 2; i++) {
@@ -72,14 +72,14 @@ class Pagination extends Component {
             onClick={this.handleChange(i, disabled)}
           >
             {i}
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
 
       pages.push(
         <PaginationItem className="hide-inline-m" key={totalPages + 2} disabled>
           ...
-        </PaginationItem>
+        </PaginationItem>,
       )
     }
 
@@ -87,7 +87,7 @@ class Pagination extends Component {
       pages.push(
         <PaginationItem className="hide-inline-m" key={totalPages + 1} disabled>
           ...
-        </PaginationItem>
+        </PaginationItem>,
       )
       for (let i = totalPages - 6 + 2; i <= totalPages; i++) {
         pages.push(
@@ -98,7 +98,7 @@ class Pagination extends Component {
             onClick={this.handleChange(i, disabled)}
           >
             {i}
-          </PaginationItem>
+          </PaginationItem>,
         )
       }
     }
@@ -136,7 +136,7 @@ class Pagination extends Component {
           className="pagination-last"
           onClick={this.handleChange(
             totalPages,
-            page === totalPages || disabled
+            page === totalPages || disabled,
           )}
         >
           <i className="ion-chevron-right" />

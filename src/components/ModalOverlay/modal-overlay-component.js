@@ -8,7 +8,7 @@ ReactModal.defaultStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.75)"
+    backgroundColor: "rgba(255, 255, 255, 0.75)",
   },
   content: {
     position: "absolute",
@@ -24,15 +24,15 @@ ReactModal.defaultStyles = {
     WebkitOverflowScrolling: "touch",
     borderRadius: "0px",
     outline: "none",
-    padding: "0px"
-  }
+    padding: "0px",
+  },
 }
 
 class ModalOverlay extends Component {
   static propTypes = {}
 
   static defaultProps = {
-    contentLabel: ""
+    contentLabel: "",
   }
 
   render() {

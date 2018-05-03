@@ -12,7 +12,7 @@ import {
   SESSION_EXPIRED,
   SET,
   FILTER,
-  MESSAGES
+  MESSAGES,
 } from "../constants"
 
 import { get } from "lodash"
@@ -25,18 +25,18 @@ export const defaultState = {
 
   filter: {
     limit: 10,
-    page: 1
+    page: 1,
   },
 
   count: null,
   result: [],
-  entities: {}
+  entities: {},
 }
 
 export const actionHandlers = {
   [getActionType(THREADS, GET, START)]: (state, action) => ({
     ...state,
-    loading: action.payload.showLoader ? LOADING : state.loading
+    loading: action.payload.showLoader ? LOADING : state.loading,
   }),
 
   [getActionType(THREADS, GET, SUCCESS)]: (state, action) => {
@@ -47,7 +47,7 @@ export const actionHandlers = {
       filter: {
         ...state.filter,
         limit: action.payload.limit,
-        page: action.payload.page
+        page: action.payload.page,
       },
       count: action.payload.appendToList
         ? get(action, "res.data.count")
@@ -57,9 +57,9 @@ export const actionHandlers = {
         : [...state.result],
       entities: {
         ...state.entities,
-        ...arrayToObject(threads, "id")
+        ...arrayToObject(threads, "id"),
       },
-      loading: SUCCESS
+      loading: SUCCESS,
     }
   },
 
@@ -72,15 +72,15 @@ export const actionHandlers = {
         ...state.entities,
         [action.payload.threadId]: {
           ...state.entities[action.payload.threadId],
-          unread_count: 0
-        }
-      }
+          unread_count: 0,
+        },
+      },
     }
   },
 
   [getActionType(THREAD, CREATE, START)]: state => ({
     ...state,
-    creating: LOADING
+    creating: LOADING,
   }),
 
   [getActionType(THREAD, CREATE, SUCCESS)]: (state, action) => {
@@ -90,27 +90,27 @@ export const actionHandlers = {
       ...state,
       entities: {
         ...state.entities,
-        [thread.id]: thread
+        [thread.id]: thread,
       },
       result: [thread.id, ...state.result],
       count: state.count ? state.count + 1 : 1,
-      creating: SUCCESS
+      creating: SUCCESS,
     }
   },
 
   [getActionType(THREAD, CREATE, FAIL)]: state => ({
     ...state,
-    creating: FAIL
+    creating: FAIL,
   }),
 
   [getActionType(THREADS, FILTER, SET)]: (state, action) => ({
     ...state,
-    filter: { ...get(action, "payload.filter", state.filter) }
+    filter: { ...get(action, "payload.filter", state.filter) },
   }),
 
   [getActionType(LOGOUT)]: () => ({ ...defaultState }),
 
-  [getActionType(SESSION_EXPIRED)]: () => ({ ...defaultState })
+  [getActionType(SESSION_EXPIRED)]: () => ({ ...defaultState }),
 }
 
 export default createReducer(actionHandlers, defaultState)

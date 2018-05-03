@@ -9,7 +9,7 @@ export default function(res) {
     "ref_id",
     "job_types",
     "user",
-    "status"
+    "status",
   ])
 
   return res

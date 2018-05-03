@@ -30,7 +30,7 @@ storiesOf("RadioGroup", module)
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
         onChange={action("changed")}
       />
@@ -40,7 +40,7 @@ storiesOf("RadioGroup", module)
         value={value}
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
         onChange={action("changed")}
       />

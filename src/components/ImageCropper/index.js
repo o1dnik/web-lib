@@ -18,21 +18,21 @@ export class ImageCropper extends Component {
     // height: : numberableType,
     width: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
+      PropTypes.number,
       // PropTypes.inctanceOf(Component),
     ]),
     height: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.number
+      PropTypes.number,
       // PropTypes.inctanceOf(Component),
-    ])
+    ]),
   }
 
   static defaultProps = {
     canvasWidth: 150,
     canvasHeight: 150,
     closeButtonCopy: "Cancel",
-    cropButtonCopy: "Crop and Save"
+    cropButtonCopy: "Crop and Save",
   }
 
   state = {
@@ -40,7 +40,7 @@ export class ImageCropper extends Component {
     image: {},
     mouse: { x: null, y: null },
     preview: null,
-    zoom: 1
+    zoom: 1,
   }
 
   listeners = []
@@ -53,7 +53,7 @@ export class ImageCropper extends Component {
     this.listeners = {
       mousemove: e => this.mouseMoveListener(e),
       mouseup: e => this.mouseUpListener(e),
-      mousedown: e => this.mouseDownListener(e)
+      mousedown: e => this.mouseDownListener(e),
     }
 
     window.addEventListener("mousemove", this.listeners.mousemove, false)
@@ -108,7 +108,7 @@ export class ImageCropper extends Component {
       this.setState({
         dragging: false,
         image: scaledImage,
-        preview: this.toDataURL()
+        preview: this.toDataURL(),
       })
     }
 
@@ -119,7 +119,7 @@ export class ImageCropper extends Component {
     this.setState({
       image: this.state.image,
       dragging: true,
-      mouse: { x: null, y: null }
+      mouse: { x: null, y: null },
     })
   }
 
@@ -155,7 +155,7 @@ export class ImageCropper extends Component {
 
     this.setState({
       image: this.state.image,
-      mouse: { x: mouseX, y: mouseY }
+      mouse: { x: mouseX, y: mouseY },
     })
   }
 
@@ -227,7 +227,7 @@ export class ImageCropper extends Component {
       x,
       y,
       image.width * this.state.zoom,
-      image.height * this.state.zoom
+      image.height * this.state.zoom,
     )
     context.restore()
   }
@@ -247,7 +247,7 @@ export class ImageCropper extends Component {
       x: image.x,
       y: image.y,
       height: image.height,
-      width: image.width
+      width: image.width,
     })
 
     return canvas.toDataURL()

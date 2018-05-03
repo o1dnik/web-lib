@@ -7,7 +7,7 @@ const tags1 = [
   { id: 0, label: "neuropodium" },
   { id: 1, label: "knowledgeably" },
   { id: 2, label: "terminist" },
-  { id: 3, label: "prepartition" }
+  { id: 3, label: "prepartition" },
 ]
 const tags2 = [{ id: 0, label: "Stymphalid" }, { id: 1, label: "derm" }]
 const tags3 = [
@@ -15,7 +15,7 @@ const tags3 = [
   { id: 1, label: "pupulo" },
   { id: 2, label: "locule" },
   { id: 3, label: "snappable" },
-  { id: 4, label: "hypaethron" }
+  { id: 4, label: "hypaethron" },
 ]
 
 storiesOf("Tags", module)

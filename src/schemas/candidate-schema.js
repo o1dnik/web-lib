@@ -46,7 +46,7 @@ export default yup
         notify_news: yup
           .bool()
           .required()
-          .default(false)
+          .default(false),
       })
       .nullable(false)
       .default({}),
@@ -56,7 +56,7 @@ export default yup
         txt: yup.string().url(),
         pdf: yup.string().url(),
         original: yup.string(),
-        images: yup.array().of(yup.string().url())
+        images: yup.array().of(yup.string().url()),
       })
       .nullable(true)
       .default(null),
@@ -100,7 +100,7 @@ export default yup
         slug: yup
           .string()
           .required()
-          .default("")
+          .default(""),
       })
       .nullable(true)
       .default(null),
@@ -159,6 +159,6 @@ export default yup
     tracking: yup
       .object()
       .nullable(true)
-      .default(null)
+      .default(null),
   })
   .noUnknown()

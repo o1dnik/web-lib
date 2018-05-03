@@ -13,31 +13,31 @@ const options2 = [
   { value: "2", label: "outby" },
   { value: "3", label: "psychosarcous" },
   { value: "4", label: "Etheneldeli" },
-  { value: "5", label: "fruitlet" }
+  { value: "5", label: "fruitlet" },
 ]
 
 const value2 = [
   { value: "0", label: "horntip" },
-  { value: "1", label: "lanuginousness" }
+  { value: "1", label: "lanuginousness" },
 ]
 
 const options3 = [
   { value: "0", label: "arrestor" },
   { value: "1", label: "roselet" },
   { value: "2", label: "nonthinking" },
-  { value: "3", label: "triturate" }
+  { value: "3", label: "triturate" },
 ]
 
 const value3 = [
   { value: "0", label: "arrestor" },
-  { value: "1", label: "roselet" }
+  { value: "1", label: "roselet" },
 ]
 
 const options4 = [
   { id: "0", name: "arrestor" },
   { id: "1", name: "roselet" },
   { id: "2", name: "nonthinking" },
-  { id: "3", name: "triturate" }
+  { id: "3", name: "triturate" },
 ]
 
 const value4 = [{ id: "0", name: "arrestor" }, { id: "1", name: "roselet" }]
@@ -75,7 +75,7 @@ storiesOf("CheckboxGroup", module).add("Default", () => (
         value={value2}
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
         onChange={action("changed")}
         onBlur={action("blur")}
@@ -92,7 +92,7 @@ storiesOf("CheckboxGroup", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
         onChange={action("changed")}
         onBlur={action("blur")}

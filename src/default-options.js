@@ -36,7 +36,7 @@ const messages = defineMessages({
   langLevelElementary: { id: "app.common.language.level.elementary" },
   langLevelIntermediate: { id: "app.common.language.level.intermediate" },
   langLevelUpperIntermediate: {
-    id: "app.common.language.level.upperintermediate"
+    id: "app.common.language.level.upperintermediate",
   },
   langLevelAdvanced: { id: "app.common.language.level.advanced" },
   langLevelMastery: { id: "app.common.language.level.mastery" },
@@ -47,7 +47,7 @@ const messages = defineMessages({
   careerLevelIntermediate: { id: "app.common.career.level.intermediate" },
   careerLevelSenior: { id: "app.common.career.level.senior" },
   careerLevelExpert: { id: "app.common.career.level.expert" },
-  careerLevelExecutive: { id: "app.common.career.level.executive" }
+  careerLevelExecutive: { id: "app.common.career.level.executive" },
 })
 
 // Static values
@@ -56,19 +56,19 @@ export const JOB_TYPES = [
   { id: "2", name: messages.jobTypePartTime },
   { id: "3", name: messages.jobTypeContract },
   { id: "4", name: messages.jobTypeIntership },
-  { id: "5", name: messages.jobTypeTemporary }
+  { id: "5", name: messages.jobTypeTemporary },
 ]
 
 export const JOB_LEVELS = [
   { id: "0", name: messages.jobExperienceLevelFirst },
   { id: "1", name: messages.jobExperienceLevelSecond },
   { id: "2", name: messages.jobExperienceLevelThird },
-  { id: "3", name: messages.jobExperienceLevelFourth }
+  { id: "3", name: messages.jobExperienceLevelFourth },
 ]
 
 export const RELOCATE_OPTIONS = [
   { value: "0", label: messages.yes },
-  { value: "1", label: messages.no }
+  { value: "1", label: messages.no },
 ]
 
 export const LANG_LEVELS = [
@@ -78,7 +78,7 @@ export const LANG_LEVELS = [
   { id: "3", name: messages.langLevelUpperIntermediate },
   { id: "4", name: messages.langLevelAdvanced },
   { id: "5", name: messages.langLevelMastery },
-  { id: "6", name: messages.langLevelNative }
+  { id: "6", name: messages.langLevelNative },
 ]
 
 export const DEFAULT_LANGS = [
@@ -92,12 +92,12 @@ export const DEFAULT_LANGS = [
   { id: "7", name: "Arabic" },
   { id: "72", name: "Japanese" },
   { id: "59", name: "Hindi" },
-  { id: "30", name: "Chinese" }
+  { id: "30", name: "Chinese" },
 ]
 
 export const TEMPLATE_LANGS = [
   { id: "EN", name: messages.englishLang },
-  { id: "DE", name: messages.germanLang }
+  { id: "DE", name: messages.germanLang },
 ]
 
 export const CAREER_LEVELS = [
@@ -106,7 +106,7 @@ export const CAREER_LEVELS = [
   { id: "2", name: messages.careerLevelIntermediate },
   { id: "3", name: messages.careerLevelSenior },
   { id: "4", name: messages.careerLevelExpert },
-  { id: "5", name: messages.careerLevelExecutive }
+  { id: "5", name: messages.careerLevelExecutive },
 ]
 
 export const CONFIRMATION_REASONS = [
@@ -119,7 +119,7 @@ export const CONFIRMATION_REASONS = [
   { id: "5", name: messages.languages },
   { id: "6", name: messages.location },
   // {id: '7', name: 'References'},
-  { id: "0", name: messages.other }
+  { id: "0", name: messages.other },
 ]
 
 export const REJECTION_REASONS = [
@@ -127,7 +127,7 @@ export const REJECTION_REASONS = [
   { id: "2", name: messages.qualification },
   { id: "3", name: messages.cultural },
   { id: "4", name: messages.salary },
-  { id: "0", name: messages.other }
+  { id: "0", name: messages.other },
 ]
 
 // JOB STATUSES:
@@ -135,19 +135,19 @@ export const STATUSES_TEXT_MAP = {
   ACT: messages.ACT,
   REV: messages.REV,
   PAU: messages.PAU,
-  DEL: messages.DEL
+  DEL: messages.DEL,
 }
 
 export const STATUSES_COLOR_MAP = {
   ACT: "primary",
   REV: "danger",
   PAU: "default",
-  DEL: "default"
+  DEL: "default",
 }
 
 export const STATUSES_ICONS_MAP = {
   ACT: "ion-checkmark",
   REV: "ion-ios-clock",
   PAU: "ion-pause",
-  DEL: "ion-close-circled"
+  DEL: "ion-close-circled",
 }

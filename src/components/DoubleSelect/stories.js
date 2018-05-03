@@ -10,7 +10,7 @@ const langLevels = [
   { value: "3", label: "B2" },
   { value: "4", label: "C1" },
   { value: "5", label: "C2" },
-  { value: "6", label: "Native" }
+  { value: "6", label: "Native" },
 ]
 const langs = [
   { value: "40", label: "English" },
@@ -23,7 +23,7 @@ const langs = [
   { value: "7", label: "Arabic" },
   { value: "72", label: "Japanese" },
   { value: "59", label: "Hindi" },
-  { value: "20", label: "Chineese" }
+  { value: "20", label: "Chineese" },
 ]
 
 storiesOf("DoubleSelect", module).add("Default", () => (
@@ -54,7 +54,7 @@ storiesOf("DoubleSelect", module).add("Default", () => (
         onBlur={action("blur")}
         value={{
           select: "148",
-          level: "2"
+          level: "2",
         }}
         selectOptions={langs}
         levelOptions={langLevels}
@@ -72,11 +72,11 @@ storiesOf("DoubleSelect", module).add("Default", () => (
         onBlur={action("blur")}
         value={{
           select: "47",
-          level: "2"
+          level: "2",
         }}
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
         selectOptions={langs}
         levelOptions={langLevels}
@@ -97,7 +97,7 @@ storiesOf("DoubleSelect", module).add("Default", () => (
           touched: true,
           dirty: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
         selectOptions={langs}
         levelOptions={langLevels}
@@ -114,13 +114,13 @@ storiesOf("DoubleSelect", module).add("Default", () => (
         onFocus={action("focus")}
         onBlur={action("blur")}
         value={{
-          select: "47"
+          select: "47",
         }}
         meta={{
           touched: true,
           dirty: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
         selectOptions={langs}
         levelOptions={langLevels}
@@ -138,7 +138,7 @@ storiesOf("DoubleSelect", module).add("Default", () => (
         onBlur={action("blur")}
         value={{
           select: "72",
-          level: "2"
+          level: "2",
         }}
         selectOptions={langs}
         levelOptions={langLevels}

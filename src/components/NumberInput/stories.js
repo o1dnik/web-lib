@@ -6,7 +6,7 @@ import NumberInput from "./index"
 class NumberInputWrappaer extends Component {
   state = {
     value: 0,
-    loading: false
+    loading: false,
   }
 
   handleChange = value => {
@@ -41,7 +41,7 @@ class NumberInputWrappaer extends Component {
             name: "candidate_salary",
             onChange: this.handleChange,
             onBlur: e => action("blur")(e),
-            onFocus: e => action("focus")(e)
+            onFocus: e => action("focus")(e),
           }}
           minValue={0}
           maxValue={100000}

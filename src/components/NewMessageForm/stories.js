@@ -7,7 +7,7 @@ class LiveForm extends Component {
   static propTypes = {}
 
   state = {
-    value: ""
+    value: "",
   }
 
   render() {

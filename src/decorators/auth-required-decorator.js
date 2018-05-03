@@ -14,7 +14,7 @@ const AuthRequired = ({ component, isLogged, profileComplete, ...rest }) => {
         if (isLogged) {
           return React.createElement(component, {
             ...props,
-            renderLoader: rest.renderLoader
+            renderLoader: rest.renderLoader,
           })
         }
 
@@ -32,7 +32,7 @@ const AuthRequired = ({ component, isLogged, profileComplete, ...rest }) => {
           <Redirect
             to={{
               pathname: "/login",
-              search: fullSearch
+              search: fullSearch,
             }}
           />
         )

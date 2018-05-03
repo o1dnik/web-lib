@@ -25,6 +25,6 @@ export default yup
       .required()
       .default(""),
 
-    country: countrySchema.nullable(true).default(null)
+    country: countrySchema.nullable(true).default(null),
   })
   .noUnknown()

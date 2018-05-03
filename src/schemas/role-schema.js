@@ -19,6 +19,6 @@ export default yup
       .required()
       .default(""),
 
-    category: roleCategory.nullable(true).default(null)
+    category: roleCategory.nullable(true).default(null),
   })
   .noUnknown()

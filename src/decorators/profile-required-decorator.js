@@ -22,7 +22,7 @@ const ProfileRequired = ({ component, isLogged, profileComplete, ...rest }) => {
             <Redirect
               to={{
                 pathname: "/login",
-                search: fullSearch
+                search: fullSearch,
               }}
             />
           )
@@ -35,7 +35,7 @@ const ProfileRequired = ({ component, isLogged, profileComplete, ...rest }) => {
             <Redirect
               to={{
                 pathname: `/registration`,
-                search
+                search,
               }}
             />
           )
@@ -43,7 +43,7 @@ const ProfileRequired = ({ component, isLogged, profileComplete, ...rest }) => {
 
         return React.createElement(component, {
           ...props,
-          renderLoader: rest.renderLoader
+          renderLoader: rest.renderLoader,
         })
       }}
     />

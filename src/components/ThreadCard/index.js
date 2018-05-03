@@ -12,12 +12,12 @@ class ThreadCard extends Component {
     image: PropTypes.string.isRequired,
     date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     isUnread: PropTypes.bool.isRequired,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {
     image: DEFAULT_PROFILE_IMAGE,
-    isUnread: false
+    isUnread: false,
   }
 
   render() {
@@ -27,7 +27,7 @@ class ThreadCard extends Component {
       "list-item": true,
       box: true,
       "box-shadow": true,
-      "is-unread": isUnread
+      "is-unread": isUnread,
     })
 
     return (

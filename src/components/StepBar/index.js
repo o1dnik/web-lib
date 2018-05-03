@@ -26,18 +26,18 @@ function getTabClassNames(currentStep, step) {
   return cn({
     active: currentStep === step,
     done: currentStep > step,
-    "progress-tab": true
+    "progress-tab": true,
   })
 }
 
 StepBarComponent.propTypes = {
   steps: PropTypes.array.isRequired,
-  currentStep: PropTypes.number.isRequired
+  currentStep: PropTypes.number.isRequired,
 }
 
 StepBarComponent.defaultProps = {
   steps: [],
-  currentStep: 1
+  currentStep: 1,
 }
 
 export default StepBarComponent

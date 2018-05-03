@@ -7,7 +7,7 @@ import {
   ME,
   LANGUAGES,
   JOBS_BY_COMPANY_ID,
-  BACKGROUND
+  BACKGROUND,
 } from "../constants"
 
 import { DEFAULT_LANGS } from "../default-options"
@@ -19,7 +19,7 @@ import { flatten, unionBy } from "lodash"
 const defaultState = {
   loading: false,
   count: null,
-  entities: DEFAULT_LANGS
+  entities: DEFAULT_LANGS,
 }
 
 export default (state = defaultState, action) => {
@@ -36,7 +36,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: unionBy(state.entities, results, "id"),
         count,
-        loading: false
+        loading: false,
       }
     }
 
@@ -48,7 +48,7 @@ export default (state = defaultState, action) => {
       const results = flatten(res.data.results.map(r => r.languages))
       return {
         ...state,
-        entities: unionBy(state.entities, results, "id")
+        entities: unionBy(state.entities, results, "id"),
       }
     }
 
@@ -56,7 +56,7 @@ export default (state = defaultState, action) => {
       const { languages } = res.data
       return {
         ...state,
-        entities: unionBy(state.entities, languages, "id")
+        entities: unionBy(state.entities, languages, "id"),
       }
     }
 
@@ -66,7 +66,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: languages
           ? unionBy(state.entities, languages, "id")
-          : state.entities
+          : state.entities,
       }
     }
 
@@ -76,7 +76,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: languages
           ? unionBy(state.entities, languages, "id")
-          : state.entities
+          : state.entities,
       }
     }
 

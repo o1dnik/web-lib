@@ -11,7 +11,7 @@ export function getThreadList(opts = {}) {
     page,
     ordering,
     appendToList,
-    showLoader
+    showLoader,
   } = {
     jobId: null,
     candidateId: null,
@@ -20,7 +20,7 @@ export function getThreadList(opts = {}) {
     ordering: "last_message_timestamp",
     appendToList: true,
     showLoader: true,
-    ...opts
+    ...opts,
   }
 
   return {
@@ -30,7 +30,7 @@ export function getThreadList(opts = {}) {
       offset: pageToOffset(page, limit),
       ordering,
       job: jobId,
-      candidate: candidateId
+      candidate: candidateId,
     })}`,
     payload: {
       showLoader,
@@ -39,16 +39,16 @@ export function getThreadList(opts = {}) {
       limit,
       page,
       ordering,
-      appendToList
+      appendToList,
     },
     tracking: {
       success: {
         event: "getThreadList",
-        responseFields: ["results"]
-      }
+        responseFields: ["results"],
+      },
     },
     apiV: "v2",
-    alert: null
+    alert: null,
   }
 }
 
@@ -60,15 +60,15 @@ export function createThread(message, jobId, candidateId) {
       message,
       jobId,
       candidateId,
-      data: { message, job_id: jobId, candidate_id: candidateId }
+      data: { message, job_id: jobId, candidate_id: candidateId },
     },
     tracking: {
       success: {
         event: "createMessage",
-        responseFields: ["id"]
-      }
+        responseFields: ["id"],
+      },
     },
-    apiV: "v2"
+    apiV: "v2",
   }
 }
 
@@ -76,6 +76,6 @@ export function setThreadsFilter(filter = {}) {
   filter = { page: 1, limit: 10, ...filter }
   return {
     type: getActionType(THREADS, FILTER, SET),
-    payload: { filter }
+    payload: { filter },
   }
 }

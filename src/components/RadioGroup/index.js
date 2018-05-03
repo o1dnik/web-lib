@@ -11,13 +11,13 @@ const RadioGroup = props => {
   const styles = cn({
     "radio-group": true,
     "radio-group-error": touched && invalid,
-    "radio-group-success": touched && valid
+    "radio-group-success": touched && valid,
   })
 
   const inputMessageCss = cn({
     "input-message": true,
     "input-message-error": touched && invalid,
-    "input-message-success": touched && valid
+    "input-message-success": touched && valid,
   })
 
   const selected =
@@ -50,12 +50,12 @@ RadioGroup.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
-      label: PropTypes.string
-    })
+      label: PropTypes.string,
+    }),
   ).isRequired,
   value: PropTypes.shape({
     value: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
   }),
 
   input: PropTypes.shape({
@@ -68,9 +68,9 @@ RadioGroup.propTypes = {
     value: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.string,
-        label: PropTypes.string
-      })
-    )
+        label: PropTypes.string,
+      }),
+    ),
   }),
 
   meta: PropTypes.shape({
@@ -86,14 +86,14 @@ RadioGroup.propTypes = {
     touched: PropTypes.bool,
     valid: PropTypes.bool,
     visited: PropTypes.bool,
-    warning: PropTypes.string
-  })
+    warning: PropTypes.string,
+  }),
 }
 
 RadioGroup.defaultProps = {
   options: [],
   input: {},
-  meta: {}
+  meta: {},
 }
 
 export default RadioGroup

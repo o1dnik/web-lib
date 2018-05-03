@@ -32,7 +32,7 @@ export const PopoverComponent = props => {
 
       return React.cloneElement(child, {
         ...child.props,
-        ...props
+        ...props,
       })
     })
   }
@@ -59,14 +59,14 @@ PopoverComponent.propTypes = {
   preferPlace: PropTypes.string,
   body: PropTypes.node.isRequired,
   onOuterAction: PropTypes.func,
-  toggleOnOut: PropTypes.bool.isRequired
+  toggleOnOut: PropTypes.bool.isRequired,
 }
 
 PopoverComponent.defaultProps = {
   isOpen: false,
   toggleOnOut: false,
   eventType: "click",
-  className: "popover-info"
+  className: "popover-info",
 }
 
 export default openClose(PopoverComponent)

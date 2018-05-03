@@ -11,12 +11,12 @@ class NewMessageForm extends Component {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
   }
 
   static defaultProps = {
     value: "",
-    buttonText: "Send"
+    buttonText: "Send",
   }
 
   render() {
@@ -26,7 +26,7 @@ class NewMessageForm extends Component {
       value,
       disabled,
       loading,
-      buttonText
+      buttonText,
     } = this.props
 
     return (

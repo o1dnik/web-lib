@@ -9,7 +9,7 @@ const langLevels = [
   { id: "3", name: "B2" },
   { id: "4", name: "C1" },
   { id: "5", name: "C2" },
-  { id: "6", name: "Native" }
+  { id: "6", name: "Native" },
 ]
 const availableLanguages = [
   { id: "40", name: "English" },
@@ -22,11 +22,11 @@ const availableLanguages = [
   { id: "7", name: "Arabic" },
   { id: "72", name: "Japanese" },
   { id: "59", name: "Hindi" },
-  { id: "20", name: "Chineese" }
+  { id: "20", name: "Chineese" },
 ]
 
 const job = {
-  languages: []
+  languages: [],
 }
 
 const RenderLanguages = ({ fields, /* meta, name, */ label }) => {
@@ -65,7 +65,7 @@ const RenderLanguages = ({ fields, /* meta, name, */ label }) => {
               searchable: true,
               clearable: true,
               validate: val => (val ? null : "Value is required."),
-              simpleValue: true
+              simpleValue: true,
             }}
             levelProps={{
               id: `job_${language}_level`,
@@ -76,7 +76,7 @@ const RenderLanguages = ({ fields, /* meta, name, */ label }) => {
               clearable: true,
               searchable: false,
               simpleValue: true,
-              validate: val => (val ? null : "Value is required.")
+              validate: val => (val ? null : "Value is required."),
             }}
           />
         </FormSection>
@@ -116,7 +116,7 @@ const Job = () => {
 
 const JobForm = reduxForm({
   form: "jobForm",
-  initialValues: job
+  initialValues: job,
 })(Job)
 
 export function handleFieldArrayItemAdd(fields) {

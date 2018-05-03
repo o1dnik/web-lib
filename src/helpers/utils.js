@@ -5,7 +5,7 @@ import { SUCCESS, START, FAIL, LOADING } from "../constants"
 
 const messages = defineMessages({
   expires: { id: "app.common.expires" },
-  expired: { id: "app.common.expired" }
+  expired: { id: "app.common.expired" },
 })
 
 export function arrayToObject(array, idProp) {
@@ -108,12 +108,12 @@ function buildReduce(props, type, cb) {
       return {
         ...state,
         ...result,
-        ...cb(state, action)
+        ...cb(state, action),
       }
     }
     return {
       ...state,
-      ...result
+      ...result,
     }
   }
 }
@@ -123,7 +123,7 @@ export function getAsyncActionHandler({
   props,
   onStart,
   onSuccess,
-  onFail
+  onFail,
 }) {
   const start = buildReduce(props, LOADING, onStart)
   const success = buildReduce(props, SUCCESS, onSuccess)
@@ -131,6 +131,6 @@ export function getAsyncActionHandler({
   return {
     [getActionType(type, START)]: start,
     [getActionType(type, SUCCESS)]: success,
-    [getActionType(type, FAIL)]: fail
+    [getActionType(type, FAIL)]: fail,
   }
 }

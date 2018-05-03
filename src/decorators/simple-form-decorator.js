@@ -16,7 +16,7 @@ export default options => {
           dirty: mapValues(this.props.initialValues, () => false),
           touched: mapValues(this.props.initialValues, () => false),
           isDirty: false,
-          isTouched: false
+          isTouched: false,
         }
 
         this.state.errors = mapValues(this.props.initialValues, (val, key) => {
@@ -24,7 +24,7 @@ export default options => {
         })
 
         this.state.isValid = Object.keys(this.state.errors).every(
-          i => this.state.errors[i] === null
+          i => this.state.errors[i] === null,
         )
       }
 
@@ -35,13 +35,13 @@ export default options => {
 
         validators: PropTypes.object,
 
-        initialValues: PropTypes.object
+        initialValues: PropTypes.object,
       }
 
       static defaultProps = {
         submitting: false,
         initialValues: options.initialValues,
-        validators: options.validators
+        validators: options.validators,
       }
 
       render() {
@@ -68,7 +68,7 @@ export default options => {
         this.setState(prevState => {
           const dirty = {
             ...prevState.dirty,
-            [name]: value !== prevState.initialValues[name]
+            [name]: value !== prevState.initialValues[name],
           }
 
           const errors = { ...prevState.errors, [name]: error }
@@ -78,7 +78,7 @@ export default options => {
             dirty,
             errors,
             isDirty: Object.keys(dirty).some(i => dirty[i] !== false),
-            isValid: Object.keys(errors).every(i => errors[i] === null)
+            isValid: Object.keys(errors).every(i => errors[i] === null),
           }
         })
       }
@@ -98,7 +98,7 @@ export default options => {
             touched,
             errors,
             isTouched: Object.keys(touched).some(i => touched[i] === true),
-            isValid: Object.keys(errors).every(i => errors[i] === null)
+            isValid: Object.keys(errors).every(i => errors[i] === null),
           }
         })
       }
@@ -126,7 +126,7 @@ export default options => {
           invalid: errors[name] !== null,
           dirty: dirty[name],
           valid: errors[name] === null,
-          error: errors[name]
+          error: errors[name],
         }
       }
 
@@ -140,36 +140,36 @@ export default options => {
           touched: mapValues(prevState.initialValues, () => false),
           isDirty: false,
           isTouched: false,
-          isValid: false
+          isValid: false,
         }))
       }
 
       reinitializeForm = values => {
         this.setState(prevState => ({
           initialValues: {
-            ...Object.assign({}, values || prevState.values)
+            ...Object.assign({}, values || prevState.values),
           },
 
           values: {
-            ...Object.assign({}, values || prevState.values)
+            ...Object.assign({}, values || prevState.values),
           },
 
           dirty: mapValues(
             Object.assign({}, values || prevState.values),
-            () => false
+            () => false,
           ),
           errors: mapValues(
             Object.assign({}, values || prevState.values),
-            () => null
+            () => null,
           ),
           touched: mapValues(
             Object.assign({}, values || prevState.values),
-            () => false
+            () => false,
           ),
 
           isDirty: false,
           isTouched: false,
-          isValid: false
+          isValid: false,
         }))
       }
     }

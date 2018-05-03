@@ -14,7 +14,7 @@ const options = [
   { value: "paiwari", label: "bibitory" },
   { value: "respirability", label: "photodynamics" },
   { value: "unmeetly", label: "overobese", isCategory: true },
-  { value: "Primates", label: "anthropodeoxycholic" }
+  { value: "Primates", label: "anthropodeoxycholic" },
 ]
 
 storiesOf("Select", module).add("Default", () => (
@@ -40,7 +40,7 @@ storiesOf("Select", module).add("Default", () => (
         onBlur={action("onBlur")}
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
       />
     </div>
@@ -56,7 +56,7 @@ storiesOf("Select", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
       />
     </div>

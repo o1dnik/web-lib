@@ -5,7 +5,7 @@ import { getActionType } from "../helpers/utils"
 const defaultState = {
   loading: false,
   count: null,
-  entities: []
+  entities: [],
 }
 
 export default (state = defaultState, action) => {
@@ -22,7 +22,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: unionBy(state.entities, results, "name"),
         count,
-        loading: false
+        loading: false,
       }
     }
 

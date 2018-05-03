@@ -16,6 +16,6 @@ export default yup
     level: yup
       .string()
       .required()
-      .default("")
+      .default(""),
   })
   .noUnknown()

@@ -12,7 +12,7 @@ import {
   SESSION_EXPIRED,
   SET,
   THREAD,
-  FILTER
+  FILTER,
 } from "../constants"
 
 import { get } from "lodash"
@@ -25,18 +25,18 @@ export const defaultState = {
 
   filter: {
     limit: 10,
-    page: 1
+    page: 1,
   },
 
   count: null,
   result: [],
-  entities: {}
+  entities: {},
 }
 
 export const actionHandlers = {
   [getActionType(MESSAGES, GET, START)]: state => ({
     ...state,
-    loading: LOADING
+    loading: LOADING,
   }),
 
   [getActionType(MESSAGES, GET, SUCCESS)]: (state, action) => {
@@ -47,15 +47,15 @@ export const actionHandlers = {
       filter: {
         ...state.filter,
         limit: action.payload.limit,
-        page: action.payload.page
+        page: action.payload.page,
       },
       count: get(action, "res.data.count"),
       result: messages.map(t => t.id),
       entities: {
         ...state.entities,
-        ...arrayToObject(messages, "id")
+        ...arrayToObject(messages, "id"),
       },
-      loading: SUCCESS
+      loading: SUCCESS,
     }
   },
 
@@ -63,7 +63,7 @@ export const actionHandlers = {
 
   [getActionType(MESSAGE, CREATE, START)]: state => ({
     ...state,
-    creating: LOADING
+    creating: LOADING,
   }),
 
   [getActionType(MESSAGE, CREATE, SUCCESS)]: (state, action) => {
@@ -77,33 +77,33 @@ export const actionHandlers = {
       result,
       entities: {
         ...state.entities,
-        [message.id]: message
+        [message.id]: message,
       },
-      creating: SUCCESS
+      creating: SUCCESS,
     }
   },
 
   [getActionType(MESSAGE, CREATE, FAIL)]: state => ({
     ...state,
-    creating: FAIL
+    creating: FAIL,
   }),
 
   [getActionType(MESSAGES, FILTER, SET)]: (state, action) => ({
     ...state,
-    filter: { ...get(action, "payload.filter", state.filter) }
+    filter: { ...get(action, "payload.filter", state.filter) },
   }),
 
   [getActionType(THREAD, CREATE, SUCCESS)]: (state, action) => {
     return {
       ...state,
       result: [],
-      count: null
+      count: null,
     }
   },
 
   [getActionType(LOGOUT)]: () => ({ ...defaultState }),
 
-  [getActionType(SESSION_EXPIRED)]: () => ({ ...defaultState })
+  [getActionType(SESSION_EXPIRED)]: () => ({ ...defaultState }),
 }
 
 export default createReducer(actionHandlers, defaultState)

@@ -8,7 +8,7 @@ import {
   JOB,
   ME,
   BACKGROUND,
-  SUGGESTED
+  SUGGESTED,
 } from "../constants"
 import { unionBy, flatten } from "lodash"
 import { getActionType } from "../helpers/utils"
@@ -16,7 +16,7 @@ import { getActionType } from "../helpers/utils"
 const defaultState = {
   loading: false,
   count: null,
-  entities: []
+  entities: [],
 }
 
 export default (state = defaultState, action) => {
@@ -35,7 +35,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: unionBy(state.entities, results, "id"),
         count,
-        loading: false
+        loading: false,
       }
     }
 
@@ -47,7 +47,7 @@ export default (state = defaultState, action) => {
       const results = flatten(res.data.results.map(r => r.skills))
       return {
         ...state,
-        entities: unionBy(state.entities, results, "id")
+        entities: unionBy(state.entities, results, "id"),
       }
     }
 
@@ -55,7 +55,7 @@ export default (state = defaultState, action) => {
       const { skills } = res.data
       return {
         ...state,
-        entities: unionBy(state.entities, skills, "id")
+        entities: unionBy(state.entities, skills, "id"),
       }
     }
 
@@ -65,7 +65,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: skills
           ? unionBy(state.entities, skills, "id")
-          : state.entities
+          : state.entities,
       }
     }
 
@@ -75,7 +75,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: skills
           ? unionBy(state.entities, skills, "id")
-          : state.entities
+          : state.entities,
       }
     }
 

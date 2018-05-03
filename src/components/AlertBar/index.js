@@ -16,7 +16,7 @@ class AlertBar extends Component {
     dismissAfter: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
     action: PropTypes.string.isRequired,
     hideAlertBar: PropTypes.func.isRequired,
-    hideOnRouteChange: PropTypes.bool.isRequired
+    hideOnRouteChange: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -25,7 +25,7 @@ class AlertBar extends Component {
     values: {},
     dismissAfter: false,
     hideOnRouteChange: true,
-    action: " "
+    action: " ",
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,18 +48,18 @@ class AlertBar extends Component {
 
     const activeClasses = cn({
       shown: true,
-      [`alert-${type}`]: Boolean(type)
+      [`alert-${type}`]: Boolean(type),
     })
 
     const classes = cn({
-      "alert-bar": true
+      "alert-bar": true,
     })
 
     const iconClasses = cn({
       "ion-checkmark-round": type === "success",
       "ion-alert": type === "info",
       "ion-close-circled": type === "error",
-      "ion-alert-circled": type === "warning"
+      "ion-alert-circled": type === "warning",
     })
 
     const messageBody = (
@@ -94,7 +94,7 @@ class AlertBar extends Component {
 
 export default connect(
   ({ alertbar }) => ({
-    ...alertbar
+    ...alertbar,
   }),
-  { hideAlertBar }
+  { hideAlertBar },
 )(AlertBar)

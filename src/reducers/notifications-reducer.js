@@ -3,7 +3,7 @@ import { unionBy } from "lodash"
 import { getActionType } from "../helpers/utils"
 
 const defaultState = {
-  entities: []
+  entities: [],
 }
 
 export default (state = defaultState, action) => {
@@ -13,14 +13,16 @@ export default (state = defaultState, action) => {
     case getActionType(NOTIFICATION, SHOW): {
       return {
         ...state,
-        entities: unionBy(state.entities, [payload.notification], "key")
+        entities: unionBy(state.entities, [payload.notification], "key"),
       }
     }
 
     case getActionType(NOTIFICATION, HIDE):
       return {
         ...state,
-        entities: state.entities.filter(n => n.key !== payload.notification.key)
+        entities: state.entities.filter(
+          n => n.key !== payload.notification.key,
+        ),
       }
 
     default:

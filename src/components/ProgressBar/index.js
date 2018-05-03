@@ -9,9 +9,9 @@ const ProgressBarComponent = props => {
 
   const css = cn(
     {
-      progressbar: true
+      progressbar: true,
     },
-    className
+    className,
   )
 
   return (
@@ -24,7 +24,7 @@ const ProgressBarComponent = props => {
 
 ProgressBarComponent.propTypes = {
   className: PropTypes.string,
-  label: PropTypes.node
+  label: PropTypes.node,
 }
 
 export default ProgressBarComponent

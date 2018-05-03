@@ -731,5 +731,5 @@ export default [
   "ion-wineglass",
   "ion-woman",
   "ion-wrench",
-  "ion-xbox"
+  "ion-xbox",
 ]

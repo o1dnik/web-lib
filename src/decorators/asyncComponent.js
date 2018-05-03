@@ -8,12 +8,12 @@ export default function(loaderFunc) {
       onLoadStart: PropTypes.func,
       onLoadSuccess: PropTypes.func,
       onLoadFail: PropTypes.func,
-      renderLoader: PropTypes.func
+      renderLoader: PropTypes.func,
     }
 
     state = {
       component: null,
-      loadingError: null
+      loadingError: null,
     }
 
     componentWillMount() {
@@ -30,7 +30,7 @@ export default function(loaderFunc) {
 
             return {
               ...prevState,
-              component: (component && component.default) || component
+              component: (component && component.default) || component,
             }
           })
         })
@@ -42,7 +42,7 @@ export default function(loaderFunc) {
 
             return {
               ...prevState,
-              loadingError: err
+              loadingError: err,
             }
           })
         })

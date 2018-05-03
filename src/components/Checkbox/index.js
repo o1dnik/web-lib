@@ -60,7 +60,7 @@ Checkbox.propTypes = {
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
     value: PropTypes.boolean,
-    checked: PropTypes.boolean
+    checked: PropTypes.boolean,
   }),
 
   meta: PropTypes.shape({
@@ -76,13 +76,13 @@ Checkbox.propTypes = {
     touched: PropTypes.bool,
     valid: PropTypes.bool,
     visited: PropTypes.bool,
-    warning: PropTypes.string
-  })
+    warning: PropTypes.string,
+  }),
 }
 
 Checkbox.defaultProps = {
   input: {},
-  meta: {}
+  meta: {},
 }
 
 export default Checkbox

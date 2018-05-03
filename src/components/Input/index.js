@@ -11,13 +11,13 @@ const Input = props => {
   const inputCss = classNames({
     input: true,
     "input-error": touched && invalid,
-    "input-success": touched && valid
+    "input-success": touched && valid,
   })
 
   const inputMessageCss = classNames({
     "input-message": true,
     "input-message-error": touched && invalid,
-    "input-message-success": touched && valid
+    "input-message-success": touched && valid,
   })
 
   return (
@@ -47,7 +47,7 @@ const Input = props => {
 Input.defaultProps = {
   input: {},
   meta: {},
-  type: "text"
+  type: "text",
 }
 
 Input.propTypes = {
@@ -69,7 +69,7 @@ Input.propTypes = {
     onDragStart: PropTypes.func,
     onDrop: PropTypes.func,
     onFocus: PropTypes.func,
-    value: PropTypes.string
+    value: PropTypes.string,
   }),
 
   meta: PropTypes.shape({
@@ -85,8 +85,8 @@ Input.propTypes = {
     touched: PropTypes.bool,
     valid: PropTypes.bool,
     visited: PropTypes.bool,
-    warning: PropTypes.string
-  })
+    warning: PropTypes.string,
+  }),
 }
 
 export default Input

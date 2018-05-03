@@ -6,6 +6,6 @@ export function getSkills(search = "", limit = 100, offset = 0) {
   return {
     type: getActionType(SKILLS, GET),
     endpoint: `/skills/?${qs.stringify({ limit, offset, search })}`,
-    apiV: "v2"
+    apiV: "v2",
   }
 }

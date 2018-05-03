@@ -14,7 +14,7 @@ const PaginationItem = ({ disabled, className, onClick, children }) => {
 PaginationItem.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export default PaginationItem

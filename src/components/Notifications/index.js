@@ -16,7 +16,7 @@ class Notifications extends Component {
       <NotificationStack
         notifications={notifications.map(n => ({
           ...n,
-          className: "notification-bar-custom"
+          className: "notification-bar-custom",
         }))}
         onDismiss={this.handleDismiss}
       />
@@ -26,7 +26,7 @@ class Notifications extends Component {
 
 export default connect(
   ({ notifications }) => ({
-    notifications: notifications.entities
+    notifications: notifications.entities,
   }),
-  { hideNotification }
+  { hideNotification },
 )(Notifications)

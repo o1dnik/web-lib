@@ -22,11 +22,11 @@ class Tags extends Component {
     activeItems: PropTypes.any,
     isActive: PropTypes.func,
     toggleActive: PropTypes.func,
-    disableAll: PropTypes.func
+    disableAll: PropTypes.func,
   }
 
   static defaultProps = {
-    tags: []
+    tags: [],
   }
 
   render() {

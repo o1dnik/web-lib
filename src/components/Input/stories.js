@@ -27,7 +27,7 @@ storiesOf("Input", module).add("Default", () => (
         name="my-input"
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
         id="my-input"
         label="my-input"
@@ -43,7 +43,7 @@ storiesOf("Input", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
         id="my-input"
         label="my-input"

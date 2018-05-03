@@ -6,7 +6,7 @@ const sizeMap = {
   small: 24,
   medium: 56,
   large: 76,
-  xlarge: 96
+  xlarge: 96,
 }
 
 const sizeBordermap = {
@@ -14,7 +14,7 @@ const sizeBordermap = {
   small: 4,
   medium: 5,
   large: 6,
-  xlarge: 8
+  xlarge: 8,
 }
 
 const Loader = props => {
@@ -25,18 +25,18 @@ const Loader = props => {
         width: sizeMap[props.size],
         height: sizeMap[props.size],
         borderWidth: sizeBordermap[props.size],
-        marginLeft: sizeMap[props.size] / -2
+        marginLeft: sizeMap[props.size] / -2,
       }}
     />
   )
 }
 
 Loader.propTypes = {
-  size: PropTypes.string.isRequired
+  size: PropTypes.string.isRequired,
 }
 
 Loader.defaultProps = {
-  size: "medium"
+  size: "medium",
 }
 
 export default Loader

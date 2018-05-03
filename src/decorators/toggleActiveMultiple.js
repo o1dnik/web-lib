@@ -8,15 +8,15 @@ export default Component => {
       defaultActiveItems: PropTypes.any,
       toggleActive: PropTypes.func,
       isActive: PropTypes.func,
-      disableAll: PropTypes.func
+      disableAll: PropTypes.func,
     }
 
     static defaultProps = {
-      defaultActiveItems: []
+      defaultActiveItems: [],
     }
 
     state = {
-      activeItems: this.props.defaultActiveItems
+      activeItems: this.props.defaultActiveItems,
     }
 
     toggleActive = item => e => {

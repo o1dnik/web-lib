@@ -6,6 +6,6 @@ export function getLocations(search = "", limit = 100, offset = 0) {
   return {
     type: getActionType(LOCATIONS, GET),
     endpoint: `/cities/?${qs.stringify({ limit, offset, search })}`,
-    apiV: "v2"
+    apiV: "v2",
   }
 }

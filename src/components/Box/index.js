@@ -6,7 +6,7 @@ const Box = props => {
   const style = {
     width: props.width,
     padding: props.padding,
-    ...props.style
+    ...props.style,
   }
 
   const Element = props.as
@@ -22,13 +22,13 @@ Box.propTypes = {
   as,
   width: PropTypes.string,
   padding: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
 }
 
 Box.defaultProps = {
   as: "div",
   width: "100%",
-  style: {}
+  style: {},
 }
 
 export default Box

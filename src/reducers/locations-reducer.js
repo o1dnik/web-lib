@@ -8,7 +8,7 @@ import {
   JOB,
   JOBS_BY_COMPANY_ID,
   ME,
-  BACKGROUND
+  BACKGROUND,
 } from "../constants"
 
 import { unionBy, get } from "lodash"
@@ -17,7 +17,7 @@ import { getActionType } from "../helpers/utils"
 const defaultState = {
   loading: false,
   count: null,
-  entities: []
+  entities: [],
 }
 
 export default (state = defaultState, action) => {
@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
         ...state,
         entities: unionBy(state.entities, results, "id"),
         count,
-        loading: false
+        loading: false,
       }
     }
 
@@ -49,7 +49,7 @@ export default (state = defaultState, action) => {
       }
       return {
         ...state,
-        entities: unionBy(state.entities, [city], "id")
+        entities: unionBy(state.entities, [city], "id"),
       }
     }
 
@@ -57,7 +57,7 @@ export default (state = defaultState, action) => {
       const results = res.data.results.map(r => r.city)
       return {
         ...state,
-        entities: unionBy(state.entities, results, "id")
+        entities: unionBy(state.entities, results, "id"),
       }
     }
 
@@ -65,7 +65,7 @@ export default (state = defaultState, action) => {
       const { city } = res.data
       return {
         ...state,
-        entities: unionBy(state.entities, [city], "id")
+        entities: unionBy(state.entities, [city], "id"),
       }
     }
 
@@ -75,7 +75,7 @@ export default (state = defaultState, action) => {
       if (locations && locations.length > 0) {
         return {
           ...state,
-          entities: unionBy(state.entities, locations, "id")
+          entities: unionBy(state.entities, locations, "id"),
         }
       }
 
@@ -88,7 +88,7 @@ export default (state = defaultState, action) => {
       if (locations && locations.length > 0) {
         return {
           ...state,
-          entities: unionBy(state.entities, locations, "id")
+          entities: unionBy(state.entities, locations, "id"),
         }
       }
 

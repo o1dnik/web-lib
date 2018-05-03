@@ -25,7 +25,7 @@ class DoubleSelect extends Component {
       onDragStart: PropTypes.func,
       onDrop: PropTypes.func,
       onFocus: PropTypes.func,
-      value: PropTypes.any
+      value: PropTypes.any,
     }),
 
     meta: PropTypes.shape({
@@ -41,14 +41,14 @@ class DoubleSelect extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
     iconClassName: "ion-close",
     input: {},
-    meta: {}
+    meta: {},
   }
 
   render() {
@@ -63,22 +63,22 @@ class DoubleSelect extends Component {
       "options-box": true,
       "select-double-error": touched && invalid,
       "select-double-success": touched && valid,
-      done: valid
+      done: valid,
     })
 
     const inputMessageCss = cn({
       "input-message": true,
       "input-message-error": touched && invalid,
-      "input-message-success": touched && valid
+      "input-message-success": touched && valid,
     })
 
     const selectValid = Boolean(
-      (value && value.select) || (input.value && input.value.select)
+      (value && value.select) || (input.value && input.value.select),
     )
     const selectInValid = !selectValid
 
     const levelValid = Boolean(
-      (value && value.level) || (input.value && input.value.level)
+      (value && value.level) || (input.value && input.value.level),
     )
     const levelInValid = !levelValid
 
@@ -103,7 +103,7 @@ class DoubleSelect extends Component {
           meta={{
             touched,
             valid: selectValid,
-            invalid: selectInValid
+            invalid: selectInValid,
           }}
           searchable={searchableSelect}
           isLoading={isLoading}
@@ -123,7 +123,7 @@ class DoubleSelect extends Component {
             meta={{
               touched,
               valid: levelValid,
-              invalid: levelInValid
+              invalid: levelInValid,
             }}
             noArrow={disabled}
             disabled={disabled}
@@ -144,7 +144,7 @@ class DoubleSelect extends Component {
 
     const newVal = {
       ...oldVal,
-      select: (selectValue && selectValue.value) || selectValue
+      select: (selectValue && selectValue.value) || selectValue,
     }
 
     onChange(newVal, oldVal)
@@ -172,7 +172,7 @@ class DoubleSelect extends Component {
 
     const newVal = {
       ...oldVal,
-      level: (level && level.value) || level
+      level: (level && level.value) || level,
     }
 
     onChange(newVal, oldVal)

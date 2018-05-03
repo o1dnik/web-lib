@@ -19,7 +19,7 @@ class AlertComponent extends Component {
 
     confirmDisabled: PropTypes.bool.isRequired,
 
-    confirmLoading: PropTypes.bool.isRequired
+    confirmLoading: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -30,7 +30,7 @@ class AlertComponent extends Component {
     inputPlaceholder: "",
     confirmDisabled: false,
     confirmLoading: false,
-    className: ""
+    className: "",
   }
 
   render() {
@@ -45,7 +45,7 @@ class AlertComponent extends Component {
       onClose,
       confirmDisabled,
       confirmLoading,
-      className
+      className,
     } = this.props
 
     return (

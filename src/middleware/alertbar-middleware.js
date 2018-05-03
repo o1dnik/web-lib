@@ -9,7 +9,7 @@ import { START, SUCCESS, FAIL } from "../constants"
 const messages = defineMessages({
   defaultError: { id: "app.error.code.default_error" },
   defaultSuccess: { id: "app.alertbar.default.success" },
-  defaultStart: { id: "app.alertbar.default.start" }
+  defaultStart: { id: "app.alertbar.default.start" },
 })
 
 const isDev = Boolean(config.env.isDev || config.branch.isMaster)
@@ -29,8 +29,8 @@ export default ({ dispatch }) => next => action => {
           message: get(alert, "success.message", messages.defaultSuccess),
           values: alert.success.values,
           dismissAfter: get(alert, "success.dismissAfter", 3000),
-          hideOnRouteChange: get(alert, "success.hideOnRouteChange")
-        })
+          hideOnRouteChange: get(alert, "success.hideOnRouteChange"),
+        }),
       )
       break
 
@@ -41,8 +41,8 @@ export default ({ dispatch }) => next => action => {
           message: get(alert, "start.message", messages.defaultStart),
           values: alert.start.values,
           dismissAfter: get(alert, "start.dismissAfter", 3000),
-          hideOnRouteChange: get(alert, "start.hideOnRouteChange")
-        })
+          hideOnRouteChange: get(alert, "start.hideOnRouteChange"),
+        }),
       )
       break
 
@@ -53,8 +53,8 @@ export default ({ dispatch }) => next => action => {
           message: get(alert, "fail.message", getErrorMessage(action)),
           values: alert.fail.values,
           dismissAfter: get(alert, "fail.dismissAfter", false),
-          hideOnRouteChange: get(alert, "fail.hideOnRouteChange")
-        })
+          hideOnRouteChange: get(alert, "fail.hideOnRouteChange"),
+        }),
       )
       break
 
@@ -65,8 +65,8 @@ export default ({ dispatch }) => next => action => {
           message: alert.message || messages.defaultSuccess,
           values: alert.values,
           dismissAfter: alert.dismissAfter || 3000,
-          hideOnRouteChange: alert.hideOnRouteChange
-        })
+          hideOnRouteChange: alert.hideOnRouteChange,
+        }),
       )
       break
 
@@ -80,7 +80,7 @@ export default ({ dispatch }) => next => action => {
       }
 
       dispatch(
-        showAlertBar({ type: "error", message: getErrorMessage(action) })
+        showAlertBar({ type: "error", message: getErrorMessage(action) }),
       )
       break
     }

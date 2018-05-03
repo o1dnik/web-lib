@@ -9,7 +9,7 @@ import {
   UPDATE,
   DELETE,
   CREATE,
-  PATCH
+  PATCH,
 } from "../constants"
 
 export default axios => () => next => action => {
@@ -27,7 +27,7 @@ export default axios => () => next => action => {
     case Boolean(type.includes(GET) && token):
       promise = axios.get(apiEndpoit, {
         headers: { cookie: `token=${token}` },
-        ...apiConfig
+        ...apiConfig,
       })
       break
 

@@ -10,7 +10,7 @@ const InputRange = props => {
   const { minValue, maxValue, step, formatLabel } = props
 
   const wrapperCss = cn({
-    "input-range-wrapper": true
+    "input-range-wrapper": true,
   })
 
   return (
@@ -58,12 +58,12 @@ InputRange.propTypes = {
     onDragStart: PropTypes.func,
     onDrop: PropTypes.func,
     onFocus: PropTypes.func,
-    value: PropTypes.any
-  })
+    value: PropTypes.any,
+  }),
 }
 
 InputRange.defaultProps = {
-  input: {}
+  input: {},
 }
 
 export default InputRange

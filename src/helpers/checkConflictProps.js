@@ -6,6 +6,6 @@ export function checkConflictProps(props, warnProps) {
     return
   }
   console.warn(
-    `Conflicts props in decorator, they will be overridden: ${conflicts}`
+    `Conflicts props in decorator, they will be overridden: ${conflicts}`,
   )
 }

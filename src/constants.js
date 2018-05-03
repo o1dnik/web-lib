@@ -174,7 +174,7 @@ export const MATCH_STATUSES = {
   [CANDIDATE_EXPIRED]: "5",
   [COMPANY_EXPIRED]: "6",
   [COMPANY_REJECTED]: "7",
-  [COMPANY_APPROVED]: "8"
+  [COMPANY_APPROVED]: "8",
 }
 
 // Image uploader / cropper

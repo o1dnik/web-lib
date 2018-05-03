@@ -52,7 +52,7 @@ export default yup.object().shape({
       about: yup
         .string()
         .required()
-        .default("")
+        .default(""),
     })
     .nullable(true)
     .default(null),
@@ -89,7 +89,7 @@ export default yup.object().shape({
       max: yup
         .number()
         .required()
-        .default(100000)
+        .default(100000),
     })
     .required(),
 
@@ -123,7 +123,7 @@ export default yup.object().shape({
         .string()
         .required()
         .default(""),
-      can_hired: yup.bool().nullable(true)
+      can_hired: yup.bool().nullable(true),
     })
     .required()
     .nullable(true)
@@ -133,5 +133,5 @@ export default yup.object().shape({
     .bool()
     .nullable(true)
     .required()
-    .default(null)
+    .default(null),
 })

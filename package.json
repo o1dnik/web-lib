@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint \"src/**/*.js\"",
-    "format": "prettier --no-semi --write \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\"",
     "start": "start-storybook -p 3001",
     "build-storybook": "build-storybook",
     "build:watch": "cross-env BABEL_ENV=production babel src -d lib -w --ignore __tests__,stories.js,container.js && git add .",
@@ -27,6 +27,10 @@
     "lint",
     "build:prod"
   ],
+  "prettier": {
+    "semi": false,
+    "trailingComma": "all"
+  },
   "homepage": "https://github.com/moberries/web-lib#readme",
   "devDependencies": {
     "@storybook/react": "^3.3.15",

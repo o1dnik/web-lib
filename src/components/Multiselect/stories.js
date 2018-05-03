@@ -9,7 +9,7 @@ const hrStyle = {
   border: "0",
   borderTop: "3px solid #ccc",
   margin: "1em 0",
-  padding: "0"
+  padding: "0",
 }
 
 const options = [
@@ -23,7 +23,7 @@ const options = [
   { id: "brough", name: "amorphous" },
   { id: "insinuant", name: "phosphoroscope" },
   { id: "budget", name: "Mercatorial" },
-  { id: "multituberculy", name: "fossula" }
+  { id: "multituberculy", name: "fossula" },
 ]
 const selectedValues = ["multituberculy", "budget", "insinuant"]
 
@@ -38,7 +38,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -54,7 +54,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -70,7 +70,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -89,7 +89,7 @@ storiesOf("Multiselect", module).add("Default", () => (
         selectProps={{
           label: selectLabel,
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -106,7 +106,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -116,7 +116,7 @@ storiesOf("Multiselect", module).add("Default", () => (
         onBlur={action("onBlur")}
         meta={{
           touched: true,
-          valid: true
+          valid: true,
         }}
       />
     </div>
@@ -126,7 +126,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -137,7 +137,7 @@ storiesOf("Multiselect", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
       />
     </div>
@@ -148,7 +148,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -160,7 +160,7 @@ storiesOf("Multiselect", module).add("Default", () => (
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
       />
     </div>
@@ -171,7 +171,7 @@ storiesOf("Multiselect", module).add("Default", () => (
       <Multiselect
         selectProps={{
           options,
-          onInputChange: action("onInputChange")
+          onInputChange: action("onInputChange"),
         }}
         valueKey="id"
         labelKey="name"
@@ -179,12 +179,12 @@ storiesOf("Multiselect", module).add("Default", () => (
           value: selectedValues,
           onChange: action("onChange"),
           onFocus: action("onFocus"),
-          onBlur: action("onBlur")
+          onBlur: action("onBlur"),
         }}
         meta={{
           touched: true,
           invalid: true,
-          error: "My error message"
+          error: "My error message",
         }}
       />
     </div>

@@ -25,7 +25,7 @@ class NumberInput extends Component {
     input: PropTypes.shape({
       name: PropTypes.string,
       onChange: PropTypes.func,
-      value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     }),
 
     meta: PropTypes.shape({
@@ -41,13 +41,13 @@ class NumberInput extends Component {
       touched: PropTypes.bool,
       valid: PropTypes.bool,
       visited: PropTypes.bool,
-      warning: PropTypes.string
-    })
+      warning: PropTypes.string,
+    }),
   }
 
   static defaultProps = {
     input: {},
-    meta: {}
+    meta: {},
   }
 
   render() {

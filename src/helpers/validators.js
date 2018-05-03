@@ -11,7 +11,7 @@ const messages = defineMessages({
   passwordEqual: { id: "app.validators.password.equal" },
   urlRequired: { id: "app.validators.url.required" },
   maxLen: { id: "app.validators.length.max" },
-  maxJdLen: { id: "app.validators.jd.length.max" }
+  maxJdLen: { id: "app.validators.jd.length.max" },
 })
 
 export function required(val) {
