@@ -33,6 +33,8 @@ export const PROFILE = "PROFILE"
 export const SOCIAL_PLATFORM = "SOCIAL_PLATFORM"
 export const REFERRAL = "REFERRAL"
 export const BOT = "BOT"
+export const WS = "WS"
+export const API = "API"
 export const CONNECTION = "CONNECTION"
 export const CODE = "CODE"
 
