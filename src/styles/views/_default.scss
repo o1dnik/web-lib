@@ -307,3 +307,7 @@ ul.list {
   text-transform: uppercase;
   font-weight: $semibold;
 }
+
+.reference-link{
+  @include ellipsis($width: 20em);
+}
