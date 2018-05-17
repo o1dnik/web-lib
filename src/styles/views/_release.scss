@@ -1,0 +1,15 @@
+.release-container{
+  max-width: rem(640);
+  padding: rem(60) 1.5rem 0;
+  margin: 0 auto;
+  img{
+    max-width: 70%;
+  }
+  h1{
+    margin: 2rem 0;
+    font-size: 2.25em;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  p{font-size: 1rem;}
+}
