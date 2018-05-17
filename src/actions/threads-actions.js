@@ -31,6 +31,7 @@ export function getThreadList(opts = {}) {
       ordering,
       job: jobId,
       candidate: candidateId,
+      candidate__deletion_status__isnull: true,
     })}`,
     payload: {
       showLoader,
