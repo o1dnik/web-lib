@@ -144,6 +144,9 @@ export const NOT = "NOT"
 export const NEXT = "NEXT"
 export const INTEGRATIONS = "INTEGRATIONS"
 export const INTEGRATION = "INTEGRATION"
+export const RELEASE = "RELEASE"
+export const ON = "ON"
+export const OFF = "OFF"
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = "CHANGE_REQUEST"
