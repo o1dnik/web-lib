@@ -21,6 +21,13 @@ export function required(val) {
   return null
 }
 
+export function isTrue(val) {
+  if (val !== true) {
+    return { ...messages.valueRequired }
+  }
+  return null
+}
+
 export function lengthValidator(val, opts) {
   opts = { min: 0, max: 30, ...opts }
   if (!isLength(val, opts)) {
