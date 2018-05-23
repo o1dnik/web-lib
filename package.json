@@ -1,6 +1,6 @@
 {
   "name": "web-lib",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "description": "Moberries web-lib",
   "main": "lib/index.js",
   "scripts": {
