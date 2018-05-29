@@ -9,6 +9,7 @@ export default function(res) {
     "ref_id",
     "job_types",
     "user",
+    "department",
     "status",
   ])
 
