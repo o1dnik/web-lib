@@ -68,7 +68,7 @@ class StatsCircle extends Component {
       percent = 100
     }
 
-    const pct = (100 - percent) / 100 * c
+    const pct = ((100 - percent) / 100) * c
 
     const rotateX = parseInt(containerWidth, 10) / 2
     const rotateY = parseInt(containerHeight, 10) / 2

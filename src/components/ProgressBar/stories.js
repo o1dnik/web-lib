@@ -16,14 +16,14 @@ storiesOf("ProgressBar", module).add("Default", () => (
   <div>
     <ProgressBar
       label={labelIntros}
-      percent={50 * 100 / 80}
+      percent={(50 * 100) / 80}
       strokeWidth="2"
       trailWidth="2"
       strokeColor="#43b064"
       trailColor="#F1F1F1"
     />
     <ProgressBar
-      percent={50 * 100 / 80}
+      percent={(50 * 100) / 80}
       strokeWidth="2"
       trailWidth="2"
       strokeColor="#43b064"
