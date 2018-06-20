@@ -148,6 +148,7 @@ export const RELEASE = "RELEASE"
 export const ON = "ON"
 export const OFF = "OFF"
 export const NEW = "NEW"
+export const PAGE = "PAGE"
 
 // do not use it for server request, it is for requesting an action
 export const CHANGE_REQUEST = "CHANGE_REQUEST"
